@@ -1,0 +1,16 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--approve is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="approve-title approve-desc" tabindex="0">
+  <title id="approve-title">Approve testimonial</title>
+  <desc id="approve-desc">A bold shield with a filled approval mark.</desc>
+  <defs>
+    <mask id="approve-mask" maskUnits="userSpaceOnUse">
+      <rect width="48" height="48" fill="#fff"/>
+      <path d="M20.8 28.2L16.7 24.1C15.9 23.3 15.9 22.1 16.7 21.3C17.5 20.5 18.7 20.5 19.5 21.3L22.1 23.9L29.3 16.7C30.1 15.9 31.3 15.9 32.1 16.7C32.9 17.5 32.9 18.7 32.1 19.5L23.5 28.1C22.8 28.9 21.6 28.9 20.8 28.2Z" fill="#000"/>
+    </mask>
+  </defs>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <g mask="url(#approve-mask)">
+    <path class="teal motion-b" d="M13 14.5C13 12.567 14.567 11 16.5 11H31.5C33.433 11 35 12.567 35 14.5V25.2C35 32.4 29.4 36.6 24 38C18.6 36.6 13 32.4 13 25.2V14.5Z"/>
+    <path class="teal-soft motion-a" d="M24 11H31.5C33.433 11 35 12.567 35 14.5V25.2C35 32.4 29.4 36.6 24 38V11Z"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+import { createContext, useContext, useMemo, useReducer } from "react";
+import { sampleTestimonials } from "@/lib/testimonials";
+
+// Shared client-side store for the dashboard's mock testimonials. The Inbox
+// mutates moderation status / fields here; the Widget Studio reads the derived
+// `approved` list. This is the seam where a backend later plugs in — swap the
+// reducer's initial state for fetched data and the dispatches for API calls.
+const TestimonialsContext = createContext(null);
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "setStatus":
+      return state.map((t) =>
+        t.id === action.id ? { ...t, status: action.status } : t
+      );
+    case "update":
+      return state.map((t) =>
+        t.id === action.id ? { ...t, ...action.patch } : t
+      );
+    default:
+      return state;
+  }
+}
+
+export function TestimonialsProvider({ children }) {
+  const [testimonials, dispatch] = useReducer(reducer, sampleTestimonials);
+
+  const value = useMemo(
+    () => ({
+      testimonials,
+      approved: testimonials.filter((t) => t.status === "approved"),
+      setStatus: (id, status) => dispatch({ type: "setStatus", id, status }),
+      update: (id, patch) => dispatch({ type: "update", id, patch }),
+    }),
+    [testimonials]
+  );
+
+  return (
+    <TestimonialsContext.Provider value={value}>
+      {children}
+    </TestimonialsContext.Provider>
+  );
+}
+
+export function useTestimonials() {
+  const ctx = useContext(TestimonialsContext);
+  if (!ctx) {
+    throw new Error("useTestimonials must be used within a TestimonialsProvider");
+  }
+  return ctx;
+}

@@ -1,0 +1,10 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--preview is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="preview-title preview-desc" tabindex="0">
+  <title id="preview-title">Live preview</title>
+  <desc id="preview-desc">Rounded preview surfaces with a floating live widget.</desc>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <rect class="blue-soft motion-a" x="11" y="13" width="24" height="22" rx="6"/>
+  <rect class="blue motion-a" x="11" y="13" width="24" height="8" rx="4"/>
+  <rect class="purple motion-b" x="22" y="23" width="17" height="12" rx="5"/>
+  <rect class="purple-soft motion-b" x="27" y="27" width="7" height="4" rx="2"/>
+</svg>

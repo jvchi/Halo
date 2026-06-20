@@ -1,0 +1,35 @@
+import { cn } from "@/lib/cn";
+
+// .aave-button + variants. Pill CTA: min-height 45px, 14px 24px padding,
+// 17px/500 type, soft snappy lift on hover.
+const variants = {
+  primary: "bg-halo-primary text-white",
+  secondary:
+    "bg-[color-mix(in_srgb,var(--halo-primary)_11%,transparent)] text-halo-primary",
+  dark: "bg-halo-fg-1 text-white",
+  white: "bg-white text-halo-fg-1",
+};
+
+export function Button({
+  as: As = "button",
+  variant = "primary",
+  className,
+  children,
+  ...props
+}) {
+  return (
+    <As
+      className={cn(
+        "relative inline-flex min-h-[45px] cursor-pointer items-center justify-center gap-2",
+        "rounded-pill border-0 px-6 py-3.5 text-button-17 no-underline",
+        "transition-[transform,background-color,color,opacity] duration-[220ms] ease-snappy",
+        "hover:-translate-y-px active:translate-y-0",
+        variants[variant],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </As>
+  );
+}

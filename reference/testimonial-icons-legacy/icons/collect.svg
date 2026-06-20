@@ -1,0 +1,15 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--collect is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="collect-title collect-desc" tabindex="0">
+  <title id="collect-title">Collect testimonials</title>
+  <desc id="collect-desc">Two bold rounded testimonial cards stacked inside a soft tile.</desc>
+  <defs>
+    <mask id="collect-front-mask" maskUnits="userSpaceOnUse">
+      <path d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z" fill="#fff"/>
+      <rect x="16" y="23" width="13" height="4" rx="2" fill="#000"/>
+      <rect x="16" y="29" width="9" height="4" rx="2" fill="#000"/>
+    </mask>
+  </defs>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <rect class="purple-soft motion-b" x="15" y="11" width="22" height="20" rx="5"/>
+  <path class="purple motion-a" mask="url(#collect-front-mask)" d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z"/>
+</svg>

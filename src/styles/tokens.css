@@ -1,0 +1,89 @@
+/*
+ * Halo design tokens — color primitives + motion/container variables.
+ * Ported from reference/design-system-legacy/tokens.css, renamed --aave-* -> --halo-*.
+ * Colors are defined as CSS variables so Tailwind utilities resolve to them and the
+ * Display-P3 overrides below take effect automatically on wide-gamut displays.
+ */
+
+:root {
+  color-scheme: light;
+
+  --halo-font-sans: "Halo Sans", Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --halo-font-mono: "Halo Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --halo-bg-1: #ffffff;
+  --halo-bg-2: #ffffff;
+  --halo-bg-3: #f5f5f7;
+  --halo-bg-4: #f2f2f7;
+  --halo-border-1: #e5e5ea;
+  --halo-border-2: #d2d2d7;
+  --halo-fg-1: #1d1d1f;
+  --halo-fg-2: #6e6e73;
+  --halo-fg-3: #86868b;
+  --halo-fg-4: #d2d2d7;
+  --halo-primary: #0071e3;
+  --halo-primary-soft: #2997ff;
+  --halo-primary-wash: #d6ebff;
+  --halo-primary-tint: #f5fbff;
+  --halo-yellow-1: #ffcc00;
+  --halo-yellow-2: #ffd60a;
+  --halo-yellow-3: #fff4b8;
+  --halo-blue-1: #0066cc;
+  --halo-blue-2: #2997ff;
+  --halo-blue-3: #d6ebff;
+  --halo-blue-4: #f5fbff;
+  --halo-gho: #34c759;
+  --halo-green: #34c759;
+  --halo-red: #ff3b30;
+  --halo-pink: #ff2d55;
+  --halo-purple: #af52de;
+  --halo-indigo: #5856d6;
+  --halo-teal: #5ac8fa;
+  --halo-focus: #0071e3;
+  --halo-wallet: #0a84ff;
+  --halo-account: #34c759;
+  --halo-orange: #ff9500;
+  --halo-stat-card: #f5f5f7;
+  --halo-newsletter-card: #f5f5f7;
+  --halo-dark-surface: #000000;
+  --halo-dark-card: rgb(255 255 255 / 0.06);
+  --halo-glass-card: rgb(255 255 255 / 0.72);
+  --halo-glass-card-hover: rgb(255 255 255 / 0.92);
+
+  --halo-duration-snappy: 750ms;
+  --halo-ease-snappy: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --halo-duration-swift: 1800ms;
+  --halo-ease-swift: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --halo-fg-1: color(display-p3 0.114 0.114 0.122);
+    --halo-fg-2: color(display-p3 0.431 0.431 0.451);
+    --halo-fg-3: color(display-p3 0.525 0.525 0.545);
+    --halo-fg-4: color(display-p3 0.824 0.824 0.843);
+    --halo-primary: color(display-p3 0 0.443 0.89);
+    --halo-primary-soft: color(display-p3 0.161 0.592 1);
+    --halo-primary-wash: color(display-p3 0.839 0.922 1);
+    --halo-primary-tint: color(display-p3 0.961 0.984 1);
+    --halo-yellow-1: color(display-p3 1 0.8 0);
+    --halo-yellow-2: color(display-p3 1 0.839 0.039);
+    --halo-yellow-3: color(display-p3 1 0.957 0.722);
+    --halo-blue-1: color(display-p3 0 0.4 0.8);
+    --halo-blue-2: color(display-p3 0.161 0.592 1);
+    --halo-blue-3: color(display-p3 0.839 0.922 1);
+    --halo-blue-4: color(display-p3 0.961 0.984 1);
+    --halo-gho: color(display-p3 0.204 0.78 0.349);
+    --halo-green: color(display-p3 0.204 0.78 0.349);
+    --halo-red: color(display-p3 1 0.231 0.188);
+    --halo-pink: color(display-p3 1 0.176 0.333);
+    --halo-purple: color(display-p3 0.686 0.322 0.871);
+    --halo-indigo: color(display-p3 0.345 0.337 0.839);
+    --halo-teal: color(display-p3 0.353 0.784 0.98);
+    --halo-focus: color(display-p3 0 0.443 0.89);
+    --halo-wallet: color(display-p3 0.039 0.518 1);
+    --halo-account: color(display-p3 0.204 0.78 0.349);
+    --halo-orange: color(display-p3 1 0.584 0);
+  }
+}

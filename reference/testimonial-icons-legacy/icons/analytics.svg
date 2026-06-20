@@ -1,0 +1,9 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--analytics is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="analytics-title analytics-desc" tabindex="0">
+  <title id="analytics-title">Analytics</title>
+  <desc id="analytics-desc">Three bold vertical analytics bars.</desc>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <rect class="blue motion-a" x="10" y="22" width="10" height="16" rx="3"/>
+  <rect class="blue-soft motion-b" x="23" y="14" width="7" height="24" rx="2.5"/>
+  <rect class="purple motion-c" x="34" y="18" width="4" height="20" rx="2"/>
+</svg>

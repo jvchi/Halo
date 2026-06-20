@@ -1,0 +1,42 @@
+/*
+ * Halo recolor — the ONLY change layered on top of the 1:1 reference copy.
+ * Overrides the cloned palette tokens (warm grays + Aave lavender) with the
+ * Apple-style Halo blue palette. Layout, markup, type, and assets are untouched.
+ * Loaded last so these win the cascade.
+ */
+
+:root {
+  --bg-3: #f5f5f7 !important;
+  --bg-4: #f2f2f7 !important;
+  --border-1: #e5e5ea !important;
+  --border-2: #d2d2d7 !important;
+  --fg-1: #1d1d1f !important;
+  --fg-2: #6e6e73 !important;
+  --fg-3: #86868b !important;
+  --fg-4: #d2d2d7 !important;
+
+  /* Aave lavender accent -> Halo blue */
+  --purple-1: #0071e3 !important;
+  --purple-2: #2997ff !important;
+  --purple-3: #d6ebff !important;
+  --purple-4: #f5fbff !important;
+  --focus: #0071e3 !important;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --bg-3: color(display-p3 0.9608 0.9608 0.9686) !important;
+    --bg-4: color(display-p3 0.949 0.949 0.969) !important;
+    --border-1: color(display-p3 0.898 0.898 0.918) !important;
+    --border-2: color(display-p3 0.824 0.824 0.843) !important;
+    --fg-1: color(display-p3 0.114 0.114 0.122) !important;
+    --fg-2: color(display-p3 0.431 0.431 0.451) !important;
+    --fg-3: color(display-p3 0.525 0.525 0.545) !important;
+    --fg-4: color(display-p3 0.824 0.824 0.843) !important;
+    --purple-1: color(display-p3 0 0.443 0.89) !important;
+    --purple-2: color(display-p3 0.161 0.592 1) !important;
+    --purple-3: color(display-p3 0.839 0.922 1) !important;
+    --purple-4: color(display-p3 0.961 0.984 1) !important;
+    --focus: color(display-p3 0 0.443 0.89) !important;
+  }
+}

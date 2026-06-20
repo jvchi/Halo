@@ -1,0 +1,714 @@
+---
+version: alpha
+name: Aave Apple Color Variant
+description: A structured design system extracted from the cloned Aave homepage, retargeted to an Apple-style color palette with blue, white, near-black, system grays, and semantic accent colors.
+source:
+  url: "https://aave.com/"
+  localClone: "./index.html"
+  extractedMetrics: "./references/aave-page-metrics.json"
+  assetInventory: "./references/aave-assets-inventory.json"
+  generatedAt: "2026-06-18"
+fonts:
+  sans:
+    name: Aave Repro
+    cssFamily: "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif"
+    woff2: "./assets/source/c13a814d15056c2c.woff2"
+    woff: "./assets/source/f6f7ae4a32605f06.woff"
+    usage: Primary UI, headings, body copy, buttons, navigation, and cards.
+  mono:
+    name: Aave Repro Mono
+    cssFamily: "\"Aave Repro Mono\", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    woff2: "./assets/source/521c5118feb61dfb.woff2"
+    woff: "./assets/source/cc917aa4d1cc37a7.woff"
+    usage: Numeric data, addresses, code, and tabular figures when needed.
+colors:
+  primary: "#0071e3"
+  primary-soft: "#2997ff"
+  primary-wash: "#d6ebff"
+  primary-tint: "#f5fbff"
+  primary-text: "#ffffff"
+  bg-1: "#ffffff"
+  bg-2: "#ffffff"
+  bg-3: "#f5f5f7"
+  bg-4: "#f2f2f7"
+  border-1: "#e5e5ea"
+  border-2: "#d2d2d7"
+  fg-1: "#1d1d1f"
+  fg-2: "#6e6e73"
+  fg-3: "#86868b"
+  fg-4: "#d2d2d7"
+  white: "#ffffff"
+  black: "#000000"
+  dark-surface: "#000000"
+  dark-card: "rgba(255, 255, 255, 0.06)"
+  glass-card: "rgba(255, 255, 255, 0.72)"
+  glass-card-hover: "rgba(255, 255, 255, 0.92)"
+  stat-card: "#f5f5f7"
+  newsletter-card: "#f5f5f7"
+  orange-1: "#ff9500"
+  yellow-1: "#ffcc00"
+  yellow-2: "#ffd60a"
+  yellow-3: "#fff4b8"
+  blue-1: "#0066cc"
+  blue-2: "#2997ff"
+  blue-3: "#d6ebff"
+  blue-4: "#f5fbff"
+  gho-1: "#34c759"
+  green-1: "#34c759"
+  red-1: "#ff3b30"
+  pink-1: "#ff2d55"
+  purple-1: "#af52de"
+  indigo-1: "#5856d6"
+  teal-1: "#5ac8fa"
+  focus: "#0071e3"
+  wallet: "#0a84ff"
+  account: "#34c759"
+  p3:
+    fg-1: "color(display-p3 0.114 0.114 0.122)"
+    fg-2: "color(display-p3 0.431 0.431 0.451)"
+    fg-3: "color(display-p3 0.525 0.525 0.545)"
+    fg-4: "color(display-p3 0.824 0.824 0.843)"
+    primary: "color(display-p3 0 0.443 0.890)"
+    primary-soft: "color(display-p3 0.161 0.592 1)"
+    primary-wash: "color(display-p3 0.839 0.922 1)"
+    primary-tint: "color(display-p3 0.961 0.984 1)"
+    yellow-1: "color(display-p3 1 0.800 0)"
+    yellow-2: "color(display-p3 1 0.839 0.039)"
+    yellow-3: "color(display-p3 1 0.957 0.722)"
+    blue-1: "color(display-p3 0 0.400 0.800)"
+    blue-2: "color(display-p3 0.161 0.592 1)"
+    blue-3: "color(display-p3 0.839 0.922 1)"
+    blue-4: "color(display-p3 0.961 0.984 1)"
+    gho-1: "color(display-p3 0.204 0.780 0.349)"
+    green-1: "color(display-p3 0.204 0.780 0.349)"
+    red-1: "color(display-p3 1 0.231 0.188)"
+    pink-1: "color(display-p3 1 0.176 0.333)"
+    purple-1: "color(display-p3 0.686 0.322 0.871)"
+    indigo-1: "color(display-p3 0.345 0.337 0.839)"
+    teal-1: "color(display-p3 0.353 0.784 0.980)"
+    orange-1: "color(display-p3 1 0.584 0)"
+typography:
+  display-72:
+    fontFamily: Aave Repro
+    fontSize: 72px
+    fontWeight: 500
+    lineHeight: 79.2px
+    letterSpacing: -3.6px
+    usage: Desktop hero and major campaign headlines.
+  display-48:
+    fontFamily: Aave Repro
+    fontSize: 48px
+    fontWeight: 500
+    lineHeight: 52.8px
+    letterSpacing: -1.44px
+    usage: Mobile and tablet hero headlines.
+  heading-40:
+    fontFamily: Aave Repro
+    fontSize: 40px
+    fontWeight: 500
+    lineHeight: 48px
+    letterSpacing: -1.2px
+    usage: Section headings and product block titles.
+  heading-40-tall:
+    fontFamily: Aave Repro
+    fontSize: 40px
+    fontWeight: 500
+    lineHeight: 54px
+    letterSpacing: -0.8px
+    usage: FAQ rail heading.
+  heading-32:
+    fontFamily: Aave Repro
+    fontSize: 32px
+    fontWeight: 500
+    lineHeight: 35.2px
+    letterSpacing: -1px
+    usage: Large card values and emphasized numbers.
+  heading-24:
+    fontFamily: Aave Repro
+    fontSize: 24px
+    fontWeight: 500
+    lineHeight: 32.4px
+    letterSpacing: -0.72px
+    usage: Trust statistic values.
+  heading-24-loose:
+    fontFamily: Aave Repro
+    fontSize: 24px
+    fontWeight: 450
+    lineHeight: 36px
+    letterSpacing: -0.47px
+    usage: Newsletter title.
+  heading-18:
+    fontFamily: Aave Repro
+    fontSize: 18px
+    fontWeight: 500
+    lineHeight: 24.48px
+    letterSpacing: -0.18px
+    usage: Market card titles.
+  question-18:
+    fontFamily: Aave Repro
+    fontSize: 18px
+    fontWeight: 450
+    lineHeight: 24.3px
+    letterSpacing: -0.33px
+    usage: FAQ question rows.
+  lead-20:
+    fontFamily: Aave Repro
+    fontSize: 20px
+    fontWeight: 400
+    lineHeight: 27.2px
+    letterSpacing: -0.2px
+    usage: Hero descriptions and large explanatory copy.
+  body-16:
+    fontFamily: Aave Repro
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 24px
+    letterSpacing: -0.16px
+    usage: Default body copy, card descriptions, menu descriptions.
+  body-14:
+    fontFamily: Aave Repro
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 19.6px
+    letterSpacing: -0.14px
+    usage: Metadata, small labels, and secondary footer text.
+  label-14:
+    fontFamily: Aave Repro
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 14.7px
+    letterSpacing: -0.09px
+    usage: Header CTA, compact buttons, labels.
+  nav-14:
+    fontFamily: Aave Repro
+    fontSize: 14px
+    fontWeight: 450
+    lineHeight: 14.7px
+    letterSpacing: -0.09px
+    usage: Header menu buttons.
+  button-17:
+    fontFamily: Aave Repro
+    fontSize: 17px
+    fontWeight: 500
+    lineHeight: 17px
+    letterSpacing: -0.17px
+    usage: Primary and secondary homepage CTAs.
+spacing:
+  1: 4px
+  2: 8px
+  3: 12px
+  4: 16px
+  5: 20px
+  6: 24px
+  8: 32px
+  10: 40px
+  12: 48px
+  18: 72px
+  20: 80px
+  25: 100px
+  30: 120px
+rounded:
+  xs: 6px
+  sm: 8px
+  md: 12px
+  lg: 16px
+  xl: 20px
+  "2xl": 24px
+  pill: 99rem
+breakpoints:
+  sm: 640px
+  md: 768px
+  lg: 1024px
+layout:
+  content: 986px
+  wide: 1082px
+  newsletter: 493px
+  desktopSideMarginAt1440: 176px
+  productSectionPaddingDesktop: "0 24px 24px"
+  productSectionPaddingMobile: "0 8px 8px"
+  faqPaddingDesktop: "120px 48px"
+  faqPaddingMobile: "48px 20px"
+  newsletterPaddingDesktop: "100px 48px"
+  newsletterPaddingMobile: "48px 20px"
+  footerPaddingDesktop: "72px 48px"
+  footerPaddingMobile: "72px 20px 48px"
+motion:
+  snappy:
+    duration: 750ms
+    easing: "cubic-bezier(0.175, 0.885, 0.32, 1.1)"
+    usage: Expressive entrances, image/card parallax, and small lift interactions.
+  swift:
+    duration: 1800ms
+    easing: "cubic-bezier(0.19, 1, 0.22, 1)"
+    usage: Large page reveals and long transform transitions.
+components:
+  nav-button:
+    typography: "{typography.nav-14}"
+    textColor: "{colors.fg-2}"
+    hoverTextColor: "{colors.fg-1}"
+    backgroundColor: transparent
+    hoverBackgroundColor: "{colors.bg-4}"
+    rounded: 50px
+    padding: "9px 16px"
+    height: 32px
+  header-cta:
+    typography: "{typography.label-14}"
+    backgroundColor: "{colors.fg-1}"
+    textColor: "#ffffff"
+    rounded: 50px
+    padding: "9px 16px"
+    height: 32px
+  button-primary:
+    typography: "{typography.button-17}"
+    backgroundColor: "{colors.primary}"
+    textColor: "#ffffff"
+    rounded: "{rounded.pill}"
+    padding: "14px 24px"
+    minHeight: 45px
+    gap: 8px
+  button-secondary:
+    typography: "{typography.button-17}"
+    backgroundColor: "color-mix(in srgb, {colors.primary} 11%, transparent)"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.pill}"
+    padding: "14px 24px"
+    minHeight: 45px
+    gap: 8px
+  card-stat:
+    backgroundColor: "{colors.stat-card}"
+    rounded: "{rounded.2xl}"
+    padding: "32px 24px"
+    typographyValue: "{typography.heading-24}"
+    typographyBody: "{typography.body-16}"
+  card-market:
+    backgroundColor: "{colors.dark-card}"
+    rounded: "{rounded.2xl}"
+    padding: "32px 24px"
+    labelColor: "{colors.primary}"
+    titleTypography: "{typography.heading-18}"
+    bodyColor: "rgba(255, 255, 255, 0.7)"
+  card-partner:
+    backgroundColor: "{colors.glass-card}"
+    hoverBackgroundColor: "{colors.glass-card-hover}"
+    rounded: "{rounded.xl}"
+    padding: 24px
+  newsletter:
+    backgroundColor: "{colors.newsletter-card}"
+    rounded: "{rounded.lg}"
+    padding: 32px
+    maxWidth: 493px
+  newsletter-input:
+    backgroundColor: "#ffffff"
+    textColor: "{colors.fg-1}"
+    typography: "{typography.body-16}"
+    rounded: "20px 6px 6px 20px"
+    padding: "10px 16px"
+    height: 40px
+  newsletter-submit:
+    backgroundColor: "{colors.fg-1}"
+    textColor: "#ffffff"
+    typography: "{typography.label-14}"
+    rounded: "6px 20px 20px 6px"
+    padding: "0 16px"
+    height: 40px
+---
+
+# Aave Apple Color Variant
+
+## Overview
+
+Aave's homepage design system is calm, high-trust, and product-led. This variant keeps the cloned structure, local fonts, generous whitespace, oversized editorial typography, soft rounded components, and controlled motion, but replaces the lavender-led palette with Apple-style blue, white, near-black, light gray, and semantic system accents.
+
+This document is based on the local clone of `https://aave.com/`, the extracted CSS variables, bundled fonts, rendered page metrics, and screenshot verification artifacts in `./references`. The homepage uses a light theme by default, then switches to dark, immersive product sections when talking about the full power of DeFi and market strategy.
+
+Use this file as the canonical design brief. Use `./design-system/tokens.css` and `./design-system/components.css` as the implementation layer.
+
+## Source Evidence
+
+The design system was derived from these local artifacts:
+
+- `./assets/source/87989486595822bb.css` contains the core CSS custom properties, including colors, breakpoints, and motion easings.
+- `./references/aave-page-metrics.json` contains rendered measurements for headings, buttons, sections, images, and FAQ rows.
+- `./references/desktop-1440.png`, `./references/tablet-768.png`, and `./references/mobile-390.png` are source screenshots.
+- `./references/local-desktop-1440.png`, `./references/local-tablet-768.png`, and `./references/local-mobile-390.png` are clone screenshots.
+- `./references/clone-generation-summary.json` records `99` downloaded local assets from `https://aave.com/`.
+
+## Design Principles
+
+1. Lead with clarity. Use short, declarative headings and avoid decorative clutter around the main proposition.
+2. Make finance feel calm. The palette is mostly white, Apple-style light gray, muted text, and blue accents; avoid high-saturation gradients and shadows entirely.
+3. Use scale for confidence. Major sections use 72px desktop display headings with large open space.
+4. Use data as proof. Statistics are presented in compact, equal cards with clear hierarchy and no chart decoration unless necessary.
+5. Let dark sections carry depth. Dark surfaces should be reserved for high-impact protocol/product areas, not every panel.
+6. Keep components soft. Pills, rounded cards, and low-contrast dividers are part of the brand expression.
+
+## Colors
+
+The core palette has four jobs: text, surface, primary blue accent, and semantic system accents. Apple recommends system colors because they adapt across backgrounds, appearance modes, vibrancy, and accessibility settings; this web implementation uses fixed CSS tokens that approximate that language.
+
+### Text
+
+- `fg-1` `#1d1d1f` is the primary Apple-style near-black text color on light backgrounds. Use it for headings, body emphasis, nav hover states, and dark filled buttons.
+- `fg-2` `#6e6e73` is secondary copy and default navigation text.
+- `fg-3` `#86868b` is tertiary metadata, helper text, inactive copy, and low-priority footer details.
+- `fg-4` `#d2d2d7` is the quietest foreground token. Use sparingly for disabled or low-emphasis decoration.
+
+### Surfaces
+
+- `bg-1` and `bg-2` are white. Use them for the page base and ordinary card interiors.
+- `bg-3` `#f5f5f7` is the soft Apple-style page band.
+- `bg-4` `#f2f2f7` is the hover and very soft control background.
+- `stat-card` `#f5f5f7` is the light gray surface used by proof/stat cards.
+- `newsletter-card` `#f5f5f7` is the newsletter module surface.
+- `dark-surface` `#000000` should be reserved for high-impact sections, with white text and translucent card fills.
+
+### Brand Accent
+
+- `primary` `#0071e3` is the Apple-style blue for the most important CTA, product labels, links, selected states, and focus.
+- `primary-soft` `#2997ff` supports hover states and dark-section links.
+- `primary-wash` `#d6ebff` and `primary-tint` `#f5fbff` are supporting blue backgrounds.
+- Do not turn the whole UI blue. Blue should signal action, selection, links, and key emphasis. It earns attention because the surrounding palette is quiet.
+
+### Product Accents
+
+- `green-1` / `gho-1` `#34c759` is the success or positive product accent.
+- `red-1` `#ff3b30` is destructive or error.
+- `orange-1` `#ff9500` and `yellow-*` are warning, pending, or attention accents.
+- `purple-1`, `indigo-1`, `pink-1`, and `teal-1` are available for illustrations, badges, or product-specific contexts.
+- `wallet` `#0a84ff` and `account` `#34c759` are product state accents.
+- Use accent colors with labels or icons, never as the only indicator of state.
+
+### Wide Gamut
+
+The source CSS includes Display P3 color variants. Use the sRGB hex values as the default tokens and wrap P3 values in `@supports (color: color(display-p3 1 1 1))`. This keeps the system faithful on modern displays without breaking older browsers.
+
+## Typography
+
+Aave uses `Aave Repro` for nearly everything. The font has a clean, slightly rounded, product-editorial feel. The homepage does not rely on many weights: `400`, `450`, and `500` carry the system.
+
+### Scale
+
+- `display-72`: `72px / 79.2px`, weight `500`, letter spacing `-3.6px`. Use for desktop hero and major campaign section titles.
+- `display-48`: `48px / 52.8px`, weight `500`, letter spacing `-1.44px`. Use for mobile and tablet hero titles.
+- `heading-40`: `40px / 48px`, weight `500`, letter spacing `-1.2px`. Use for section headings.
+- `heading-32`: `32px / 35.2px`, weight `500`, letter spacing around `-1px`. Use for large metric values or emphasized card content.
+- `heading-24`: `24px / 32.4px`, weight `500`, letter spacing `-0.72px`. Use for statistic values and compact module titles.
+- `heading-18`: `18px / 24.48px`, weight `500`, letter spacing `-0.18px`. Use for card titles in dense sections.
+- `lead-20`: `20px / 27.2px`, weight `400`, letter spacing `-0.2px`. Use for hero body text and large supporting descriptions.
+- `body-16`: `16px / 24px`, weight `400`, letter spacing around `-0.16px`. Use for general body and descriptions.
+- `nav-14`: `14px / 14.7px`, weight `450`, letter spacing `-0.09px`. Use for header menu buttons.
+- `button-17`: `17px / 17px`, weight `500`, letter spacing `-0.17px`. Use for primary homepage CTA pills.
+
+### Rules
+
+- Tighten letter spacing as type gets larger. Do not use default browser heading spacing for display text.
+- Keep headings weight `500`, not `600` or `700`.
+- Use `450` for interactive labels that need more presence than body copy but less mass than CTAs.
+- Use body copy in muted foreground (`fg-2`) unless the copy needs to read as a title.
+- Avoid mixing more than three text sizes inside a single component.
+- Use `Aave Repro Mono` only for data, code, addresses, or aligned numeric values.
+
+## Layout
+
+The homepage uses a centered content model with generous vertical pacing.
+
+### Containers
+
+- Primary content width: `986px`.
+- Wide shell and footer width: `1082px`.
+- Newsletter module max width: `493px`.
+- At a 1440px desktop viewport, wide content sits with about `176px` side margins.
+- Main product wrappers use `0 24px 24px` padding on desktop.
+- Product wrappers tighten to `0 8px 8px` on mobile.
+
+### Section Rhythm
+
+- Hero/product sections are spacious and should feel like separate scenes.
+- FAQ uses `120px 48px` desktop padding and `48px 20px` mobile padding.
+- Newsletter uses `100px 48px` desktop padding and `48px 20px` mobile padding.
+- Footer uses `72px 48px` desktop padding and `72px 20px 48px` mobile padding.
+- Use `24px` as the standard card/grid gap. Use `16px` for tighter repeated card sets.
+- Use `80px` top padding for trust/stat card grids when they follow a large heading.
+
+### Breakpoints
+
+- `sm`: `640px`
+- `md`: `768px`
+- `lg`: `1024px`
+
+Desktop and tablet keep the large editorial structure. Below `768px`, collapse two- and three-column grids to one column, reduce horizontal padding to `20px`, and step hero display type down to `48px`.
+
+## Elevation & Depth
+
+Halo is a flat design system. The cloned reference casts no drop shadows, and neither does Halo — depth is tonal, never elevated.
+
+- **Do not use box-shadows anywhere.** No `shadow-*` utilities, no custom shadow token, no inline `box-shadow`. There is intentionally no shadow primitive in the system; one should not be reintroduced.
+- Separate surfaces with borders (`border-1`, `border-2`) and background shifts (`bg-1` → `bg-3` → `bg-4`) instead of elevation.
+- For raised or selected states (active tabs, toggles, nav items, knobs), use a brighter fill (`bg-1` on a `bg-3` track) or a hairline border — never a shadow.
+- Glass partner cards use `rgba(255,255,255,0.72)`, brightening to `rgba(255,255,255,0.92)` on hover; the lift is the background change (plus at most a `translateY(-1px)`), not a shadow.
+- Dark market cards use `rgba(255,255,255,0.06)` on a near-black section.
+- Avoid drop shadows, neumorphism, glows, and glossy gradients.
+
+The embeddable testimonial widget keeps a per-preset shadow capability for matching external brands, but Halo's shipped presets are all flat (`shadow: "none"`) and Halo's own dashboard UI never uses it.
+
+## Motion
+
+Motion is soft and physical. The source CSS exposes two named motion profiles:
+
+- `snappy`: `750ms cubic-bezier(0.175, 0.885, 0.32, 1.1)`. Use for small lifts, subtle reveals, and tactile UI transitions.
+- `swift`: `1800ms cubic-bezier(0.19, 1, 0.22, 1)`. Use for larger page/image reveals where the movement should feel smooth and premium.
+
+For ordinary UI states, use shorter durations around `180ms` to `220ms`. Reserve the longer source timings for scene-level animation or image treatment. Always honor `prefers-reduced-motion` by disabling nonessential transforms and long animations.
+
+## Shapes
+
+Aave uses soft geometry:
+
+- `6px`: input joins and small asymmetric form corners.
+- `8px`: dropdown menu rows and compact interactive surfaces.
+- `16px`: newsletter cards and medium modules.
+- `20px`: partner/glass cards.
+- `24px`: statistic cards, dark market cards, and major repeated panels.
+- `99rem` or `50px`: pill buttons and nav controls.
+
+Do not mix sharp corners into Aave-style UI. If a component is interactive and compact, make it pill-shaped or softly rounded. If it is a content card, use `20px` or `24px`.
+
+## Components
+
+The component tokens in the frontmatter are intended as build-ready specs.
+
+### Header
+
+The header is quiet and horizontally balanced:
+
+- Nav row minimum height: about `72px`.
+- Nav buttons: transparent, `14px`, weight `450`, `9px 16px`, `50px` radius, `32px` height.
+- Default nav text uses `fg-2`; hover moves to `fg-1` with a soft `bg-4` fill.
+- The main header CTA uses `fg-1` fill, white text, `14px` weight `500`, and the same `9px 16px` pill geometry.
+- Dropdown menu rows use `8px` radius, `8px` padding, and 64px row height in the measured desktop menu.
+
+### Primary CTA Buttons
+
+Use the CTA button pattern for important page actions:
+
+- Height: minimum `45px`.
+- Padding: `14px 24px`.
+- Radius: `99rem`.
+- Typography: `17px / 17px`, weight `500`, letter spacing `-0.17px`.
+- Gap: `8px`.
+- Primary fill: `primary` with white text.
+- Secondary fill: light transparent blue with blue text.
+- Dark-section CTA: white fill with `fg-1` or Apple blue text depending on emphasis.
+
+Use one primary CTA per hero/module. Pair it with one secondary action only when the secondary route is genuinely useful.
+
+### Product Sections
+
+Product sections are full-width scenes wrapped in a padded container:
+
+- Desktop wrapper padding: `0 24px 24px`.
+- Mobile wrapper padding: `0 8px 8px`.
+- Headings sit inside the `986px` content width.
+- Use oversized titles, muted descriptions, and a single CTA group.
+- If the section is dark, set headings in white, descriptions at `rgba(255,255,255,0.7)`, and use blue for labels.
+
+### Partner Cards
+
+Partner cards support ecosystem credibility:
+
+- Grid: two columns on desktop, one column on mobile.
+- Gap: `16px`.
+- Card radius: `20px`.
+- Padding: `24px`.
+- Background: `rgba(255,255,255,0.65)`.
+- Hover background: `rgba(255,255,255,0.85)`.
+- Use restrained logos or product names. Do not overload the cards with long copy.
+
+### Market Cards
+
+Market cards appear on dark sections:
+
+- Grid: repeat columns with `minmax(300px, 1fr)`.
+- Gap: `24px`.
+- Card radius: `24px`.
+- Padding: `32px 24px`.
+- Background: `rgba(255,255,255,0.03)`.
+- Label: blue, `14px`, weight `500`.
+- Title: white, `18px / 24.48px`, weight `500`.
+- Body: white at about `70%` opacity, `16px`.
+
+### Trust Statistic Cards
+
+Statistic cards prove scale and trust:
+
+- Grid: `repeat(auto-fit, minmax(300px, 1fr))`.
+- Gap: `24px`.
+- Top padding after the section intro: `80px`.
+- Card padding: `32px 24px`.
+- Radius: `24px`.
+- Background: `#f5f5f7`.
+- Value: `24px / 32.4px`, weight `500`, tight tracking.
+- Label/body: `16px`, muted `fg-2`.
+
+Numbers should be short, scannable, and formatted with clear units: `$3.46T`, `$88.44B`, `6+ Years`, `SOC 2 Type 2`.
+
+### FAQ
+
+The FAQ section uses a two-column desktop layout:
+
+- Section padding: `120px 48px`.
+- Left rail heading: `40px / 54px`, weight `500`.
+- Question rows: `18px / 24.3px`, weight `450`.
+- Use `border-2` for row separators.
+- Mobile should become one column with `48px 20px` padding.
+
+Answers should be short and functional. Do not turn FAQ rows into marketing copy.
+
+### Newsletter
+
+Newsletter modules are compact and utilitarian:
+
+- Section padding: `100px 48px` desktop, `48px 20px` mobile.
+- Card max width: `493px`.
+- Card background: `#f5f5f7`.
+- Card radius: `16px`.
+- Card padding: `32px`.
+- Title: `24px / 36px`, weight `450`.
+- Input height: `40px`.
+- Input radius: `20px 6px 6px 20px`.
+- Submit radius: `6px 20px 20px 6px`.
+- Submit fill: `fg-1`, white text.
+
+On mobile, split controls should become stacked or full pill controls to avoid cramped asymmetric corners.
+
+### Footer
+
+The footer is wide but quiet:
+
+- Width: `1082px` on desktop.
+- Padding: `72px 48px`.
+- Use dividers at `border-2`.
+- Use muted text for secondary links.
+- Keep link groups dense and scannable.
+
+## Imagery & Assets
+
+The clone includes `99` local assets from the source site. Use real assets from `./assets/source` when reproducing the homepage style. Do not replace product imagery with abstract gradients or unrelated stock visuals.
+
+Asset guidance:
+
+- Use SVG logos and icons at their natural proportions.
+- Keep product imagery crisp and centered in its section.
+- Do not crop product screenshots so tightly that the object becomes unclear.
+- When using dark sections, make sure image edges and shadows remain visible against near-black surfaces.
+- Maintain responsive image sizing with stable aspect ratios to avoid layout shift.
+
+## Interaction States
+
+Every interactive element needs a visible hover, active, disabled, and focus state.
+
+- Hover: soft fill shift, slight text darkening, or a subtle `translateY(-1px)` on card-like CTAs.
+- Active: return transform to neutral and slightly deepen the fill.
+- Focus: use a visible `2px` ring in `focus` `#0071e3` with at least `3px` offset.
+- Disabled: reduce contrast, remove hover transform, and use a disabled cursor only for actual disabled controls.
+- Menus: open below the nav trigger with rounded rows and clear hit areas of at least `44px`.
+
+Do not remove browser focus outlines unless the replacement is at least as visible.
+
+## Accessibility
+
+- Body text should meet WCAG AA contrast against its surface.
+- Do not use blue text on very pale blue backgrounds for long copy.
+- Pair all color-coded statuses with text or an icon.
+- Maintain minimum target size of `44px` for touch controls. Header nav buttons are compact on desktop but mobile menu rows should be larger.
+- Keep headings semantically ordered even when the visual size changes.
+- Use real buttons for menu toggles and form submits.
+- Respect `prefers-reduced-motion`.
+- Keep form labels available to screen readers even when using placeholders visually.
+
+## Voice & Content
+
+Aave's homepage copy is short, confident, and direct. It does not over-explain the protocol on first contact.
+
+- Use Title Case for major headings: `Savings for Everyone`, `Build with Aave`, `Trusted by Default`.
+- Use sentence case for body copy and helper text.
+- Keep CTA labels brief: `Use Aave`, `Get started`, `Start saving`, `Sign up`.
+- Prefer concrete protocol language over vague marketing language.
+- Use proof points as numbers, not paragraphs.
+- Avoid hype words, exclamation marks, and generic claims like `revolutionary`, `best-in-class`, or `seamless`.
+- In errors, say what happened and what to do next.
+- In loading states, use short present-tense labels: `Loading markets`, `Saving email`, `Opening app`.
+
+## Do's and Don'ts
+
+- Do use `Aave Repro` and the extracted type scale instead of browser defaults.
+- Do use `primary` sparingly for CTAs, labels, and selected states.
+- Do keep large sections airy with centered `986px` content.
+- Do use `20px` and `24px` radii for cards.
+- Do use muted neutral surfaces and hairline borders for separation instead of shadows.
+- Do collapse grids to one column below `768px`.
+- Do keep dark sections reserved for high-emphasis product storytelling.
+- Don't make every card blue.
+- Don't use box-shadows of any kind, glass blur, bokeh, or decorative orbs.
+- Don't set headings in bold weights above `500`.
+- Don't stretch logos or icons.
+- Don't replace the cloned assets with unrelated imagery.
+- Don't use color alone to express status.
+- Don't reduce mobile spacing until text wraps awkwardly.
+
+## Implementation
+
+Use the existing CSS package when building:
+
+```html
+<link rel="stylesheet" href="/design-system/tokens.css">
+<link rel="stylesheet" href="/design-system/components.css">
+```
+
+Basic section:
+
+```html
+<section class="aave-section">
+  <div class="aave-section__inner aave-stack">
+    <p class="aave-kicker">Protocol</p>
+    <h1 class="aave-heading-xl">Savings for Everyone</h1>
+    <p class="aave-text-lead">Access Aave with a calm, clear, trust-focused interface.</p>
+    <div class="aave-button-row">
+      <a class="aave-button aave-button--primary" href="#">Use Aave</a>
+      <a class="aave-button aave-button--secondary" href="#">Learn more</a>
+    </div>
+  </div>
+</section>
+```
+
+Dark card grid:
+
+```html
+<section class="aave-section aave-surface-dark">
+  <div class="aave-section__inner aave-stack">
+    <h2 class="aave-heading-lg">Markets for every strategy.</h2>
+    <div class="aave-grid aave-grid--auto">
+      <article class="aave-card aave-card--dark aave-market">
+        <p class="aave-market__label">Main</p>
+        <h3 class="aave-market__title">Core liquidity markets</h3>
+        <p class="aave-text-body">Use short descriptions and restrained contrast.</p>
+      </article>
+    </div>
+  </div>
+</section>
+```
+
+Newsletter:
+
+```html
+<form class="aave-newsletter">
+  <h2 class="aave-heading-md">Be the first to hear about Aave Labs news.</h2>
+  <div class="aave-newsletter__form">
+    <label class="sr-only" for="aave-email">Email address</label>
+    <input class="aave-newsletter__input" id="aave-email" type="email" placeholder="Email address">
+    <button class="aave-newsletter__submit" type="submit">Sign up</button>
+  </div>
+</form>
+```
+
+If the target app uses a component framework, map the YAML tokens at the top of this file into the app's theme layer first. Components should consume tokens, not hard-coded one-off values.

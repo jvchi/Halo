@@ -1,0 +1,67 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local typeface — the "Aave Repro" variable font from the clone, renamed Halo Sans/Mono. */
+@font-face {
+  font-family: "Halo Sans";
+  src:
+    url("/fonts/halo-sans.woff2") format("woff2"),
+    url("/fonts/halo-sans.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halo Mono";
+  src:
+    url("/fonts/halo-mono.woff2") format("woff2"),
+    url("/fonts/halo-mono.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--halo-bg-1);
+    color: var(--halo-fg-1);
+    font-family: var(--halo-font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricprecision;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--halo-focus);
+    outline-offset: 3px;
+  }
+
+  /* Respect reduced-motion globally; component motion opts back in deliberately. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .styles_card__TUPXy:is(:hover, :focus-visible) .halo-integration-logo {
+    filter: grayscale(0) !important;
+  }
+
+  .styles_card__TUPXy:is(:hover, :focus-visible) .halo-integration-logo-bg {
+    filter: grayscale(0) !important;
+  }
+}

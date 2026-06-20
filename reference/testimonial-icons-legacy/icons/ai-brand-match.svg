@@ -1,0 +1,9 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--ai is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="ai-title ai-desc" tabindex="0">
+  <title id="ai-title">AI brand match</title>
+  <desc id="ai-desc">A soft rounded AI twinkle mark.</desc>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <rect class="purple-soft motion-b" x="21" y="8" width="7" height="32" rx="3.5"/>
+  <rect class="purple motion-a" x="8" y="21" width="32" height="7" rx="3.5"/>
+  <circle class="blue-soft motion-c" cx="24.5" cy="24.5" r="5.5"/>
+</svg>

@@ -1,0 +1,8 @@
+<?xml-stylesheet type="text/css" href="../animated-icons.css"?>
+<svg class="ta-icon ta-icon--embed is-idle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="embed-title embed-desc" tabindex="0">
+  <title id="embed-title">Embed widget</title>
+  <desc id="embed-desc">Two chunky code brackets wrapping an embed space.</desc>
+  <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+  <path class="purple motion-a" d="M19 12C20.1046 12 21 12.8954 21 14V18C21 19.1046 20.1046 20 19 20H16V28H19C20.1046 28 21 28.8954 21 30V34C21 35.1046 20.1046 36 19 36H14C11.7909 36 10 34.2091 10 32V16C10 13.7909 11.7909 12 14 12H19Z"/>
+  <path class="blue motion-b" d="M29 12C27.8954 12 27 12.8954 27 14V18C27 19.1046 27.8954 20 29 20H32V28H29C27.8954 28 27 28.8954 27 30V34C27 35.1046 27.8954 36 29 36H34C36.2091 36 38 34.2091 38 32V16C38 13.7909 36.2091 12 34 12H29Z"/>
+</svg>

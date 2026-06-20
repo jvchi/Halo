@@ -1,0 +1,210 @@
+/*
+ * Animated testimonial icon system — ported verbatim from
+ * reference/testimonial-icons-legacy/animated-icons.css.
+ * Pure CSS keyframes; no JS runtime. Colors use the icon set's own two-tone
+ * palette (independent of the Halo blue brand tokens).
+ */
+
+.ta-icon {
+  --icon-surface: transparent;
+  --icon-border: transparent;
+  --icon-purple: #8588ff;
+  --icon-purple-soft: #b8c4ff;
+  --icon-blue: #0b95e8;
+  --icon-blue-soft: #7dd2ff;
+  --icon-teal: #159aa6;
+  --icon-teal-soft: #35bbc5;
+  --icon-orange: #f24b22;
+  --icon-orange-soft: #ff875f;
+  --icon-yellow: #e8bd0d;
+  --icon-dark: #27364a;
+  --icon-ease: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --icon-soft-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  display: block;
+  width: 48px;
+  height: 48px;
+  color: #211d1d;
+  overflow: visible;
+  cursor: default;
+}
+
+.ta-icon,
+.ta-icon * {
+  transform-box: fill-box;
+}
+
+.ta-icon .frame {
+  fill: var(--icon-surface);
+  stroke: var(--icon-border);
+  opacity: 0;
+  transition-property: stroke, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: var(--icon-soft-ease);
+}
+
+.ta-icon .purple { fill: var(--icon-purple); }
+.ta-icon .purple-soft { fill: var(--icon-purple-soft); }
+.ta-icon .blue { fill: var(--icon-blue); }
+.ta-icon .blue-soft { fill: var(--icon-blue-soft); }
+.ta-icon .teal { fill: var(--icon-teal); }
+.ta-icon .teal-soft { fill: var(--icon-teal-soft); }
+.ta-icon .orange { fill: var(--icon-orange); }
+.ta-icon .orange-soft { fill: var(--icon-orange-soft); }
+.ta-icon .yellow { fill: var(--icon-yellow); }
+.ta-icon .dark { fill: var(--icon-dark); }
+
+.ta-icon .motion-a,
+.ta-icon .motion-b,
+.ta-icon .motion-c {
+  transform-origin: center;
+  animation-delay: var(--delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.ta-icon:hover,
+.ta-icon:focus-visible,
+.ta-icon.is-active {
+  outline: none;
+}
+
+.ta-icon:hover .frame,
+.ta-icon:focus-visible .frame,
+.ta-icon.is-active .frame {
+  stroke: transparent;
+}
+
+.ta-icon.is-paused *,
+.ta-icon.is-paused:hover *,
+.ta-icon.is-paused:focus-visible * {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+/*
+ * Icons are static by default. Motion plays ONLY on hover or keyboard focus —
+ * never auto-looping on idle, and never on the active nav item.
+ */
+.ta-icon--collect:hover .motion-a,
+.ta-icon--collect:focus-visible .motion-a { animation: ta-card-front 1.8s var(--icon-ease) infinite; }
+.ta-icon--collect:hover .motion-b,
+.ta-icon--collect:focus-visible .motion-b { animation: ta-card-back 1.8s var(--icon-ease) infinite; }
+
+.ta-icon--approve:hover .motion-a,
+.ta-icon--approve:focus-visible .motion-a { transform-origin: center bottom; animation: ta-shield-front 1.8s var(--icon-ease) infinite; }
+.ta-icon--approve:hover .motion-b,
+.ta-icon--approve:focus-visible .motion-b { transform-origin: center bottom; animation: ta-shield-back 1.8s var(--icon-soft-ease) infinite; }
+
+.ta-icon--studio:hover .motion-a,
+.ta-icon--studio:focus-visible .motion-a,
+.ta-icon--analytics:hover .motion-a,
+.ta-icon--analytics:focus-visible .motion-a { transform-origin: bottom; animation: ta-bar-rise-a 1.8s var(--icon-ease) infinite; }
+.ta-icon--studio:hover .motion-b,
+.ta-icon--studio:focus-visible .motion-b,
+.ta-icon--analytics:hover .motion-b,
+.ta-icon--analytics:focus-visible .motion-b { transform-origin: bottom; animation: ta-bar-rise-b 1.8s var(--icon-ease) infinite; }
+.ta-icon--studio:hover .motion-c,
+.ta-icon--studio:focus-visible .motion-c,
+.ta-icon--analytics:hover .motion-c,
+.ta-icon--analytics:focus-visible .motion-c { transform-origin: bottom; animation: ta-bar-rise-c 1.8s var(--icon-ease) infinite; }
+
+.ta-icon--embed:hover .motion-a,
+.ta-icon--embed:focus-visible .motion-a { animation: ta-bracket-left 1.8s var(--icon-ease) infinite; }
+.ta-icon--embed:hover .motion-b,
+.ta-icon--embed:focus-visible .motion-b { animation: ta-bracket-right 1.8s var(--icon-ease) infinite; }
+
+.ta-icon--wall:hover .motion-a,
+.ta-icon--wall:focus-visible .motion-a { transform-origin: center bottom; animation: ta-arch-lower 1.8s var(--icon-ease) infinite; }
+.ta-icon--wall:hover .motion-b,
+.ta-icon--wall:focus-visible .motion-b { transform-origin: center bottom; animation: ta-arch-upper 1.8s var(--icon-ease) infinite; }
+
+.ta-icon--ai:hover .motion-a,
+.ta-icon--ai:focus-visible .motion-a { transform-origin: center; animation: ta-ai-twinkle-horizontal 1.8s var(--icon-ease) infinite; }
+.ta-icon--ai:hover .motion-b,
+.ta-icon--ai:focus-visible .motion-b { transform-origin: center; animation: ta-ai-twinkle-vertical 1.8s var(--icon-ease) infinite; }
+.ta-icon--ai:hover .motion-c,
+.ta-icon--ai:focus-visible .motion-c { transform-origin: center; animation: ta-ai-twinkle-core 1.8s var(--icon-ease) infinite; }
+
+.ta-icon--preview:hover .motion-a,
+.ta-icon--preview:focus-visible .motion-a { animation: ta-browser-float 1.8s var(--icon-soft-ease) infinite; }
+.ta-icon--preview:hover .motion-b,
+.ta-icon--preview:focus-visible .motion-b { animation: ta-widget-pop 1.8s var(--icon-ease) infinite; }
+
+@keyframes ta-card-front {
+  0%, 100% { transform: translateY(0) scale(1); }
+  18% { transform: translateY(-2px) scale(1.03); }
+  34%, 72% { transform: translateY(0) scale(1); }
+}
+@keyframes ta-card-back {
+  0%, 100% { opacity: 0.84; transform: translateX(1px) translateY(1px) scale(0.98); }
+  18% { opacity: 1; transform: translateX(2px) translateY(-1px) scale(1.01); }
+  34%, 72% { opacity: 0.92; transform: translateX(1px) translateY(0) scale(1); }
+}
+@keyframes ta-shield-front {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.04); }
+  48%, 76% { transform: scale(1); }
+}
+@keyframes ta-shield-back {
+  0%, 100% { opacity: 0.86; transform: translateX(0); }
+  30% { opacity: 1; transform: translateX(1px); }
+  48%, 76% { opacity: 0.92; transform: translateX(0); }
+}
+@keyframes ta-bar-rise-a {
+  0%, 100% { transform: scaleY(0.76); }
+  24%, 70% { transform: scaleY(1); }
+}
+@keyframes ta-bar-rise-b {
+  0%, 12%, 100% { transform: scaleY(1); }
+  38%, 74% { transform: scaleY(0.78); }
+}
+@keyframes ta-bar-rise-c {
+  0%, 100% { transform: scaleY(0.86); }
+  48%, 80% { transform: scaleY(1); }
+}
+@keyframes ta-bracket-left {
+  0%, 100% { transform: translateX(-1px); }
+  28%, 74% { transform: translateX(1px); }
+}
+@keyframes ta-bracket-right {
+  0%, 100% { transform: translateX(1px); }
+  28%, 74% { transform: translateX(-1px); }
+}
+@keyframes ta-arch-upper {
+  0%, 100% { opacity: 0.82; transform: translateY(0) scale(0.98); }
+  34%, 76% { opacity: 1; transform: translateY(-1px) scale(1); }
+}
+@keyframes ta-arch-lower {
+  0%, 100% { transform: translateY(1px) scale(1); }
+  34%, 76% { transform: translateY(-1px) scale(1.02); }
+}
+@keyframes ta-ai-twinkle-vertical {
+  0%, 100% { opacity: 0.82; transform: scaleY(0.9); }
+  38%, 76% { opacity: 1; transform: scaleY(1); }
+}
+@keyframes ta-ai-twinkle-horizontal {
+  0%, 100% { transform: scaleX(0.9); }
+  38%, 76% { transform: scaleX(1); }
+}
+@keyframes ta-ai-twinkle-core {
+  0%, 100% { opacity: 0.76; transform: scale(0.86); }
+  34%, 72% { opacity: 1; transform: scale(1); }
+}
+@keyframes ta-browser-float {
+  0%, 100% { transform: translateY(1px); }
+  42%, 78% { transform: translateY(-1px); }
+}
+@keyframes ta-widget-pop {
+  0%, 100% { transform: translateY(2px) scale(0.96); }
+  28%, 74% { transform: translateY(-1px) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ta-icon *,
+  .ta-icon:hover *,
+  .ta-icon:focus-visible *,
+  .ta-icon.is-active * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

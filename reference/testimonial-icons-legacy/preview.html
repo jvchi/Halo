@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testimonial Animated Icons</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./animated-icons.css">
+    <style>
+      :root {
+        --preview-bg: #ffffff;
+        --preview-fg: #211d1d;
+        --preview-muted: #636161;
+        --preview-border: #f1f1f0;
+        --preview-soft: #fafaf9;
+        --preview-primary: #978eff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--preview-bg);
+        color: var(--preview-fg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .preview-page {
+        min-height: 100vh;
+        padding: 64px 24px;
+      }
+
+      .preview-shell {
+        width: min(100%, 1082px);
+        margin: 0 auto;
+      }
+
+      .preview-header {
+        display: grid;
+        gap: 16px;
+        max-width: 760px;
+        margin-bottom: 48px;
+      }
+
+      .preview-kicker {
+        margin: 0;
+        color: var(--preview-primary);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      .preview-title {
+        margin: 0;
+        max-width: 11em;
+        font-size: clamp(42px, 8vw, 72px);
+        font-weight: 500;
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
+      }
+
+      .preview-copy {
+        margin: 0;
+        color: var(--preview-muted);
+        font-size: 20px;
+        line-height: 1.36;
+        letter-spacing: -0.01em;
+        text-wrap: pretty;
+      }
+
+      .preview-section {
+        display: grid;
+        gap: 24px;
+        margin-top: 56px;
+      }
+
+      .preview-section h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+      }
+
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .icon-card {
+        border-radius: 24px;
+        padding: 20px;
+        background: var(--preview-soft);
+        box-shadow:
+          0 0 0 1px rgb(33 29 29 / 0.04),
+          0 10px 30px rgb(33 29 29 / 0.04);
+        transition-property: transform, box-shadow, background-color;
+        transition-duration: 220ms;
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      }
+
+      .icon-card:hover {
+        transform: translateY(-2px);
+        background: #fff;
+        box-shadow:
+          0 0 0 1px rgb(33 29 29 / 0.08),
+          0 12px 34px rgb(33 29 29 / 0.06);
+      }
+
+      .icon-card:active {
+        transform: scale(0.96);
+      }
+
+      .icon-card h3 {
+        margin: 18px 0 6px;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .icon-card p {
+        margin: 0;
+        color: var(--preview-muted);
+        font-size: 14px;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+      }
+
+      .icon-object {
+        display: block;
+        border: 0;
+        width: 48px;
+        height: 48px;
+        overflow: visible;
+      }
+
+      .size-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: end;
+      }
+
+      .size-sample {
+        display: grid;
+        gap: 8px;
+        color: var(--preview-muted);
+        font-size: 13px;
+      }
+
+      .size-sample svg {
+        display: block;
+      }
+
+      .dark-panel {
+        border-radius: 28px;
+        padding: 28px;
+        background: #070707;
+        color: #fff;
+      }
+
+      .dark-panel .preview-copy {
+        color: rgb(255 255 255 / 0.7);
+      }
+
+      .dark-panel .icon-card {
+        background: rgb(255 255 255 / 0.03);
+        box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08);
+      }
+
+      .dark-panel .icon-card h3 {
+        color: #fff;
+      }
+
+      .dark-panel .icon-card p {
+        color: rgb(255 255 255 / 0.64);
+      }
+
+      @media (max-width: 720px) {
+        .preview-page {
+          padding: 48px 20px;
+        }
+
+        .preview-title {
+          letter-spacing: -0.03em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-page">
+      <div class="preview-shell">
+        <header class="preview-header">
+          <p class="preview-kicker">Animated icon system</p>
+          <h1 class="preview-title">Aave menu-style icons for a testimonial product.</h1>
+          <p class="preview-copy">Each icon uses transparent 48px SVG art, saturated filled shapes, soft curves, and staged CSS motion that works on light, dark, and colored surfaces.</p>
+        </header>
+
+        <section class="preview-section" aria-labelledby="core-icons">
+          <h2 id="core-icons">Core product flow</h2>
+          <div class="icon-grid">
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/collect.svg" title="Collect icon"></iframe>
+              <h3>Collect</h3>
+              <p>Stacked testimonial cards in a simple speech shape.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/approve.svg" title="Approve icon"></iframe>
+              <h3>Approve</h3>
+              <p>Split shield with a filled approval mark.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/widget-studio.svg" title="Widget studio icon"></iframe>
+              <h3>Widget Studio</h3>
+              <p>Three bold style-control bars.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/embed.svg" title="Embed icon"></iframe>
+              <h3>Embed</h3>
+              <p>Two chunky bracket blocks.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/wall-of-love.svg" title="Wall of love icon"></iframe>
+              <h3>Wall of Love</h3>
+              <p>Two stacked love-wall arches.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/analytics.svg" title="Analytics icon"></iframe>
+              <h3>Analytics</h3>
+              <p>Three bold performance bars.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/ai-brand-match.svg" title="AI brand match icon"></iframe>
+              <h3>AI Brand Match</h3>
+              <p>Soft rounded twinkle for AI matching.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/live-preview.svg" title="Live preview icon"></iframe>
+              <h3>Live Preview</h3>
+              <p>Rounded preview surfaces with a live widget.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="preview-section" aria-labelledby="sizes">
+          <h2 id="sizes">Size checks</h2>
+          <div class="size-row">
+            <div class="size-sample">
+              <svg class="ta-icon ta-icon--collect is-idle" style="width:48px;height:48px" viewBox="0 0 48 48" aria-hidden="true">
+                <defs>
+                  <mask id="sample-collect-48" maskUnits="userSpaceOnUse">
+                    <path d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z" fill="#fff"/>
+                    <rect x="16" y="23" width="13" height="4" rx="2" fill="#000"/>
+                    <rect x="16" y="29" width="9" height="4" rx="2" fill="#000"/>
+                  </mask>
+                </defs>
+                <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+                <rect class="purple-soft motion-b" x="15" y="11" width="22" height="20" rx="5"/>
+                <path class="purple motion-a" mask="url(#sample-collect-48)" d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z"/>
+              </svg>
+              <span>48px</span>
+            </div>
+            <div class="size-sample">
+              <svg class="ta-icon ta-icon--collect is-idle" style="width:64px;height:64px" viewBox="0 0 48 48" aria-hidden="true">
+                <defs>
+                  <mask id="sample-collect-64" maskUnits="userSpaceOnUse">
+                    <path d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z" fill="#fff"/>
+                    <rect x="16" y="23" width="13" height="4" rx="2" fill="#000"/>
+                    <rect x="16" y="29" width="9" height="4" rx="2" fill="#000"/>
+                  </mask>
+                </defs>
+                <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+                <rect class="purple-soft motion-b" x="15" y="11" width="22" height="20" rx="5"/>
+                <path class="purple motion-a" mask="url(#sample-collect-64)" d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z"/>
+              </svg>
+              <span>64px</span>
+            </div>
+            <div class="size-sample">
+              <svg class="ta-icon ta-icon--collect is-idle" style="width:96px;height:96px" viewBox="0 0 48 48" aria-hidden="true">
+                <defs>
+                  <mask id="sample-collect-96" maskUnits="userSpaceOnUse">
+                    <path d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z" fill="#fff"/>
+                    <rect x="16" y="23" width="13" height="4" rx="2" fill="#000"/>
+                    <rect x="16" y="29" width="9" height="4" rx="2" fill="#000"/>
+                  </mask>
+                </defs>
+                <rect class="frame" x="0.5" y="0.5" width="47" height="47" rx="3.5"/>
+                <rect class="purple-soft motion-b" x="15" y="11" width="22" height="20" rx="5"/>
+                <path class="purple motion-a" mask="url(#sample-collect-96)" d="M11 21C11 18.7909 12.7909 17 15 17H31C33.2091 17 35 18.7909 35 21V31C35 33.2091 33.2091 35 31 35H22L16 39V35H15C12.7909 35 11 33.2091 11 31V21Z"/>
+              </svg>
+              <span>96px</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="preview-section dark-panel" aria-labelledby="dark-icons">
+          <div class="preview-header" style="margin-bottom: 0;">
+            <p class="preview-kicker">Dark context</p>
+            <h2 id="dark-icons">Contrast check</h2>
+            <p class="preview-copy">The icons stay legible on a near-black surface without changing the source SVG files.</p>
+          </div>
+          <div class="icon-grid">
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/analytics.svg" title="Analytics icon on dark"></iframe>
+              <h3>Analytics</h3>
+              <p>Bold bars remain clear on dark surfaces.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/ai-brand-match.svg" title="AI icon on dark"></iframe>
+              <h3>AI Brand Match</h3>
+              <p>The twinkle stays readable without extra detail.</p>
+            </article>
+            <article class="icon-card">
+              <iframe class="icon-object" src="./icons/live-preview.svg" title="Preview icon on dark"></iframe>
+              <h3>Live Preview</h3>
+              <p>The floating widget reads as one rounded mark.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,4993 @@
+{
+  "buttons": [
+    {
+      "className": "styles_navMenuButton__yu3IQ ",
+      "href": "",
+      "rect": {
+        "h": 32,
+        "w": 92.72,
+        "x": 698.66,
+        "y": 36.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "50px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "9px 16px"
+      },
+      "tag": "button",
+      "text": "Products"
+    },
+    {
+      "className": "styles_navMenuButton__yu3IQ ",
+      "href": "",
+      "rect": {
+        "h": 32,
+        "w": 102.23,
+        "x": 799.38,
+        "y": 36.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "50px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "9px 16px"
+      },
+      "tag": "button",
+      "text": "Resources"
+    },
+    {
+      "className": "styles_navMenuButton__yu3IQ ",
+      "href": "",
+      "rect": {
+        "h": 32,
+        "w": 107.77,
+        "x": 909.61,
+        "y": 36.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "50px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "9px 16px"
+      },
+      "tag": "button",
+      "text": "Developers"
+    },
+    {
+      "className": "styles_navMenuButton__yu3IQ ",
+      "href": "",
+      "rect": {
+        "h": 32,
+        "w": 73.19,
+        "x": 1025.38,
+        "y": 36.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "50px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "9px 16px"
+      },
+      "tag": "button",
+      "text": "About"
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://aave.com/app",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 78.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px"
+      },
+      "tag": "a",
+      "text": "Aave App Savings for everyone."
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://app.aave.com/",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 142.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px"
+      },
+      "tag": "a",
+      "text": "Aave V3 The original DeFi protocol."
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://aave.com/pro",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 206.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px"
+      },
+      "tag": "a",
+      "text": "Aave Pro V4 The full power of DeFi."
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://aave.com/build",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 270.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px"
+      },
+      "tag": "a",
+      "text": "Aave Kit Build with Aave."
+    },
+    {
+      "className": "styles_menuLink__gJIYX ",
+      "href": "https://aave.com/blog",
+      "rect": {
+        "h": 64,
+        "w": 289.53,
+        "x": 548.66,
+        "y": 78.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Blog The latest news and updates."
+    },
+    {
+      "className": "styles_menuLink__gJIYX ",
+      "href": "https://aave.com/brand",
+      "rect": {
+        "h": 64,
+        "w": 289.53,
+        "x": 548.66,
+        "y": 142.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Brand Assets, examples and guides."
+    },
+    {
+      "className": "styles_menuLink__gJIYX ",
+      "href": "https://aave.com/faq",
+      "rect": {
+        "h": 64,
+        "w": 289.53,
+        "x": 548.66,
+        "y": 206.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "FAQ Answers to common questions."
+    },
+    {
+      "className": "styles_menuLink__gJIYX ",
+      "href": "https://aave.com/help",
+      "rect": {
+        "h": 64,
+        "w": 289.53,
+        "x": 548.66,
+        "y": 270.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Help & Support Guides, articles and more."
+    },
+    {
+      "className": "styles_menuLink__gJIYX ",
+      "href": "https://governance.aave.com/",
+      "rect": {
+        "h": 64,
+        "w": 289.53,
+        "x": 548.66,
+        "y": 334.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Governance The Aave Governance forum."
+    },
+    {
+      "className": "styles_menuLink__zVwzl ",
+      "href": "https://aave.com/blog/case-studies",
+      "rect": {
+        "h": 64,
+        "w": 332.52,
+        "x": 548.66,
+        "y": 78.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Case Studies The best build on Aave."
+    },
+    {
+      "className": "styles_menuLink__zVwzl ",
+      "href": "https://aave.com/docs",
+      "rect": {
+        "h": 64,
+        "w": 332.52,
+        "x": 548.66,
+        "y": 142.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Documentation Technical guides for developers."
+    },
+    {
+      "className": "styles_menuLink__zVwzl ",
+      "href": "https://aave.com/security",
+      "rect": {
+        "h": 64,
+        "w": 332.52,
+        "x": 548.66,
+        "y": 206.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Security Audit reports and information."
+    },
+    {
+      "className": "styles_menuLink__zVwzl ",
+      "href": "https://audits.sherlock.xyz/bug-bounties/300",
+      "rect": {
+        "h": 64,
+        "w": 332.52,
+        "x": 548.66,
+        "y": 270.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Bug Bounty Report responsibly and get rewarded."
+    },
+    {
+      "className": "styles_menuLink__7YUSH ",
+      "href": "https://aave.com/about",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 78.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Aave Labs Learn about Aave Labs."
+    },
+    {
+      "className": "styles_menuLink__7YUSH ",
+      "href": "https://aave.com/careers",
+      "rect": {
+        "h": 64,
+        "w": 280,
+        "x": 548.66,
+        "y": 142.15
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "8px 16px 8px 8px"
+      },
+      "tag": "a",
+      "text": "Careers Build the future of finance."
+    },
+    {
+      "className": "styles_navButton__FEfZ5  ",
+      "href": "",
+      "rect": {
+        "h": 32.7,
+        "w": 95.44,
+        "x": 1114.56,
+        "y": 36.15
+      },
+      "style": {
+        "background": "color(display-p3 0.1255 0.1137 0.1137)",
+        "borderRadius": "50px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "9px 16px"
+      },
+      "tag": "button",
+      "text": "Use Aave"
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://app.aave.com/",
+      "rect": {
+        "h": 40,
+        "w": 188,
+        "x": 1016,
+        "y": 74.85
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "6px 8px"
+      },
+      "tag": "a",
+      "text": "Aave V3"
+    },
+    {
+      "className": "styles_menuLink__QGE6C ",
+      "href": "https://pro.aave.com/",
+      "rect": {
+        "h": 40,
+        "w": 188,
+        "x": 1016,
+        "y": 114.85
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "8px",
+        "color": "rgb(0, 0, 238)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "6px 8px"
+      },
+      "tag": "a",
+      "text": "Aave Pro V4"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "",
+      "rect": {
+        "h": 48,
+        "w": 214.49,
+        "x": 530.98,
+        "y": 391.61
+      },
+      "style": {
+        "background": "color(display-p3 0.592157 0.556863 1)",
+        "borderRadius": "1584px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "button",
+      "text": "Download on iOS"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/app",
+      "rect": {
+        "h": 45,
+        "w": 141.53,
+        "x": 761.48,
+        "y": 393.11
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://pro.aave.com/",
+      "rect": {
+        "h": 45,
+        "w": 143.05,
+        "x": 566.71,
+        "y": 1419.88
+      },
+      "style": {
+        "background": "rgb(255, 255, 255)",
+        "borderRadius": "1584px",
+        "color": "rgb(15, 15, 16)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Get Started"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/pro",
+      "rect": {
+        "h": 45,
+        "w": 141.53,
+        "x": 725.76,
+        "y": 1419.88
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/pro",
+      "rect": {
+        "h": 45,
+        "w": 141.53,
+        "x": 1068.47,
+        "y": 2234.68
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/build",
+      "rect": {
+        "h": 45,
+        "w": 159.72,
+        "x": 553.53,
+        "y": 3138.77
+      },
+      "style": {
+        "background": "color(display-p3 0.592157 0.556863 1)",
+        "borderRadius": "1584px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Start Building"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/build#how-can-we-help",
+      "rect": {
+        "h": 45,
+        "w": 151.21,
+        "x": 729.25,
+        "y": 3138.77
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Talk to Sales"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/build",
+      "rect": {
+        "h": 45,
+        "w": 141.53,
+        "x": 1068.47,
+        "y": 3816.88
+      },
+      "style": {
+        "background": "rgb(255, 255, 255)",
+        "borderRadius": "1584px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More"
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/whop-aave-treasury",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 224,
+        "y": 4007.28
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "Whop 21M+ users with yield powered by Aave."
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/aave-powers-metamask-stablecoin-earn",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 725,
+        "y": 4007.28
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "MetaMask 100M+ users with access to Aave-powered yield."
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/cap",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 224,
+        "y": 4205.48
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "Cap $360M+ supplied 90% of stcUSD yield from Aave."
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/ethena",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 725,
+        "y": 4205.48
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "Ethena $10B reached in 500 days."
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/kraken-defi-earn",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 224,
+        "y": 4403.69
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "Kraken ~60% lending market share."
+    },
+    {
+      "className": "styles_card__TUPXy",
+      "href": "https://aave.com/blog/kinexys-jpmorgan",
+      "rect": {
+        "h": 182.2,
+        "w": 485,
+        "x": 725,
+        "y": 4403.69
+      },
+      "style": {
+        "background": "rgba(255, 255, 255, 0.65)",
+        "borderRadius": "20px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "24px"
+      },
+      "tag": "a",
+      "text": "Kinexys by J.P. Morgan J.P. Morgan validated institutional DeFi on Aave."
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/about",
+      "rect": {
+        "h": 45,
+        "w": 141.53,
+        "x": 559.61,
+        "y": 5089.5
+      },
+      "style": {
+        "background": "rgb(15, 15, 16)",
+        "borderRadius": "1584px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/careers",
+      "rect": {
+        "h": 45,
+        "w": 157.24,
+        "x": 717.14,
+        "y": 5089.5
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "rgb(15, 15, 16)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "View Careers"
+    },
+    {
+      "className": "styles_collapsibleButton__MlK3f",
+      "href": "",
+      "rect": {
+        "h": 84,
+        "w": 736,
+        "x": 474,
+        "y": 5832.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "20px 0px 12px"
+      },
+      "tag": "button",
+      "text": "What is Aave?"
+    },
+    {
+      "className": "styles_collapsibleButton__MlK3f",
+      "href": "",
+      "rect": {
+        "h": 84,
+        "w": 736,
+        "x": 474,
+        "y": 5917.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "20px 0px 12px"
+      },
+      "tag": "button",
+      "text": "Where are supplied tokens stored?"
+    },
+    {
+      "className": "styles_collapsibleButton__MlK3f",
+      "href": "",
+      "rect": {
+        "h": 84,
+        "w": 736,
+        "x": 474,
+        "y": 6002.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "20px 0px 12px"
+      },
+      "tag": "button",
+      "text": "Does Aave have risks?"
+    },
+    {
+      "className": "styles_collapsibleButton__MlK3f",
+      "href": "",
+      "rect": {
+        "h": 84,
+        "w": 736,
+        "x": 474,
+        "y": 6087.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "20px 0px 12px"
+      },
+      "tag": "button",
+      "text": "What is the Aave token?"
+    },
+    {
+      "className": "styles_container__At_jz ",
+      "href": "https://aave.com/faq",
+      "rect": {
+        "h": 45,
+        "w": 240.94,
+        "x": 474,
+        "y": 6204.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "1584px",
+        "color": "rgb(15, 15, 16)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.17px",
+        "lineHeight": "17px",
+        "margin": "0px",
+        "padding": "14px 24px"
+      },
+      "tag": "a",
+      "text": "Learn More About Aave"
+    },
+    {
+      "className": "",
+      "href": "",
+      "rect": {
+        "h": 40,
+        "w": 114.22,
+        "x": 1063.78,
+        "y": 6532.09
+      },
+      "style": {
+        "background": "color(display-p3 0.129412 0.113725 0.113725)",
+        "borderRadius": "6px 20px 20px 6px",
+        "color": "color(display-p3 1 1 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px 16px"
+      },
+      "tag": "button",
+      "text": "Sign Up"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/app",
+      "rect": {
+        "h": 20,
+        "w": 92.97,
+        "x": 224,
+        "y": 6811.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Aave App"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/pro",
+      "rect": {
+        "h": 20,
+        "w": 92.97,
+        "x": 224,
+        "y": 6847.94
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Aave Pro"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://app.aave.com/",
+      "rect": {
+        "h": 20,
+        "w": 92.97,
+        "x": 224,
+        "y": 6884.03
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Aave V3"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/build",
+      "rect": {
+        "h": 22.14,
+        "w": 92.97,
+        "x": 224,
+        "y": 6920.13
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Aave Kit"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/blog",
+      "rect": {
+        "h": 17,
+        "w": 30.38,
+        "x": 436.8,
+        "y": 6810.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Blog"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/brand",
+      "rect": {
+        "h": 17,
+        "w": 40.38,
+        "x": 436.8,
+        "y": 6841.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Brand"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/faq",
+      "rect": {
+        "h": 17,
+        "w": 28.84,
+        "x": 436.8,
+        "y": 6872.83
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "FAQ"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/help",
+      "rect": {
+        "h": 17,
+        "w": 100.98,
+        "x": 436.8,
+        "y": 6903.82
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Help & Support"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://governance.aave.com/",
+      "rect": {
+        "h": 17,
+        "w": 81.17,
+        "x": 436.8,
+        "y": 6934.81
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Governance"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/docs",
+      "rect": {
+        "h": 17,
+        "w": 102.16,
+        "x": 657.63,
+        "y": 6810.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Documentation"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/blog/case-studies",
+      "rect": {
+        "h": 17,
+        "w": 87.91,
+        "x": 657.63,
+        "y": 6841.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Case Studies"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://github.com/aave/aave-v3-core/blob/master/techpaper/Aave_V3_Technical_Paper.pdf",
+      "rect": {
+        "h": 17,
+        "w": 107.21,
+        "x": 657.63,
+        "y": 6872.83
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Technical Paper"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/security",
+      "rect": {
+        "h": 17,
+        "w": 54.22,
+        "x": 657.63,
+        "y": 6903.82
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Security"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://audits.sherlock.xyz/bug-bounties/300",
+      "rect": {
+        "h": 17,
+        "w": 76.16,
+        "x": 657.63,
+        "y": 6934.81
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Bug Bounty"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/about",
+      "rect": {
+        "h": 17,
+        "w": 69.94,
+        "x": 884.68,
+        "y": 6810.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Aave Labs"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/careers",
+      "rect": {
+        "h": 17,
+        "w": 52.8,
+        "x": 884.68,
+        "y": 6841.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Careers"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/privacy-policy",
+      "rect": {
+        "h": 17,
+        "w": 92.55,
+        "x": 1074.45,
+        "y": 6810.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Privacy Policy"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/terms-of-service",
+      "rect": {
+        "h": 17,
+        "w": 108.02,
+        "x": 1074.45,
+        "y": 6841.84
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Terms of Service"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/legal/podcast",
+      "rect": {
+        "h": 17,
+        "w": 135.55,
+        "x": 1074.45,
+        "y": 6872.83
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Podcast Disclosures"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "",
+      "rect": {
+        "h": 17,
+        "w": 54.53,
+        "x": 1074.45,
+        "y": 6903.82
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Contact"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "",
+      "rect": {
+        "h": 17,
+        "w": 36.29,
+        "x": 1074.45,
+        "y": 6934.81
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Press"
+    },
+    {
+      "className": "styles_navLink__Of9Og",
+      "href": "https://aave.com/#",
+      "rect": {
+        "h": 17,
+        "w": 120.46,
+        "x": 1074.45,
+        "y": 6965.8
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "a",
+      "text": "Manage Analytics"
+    }
+  ],
+  "headings": [
+    {
+      "className": "styles_heading__IIvAo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09008px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "32px 0px 16px"
+      },
+      "tag": "h2",
+      "text": "Resources"
+    },
+    {
+      "className": "styles_heading__IIvAo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09008px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "32px 0px 16px"
+      },
+      "tag": "h2",
+      "text": "Developers"
+    },
+    {
+      "className": "styles_heading__IIvAo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09008px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "32px 0px 16px"
+      },
+      "tag": "h3",
+      "text": "About"
+    },
+    {
+      "className": "styles_heading__VB3wz styles_level1Large__bDeUm styles_title__G9AAz",
+      "rect": {
+        "h": 95.2,
+        "w": 986,
+        "x": 224,
+        "y": 194
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "72px",
+        "fontWeight": "500",
+        "letterSpacing": "-3.6px",
+        "lineHeight": "79.2px",
+        "margin": "0px",
+        "padding": "16px 0px 0px"
+      },
+      "tag": "h1",
+      "text": "Savings for Everyone"
+    },
+    {
+      "className": "styles_heading__VB3wz styles_level1Large__bDeUm styles_title__G9AAz",
+      "rect": {
+        "h": 95.2,
+        "w": 986,
+        "x": 224,
+        "y": 1249.47
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "72px",
+        "fontWeight": "500",
+        "letterSpacing": "-3.6px",
+        "lineHeight": "79.2px",
+        "margin": "0px",
+        "padding": "16px 0px 0px"
+      },
+      "tag": "h1",
+      "text": "The Full Power of DeFi"
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 48,
+        "w": 736,
+        "x": 224,
+        "y": 2234.68
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "500",
+        "letterSpacing": "-1.2px",
+        "lineHeight": "48px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "Markets for every strategy."
+    },
+    {
+      "className": "styles_cardHeading__pozGi",
+      "rect": {
+        "h": 24.48,
+        "w": 264.66,
+        "x": 248,
+        "y": 2484.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24.48px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "Main • Core"
+    },
+    {
+      "className": "styles_cardHeading__pozGi",
+      "rect": {
+        "h": 24.48,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 2484.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24.48px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "Bluechip • Prime"
+    },
+    {
+      "className": "styles_cardHeading__pozGi",
+      "rect": {
+        "h": 24.48,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 2484.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24.48px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "Ethena • Plus"
+    },
+    {
+      "className": "styles_heading__VB3wz styles_level1Large__bDeUm styles_title__G9AAz",
+      "rect": {
+        "h": 95.2,
+        "w": 986,
+        "x": 224,
+        "y": 2941.16
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "72px",
+        "fontWeight": "500",
+        "letterSpacing": "-3.6px",
+        "lineHeight": "79.2px",
+        "margin": "0px",
+        "padding": "16px 0px 0px"
+      },
+      "tag": "h1",
+      "text": "Build with Aave"
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 48,
+        "w": 520,
+        "x": 224,
+        "y": 3816.88
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "500",
+        "letterSpacing": "-1.2px",
+        "lineHeight": "48px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "The best build with Aave."
+    },
+    {
+      "className": "styles_heading__VB3wz styles_level1Large__bDeUm styles_title__G9AAz",
+      "rect": {
+        "h": 95.2,
+        "w": 986,
+        "x": 224,
+        "y": 4891.89
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "72px",
+        "fontWeight": "500",
+        "letterSpacing": "-3.6px",
+        "lineHeight": "79.2px",
+        "margin": "0px",
+        "padding": "16px 0px 0px"
+      },
+      "tag": "h1",
+      "text": "Trusted by Default"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 248,
+        "y": 5302.5
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "6+ Years"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 5302.5
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "$3.46T"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 5302.5
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "$1T"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 248,
+        "y": 5493.3
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "$88.44B"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 5493.3
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "$1.92B"
+    },
+    {
+      "className": "styles_cardHeading__rZEOs",
+      "rect": {
+        "h": 32.4,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 5493.3
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.72px",
+        "lineHeight": "32.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "SOC 2 Type 2"
+    },
+    {
+      "className": "styles_heading__VB3wz styles_level2__ilE9d ",
+      "rect": {
+        "h": 417,
+        "w": 178,
+        "x": 224,
+        "y": 5832.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.8px",
+        "lineHeight": "54px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "FAQs"
+    },
+    {
+      "className": "styles_collapsibleTitle__nQ5wa",
+      "rect": {
+        "h": 24.3,
+        "w": 120.14,
+        "x": 474,
+        "y": 5865.95
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.33px",
+        "lineHeight": "24.3px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "What is Aave?"
+    },
+    {
+      "className": "styles_collapsibleTitle__nQ5wa",
+      "rect": {
+        "h": 24.3,
+        "w": 291.7,
+        "x": 474,
+        "y": 5950.95
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.33px",
+        "lineHeight": "24.3px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "Where are supplied tokens stored?"
+    },
+    {
+      "className": "styles_collapsibleTitle__nQ5wa",
+      "rect": {
+        "h": 24.3,
+        "w": 186.98,
+        "x": 474,
+        "y": 6035.95
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.33px",
+        "lineHeight": "24.3px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "Does Aave have risks?"
+    },
+    {
+      "className": "styles_collapsibleTitle__nQ5wa",
+      "rect": {
+        "h": 24.3,
+        "w": 201.9,
+        "x": 474,
+        "y": 6120.95
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.33px",
+        "lineHeight": "24.3px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h3",
+      "text": "What is the Aave token?"
+    },
+    {
+      "className": "styles_title__KN_hu",
+      "rect": {
+        "h": 72,
+        "w": 314,
+        "x": 224,
+        "y": 6501.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "450",
+        "letterSpacing": "-0.47px",
+        "lineHeight": "36px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "tag": "h2",
+      "text": "Be the first to hear about Aave Labs news."
+    }
+  ],
+  "imgs": [
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 40,
+        "w": 40,
+        "x": 560.66,
+        "y": 90.15
+      },
+      "src": "https://aave.com/images/icon-aave-app.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 84,
+        "w": 84
+      },
+      "rect": {
+        "h": 40,
+        "w": 40,
+        "x": 560.66,
+        "y": 154.15
+      },
+      "src": "https://aave.com/images/icon-aave.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 40,
+        "w": 40,
+        "x": 560.66,
+        "y": 218.15
+      },
+      "src": "https://aave.com/images/icon-aave-pro.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 93,
+        "w": 84
+      },
+      "rect": {
+        "h": 44.28,
+        "w": 40,
+        "x": 560.66,
+        "y": 280.01
+      },
+      "src": "https://aave.com/images/icon-aave-kit.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 84,
+        "w": 84
+      },
+      "rect": {
+        "h": 24,
+        "w": 24,
+        "x": 1026,
+        "y": 82.85
+      },
+      "src": "https://aave.com/images/icon-aave.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 24,
+        "w": 24,
+        "x": 1026,
+        "y": 122.85
+      },
+      "src": "https://aave.com/images/icon-aave-pro.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/icon-aave-app.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 84,
+        "w": 84
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/icon-aave.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/icon-aave-pro.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 93,
+        "w": 84
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/icon-aave-kit.png"
+    },
+    {
+      "alt": "Aave App icon",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 28,
+        "w": 28,
+        "x": 651.12,
+        "y": 150
+      },
+      "src": "https://aave.com/images/icon-aave-app.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 1545,
+        "w": 972
+      },
+      "rect": {
+        "h": 513.94,
+        "w": 323.34,
+        "x": 298.96,
+        "y": 547.53
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/hero-1.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 1665,
+        "w": 972
+      },
+      "rect": {
+        "h": 553.86,
+        "w": 323.34,
+        "x": 555.33,
+        "y": 507.61
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/hero-2.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 1545,
+        "w": 972
+      },
+      "rect": {
+        "h": 513.94,
+        "w": 323.34,
+        "x": 811.69,
+        "y": 547.53
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/hero-3.png"
+    },
+    {
+      "alt": "",
+      "className": "styles_carouselItemImage__OIh_s",
+      "natural": {
+        "h": 1169,
+        "w": 572
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/carousel-1.png"
+    },
+    {
+      "alt": "",
+      "className": "styles_carouselItemImage__OIh_s",
+      "natural": {
+        "h": 1169,
+        "w": 572
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/carousel-2.png"
+    },
+    {
+      "alt": "",
+      "className": "styles_carouselItemImage__OIh_s",
+      "natural": {
+        "h": 1169,
+        "w": 572
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/carousel-3.png"
+    },
+    {
+      "alt": "",
+      "className": "styles_carouselItemImage__OIh_s",
+      "natural": {
+        "h": 1169,
+        "w": 572
+      },
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "src": "https://aave.com/images/app/hero/eu-uk-row/carousel-4.png"
+    },
+    {
+      "alt": "Aave Pro icon",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 28,
+        "w": 28,
+        "x": 654.48,
+        "y": 1205.47
+      },
+      "src": "https://aave.com/images/icon-aave-pro.png"
+    },
+    {
+      "alt": "Aave Kit icon",
+      "className": "",
+      "natural": {
+        "h": 93,
+        "w": 84
+      },
+      "rect": {
+        "h": 31,
+        "w": 28,
+        "x": 658.2,
+        "y": 2894.16
+      },
+      "src": "https://aave.com/images/icon-aave-kit.png"
+    },
+    {
+      "alt": "Whop logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 248,
+        "y": 4031.28
+      },
+      "src": "https://aave.com/images/partner-quotes/whop.svg"
+    },
+    {
+      "alt": "MetaMask logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 749,
+        "y": 4031.28
+      },
+      "src": "https://aave.com/images/partner-quotes/metamask.svg"
+    },
+    {
+      "alt": "Cap logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 248,
+        "y": 4229.48
+      },
+      "src": "https://aave.com/images/partner-quotes/cap.svg"
+    },
+    {
+      "alt": "Ethena logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 749,
+        "y": 4229.48
+      },
+      "src": "https://aave.com/images/partner-quotes/ethena.svg"
+    },
+    {
+      "alt": "Kraken logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 248,
+        "y": 4427.69
+      },
+      "src": "https://aave.com/images/partner-quotes/kraken.svg"
+    },
+    {
+      "alt": "Kinexys by J.P. Morgan logo",
+      "className": "styles_cardLogoImage__lSVBo",
+      "natural": {
+        "h": 48,
+        "w": 48
+      },
+      "rect": {
+        "h": 48,
+        "w": 48,
+        "x": 749,
+        "y": 4427.69
+      },
+      "src": "https://aave.com/images/partner-quotes/kinexys.svg"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 20,
+        "w": 20,
+        "x": 224,
+        "y": 6811.84
+      },
+      "src": "https://aave.com/images/icon-aave-app.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 80,
+        "w": 80
+      },
+      "rect": {
+        "h": 20,
+        "w": 20,
+        "x": 224,
+        "y": 6847.94
+      },
+      "src": "https://aave.com/images/icon-aave-pro.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 84,
+        "w": 84
+      },
+      "rect": {
+        "h": 20,
+        "w": 20,
+        "x": 224,
+        "y": 6884.03
+      },
+      "src": "https://aave.com/images/icon-aave.png"
+    },
+    {
+      "alt": "",
+      "className": "",
+      "natural": {
+        "h": 93,
+        "w": 84
+      },
+      "rect": {
+        "h": 22.14,
+        "w": 20,
+        "x": 224,
+        "y": 6920.13
+      },
+      "src": "https://aave.com/images/icon-aave-kit.png"
+    }
+  ],
+  "paras": [
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 67.49,
+        "x": 616.66,
+        "y": 91.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave App"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 21,
+        "w": 204,
+        "x": 616.66,
+        "y": 108.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Savings for everyone."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 35.41,
+        "x": 616.66,
+        "y": 155.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 21,
+        "w": 204,
+        "x": 616.66,
+        "y": 172.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The original DeFi protocol."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 62.73,
+        "x": 616.66,
+        "y": 219.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Pro"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 21,
+        "w": 204,
+        "x": 616.66,
+        "y": 236.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The full power of DeFi."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 57.52,
+        "x": 616.66,
+        "y": 283.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Kit"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 21,
+        "w": 204,
+        "x": 616.66,
+        "y": 300.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Build with Aave."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 16.8,
+        "w": 191.59,
+        "x": 616.66,
+        "y": 91.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Blog"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 21,
+        "w": 191.59,
+        "x": 616.66,
+        "y": 108.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The latest news and updates."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 16.8,
+        "w": 194.01,
+        "x": 616.66,
+        "y": 155.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Brand"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 21,
+        "w": 194.01,
+        "x": 616.66,
+        "y": 172.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Assets, examples and guides."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 16.8,
+        "w": 205.53,
+        "x": 616.66,
+        "y": 219.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "FAQ"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 21,
+        "w": 205.53,
+        "x": 616.66,
+        "y": 236.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Answers to common questions."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 16.8,
+        "w": 170.61,
+        "x": 616.66,
+        "y": 283.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Help & Support"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 21,
+        "w": 170.61,
+        "x": 616.66,
+        "y": 300.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Guides, articles and more."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 16.8,
+        "w": 191.41,
+        "x": 616.66,
+        "y": 347.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Governance"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 21,
+        "w": 191.41,
+        "x": 616.66,
+        "y": 364.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The Aave Governance forum."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 16.8,
+        "w": 154.37,
+        "x": 616.66,
+        "y": 91.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Case Studies"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 21,
+        "w": 154.37,
+        "x": 616.66,
+        "y": 108.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The best build on Aave."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 16.8,
+        "w": 212.96,
+        "x": 616.66,
+        "y": 155.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Documentation"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 21,
+        "w": 212.96,
+        "x": 616.66,
+        "y": 172.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Technical guides for developers."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 16.8,
+        "w": 198.77,
+        "x": 616.66,
+        "y": 219.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Security"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 21,
+        "w": 198.77,
+        "x": 616.66,
+        "y": 236.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Audit reports and information."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 16.8,
+        "w": 248.52,
+        "x": 616.66,
+        "y": 283.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Bug Bounty"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 21,
+        "w": 248.52,
+        "x": 616.66,
+        "y": 300.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Report responsibly and get rewarded."
+    },
+    {
+      "className": "styles_menuLinkTitle__UowaK",
+      "rect": {
+        "h": 16.8,
+        "w": 156.99,
+        "x": 616.66,
+        "y": 91.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Labs"
+    },
+    {
+      "className": "styles_menuLinkDescription__5lAss",
+      "rect": {
+        "h": 21,
+        "w": 156.99,
+        "x": 616.66,
+        "y": 108.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Learn about Aave Labs."
+    },
+    {
+      "className": "styles_menuLinkTitle__UowaK",
+      "rect": {
+        "h": 16.8,
+        "w": 173.98,
+        "x": 616.66,
+        "y": 155.25
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Careers"
+    },
+    {
+      "className": "styles_menuLinkDescription__5lAss",
+      "rect": {
+        "h": 21,
+        "w": 173.98,
+        "x": 616.66,
+        "y": 172.05
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(99, 97, 97)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Build the future of finance."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 35.41,
+        "x": 1060,
+        "y": 86.45
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave"
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 16.8,
+        "w": 62.73,
+        "x": 1060,
+        "y": 126.45
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(33, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Pro"
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave App"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Savings for everyone."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The original DeFi protocol."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Pro"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The full power of DeFi."
+    },
+    {
+      "className": "styles_menuLinkTitle__nsyPN",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Kit"
+    },
+    {
+      "className": "styles_menuLinkDescription__DAezo",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Build with Aave."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Blog"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The latest news and updates."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Brand"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Assets, examples and guides."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "FAQ"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Answers to common questions."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Help & Support"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Guides, articles and more."
+    },
+    {
+      "className": "styles_menuLinkTitle__iJxt7",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Governance"
+    },
+    {
+      "className": "styles_menuLinkDescription__AK_Tj",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The Aave Governance forum."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Case Studies"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "The best build on Aave."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Documentation"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Technical guides for developers."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Security"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Audit reports and information."
+    },
+    {
+      "className": "styles_menuLinkTitle__AS2AZ",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Bug Bounty"
+    },
+    {
+      "className": "styles_menuLinkDescription__mCPbD",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Report responsibly and get rewarded."
+    },
+    {
+      "className": "styles_menuLinkTitle__UowaK",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave Labs"
+    },
+    {
+      "className": "styles_menuLinkDescription__5lAss",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Learn about Aave Labs."
+    },
+    {
+      "className": "styles_menuLinkTitle__UowaK",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "450",
+        "letterSpacing": "0.14px",
+        "lineHeight": "16.8px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Careers"
+    },
+    {
+      "className": "styles_menuLinkDescription__5lAss",
+      "rect": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "21px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Build the future of finance."
+    },
+    {
+      "className": "styles_description__5Hvnp",
+      "rect": {
+        "h": 54.41,
+        "w": 580,
+        "x": 427,
+        "y": 305.2
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px 203px",
+        "padding": "0px"
+      },
+      "text": "Earn up to 6.50% on your stablecoins with industry-leading interest rates and balance protection up to $1M."
+    },
+    {
+      "className": "styles_description__5Hvnp",
+      "rect": {
+        "h": 27.2,
+        "w": 378.91,
+        "x": 527.55,
+        "y": 1360.67
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgba(255, 255, 255, 0.5)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px 303.547px",
+        "padding": "0px"
+      },
+      "text": "Earn, borrow and swap. Built on Aave v4."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 54.41,
+        "w": 736,
+        "x": 224,
+        "y": 2298.68
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "From conservative stablecoin configurations to higher-yield arrangements, choose the market that matches how you earn and borrow."
+    },
+    {
+      "className": "styles_cardDescription__x__y5",
+      "rect": {
+        "h": 67.2,
+        "w": 264.66,
+        "x": 248,
+        "y": 2520.96
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Earn stable yield and borrow at the lowest rates. Curated collateral and tight parameters."
+    },
+    {
+      "className": "styles_cardDescription__x__y5",
+      "rect": {
+        "h": 67.2,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 2520.96
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Predictable withdrawals, no utilization risk on your collateral. Your ETH and BTC stay available."
+    },
+    {
+      "className": "styles_cardDescription__x__y5",
+      "rect": {
+        "h": 67.2,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 2520.96
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Borrow stablecoins against USDe and sUSDe. Strategy-grade parameters, isolated risk."
+    },
+    {
+      "className": "styles_description__5Hvnp",
+      "rect": {
+        "h": 54.41,
+        "w": 580,
+        "x": 427,
+        "y": 3052.36
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px 203px",
+        "padding": "0px"
+      },
+      "text": "Launch lending, yield, and onchain financial experiences with Aave’s integration stack."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 54.41,
+        "w": 520,
+        "x": 224,
+        "y": 3880.88
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Reach millions of users and access billions in capital with a few lines of code."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 248,
+        "y": 4103.28
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "21M+ users"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 248,
+        "y": 4144.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "with yield powered by Aave."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 749,
+        "y": 4103.28
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "100M+ users"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 749,
+        "y": 4144.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "with access to Aave-powered yield."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 248,
+        "y": 4301.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "$360M+ supplied"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 248,
+        "y": 4342.69
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "90% of stcUSD yield from Aave."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 749,
+        "y": 4301.48
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "$10B reached"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 749,
+        "y": 4342.69
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "in 500 days."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 248,
+        "y": 4499.69
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "~60%"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 248,
+        "y": 4540.89
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "lending market share."
+    },
+    {
+      "className": "styles_cardStat__GZJGI",
+      "rect": {
+        "h": 35.2,
+        "w": 437,
+        "x": 749,
+        "y": 4499.69
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "rgb(34, 29, 29)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "letterSpacing": "-1px",
+        "lineHeight": "35.2px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "J.P. Morgan"
+    },
+    {
+      "className": "styles_cardDescription__aXDgw",
+      "rect": {
+        "h": 21,
+        "w": 437,
+        "x": 749,
+        "y": 4540.89
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "21px",
+        "margin": "6px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "validated institutional DeFi on Aave."
+    },
+    {
+      "className": "styles_description__5Hvnp",
+      "rect": {
+        "h": 54.41,
+        "w": 580,
+        "x": 427,
+        "y": 5003.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.560784 0.556863 0.556863)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.2px",
+        "lineHeight": "27.2px",
+        "margin": "0px 203px",
+        "padding": "0px"
+      },
+      "text": "Six years of uninterrupted operation. Trillions deposited. Independently audited, onchain, and open to verify."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 248,
+        "y": 5342.9
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Of uninterrupted operation."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 5342.9
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Lifetime deposits."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 5342.9
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Lifetime borrows."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 248,
+        "y": 5533.7
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Monthly volume across markets."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 584.66,
+        "y": 5533.7
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Interest earned by lenders."
+    },
+    {
+      "className": "styles_cardDescription__fW4OO",
+      "rect": {
+        "h": 22.4,
+        "w": 264.66,
+        "x": 921.33,
+        "y": 5533.7
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.16px",
+        "lineHeight": "22.4px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Annual security audit."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 72,
+        "w": 676,
+        "x": 474,
+        "y": 5916.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Aave is a decentralised non-custodial liquidity protocol where users can participate as suppliers or borrowers. Suppliers provide liquidity to the market while earning interest, and borrowers can access liquidity by providing collateral that exceeds the borrowed amount."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 72,
+        "w": 676,
+        "x": 474,
+        "y": 6001.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Supplied tokens are stored in publicly accessible smart contracts that enable overcollateralised borrowing according to governance-approved parameters. The Aave Protocol smart contracts have been audited and formally verified by third parties."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 144,
+        "w": 676,
+        "x": 474,
+        "y": 6086.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "No protocol can be considered entirely risk free, but extensive steps have been taken to minimize these risks as much as possible – the Aave Protocol code is publicly available and auditable by anyone, and has been audited by multiple smart contract auditors. Any code changes must be executed through the onchain governance processes. Additionally, there is an ongoing bug bounty campaign and service providers specializing in technical reviews and risk mitigation."
+    },
+    {
+      "className": "",
+      "rect": {
+        "h": 96,
+        "w": 676,
+        "x": 474,
+        "y": 6171.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.388235 0.380392 0.380392)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.18px",
+        "lineHeight": "24px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "AAVE is used as the centre of gravity of Aave Protocol governance. AAVE is used to vote and decide on the outcome of Aave Improvement Proposals (AIPs). Apart from this, AAVE can be staked within the protocol Safety Module to provide a backstop in the case of a shortfall event, and earn incentives for doing so."
+    },
+    {
+      "className": "styles_navTitle__vbCUj",
+      "rect": {
+        "h": 14.7,
+        "w": 92.97,
+        "x": 224,
+        "y": 6777.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Products"
+    },
+    {
+      "className": "styles_navTitle__vbCUj",
+      "rect": {
+        "h": 14.7,
+        "w": 100.98,
+        "x": 436.8,
+        "y": 6777.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Resources"
+    },
+    {
+      "className": "styles_navTitle__vbCUj",
+      "rect": {
+        "h": 14.7,
+        "w": 107.21,
+        "x": 657.63,
+        "y": 6777.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Developers"
+    },
+    {
+      "className": "styles_navTitle__vbCUj",
+      "rect": {
+        "h": 14.7,
+        "w": 69.94,
+        "x": 884.68,
+        "y": 6777.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "About"
+    },
+    {
+      "className": "styles_navTitle__vbCUj",
+      "rect": {
+        "h": 14.7,
+        "w": 135.55,
+        "x": 1074.45,
+        "y": 6777.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.592157 0.556863 1)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.09px",
+        "lineHeight": "14.7px",
+        "margin": "0px",
+        "padding": "0px"
+      },
+      "text": "Legal & Privacy"
+    },
+    {
+      "className": "styles_legalText__n3Rqf",
+      "rect": {
+        "h": 53.04,
+        "w": 986,
+        "x": 224,
+        "y": 7139.75
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.737255 0.733333 0.733333)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.13px",
+        "lineHeight": "17.68px",
+        "margin": "32px 0px 0px",
+        "padding": "0px"
+      },
+      "text": "Aave.com provides information and resources about the fundamentals of the decentralised non-custodial liquidity protocol called the Aave Protocol, comprised of open-source self-executing smart contracts that are deployed on various permissionless public blockchains, such as Ethereum (the \"Aave Protocol\" or the \"Protocol\"). Aave Labs does not control or operate any version of the Aave Protocol on any blockchain network."
+    }
+  ],
+  "scrollHeight": 7265,
+  "sections": [
+    {
+      "className": "styles_container__KfcyI",
+      "i": 0,
+      "rect": {
+        "h": 1085.47,
+        "w": 1434,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "0px 24px 24px"
+      },
+      "tag": "div",
+      "text": "Aave App Savings for Everyone Earn up to 6.50% on your stablecoins with industry-leading interest rates and balance protection up to $1M. Download on iOS Learn More"
+    },
+    {
+      "className": "styles_container__KfcyI",
+      "i": 1,
+      "rect": {
+        "h": 1658.69,
+        "w": 1434,
+        "x": 0,
+        "y": 1085.47
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "0px 24px 24px"
+      },
+      "tag": "div",
+      "text": "Aave Pro The Full Power of DeFi Earn, borrow and swap. Built on Aave v4. Get Started Learn More Markets for every strategy. From conservative stablecoin configurations to higher-yield arrangements, choose the market that matches how you earn and borrow. Learn More General purpose Main • Core Earn stable yield and borrow at the lowest rates. Curated collateral and tight parameters. Predictable Bluechip • Prime Predictable withdrawals, no utilization risk on your collateral. Your ETH and BTC stay available. Strategy-specific Ethena • Plus Borrow stablecoins against USDe and sUSDe. Strategy-grade parameters, isolated risk."
+    },
+    {
+      "className": "styles_container__KfcyI",
+      "i": 2,
+      "rect": {
+        "h": 1965.73,
+        "w": 1434,
+        "x": 0,
+        "y": 2744.16
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "0px 24px 24px"
+      },
+      "tag": "div",
+      "text": "Aave Kit Build with Aave Launch lending, yield, and onchain financial experiences with Aave’s integration stack. Start Building Talk to Sales The best build with Aave. Reach millions of users and access billions in capital with a few lines of code. Learn More Whop 21M+ users with yield powered by Aave. MetaMask 100M+ users with access to Aave-powered yield. Cap $360M+ supplied 90% of stcUSD yield from Aave. Ethena $10B reached in 500 days. Kraken ~60% lending market share. Kinexys by J.P. Morgan J.P. Morgan validated institutional DeFi on Aave."
+    },
+    {
+      "className": "styles_container__KfcyI",
+      "i": 3,
+      "rect": {
+        "h": 1002.2,
+        "w": 1434,
+        "x": 0,
+        "y": 4709.89
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "0px 24px 24px"
+      },
+      "tag": "div",
+      "text": "Trusted by Default Six years of uninterrupted operation. Trillions deposited. Independently audited, onchain, and open to verify. Learn More View Careers 6+ Years Of uninterrupted operation. $3.46T Lifetime deposits. $1T Lifetime borrows. $88.44B Monthly volume across markets. $1.92B Interest earned by lenders. SOC 2 Type 2 Annual security audit."
+    },
+    {
+      "className": "styles_section__ZlvVq styles_section__SyNeT",
+      "i": 4,
+      "rect": {
+        "h": 657,
+        "w": 1434,
+        "x": 0,
+        "y": 5712.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "120px 48px"
+      },
+      "tag": "section",
+      "text": "FAQs What is Aave? Aave is a decentralised non-custodial liquidity protocol where users can participate as suppliers or borrowers. Suppliers provide liquidity to the market while earning interest, and borrowers can access liquidity by providing collateral that exceeds the borrowed amount. Where are supplied tokens stored? Supplied tokens are stored in publicly accessible smart contracts that enable overcollateralised borrowing according to governance-approved parameters. The Aave Protocol smart contracts have been audited and formally verified by third parties. Does Aave have risks? No protocol can be considered entirely risk free, but extensive steps have been taken to minimize these risks "
+    },
+    {
+      "className": "styles_divider__Q0Hcm",
+      "i": 5,
+      "rect": {
+        "h": 1,
+        "w": 1082,
+        "x": 176,
+        "y": 6369.09
+      },
+      "style": {
+        "background": "color(display-p3 0.9451 0.9451 0.9412)",
+        "borderRadius": "0px",
+        "color": "rgb(128, 128, 128)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px 176px",
+        "padding": "0px"
+      },
+      "tag": "hr",
+      "text": ""
+    },
+    {
+      "className": "styles_section__ZlvVq styles_section__7zEIffalse",
+      "i": 6,
+      "rect": {
+        "h": 334,
+        "w": 1434,
+        "x": 0,
+        "y": 6370.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px",
+        "padding": "100px 48px"
+      },
+      "tag": "section",
+      "text": "Be the first to hear about Aave Labs news. Email Sign Up"
+    },
+    {
+      "className": "styles_divider__Q0Hcm",
+      "i": 7,
+      "rect": {
+        "h": 1,
+        "w": 1082,
+        "x": 176,
+        "y": 6704.09
+      },
+      "style": {
+        "background": "color(display-p3 0.9451 0.9451 0.9412)",
+        "borderRadius": "0px",
+        "color": "rgb(128, 128, 128)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px 176px",
+        "padding": "0px"
+      },
+      "tag": "hr",
+      "text": ""
+    },
+    {
+      "className": "styles_section__UnXri",
+      "i": 8,
+      "rect": {
+        "h": 559.7,
+        "w": 1082,
+        "x": 176,
+        "y": 6705.09
+      },
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "color": "color(display-p3 0.129412 0.113725 0.113725)",
+        "fontFamily": "\"Aave Repro\", system-ui, -apple-system, \"system-ui\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "margin": "0px 176px",
+        "padding": "72px 48px"
+      },
+      "tag": "section",
+      "text": "Products Aave App Aave Pro Aave V3 Aave Kit Resources Blog Brand FAQ Help & Support Governance Developers Documentation Case Studies Technical Paper Security Bug Bounty About Aave Labs Careers Legal & Privacy Privacy Policy Terms of Service Podcast Disclosures Contact Press Manage Analytics Aave.com provides information and resources about the fundamentals of the decentralised non-custodial liquidity protocol called the Aave Protocol, comprised of open-source self-executing smart contracts that are deployed on various permissionless public blockchains, such as Ethereum (the \"Aave Protocol\" or the \"Protocol\"). Aave Labs does not control or operate any version of the Aave Protocol on any block"
+    }
+  ]
+}

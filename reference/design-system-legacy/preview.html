@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apple-Color Design System Preview</title>
+    <link rel="stylesheet" href="./tokens.css">
+    <link rel="stylesheet" href="./components.css">
+    <style>
+      .preview-hero {
+        min-height: 560px;
+        display: grid;
+        align-items: center;
+      }
+
+      .preview-token-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .preview-swatch {
+        min-height: 108px;
+        border: 1px solid var(--aave-border-1);
+        border-radius: 16px;
+        padding: 12px;
+        background: var(--swatch);
+        color: var(--text, var(--aave-fg-1));
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 4px;
+      }
+
+      .preview-swatch code {
+        font-family: var(--aave-font-mono);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="aave-nav aave-shell">
+      <strong>Apple Color DS</strong>
+      <nav class="aave-nav__links" aria-label="Preview">
+        <a class="aave-nav__link" href="#tokens">Tokens</a>
+        <a class="aave-nav__link" href="#components">Components</a>
+        <a class="aave-nav__link" href="#patterns">Patterns</a>
+      </nav>
+      <a class="aave-button aave-button--dark" href="../index.html">Clone</a>
+    </header>
+
+    <main>
+      <section class="aave-section preview-hero">
+        <div class="aave-section__inner aave-stack">
+          <p class="aave-kicker">Design system</p>
+          <h1 class="aave-heading-xl">A reusable interface kit with Apple-style color foundations.</h1>
+          <p class="aave-text-lead">The structure keeps the cloned layout, typography, radius, and motion system, while the color layer now uses Apple-like blue, white, near-black, and system accent colors.</p>
+          <div class="aave-button-row">
+            <a class="aave-button aave-button--primary" href="#components">View components</a>
+            <a class="aave-button aave-button--secondary" href="#tokens">Inspect tokens</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tokens" class="aave-section aave-surface-soft">
+        <div class="aave-section__inner aave-stack">
+          <div>
+            <p class="aave-kicker">Tokens</p>
+            <h2 class="aave-heading-lg">Color primitives</h2>
+          </div>
+          <div class="preview-token-grid">
+            <div class="preview-swatch" style="--swatch: var(--aave-fg-1); --text: #fff;"><strong>Foreground</strong><code>#1d1d1f</code></div>
+            <div class="preview-swatch" style="--swatch: var(--aave-primary); --text: #fff;"><strong>Primary</strong><code>#0071e3</code></div>
+            <div class="preview-swatch" style="--swatch: var(--aave-primary-wash);"><strong>Primary wash</strong><code>#d6ebff</code></div>
+            <div class="preview-swatch" style="--swatch: var(--aave-yellow-1);"><strong>Yellow</strong><code>#ffcc00</code></div>
+            <div class="preview-swatch" style="--swatch: var(--aave-green); --text: #fff;"><strong>Green</strong><code>#34c759</code></div>
+            <div class="preview-swatch" style="--swatch: var(--aave-red); --text: #fff;"><strong>Red</strong><code>#ff3b30</code></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="components" class="aave-section">
+        <div class="aave-section__inner aave-stack">
+          <div>
+            <p class="aave-kicker">Components</p>
+            <h2 class="aave-heading-lg">Cards, buttons, stats, and forms</h2>
+          </div>
+
+          <div class="aave-button-row">
+            <button class="aave-button aave-button--primary">Primary action</button>
+            <button class="aave-button aave-button--secondary">Secondary action</button>
+            <button class="aave-button aave-button--dark">Dark action</button>
+          </div>
+
+          <div class="aave-grid aave-grid--auto">
+            <article class="aave-card aave-stat">
+              <p class="aave-stat__value">$50B+</p>
+              <p class="aave-stat__label">Example stat card using the same scale, padding, and soft surface as the clone.</p>
+            </article>
+            <article class="aave-card aave-stat">
+              <p class="aave-stat__value">24px</p>
+              <p class="aave-stat__label">Default card radius and grid spacing match the measured homepage sections.</p>
+            </article>
+            <article class="aave-card aave-stat">
+              <p class="aave-stat__value">986px</p>
+              <p class="aave-stat__label">Primary content width, with wider shell support for footer and nav layouts.</p>
+            </article>
+          </div>
+
+          <form class="aave-newsletter">
+            <p class="aave-kicker">Newsletter</p>
+            <h3 class="aave-heading-md">Stay in the loop</h3>
+            <div class="aave-newsletter__form">
+              <input class="aave-newsletter__input" type="email" placeholder="Email address">
+              <button class="aave-newsletter__submit" type="submit">Sign up</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="patterns" class="aave-section aave-surface-dark">
+        <div class="aave-section__inner aave-stack">
+          <div>
+            <p class="aave-kicker">Patterns</p>
+            <h2 class="aave-heading-lg">Dark market cards</h2>
+          </div>
+          <div class="aave-grid aave-grid--two">
+            <article class="aave-card aave-card--dark aave-market">
+              <p class="aave-market__label">Supply</p>
+              <h3 class="aave-market__title">Use restrained contrast on dark panels.</h3>
+              <p class="aave-text-body">Dark panels use low-opacity white surfaces, blue labels, and compact card copy.</p>
+            </article>
+            <article class="aave-card aave-card--dark aave-market">
+              <p class="aave-market__label">Borrow</p>
+              <h3 class="aave-market__title">Keep spacing roomy and readable.</h3>
+              <p class="aave-text-body">Cards keep 24px gaps and 32px by 24px internal padding across large layouts.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="aave-section">
+        <div class="aave-section__inner">
+          <div class="aave-accordion">
+            <details open>
+              <summary>Where did these values come from?</summary>
+              <p>They were extracted from the cloned page CSS and measured rendered sections, then normalized into reusable names.</p>
+            </details>
+            <details>
+              <summary>Can this be used in another app?</summary>
+              <p>Yes. Import tokens.css first, then components.css, and compose the prefixed classes in your templates.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

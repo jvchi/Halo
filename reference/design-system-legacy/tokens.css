@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "Aave Repro";
+  src:
+    url("../assets/source/c13a814d15056c2c.woff2") format("woff2"),
+    url("../assets/source/f6f7ae4a32605f06.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aave Repro Mono";
+  src:
+    url("../assets/source/521c5118feb61dfb.woff2") format("woff2"),
+    url("../assets/source/cc917aa4d1cc37a7.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  --aave-font-sans: "Aave Repro", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --aave-font-mono: "Aave Repro Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --aave-bg-1: #ffffff;
+  --aave-bg-2: #ffffff;
+  --aave-bg-3: #f5f5f7;
+  --aave-bg-4: #f2f2f7;
+  --aave-border-1: #e5e5ea;
+  --aave-border-2: #d2d2d7;
+  --aave-fg-1: #1d1d1f;
+  --aave-fg-2: #6e6e73;
+  --aave-fg-3: #86868b;
+  --aave-fg-4: #d2d2d7;
+  --aave-primary: #0071e3;
+  --aave-primary-soft: #2997ff;
+  --aave-primary-wash: #d6ebff;
+  --aave-primary-tint: #f5fbff;
+  --aave-yellow-1: #ffcc00;
+  --aave-yellow-2: #ffd60a;
+  --aave-yellow-3: #fff4b8;
+  --aave-blue-1: #0066cc;
+  --aave-blue-2: #2997ff;
+  --aave-blue-3: #d6ebff;
+  --aave-blue-4: #f5fbff;
+  --aave-gho: #34c759;
+  --aave-green: #34c759;
+  --aave-red: #ff3b30;
+  --aave-pink: #ff2d55;
+  --aave-purple: #af52de;
+  --aave-indigo: #5856d6;
+  --aave-teal: #5ac8fa;
+  --aave-focus: #0071e3;
+  --aave-wallet: #0a84ff;
+  --aave-account: #34c759;
+  --aave-orange: #ff9500;
+  --aave-stat-card: #f5f5f7;
+  --aave-newsletter-card: #f5f5f7;
+  --aave-dark-surface: #000000;
+  --aave-dark-card: rgb(255 255 255 / 0.06);
+  --aave-glass-card: rgb(255 255 255 / 0.72);
+  --aave-glass-card-hover: rgb(255 255 255 / 0.92);
+
+  --aave-radius-xs: 6px;
+  --aave-radius-sm: 12px;
+  --aave-radius-md: 16px;
+  --aave-radius-lg: 20px;
+  --aave-radius-xl: 24px;
+  --aave-radius-pill: 99rem;
+
+  --aave-space-1: 4px;
+  --aave-space-2: 8px;
+  --aave-space-3: 12px;
+  --aave-space-4: 16px;
+  --aave-space-5: 20px;
+  --aave-space-6: 24px;
+  --aave-space-8: 32px;
+  --aave-space-10: 40px;
+  --aave-space-12: 48px;
+  --aave-space-18: 72px;
+  --aave-space-20: 80px;
+  --aave-space-25: 100px;
+  --aave-space-30: 120px;
+
+  --aave-container-sm: 493px;
+  --aave-container-md: 986px;
+  --aave-container-lg: 1082px;
+
+  --aave-shadow-subtle: 0 1px 2px rgb(29 29 31 / 0.04), 0 10px 30px rgb(29 29 31 / 0.06);
+  --aave-duration-snappy: 750ms;
+  --aave-ease-snappy: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --aave-duration-swift: 1800ms;
+  --aave-ease-swift: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --aave-fg-1: color(display-p3 0.114 0.114 0.122);
+    --aave-fg-2: color(display-p3 0.431 0.431 0.451);
+    --aave-fg-3: color(display-p3 0.525 0.525 0.545);
+    --aave-fg-4: color(display-p3 0.824 0.824 0.843);
+    --aave-primary: color(display-p3 0 0.443 0.89);
+    --aave-primary-soft: color(display-p3 0.161 0.592 1);
+    --aave-primary-wash: color(display-p3 0.839 0.922 1);
+    --aave-primary-tint: color(display-p3 0.961 0.984 1);
+    --aave-yellow-1: color(display-p3 1 0.8 0);
+    --aave-yellow-2: color(display-p3 1 0.839 0.039);
+    --aave-yellow-3: color(display-p3 1 0.957 0.722);
+    --aave-blue-1: color(display-p3 0 0.4 0.8);
+    --aave-blue-2: color(display-p3 0.161 0.592 1);
+    --aave-blue-3: color(display-p3 0.839 0.922 1);
+    --aave-blue-4: color(display-p3 0.961 0.984 1);
+    --aave-gho: color(display-p3 0.204 0.78 0.349);
+    --aave-green: color(display-p3 0.204 0.78 0.349);
+    --aave-red: color(display-p3 1 0.231 0.188);
+    --aave-pink: color(display-p3 1 0.176 0.333);
+    --aave-purple: color(display-p3 0.686 0.322 0.871);
+    --aave-indigo: color(display-p3 0.345 0.337 0.839);
+    --aave-teal: color(display-p3 0.353 0.784 0.98);
+    --aave-focus: color(display-p3 0 0.443 0.89);
+    --aave-wallet: color(display-p3 0.039 0.518 1);
+    --aave-account: color(display-p3 0.204 0.78 0.349);
+    --aave-orange: color(display-p3 1 0.584 0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--aave-bg-1);
+  color: var(--aave-fg-1);
+  font-family: var(--aave-font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricprecision;
+}
+
+:focus-visible {
+  outline: 2px solid var(--aave-focus);
+  outline-offset: 3px;
+}
