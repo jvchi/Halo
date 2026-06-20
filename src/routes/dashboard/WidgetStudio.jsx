@@ -5,6 +5,7 @@ import { WidgetStudioIcon } from "@/components/icons";
 import { widgetPresets, getPreset } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
+import { widgetTemplates, templateIds } from "@/components/widget/templates/index.js";
 
 const LAYOUTS = [
   { id: "single", label: "Single" },
@@ -14,7 +15,10 @@ const LAYOUTS = [
   { id: "marquee", label: "Marquee" },
 ];
 
-const COLUMN_LAYOUTS = new Set(["grid", "masonry"]);
+const TEMPLATE_OPTIONS = widgetTemplates.map((t) => ({ id: t.id, label: t.label }));
+const ALL_LAYOUT_OPTIONS = [...LAYOUTS, ...TEMPLATE_OPTIONS];
+
+const COLUMN_LAYOUTS = new Set(["grid", "masonry", "aurora", "sticker"]);
 
 const DISPLAY_OPTIONS = [
   { key: "showAvatar", label: "Avatar" },
@@ -25,13 +29,41 @@ const DISPLAY_OPTIONS = [
 
 const EMBED_CODE = `<iframe src="https://halo.app/embed/WIDGET_ID" width="100%" style="border:0;" loading="lazy"></iframe>`;
 
-function Field({ label, children }) {
+function Chevron({ open }) {
   return (
-    <div className="grid gap-2.5">
-      <span className="text-[12px] font-medium uppercase tracking-[0.04em] text-halo-fg-3">
-        {label}
-      </span>
-      {children}
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      className={cn("transition-transform duration-200", open && "rotate-180")}
+      aria-hidden="true"
+    >
+      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// Collapsed by default — the header shows the current value so the whole config
+// reads at a glance, and options only appear when the user opens a section.
+function Disclosure({ label, value, open, onToggle, children }) {
+  return (
+    <div className="overflow-hidden rounded-md border border-halo-border-1">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-3 bg-halo-bg-1 px-3.5 py-3 text-left transition-colors hover:bg-halo-bg-3"
+      >
+        <span className="text-[13px] font-medium text-halo-fg-1">{label}</span>
+        <span className="flex items-center gap-2 text-halo-fg-3">
+          <span className="max-w-[130px] truncate text-[13px]">{value}</span>
+          <Chevron open={open} />
+        </span>
+      </button>
+      {open && (
+        <div className="border-t border-halo-border-1 bg-halo-bg-3/40 p-3.5">{children}</div>
+      )}
     </div>
   );
 }
@@ -129,12 +161,18 @@ export default function WidgetStudio() {
     showSource: true,
   });
   const [copied, setCopied] = useState(false);
+  const [open, setOpen] = useState({});
 
   const { approved } = useTestimonials();
   const theme = getPreset(themeId);
+  const isTemplate = templateIds.has(type);
   const showColumns = COLUMN_LAYOUTS.has(type);
   const effectiveColumns = device === "mobile" ? 1 : columns;
   const config = { type, theme, columns: effectiveColumns, display, maxItems: 12 };
+
+  const toggle = (key) => setOpen((o) => ({ ...o, [key]: !o[key] }));
+  const layoutLabel = ALL_LAYOUT_OPTIONS.find((l) => l.id === type)?.label ?? "Grid";
+  const shownCount = Object.values(display).filter(Boolean).length;
 
   function copyEmbed() {
     navigator.clipboard?.writeText(EMBED_CODE);
@@ -166,9 +204,10 @@ export default function WidgetStudio() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-        {/* Controls */}
-        <div className="grid content-start gap-6 rounded-xl border border-halo-border-1 bg-halo-bg-3/40 p-5">
-          <Field label="Preset">
+        {/* Controls — each group collapses into a toggle menu so the panel stays
+            quiet; the headers show the current value without expanding. */}
+        <div className="grid content-start gap-2.5">
+          <Disclosure label="Preset" value={theme.name} open={open.preset} onToggle={() => toggle("preset")}>
             <div className="grid grid-cols-2 gap-2">
               {widgetPresets.map((p) => (
                 <PresetSwatch
@@ -179,34 +218,54 @@ export default function WidgetStudio() {
                 />
               ))}
             </div>
-          </Field>
+          </Disclosure>
 
-          <Field label="Layout">
-            <Segmented options={LAYOUTS} value={type} onChange={setType} wrap />
-          </Field>
+          <Disclosure label="Layout" value={layoutLabel} open={open.layout} onToggle={() => toggle("layout")}>
+            <div className="grid gap-3">
+              <div className="grid gap-1.5">
+                <span className="text-[11px] font-medium uppercase tracking-[0.05em] text-halo-fg-3">
+                  Card layouts
+                </span>
+                <Segmented options={LAYOUTS} value={type} onChange={setType} wrap />
+              </div>
+              <div className="grid gap-1.5">
+                <span className="text-[11px] font-medium uppercase tracking-[0.05em] text-halo-fg-3">
+                  Templates
+                </span>
+                <Segmented options={TEMPLATE_OPTIONS} value={type} onChange={setType} wrap />
+              </div>
+            </div>
+          </Disclosure>
 
           {showColumns && (
-            <Field label="Columns">
+            <Disclosure label="Columns" value={String(columns)} open={open.columns} onToggle={() => toggle("columns")}>
               <Segmented
                 options={[2, 3, 4].map((n) => ({ id: n, label: String(n) }))}
                 value={columns}
                 onChange={setColumns}
               />
-            </Field>
+            </Disclosure>
           )}
 
-          <Field label="Display">
-            <div className="grid gap-3.5">
-              {DISPLAY_OPTIONS.map((o) => (
-                <Toggle
-                  key={o.key}
-                  label={o.label}
-                  checked={display[o.key]}
-                  onChange={(v) => setDisplay((d) => ({ ...d, [o.key]: v }))}
-                />
-              ))}
-            </div>
-          </Field>
+          {isTemplate ? (
+            <p className="px-1 text-[12px] leading-relaxed text-halo-fg-3">
+              This template uses its own fixed card design — the display toggles
+              don&rsquo;t apply.
+            </p>
+          ) : (
+            <Disclosure label="Display" value={`${shownCount} of 4 shown`} open={open.display} onToggle={() => toggle("display")}>
+              <div className="grid gap-3.5">
+                {DISPLAY_OPTIONS.map((o) => (
+                  <Toggle
+                    key={o.key}
+                    label={o.label}
+                    checked={display[o.key]}
+                    onChange={(v) => setDisplay((d) => ({ ...d, [o.key]: v }))}
+                  />
+                ))}
+              </div>
+            </Disclosure>
+          )}
         </div>
 
         {/* Live preview */}

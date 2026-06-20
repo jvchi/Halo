@@ -3,6 +3,7 @@ import { MotionConfig } from "motion/react";
 import { IllustratedEmptyState } from "@/components/ui";
 import Landing from "@/routes/Landing.jsx";
 import Pricing from "@/routes/Pricing.jsx";
+import Templates from "@/routes/Templates.jsx";
 import DashboardLayout from "@/routes/dashboard/DashboardLayout.jsx";
 import Overview from "@/routes/dashboard/Overview.jsx";
 import Inbox from "@/routes/dashboard/Inbox.jsx";
@@ -35,6 +36,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/templates" element={<Templates />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Overview />} />
           <Route path="inbox" element={<Inbox />} />

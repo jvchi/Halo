@@ -1,4 +1,5 @@
 import { shadowCss } from "@/lib/presets";
+import { templateIds, getTemplate } from "@/components/widget/templates/index.js";
 
 // The shared testimonial renderer (blueprint §6.6). It is intentionally
 // self-contained — no Tailwind, no design-system imports — only inline styles
@@ -194,6 +195,14 @@ export function WidgetRenderer({ config, testimonials = [] }) {
         <EmptyState />
       </div>
     );
+  }
+
+  // Pre-styled templates are complete, self-contained designs — they bring their
+  // own layout, colors, and typography, so they render directly rather than through
+  // the preset-driven card path above.
+  if (templateIds.has(type)) {
+    const { Component } = getTemplate(type);
+    return <Component testimonials={items} columns={columns} />;
   }
 
   if (type === "marquee") {
