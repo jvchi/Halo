@@ -1,152 +1,197 @@
-import { useEffect, useRef } from "react";
-import { NavLink, Link, Outlet } from "react-router-dom";
-import { defineElement } from "@lordicon/element";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { TestimonialsProvider } from "@/lib/testimonialsStore.jsx";
 import { Logo } from "@/components/landing/Logo.jsx";
 
-export const dashboardNav = [
+const dashboardSections = [
   {
-    to: "/dashboard",
-    label: "Overview",
-    icon: "/lordicons/system-regular/33-speed.json",
-    introState: "in-speed",
-    hoverState: "hover-speed",
-    end: true,
+    title: "Workspace",
+    items: [{ to: "/dashboard", label: "Overview", icon: "overview", end: true }],
   },
   {
-    to: "/dashboard/inbox",
-    label: "Inbox",
-    icon: "/lordicons/system-regular/9-inbox.json",
-    introState: "in-inbox",
-    hoverState: "hover-inbox",
+    title: "Review",
+    items: [{ to: "/dashboard/inbox", label: "Inbox", icon: "inbox" }],
   },
   {
-    to: "/dashboard/widget-studio",
-    label: "Widget Studio",
-    icon: "/lordicons/system-regular/63-settings-cog.json",
-    introState: "in-cog",
-    hoverState: "hover-cog-1",
+    title: "Build",
+    items: [
+      { to: "/dashboard/widget-studio", label: "Widget Studio", icon: "studio" },
+      { to: "/dashboard/walls", label: "Walls", icon: "walls" },
+    ],
   },
   {
-    to: "/dashboard/walls",
-    label: "Walls",
-    icon: "/lordicons/system-regular/48-favorite-heart.json",
-    introState: "in-reveal",
-    hoverState: "hover-pinch",
-  },
-  {
-    to: "/dashboard/analytics",
-    label: "Analytics",
-    icon: "/lordicons/system-regular/10-analytics.json",
-    introState: "in-analytics",
-    hoverState: "hover-analytics",
+    title: "Measure",
+    items: [{ to: "/dashboard/analytics", label: "Analytics", icon: "analytics" }],
   },
 ];
 
-let lordiconElementDefined = false;
+export const dashboardNav = dashboardSections.flatMap((section) => section.items);
 
-function defineLordiconElement() {
-  if (lordiconElementDefined || typeof window === "undefined") return;
-  defineElement();
-  lordiconElementDefined = true;
-}
-
-function NavLordicon({ src, introState, hoverState }) {
-  const iconRef = useRef(null);
-
-  useEffect(() => {
-    defineLordiconElement();
-  }, []);
-
-  useEffect(() => {
-    const icon = iconRef.current;
-    if (!icon) return undefined;
-    const target = icon.closest("[data-dashboard-nav-item]") ?? icon;
-
-    let playedIntro = false;
-    const playState = (state) => {
-      const player = icon.playerInstance;
-      if (!player) return;
-      player.loop = false;
-      player.direction = 1;
-      player.state = state;
-      player.playFromStart();
-    };
-    const playIntro = () => {
-      if (playedIntro) return;
-      playedIntro = true;
-      playState(introState);
-    };
-    const playHover = () => playState(hoverState);
-
-    if (icon.ready) {
-      playIntro();
-    } else {
-      icon.addEventListener("ready", playIntro, { once: true });
-    }
-
-    target.addEventListener("mouseenter", playHover);
-    target.addEventListener("click", playHover);
-
-    return () => {
-      icon.removeEventListener("ready", playIntro);
-      target.removeEventListener("mouseenter", playHover);
-      target.removeEventListener("click", playHover);
-    };
-  }, [hoverState, introState]);
+function SidebarIcon({ name }) {
+  const paths = {
+    overview: (
+      <>
+        <path d="M3 11.5h10" />
+        <path d="M4 8.5l2.5-3 2 2 3-3.5" />
+        <path d="M3.5 2.5h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
+      </>
+    ),
+    inbox: (
+      <>
+        <path d="M3 3.5h10l1 5v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-4l1-5Z" />
+        <path d="M2.25 8.5H5l1 2h4l1-2h2.75" />
+      </>
+    ),
+    studio: (
+      <>
+        <path d="M8 2.5v11" />
+        <path d="M3 4.5h10" />
+        <path d="M4.5 8h7" />
+        <path d="M5.5 11.5h5" />
+      </>
+    ),
+    walls: (
+      <>
+        <path d="M3 3.5h4v4H3z" />
+        <path d="M9 3.5h4v4H9z" />
+        <path d="M3 9.5h4v4H3z" />
+        <path d="M9 9.5h4v4H9z" />
+      </>
+    ),
+    analytics: (
+      <>
+        <path d="M3 13.5V8" />
+        <path d="M8 13.5V3" />
+        <path d="M13 13.5V6" />
+        <path d="M2 13.5h12" />
+      </>
+    ),
+  };
 
   return (
-    <lord-icon
-      ref={iconRef}
-      src={src}
-      state={introState}
-      className="h-6 w-6 shrink-0 bg-transparent"
-      style={{ width: "24px", height: "24px" }}
-      aria-hidden="true"
-    />
+    <span className="halo-sidebar-icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <g
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.45"
+        >
+          {paths[name]}
+        </g>
+      </svg>
+    </span>
+  );
+}
+
+function MenuIcon({ open }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      {open ? (
+        <>
+          <path d="M4 4l8 8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+          <path d="M12 4l-8 8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+        </>
+      ) : (
+        <>
+          <path d="M3 5h10" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+          <path d="M3 11h10" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
+        </>
+      )}
+    </svg>
+  );
+}
+
+function DashboardNavTree({ onNavigate }) {
+  return (
+    <nav className="halo-sidebar-nav">
+      <div className="halo-sidebar-items">
+        {dashboardNav.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.end}
+            onClick={onNavigate}
+            className={({ isActive }) => cn("halo-sidebar-link", isActive && "is-active")}
+          >
+            <SidebarIcon name={item.icon} />
+            <span>{item.label}</span>
+          </NavLink>
+        ))}
+      </div>
+    </nav>
   );
 }
 
 export default function DashboardLayout() {
+  const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <TestimonialsProvider>
-    <div className="flex min-h-screen flex-col md:flex-row">
-      <aside className="shrink-0 border-b border-halo-border-1 bg-halo-bg-3 md:w-[248px] md:border-b-0 md:border-r">
-        <div className="sticky top-0 flex flex-col gap-6 p-5 md:h-screen">
-          <Link to="/" aria-label="Halo home">
-            <Logo />
-          </Link>
-          <nav className="flex gap-1 overflow-x-auto md:flex-col">
-            {dashboardNav.map(({ to, label, icon, introState, hoverState, end }) => (
-              <NavLink key={to} to={to} end={end}>
-                {({ isActive }) => (
-                  <span
-                    data-dashboard-nav-item
-                    className={cn(
-                      "flex items-center gap-3 rounded-md px-3 py-2.5 text-[14px] font-medium whitespace-nowrap transition-colors",
-                      isActive ? "bg-halo-bg-1 text-halo-fg-1" : "text-halo-fg-2 hover:bg-halo-bg-4"
-                    )}
-                  >
-                    <NavLordicon src={icon} introState={introState} hoverState={hoverState} />
-                    {label}
-                  </span>
-                )}
-              </NavLink>
-            ))}
-          </nav>
-          <div className="mt-auto hidden text-[12px] text-halo-fg-3 md:block">
-            Halo workspace · Free plan
-          </div>
-        </div>
-      </aside>
+      <div className="halo-doc-shell">
+        <header className="halo-doc-header">
+          <div className="halo-doc-header-inner">
+            <Link to="/" className="halo-doc-logo" aria-label="Halo home">
+              <Logo />
+              <span className="halo-doc-logo-divider" />
+              <span className="halo-doc-logo-context">Dashboard</span>
+            </Link>
 
-      <main className="flex-1 px-8 py-10 max-md:px-5 max-md:py-8">
-        <div className="mx-auto max-w-content">
-          <Outlet />
+            <div className="halo-doc-actions">
+              <button
+                type="button"
+                className="halo-mobile-menu-button"
+                aria-label={mobileMenuOpen ? "Close dashboard menu" : "Open dashboard menu"}
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen((open) => !open)}
+              >
+                <MenuIcon open={mobileMenuOpen} />
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <AnimatePresence initial={false}>
+          {mobileMenuOpen ? (
+            <motion.div
+              className="halo-mobile-menu"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+            >
+              <DashboardNavTree onNavigate={() => setMobileMenuOpen(false)} />
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+
+        <div className="halo-doc-body">
+          <aside className="halo-doc-sidebar" aria-label="Dashboard navigation">
+            <DashboardNavTree />
+            <div className="halo-sidebar-footnote">
+              <span>Halo workspace</span>
+              <span>Free plan</span>
+            </div>
+          </aside>
+
+          <main className="halo-doc-main">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+              >
+                <Outlet />
+              </motion.div>
+            </AnimatePresence>
+          </main>
         </div>
-      </main>
-    </div>
+      </div>
     </TestimonialsProvider>
   );
 }

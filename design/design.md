@@ -333,6 +333,52 @@ The design system was derived from these local artifacts:
 - `./references/local-desktop-1440.png`, `./references/local-tablet-768.png`, and `./references/local-mobile-390.png` are clone screenshots.
 - `./references/clone-generation-summary.json` records `99` downloaded local assets from `https://aave.com/`.
 
+### Aave Docs Shell DevTools Addendum
+
+On `2026-06-20`, the dashboard shell direction was re-studied from `https://aave.com/docs/aave-v4` in Chrome DevTools at a `1440px x 754px` viewport. Use these findings for Halo dashboard surfaces; keep Halo-owned labels, routes, icons, and assets.
+
+Static layout:
+
+- Header height is `82.5px`, white, centered inside a `986px` content width. Header background transitions over `400ms ease`.
+- Desktop body aligns to the same `986px` width. The left documentation rail is `220px`; the main content starts after a roughly `48px` gutter.
+- The sidebar begins below the header at about `135px` from the top of the viewport, which comes from the `82.5px` header plus about `52px` top body padding.
+- Main document headings use compact product type: `26px` dashboard/page title scale, medium weight, tight negative tracking, with muted `15px` supporting copy.
+- The reference content panel is a very pale `#fafafa` rectangular surface rather than a heavy card.
+
+Sidebar typography and states:
+
+- Section titles are `14px`, weight `500`, color close to `#221d1d`, and letter spacing `-0.09px`.
+- Sidebar links are `16px`, weight `500`, letter spacing `-0.09px`, with `30px` to `32px` row height.
+- Inactive links use `#8f8e8e`; hover moves toward `#636161`; active links use near-black `#201d1d`.
+- Icons are compact `16px` marks. Inactive icon color is muted gray; active icons receive the primary selection color. The reference changes icon fill/stroke variables in `80ms ease-out`.
+- Active rows do not need a large filled pill. The feel comes from dark text, a colored icon, and tight spacing.
+
+Header and menu interaction:
+
+- Top nav buttons are `32px` tall, pill radius `50px`, `14px` labels, `9px 16px` padding.
+- Nav hover uses a very soft near-black fill at about `6%` opacity, with `background-color 150ms ease` and `color 400ms ease`.
+- Filled header CTAs and circular search buttons are `34px` tall, near-black fill, white text/icon, and `150ms ease` opacity/press feedback.
+- Floating menu rows in the reference are `64px` tall, `8px` radius, and transition over `200ms ease-out`. External arrows transition `opacity 150ms ease` and `transform 200ms ease-out`, moving about `1px` right and `1px` up on hover.
+- The header dropdown arrow uses a `300ms` position transition. Menu open/close also triggers short Web Animations around `400ms` and `500ms`; use them sparingly and only for popovers, not persistent dashboard content.
+
+Dashboard motion translation:
+
+- Use `80ms ease-out` for sidebar icon color changes.
+- Use `180ms ease-out` for sidebar link hover and active-state color.
+- Use `150ms ease` for compact button opacity/background feedback.
+- Use `200ms ease-out` for arrow/icon nudge interactions.
+- Use `300ms` zero-bounce spring motion for page route transitions.
+- Use split/staggered entrance motion for dashboard panels, with about `80ms` to `100ms` between semantic chunks.
+- Respect `prefers-reduced-motion`; the reference has motion density, but Halo should keep the app usable when motion is reduced.
+
+Dashboard semantics:
+
+- Borrow the docs shell structure and motion language, but do not label dashboard navigation like documentation. Use workspace/product labels such as `Workspace`, `Review`, `Build`, and `Measure`.
+- The user should always understand they are in an app dashboard, not a protocol documentation site. Avoid copy such as `Introduction`, `Reference`, `Copy for LLM`, or docs-only hierarchy.
+- Preserve dashboard actions and outcomes: collect testimonials, approve/reject/edit, configure widgets, publish walls, and inspect analytics.
+- On creation surfaces such as Widget Studio, preview is the primary object. Render the live preview before configuration controls, keep controls in a secondary inspector panel, and collapse navigation before it competes with the preview.
+- At medium widths, hide the persistent side rail behind the dashboard menu instead of converting it into a large horizontal rail above the workspace. This preserves hierarchy and keeps the active editing surface above the fold.
+
 ## Design Principles
 
 1. Lead with clarity. Use short, declarative headings and avoid decorative clutter around the main proposition.

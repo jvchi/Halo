@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
-import { IllustratedEmptyState } from "@/components/ui";
-import { CollectIcon } from "@/components/icons";
+import { IllustratedEmptyState, PageHeading } from "@/components/ui";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { TESTIMONIAL_STATUSES } from "@/lib/testimonials";
 
@@ -34,7 +33,7 @@ function initials(name) {
 
 function Avatar({ name }) {
   return (
-    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-pill bg-halo-primary-wash text-[13px] font-semibold text-halo-primary">
+    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-pill bg-halo-primary-wash text-[12px] font-semibold text-halo-primary">
       {initials(name)}
     </div>
   );
@@ -59,7 +58,7 @@ function StatusBadge({ status }) {
   const meta = STATUS_META[status];
   return (
     <span
-      className="rounded-pill px-2.5 py-1 text-[12px] font-medium"
+      className="rounded-pill px-2 py-0.5 text-[11px] font-medium"
       style={{ color: meta.color, background: `color-mix(in srgb, ${meta.color} 13%, transparent)` }}
     >
       {meta.label}
@@ -79,7 +78,7 @@ function RowButton({ onClick, children, tone = "ghost" }) {
       type="button"
       onClick={onClick}
       className={cn(
-        "rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors",
+        "rounded-md px-2.5 py-1 text-[12px] font-medium transition-colors",
         tones[tone]
       )}
     >
@@ -158,7 +157,7 @@ function EditCard({ t, onSave, onCancel }) {
 function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
   if (editing) {
     return (
-      <div className="rounded-xl border border-halo-border-1 bg-halo-bg-3/40 p-5">
+      <div className="rounded-lg border border-halo-border-1 bg-halo-bg-3/40 p-4">
         <EditCard
           t={t}
           onCancel={onCancel}
@@ -188,30 +187,30 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
   }[t.status];
 
   return (
-    <div className="rounded-xl border border-halo-border-1 bg-halo-bg-3/40 p-5">
-      <div className="flex items-start gap-4">
+    <div className="rounded-lg border border-halo-border-1 bg-halo-bg-3/40 p-4">
+      <div className="flex items-start gap-3">
         <Avatar name={t.name} />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="text-[15px] font-medium text-halo-fg-1">{t.name}</span>
+            <span className="text-[14px] font-medium text-halo-fg-1">{t.name}</span>
             {(t.role || t.company) && (
               <span className="text-[13px] text-halo-fg-3">
                 {[t.role, t.company].filter(Boolean).join(" · ")}
               </span>
             )}
-            <span className="ml-auto flex items-center gap-2">
-              <span className="text-[12px] text-halo-fg-4">{SOURCE_LABELS[t.source] ?? t.source}</span>
+            <span className="ml-auto flex items-center gap-2.5">
+              <span className="text-[12px] text-halo-fg-3">via {SOURCE_LABELS[t.source] ?? t.source}</span>
               <StatusBadge status={t.status} />
             </span>
           </div>
-          <div className="mt-2">
+          <div className="mt-1.5">
             <Stars rating={t.rating} />
           </div>
-          <p className="mt-2 text-[14px] leading-relaxed text-halo-fg-2">{t.text}</p>
+          <p className="mt-1.5 text-[13px] leading-relaxed text-halo-fg-2">{t.text}</p>
           {t.tags.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5">
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
               {t.tags.map((tag) => (
-                <span key={tag} className="rounded-pill bg-halo-bg-4 px-2.5 py-1 text-[12px] text-halo-fg-3">
+                <span key={tag} className="rounded-pill bg-halo-bg-4 px-2 py-0.5 text-[11px] text-halo-fg-3">
                   {tag}
                 </span>
               ))}
@@ -219,7 +218,7 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
           )}
         </div>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2 pl-14">
+      <div className="mt-3 flex flex-wrap gap-2 pl-[48px]">
         {actions.map((a) => (
           <RowButton key={a.label} tone={a.tone} onClick={a.run}>{a.label}</RowButton>
         ))}
@@ -257,28 +256,23 @@ export default function Inbox() {
   const tabs = [{ id: "all", label: "All" }, ...TESTIMONIAL_STATUSES.map((s) => ({ id: s, label: STATUS_META[s].label }))];
 
   return (
-    <div className="grid gap-8">
-      <div className="flex items-center gap-4">
-        <div className="grid h-12 w-12 place-items-center rounded-md bg-halo-bg-3">
-          <CollectIcon size={28} />
-        </div>
-        <div className="grid gap-1">
-          <h1 className="m-0 text-[26px] font-medium tracking-[-0.02em] text-halo-fg-1">Inbox</h1>
-          <p className="m-0 text-[15px] text-halo-fg-2">
-            Approve, edit, and tag testimonials before they go public. Approved ones flow into your widgets.
-          </p>
-        </div>
-      </div>
+    <div className="halo-page">
+      <header className="halo-page-header">
+        <PageHeading
+          title="Inbox"
+          info="Approve, edit, and tag testimonials before they go public. Approved ones flow into your widgets."
+        />
+      </header>
 
       <div className="flex flex-wrap items-center gap-3">
-        <div className="flex flex-wrap gap-1 rounded-md bg-halo-bg-3 p-1">
+        <div className="flex flex-wrap gap-0.5 rounded-md bg-halo-bg-3 p-0.5">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setStatusFilter(tab.id)}
               className={cn(
-                "rounded-[10px] px-3 py-1.5 text-[13px] font-medium transition-colors",
+                "rounded-[14px] px-2.5 py-1 text-[12px] font-medium transition-colors",
                 statusFilter === tab.id
                   ? "bg-halo-bg-1 text-halo-fg-1"
                   : "text-halo-fg-2 hover:text-halo-fg-1"

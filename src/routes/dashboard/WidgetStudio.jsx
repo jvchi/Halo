@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { cn } from "@/lib/cn";
-import { Button } from "@/components/ui";
-import { WidgetStudioIcon } from "@/components/icons";
+import { useLayoutEffect, useRef, useState } from "react";
 import { widgetPresets, getPreset } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
 import { cardStyles, customCardStyleIds } from "@/components/widget/templates/index.js";
+import { PageHeading } from "@/components/ui";
+import { Disclosure, Segmented, Toggle, OptionList, SwatchGrid } from "@/components/dashboard/inspector.jsx";
 
 const LAYOUTS = [
   { id: "single", label: "Single" },
@@ -19,6 +18,13 @@ const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }))
 
 const COLUMN_LAYOUTS = new Set(["grid", "masonry"]);
 
+// The desktop preview renders at a realistic embed width and is scaled down to
+// fit the panel — so column proportions stay truthful instead of being crushed
+// into the narrow studio column. Mobile renders 1:1 at a phone width.
+const DESKTOP_WIDTH = 900;
+const MOBILE_WIDTH = 390;
+const CANVAS_PAD = 28;
+
 const DISPLAY_OPTIONS = [
   { key: "showAvatar", label: "Avatar" },
   { key: "showCompany", label: "Role & company" },
@@ -28,132 +34,16 @@ const DISPLAY_OPTIONS = [
 
 const EMBED_CODE = `<iframe src="https://halo.app/embed/WIDGET_ID" width="100%" style="border:0;" loading="lazy"></iframe>`;
 
-function Chevron({ open }) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 16 16"
-      fill="none"
-      className={cn("transition-transform duration-200", open && "rotate-180")}
-      aria-hidden="true"
-    >
-      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-// Collapsed by default — the header shows the current value so the whole config
-// reads at a glance, and options only appear when the user opens a section.
-function Disclosure({ label, value, open, onToggle, children }) {
-  return (
-    <div className="overflow-hidden rounded-md border border-halo-border-1">
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between gap-3 bg-halo-bg-1 px-3.5 py-3 text-left transition-colors hover:bg-halo-bg-3"
-      >
-        <span className="text-[13px] font-medium text-halo-fg-1">{label}</span>
-        <span className="flex items-center gap-2 text-halo-fg-3">
-          <span className="max-w-[130px] truncate text-[13px]">{value}</span>
-          <Chevron open={open} />
-        </span>
-      </button>
-      {open && (
-        <div className="border-t border-halo-border-1 bg-halo-bg-3/40 p-3.5">{children}</div>
-      )}
-    </div>
-  );
-}
-
-function Segmented({ options, value, onChange, wrap = false }) {
-  return (
-    <div className={cn("flex gap-1 rounded-md bg-halo-bg-3 p-1", wrap && "flex-wrap")}>
-      {options.map((o) => (
-        <button
-          key={o.id}
-          type="button"
-          onClick={() => onChange(o.id)}
-          className={cn(
-            "rounded-[10px] px-3 py-1.5 text-[13px] font-medium transition-colors",
-            wrap ? "flex-auto" : "flex-1",
-            value === o.id
-              ? "bg-halo-bg-1 text-halo-fg-1"
-              : "text-halo-fg-2 hover:text-halo-fg-1"
-          )}
-        >
-          {o.label}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-function Toggle({ label, checked, onChange }) {
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      onClick={() => onChange(!checked)}
-      className="flex items-center justify-between gap-3 text-[14px] text-halo-fg-1"
-    >
-      <span>{label}</span>
-      <span
-        className={cn(
-          "relative h-[22px] w-[38px] shrink-0 rounded-pill transition-colors",
-          checked ? "bg-halo-primary" : "bg-halo-bg-4"
-        )}
-      >
-        <span
-          className={cn(
-            "absolute top-[2px] h-[18px] w-[18px] rounded-pill bg-white transition-[left] duration-[180ms] ease-snappy",
-            checked ? "left-[18px]" : "left-[2px]"
-          )}
-        />
-      </span>
-    </button>
-  );
-}
-
-function PresetSwatch({ preset, active, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cn(
-        "grid gap-2 rounded-md border p-2.5 text-left transition-colors",
-        active
-          ? "border-halo-primary bg-halo-primary-wash"
-          : "border-halo-border-1 hover:border-halo-border-2"
-      )}
-    >
-      <span
-        className="flex h-9 items-center gap-1.5 rounded-[10px] px-2"
-        style={{ background: preset.background }}
-      >
-        <span
-          className="h-4 w-4 rounded-full"
-          style={{ background: preset.accent }}
-        />
-        <span
-          className="h-3.5 flex-1 rounded-full"
-          style={{ background: preset.cardBackground, border: "1px solid rgba(127,127,127,0.18)" }}
-        />
-      </span>
-      <span className="text-[12px] font-medium text-halo-fg-2">{preset.name}</span>
-    </button>
-  );
-}
-
 export default function WidgetStudio() {
   const [themeId, setThemeId] = useState(widgetPresets[0].id);
   const [type, setType] = useState("grid");
   const [cardStyle, setCardStyle] = useState("default");
   const [columns, setColumns] = useState(3);
-  const [device, setDevice] = useState("desktop");
+  const [device, setDevice] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches
+      ? "mobile"
+      : "desktop"
+  );
   const [display, setDisplay] = useState({
     showAvatar: true,
     showCompany: true,
@@ -162,6 +52,23 @@ export default function WidgetStudio() {
   });
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState({});
+
+  // Measure the canvas and scale the desktop preview to fit its real width.
+  const canvasRef = useRef(null);
+  const [fit, setFit] = useState(1);
+  const frameWidth = device === "mobile" ? MOBILE_WIDTH : DESKTOP_WIDTH;
+  useLayoutEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+    const update = () => {
+      const avail = el.clientWidth - CANVAS_PAD * 2;
+      setFit(Math.min(1, avail / frameWidth));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [frameWidth]);
 
   const { approved } = useTestimonials();
   const theme = getPreset(themeId);
@@ -182,90 +89,29 @@ export default function WidgetStudio() {
   }
 
   return (
-    <div className="grid gap-8">
-      <div className="flex flex-wrap items-center gap-4">
-        <div className="grid h-12 w-12 place-items-center rounded-md bg-halo-bg-3">
-          <WidgetStudioIcon size={28} />
-        </div>
-        <div className="grid gap-1">
-          <h1 className="m-0 text-[26px] font-medium tracking-[-0.02em] text-halo-fg-1">
-            Widget Studio
-          </h1>
-          <p className="m-0 text-[15px] text-halo-fg-2">
-            Design testimonial widgets visually — layout, theme, and display.
-          </p>
-        </div>
-        <Button
-          variant="secondary"
+    <div className="halo-page">
+      <header className="halo-page-header">
+        <PageHeading
+          title="Widget Studio"
+          info="Design testimonial widgets visually — layout, theme, and display."
+        />
+        <button
+          type="button"
           onClick={copyEmbed}
-          className="ml-auto max-md:w-full"
+          className="halo-copy-button"
         >
           {copied ? "Copied ✓" : "Copy embed code"}
-        </Button>
-      </div>
+        </button>
+      </header>
 
-      <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-        {/* Controls — each group collapses into a toggle menu so the panel stays
-            quiet; the headers show the current value without expanding. */}
-        <div className="grid content-start gap-2.5">
-          <Disclosure label="Preset" value={theme.name} open={open.preset} onToggle={() => toggle("preset")}>
-            <div className="grid grid-cols-2 gap-2">
-              {widgetPresets.map((p) => (
-                <PresetSwatch
-                  key={p.id}
-                  preset={p}
-                  active={p.id === themeId}
-                  onClick={() => setThemeId(p.id)}
-                />
-              ))}
-            </div>
-          </Disclosure>
-
-          <Disclosure label="Card style" value={cardStyleLabel} open={open.cardStyle} onToggle={() => toggle("cardStyle")}>
-            <Segmented options={CARD_STYLE_OPTIONS} value={cardStyle} onChange={setCardStyle} wrap />
-          </Disclosure>
-
-          <Disclosure label="Layout" value={layoutLabel} open={open.layout} onToggle={() => toggle("layout")}>
-            <Segmented options={LAYOUTS} value={type} onChange={setType} wrap />
-          </Disclosure>
-
-          {showColumns && (
-            <Disclosure label="Columns" value={String(columns)} open={open.columns} onToggle={() => toggle("columns")}>
-              <Segmented
-                options={[2, 3, 4].map((n) => ({ id: n, label: String(n) }))}
-                value={columns}
-                onChange={setColumns}
-              />
-            </Disclosure>
-          )}
-
-          {isCustomStyle ? (
-            <p className="px-1 text-[12px] leading-relaxed text-halo-fg-3">
-              The {cardStyleLabel} card style has its own fixed design — the display
-              toggles don&rsquo;t apply.
+      <div className="halo-studio-shell">
+        {/* Live preview stays first: the editor exists to shape this surface. */}
+        <section className="halo-studio-preview" aria-label="Live widget preview">
+          <div className="halo-studio-preview-header">
+            <p>
+              {layoutLabel} · {cardStyleLabel} · {frameWidth}px
+              {fit < 0.999 ? ` · ${Math.round(fit * 100)}%` : ""}
             </p>
-          ) : (
-            <Disclosure label="Display" value={`${shownCount} of 4 shown`} open={open.display} onToggle={() => toggle("display")}>
-              <div className="grid gap-3.5">
-                {DISPLAY_OPTIONS.map((o) => (
-                  <Toggle
-                    key={o.key}
-                    label={o.label}
-                    checked={display[o.key]}
-                    onChange={(v) => setDisplay((d) => ({ ...d, [o.key]: v }))}
-                  />
-                ))}
-              </div>
-            </Disclosure>
-          )}
-        </div>
-
-        {/* Live preview */}
-        <div className="grid content-start gap-3 rounded-xl border border-halo-border-1 bg-halo-bg-3/40 p-3">
-          <div className="flex items-center justify-between px-2 pt-1">
-            <span className="text-[12px] font-medium uppercase tracking-[0.04em] text-halo-fg-3">
-              Live preview
-            </span>
             <Segmented
               options={[
                 { id: "desktop", label: "Desktop" },
@@ -275,10 +121,14 @@ export default function WidgetStudio() {
               onChange={setDevice}
             />
           </div>
-          <div className="overflow-auto rounded-lg" style={{ background: theme.background }}>
+          <div
+            ref={canvasRef}
+            className="halo-studio-preview-canvas"
+            style={{ background: theme.background }}
+          >
             <div
-              className="mx-auto p-6 transition-[max-width] duration-[260ms] ease-snappy"
-              style={{ maxWidth: device === "mobile" ? 390 : "100%" }}
+              className="halo-studio-preview-inner"
+              style={{ width: frameWidth, zoom: fit }}
             >
               {approved.length === 0 ? (
                 <div
@@ -300,7 +150,56 @@ export default function WidgetStudio() {
               )}
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* Controls — each group collapses so configuration stays secondary. */}
+        <aside className="halo-studio-controls" aria-label="Widget controls">
+          <div className="halo-studio-controls-header">
+            <span>Controls</span>
+            <p>Adjust the preview, then copy the embed.</p>
+          </div>
+          <Disclosure label="Preset" value={theme.name} open={open.preset} onToggle={() => toggle("preset")}>
+            <SwatchGrid presets={widgetPresets} value={themeId} onChange={setThemeId} />
+          </Disclosure>
+
+          <Disclosure label="Card style" value={cardStyleLabel} open={open.cardStyle} onToggle={() => toggle("cardStyle")}>
+            <OptionList options={CARD_STYLE_OPTIONS} value={cardStyle} onChange={setCardStyle} />
+          </Disclosure>
+
+          <Disclosure label="Layout" value={layoutLabel} open={open.layout} onToggle={() => toggle("layout")}>
+            <OptionList options={LAYOUTS} value={type} onChange={setType} />
+          </Disclosure>
+
+          {showColumns && (
+            <Disclosure label="Columns" value={String(columns)} open={open.columns} onToggle={() => toggle("columns")}>
+              <OptionList
+                options={[2, 3, 4].map((n) => ({ id: n, label: `${n} columns` }))}
+                value={columns}
+                onChange={setColumns}
+              />
+            </Disclosure>
+          )}
+
+          {isCustomStyle ? (
+            <p className="px-1 text-[12px] leading-relaxed text-halo-fg-3">
+              The {cardStyleLabel} card style has its own fixed design — the display
+              toggles don&rsquo;t apply.
+            </p>
+          ) : (
+            <Disclosure label="Display" value={`${shownCount} of 4 shown`} open={open.display} onToggle={() => toggle("display")}>
+              <div className="grid gap-2.5">
+                {DISPLAY_OPTIONS.map((o) => (
+                  <Toggle
+                    key={o.key}
+                    label={o.label}
+                    checked={display[o.key]}
+                    onChange={(v) => setDisplay((d) => ({ ...d, [o.key]: v }))}
+                  />
+                ))}
+              </div>
+            </Disclosure>
+          )}
+        </aside>
       </div>
     </div>
   );
