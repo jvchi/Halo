@@ -1,5 +1,5 @@
 import { shadowCss } from "@/lib/presets";
-import { templateIds, getTemplate } from "@/components/widget/templates/index.js";
+import { AuroraCard, StickerCard, ReviewRowCard } from "@/components/widget/templates/index.js";
 
 // The shared testimonial renderer (blueprint §6.6). It is intentionally
 // self-contained — no Tailwind, no design-system imports — only inline styles
@@ -172,9 +172,19 @@ const EDGE_FADE =
   "linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)";
 
 export function WidgetRenderer({ config, testimonials = [] }) {
-  const { type = "grid", theme, columns = 3, display } = config;
+  const { type = "grid", theme, columns = 3, display, cardStyle = "default" } = config;
   const items =
     type === "single" ? testimonials.slice(0, 1) : testimonials.slice(0, config.maxItems ?? 12);
+
+  // Card style is independent of layout: the chosen card renders inside whichever
+  // layout container is active. The pre-styled cards are self-contained (they bring
+  // their own colors/type and cycle by index), so they ignore the display flags.
+  const renderCard = (t, i) => {
+    if (cardStyle === "aurora") return <AuroraCard t={t} i={i} />;
+    if (cardStyle === "sticker") return <StickerCard t={t} i={i} />;
+    if (cardStyle === "rows") return <ReviewRowCard t={t} i={i} />;
+    return <TestimonialCard t={t} display={display} glass={theme.glass} />;
+  };
 
   const vars = {
     "--w-accent": theme.accent,
@@ -195,14 +205,6 @@ export function WidgetRenderer({ config, testimonials = [] }) {
         <EmptyState />
       </div>
     );
-  }
-
-  // Pre-styled templates are complete, self-contained designs — they bring their
-  // own layout, colors, and typography, so they render directly rather than through
-  // the preset-driven card path above.
-  if (templateIds.has(type)) {
-    const { Component } = getTemplate(type);
-    return <Component testimonials={items} columns={columns} />;
   }
 
   if (type === "marquee") {
@@ -230,7 +232,7 @@ export function WidgetRenderer({ config, testimonials = [] }) {
                 aria-hidden={i >= items.length || undefined}
                 style={{ flex: `0 0 ${CARD_WIDTH}px`, maxWidth: "82vw", marginRight: 16 }}
               >
-                <TestimonialCard t={t} display={display} glass={theme.glass} />
+                {renderCard(t, i)}
               </div>
             ))}
           </div>
@@ -251,12 +253,12 @@ export function WidgetRenderer({ config, testimonials = [] }) {
             paddingBottom: 8,
           }}
         >
-          {items.map((t) => (
+          {items.map((t, i) => (
             <div
               key={t.id}
               style={{ flex: `0 0 ${CARD_WIDTH}px`, maxWidth: "82vw", scrollSnapAlign: "start" }}
             >
-              <TestimonialCard t={t} display={display} glass={theme.glass} />
+              {renderCard(t, i)}
             </div>
           ))}
         </div>
@@ -267,7 +269,7 @@ export function WidgetRenderer({ config, testimonials = [] }) {
   return (
     <div style={vars}>
       <div style={LAYOUT_STYLES[type] ?? LAYOUT_STYLES.grid}>
-        {items.map((t) => (
+        {items.map((t, i) => (
           <div
             key={t.id}
             style={
@@ -276,7 +278,7 @@ export function WidgetRenderer({ config, testimonials = [] }) {
                 : undefined
             }
           >
-            <TestimonialCard t={t} display={display} glass={theme.glass} />
+            {renderCard(t, i)}
           </div>
         ))}
       </div>

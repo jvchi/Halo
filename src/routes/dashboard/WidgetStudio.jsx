@@ -5,7 +5,7 @@ import { WidgetStudioIcon } from "@/components/icons";
 import { widgetPresets, getPreset } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
-import { widgetTemplates, templateIds } from "@/components/widget/templates/index.js";
+import { cardStyles, customCardStyleIds } from "@/components/widget/templates/index.js";
 
 const LAYOUTS = [
   { id: "single", label: "Single" },
@@ -15,10 +15,9 @@ const LAYOUTS = [
   { id: "marquee", label: "Marquee" },
 ];
 
-const TEMPLATE_OPTIONS = widgetTemplates.map((t) => ({ id: t.id, label: t.label }));
-const ALL_LAYOUT_OPTIONS = [...LAYOUTS, ...TEMPLATE_OPTIONS];
+const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }));
 
-const COLUMN_LAYOUTS = new Set(["grid", "masonry", "aurora", "sticker"]);
+const COLUMN_LAYOUTS = new Set(["grid", "masonry"]);
 
 const DISPLAY_OPTIONS = [
   { key: "showAvatar", label: "Avatar" },
@@ -152,6 +151,7 @@ function PresetSwatch({ preset, active, onClick }) {
 export default function WidgetStudio() {
   const [themeId, setThemeId] = useState(widgetPresets[0].id);
   const [type, setType] = useState("grid");
+  const [cardStyle, setCardStyle] = useState("default");
   const [columns, setColumns] = useState(3);
   const [device, setDevice] = useState("desktop");
   const [display, setDisplay] = useState({
@@ -165,13 +165,14 @@ export default function WidgetStudio() {
 
   const { approved } = useTestimonials();
   const theme = getPreset(themeId);
-  const isTemplate = templateIds.has(type);
+  const isCustomStyle = customCardStyleIds.has(cardStyle);
   const showColumns = COLUMN_LAYOUTS.has(type);
   const effectiveColumns = device === "mobile" ? 1 : columns;
-  const config = { type, theme, columns: effectiveColumns, display, maxItems: 12 };
+  const config = { type, theme, cardStyle, columns: effectiveColumns, display, maxItems: 12 };
 
   const toggle = (key) => setOpen((o) => ({ ...o, [key]: !o[key] }));
-  const layoutLabel = ALL_LAYOUT_OPTIONS.find((l) => l.id === type)?.label ?? "Grid";
+  const layoutLabel = LAYOUTS.find((l) => l.id === type)?.label ?? "Grid";
+  const cardStyleLabel = CARD_STYLE_OPTIONS.find((c) => c.id === cardStyle)?.label ?? "Default";
   const shownCount = Object.values(display).filter(Boolean).length;
 
   function copyEmbed() {
@@ -220,21 +221,12 @@ export default function WidgetStudio() {
             </div>
           </Disclosure>
 
+          <Disclosure label="Card style" value={cardStyleLabel} open={open.cardStyle} onToggle={() => toggle("cardStyle")}>
+            <Segmented options={CARD_STYLE_OPTIONS} value={cardStyle} onChange={setCardStyle} wrap />
+          </Disclosure>
+
           <Disclosure label="Layout" value={layoutLabel} open={open.layout} onToggle={() => toggle("layout")}>
-            <div className="grid gap-3">
-              <div className="grid gap-1.5">
-                <span className="text-[11px] font-medium uppercase tracking-[0.05em] text-halo-fg-3">
-                  Card layouts
-                </span>
-                <Segmented options={LAYOUTS} value={type} onChange={setType} wrap />
-              </div>
-              <div className="grid gap-1.5">
-                <span className="text-[11px] font-medium uppercase tracking-[0.05em] text-halo-fg-3">
-                  Templates
-                </span>
-                <Segmented options={TEMPLATE_OPTIONS} value={type} onChange={setType} wrap />
-              </div>
-            </div>
+            <Segmented options={LAYOUTS} value={type} onChange={setType} wrap />
           </Disclosure>
 
           {showColumns && (
@@ -247,10 +239,10 @@ export default function WidgetStudio() {
             </Disclosure>
           )}
 
-          {isTemplate ? (
+          {isCustomStyle ? (
             <p className="px-1 text-[12px] leading-relaxed text-halo-fg-3">
-              This template uses its own fixed card design — the display toggles
-              don&rsquo;t apply.
+              The {cardStyleLabel} card style has its own fixed design — the display
+              toggles don&rsquo;t apply.
             </p>
           ) : (
             <Disclosure label="Display" value={`${shownCount} of 4 shown`} open={open.display} onToggle={() => toggle("display")}>
