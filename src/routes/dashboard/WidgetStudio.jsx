@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { cn } from "@/lib/cn";
 import { widgetPresets, getPreset } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
@@ -52,6 +53,7 @@ export default function WidgetStudio() {
   });
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState({});
+  const [controlsOpen, setControlsOpen] = useState(false);
 
   // Measure the canvas and scale the desktop preview to fit its real width.
   const canvasRef = useRef(null);
@@ -108,18 +110,25 @@ export default function WidgetStudio() {
         {/* Live preview stays first: the editor exists to shape this surface. */}
         <section className="halo-studio-preview" aria-label="Live widget preview">
           <div className="halo-studio-preview-header">
-            <p>
-              {layoutLabel} · {cardStyleLabel} · {frameWidth}px
-              {fit < 0.999 ? ` · ${Math.round(fit * 100)}%` : ""}
-            </p>
-            <Segmented
-              options={[
-                { id: "desktop", label: "Desktop" },
-                { id: "mobile", label: "Mobile" },
-              ]}
-              value={device}
-              onChange={setDevice}
-            />
+            <div className="halo-studio-preview-actions">
+              <Segmented
+                options={[
+                  { id: "desktop", label: "Desktop" },
+                  { id: "mobile", label: "Mobile" },
+                ]}
+                value={device}
+                onChange={setDevice}
+              />
+              <button
+                type="button"
+                className="halo-studio-controls-toggle"
+                aria-controls="widget-studio-controls"
+                aria-expanded={controlsOpen}
+                onClick={() => setControlsOpen((open) => !open)}
+              >
+                Controls
+              </button>
+            </div>
           </div>
           <div
             ref={canvasRef}
@@ -152,11 +161,31 @@ export default function WidgetStudio() {
           </div>
         </section>
 
+        <button
+          type="button"
+          className={cn("halo-studio-controls-scrim", controlsOpen && "is-open")}
+          aria-label="Close widget controls"
+          onClick={() => setControlsOpen(false)}
+        />
+
         {/* Controls — each group collapses so configuration stays secondary. */}
-        <aside className="halo-studio-controls" aria-label="Widget controls">
+        <aside
+          id="widget-studio-controls"
+          className={cn("halo-studio-controls", controlsOpen && "is-open")}
+          aria-label="Widget controls"
+        >
           <div className="halo-studio-controls-header">
-            <span>Controls</span>
-            <p>Adjust the preview, then copy the embed.</p>
+            <div>
+              <span>Controls</span>
+              <p>Adjust the preview, then copy the embed.</p>
+            </div>
+            <button
+              type="button"
+              className="halo-studio-controls-close"
+              onClick={() => setControlsOpen(false)}
+            >
+              Close
+            </button>
           </div>
           <Disclosure label="Preset" value={theme.name} open={open.preset} onToggle={() => toggle("preset")}>
             <SwatchGrid presets={widgetPresets} value={themeId} onChange={setThemeId} />

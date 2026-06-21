@@ -145,6 +145,11 @@
     justify-content: flex-end;
   }
 
+  .halo-mobile-menu-anchor {
+    position: relative;
+    display: inline-flex;
+  }
+
   .halo-top-nav-link {
     display: inline-flex;
     height: 32px;
@@ -590,6 +595,7 @@
 
   .halo-studio-shell {
     display: grid;
+    min-width: 0;
     grid-template-columns: minmax(0, 1fr) 232px;
     gap: 22px;
     align-items: start;
@@ -597,16 +603,69 @@
 
   .halo-studio-preview {
     display: grid;
+    max-width: 100%;
     min-width: 0;
     gap: 12px;
   }
 
   .halo-studio-preview-header {
     display: flex;
+    min-width: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 16px;
     padding: 0 2px;
+  }
+
+  .halo-studio-preview-header p {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halo-studio-preview-actions {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .halo-studio-controls-toggle,
+  .halo-studio-controls-close {
+    display: none;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    padding: 0 12px;
+    color: var(--halo-fg-1);
+    background: var(--halo-bg-3);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.08px;
+    cursor: pointer;
+    transition-property: color, background-color, transform;
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+  }
+
+  .halo-studio-controls-toggle:hover,
+  .halo-studio-controls-toggle:focus-visible,
+  .halo-studio-controls-close:hover,
+  .halo-studio-controls-close:focus-visible {
+    color: var(--halo-fg-1);
+    background: var(--halo-bg-4);
+  }
+
+  .halo-studio-controls-toggle:active,
+  .halo-studio-controls-close:active {
+    transform: scale(0.96);
+  }
+
+  .halo-studio-controls-scrim {
+    display: none;
   }
 
   .halo-studio-preview-header span,
@@ -629,6 +688,9 @@
   }
 
   .halo-studio-preview-canvas {
+    height: clamp(520px, calc(100vh - 220px), 720px);
+    max-width: 100%;
+    min-width: 0;
     min-height: 520px;
     overflow: auto;
     border-radius: 6px;
@@ -642,6 +704,17 @@
     transition-property: max-width;
     transition-duration: 260ms;
     transition-timing-function: var(--halo-ease-snappy);
+  }
+
+  .halo-wall-preview-canvas {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .halo-wall-preview-canvas .halo-studio-preview-inner {
+    padding-top: 16px;
+    padding-bottom: 0;
   }
 
   .halo-studio-controls {
@@ -661,10 +734,127 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 12px;
     padding: 0 0 10px;
     margin-bottom: 4px;
     border-bottom: 1px solid var(--halo-border-1);
     background: var(--halo-bg-1);
+  }
+
+  .halo-inspector-group {
+    overflow: hidden;
+    border-bottom: 1px solid color-mix(in srgb, var(--halo-border-1) 55%, transparent);
+    background: transparent;
+  }
+
+  .halo-inspector-group:last-child {
+    border-bottom: 0;
+  }
+
+  .halo-inspector-row,
+  .halo-inspector-toggle {
+    display: flex;
+    width: 100%;
+    min-height: 38px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 0;
+    padding: 0;
+    color: var(--halo-fg-1);
+    background: transparent;
+    text-align: left;
+  }
+
+  .halo-inspector-row {
+    cursor: pointer;
+  }
+
+  .halo-inspector-toggle {
+    min-height: 34px;
+  }
+
+  .halo-inspector-label,
+  .halo-inspector-toggle {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.09px;
+  }
+
+  .halo-inspector-value {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 6px;
+    color: var(--halo-fg-3);
+    font-size: 13px;
+    font-weight: 450;
+    letter-spacing: -0.08px;
+  }
+
+  .halo-inspector-value span {
+    max-width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halo-inspector-content {
+    display: grid;
+    gap: 8px;
+    padding: 0 0 12px;
+  }
+
+  .halo-inspector-content input,
+  .halo-inspector-content textarea {
+    background: var(--halo-bg-1);
+  }
+
+  .halo-wall-quick-controls {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--halo-border-1) 55%, transparent);
+  }
+
+  .halo-wall-quick-controls .halo-inspector-toggle {
+    min-height: 38px;
+    padding: 0 10px;
+    background: var(--halo-bg-1);
+  }
+
+  .halo-wall-editable-text {
+    min-width: 1ch;
+    border-radius: 10px;
+    outline: 0;
+    transition:
+      background-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+
+  .halo-wall-editable-text:hover {
+    background: color-mix(in srgb, currentColor 7%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 7%, transparent);
+  }
+
+  .halo-wall-editable-text:focus-visible {
+    background: color-mix(in srgb, currentColor 9%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 10%, transparent);
+  }
+
+  .halo-wall-editable-text:empty::before {
+    color: color-mix(in srgb, currentColor 42%, transparent);
+    content: attr(data-placeholder);
+  }
+
+  .halo-wall-editable-text-on-accent:hover,
+  .halo-wall-editable-text-on-accent:focus-visible {
+    background: rgb(255 255 255 / 0.16);
+    box-shadow: 0 0 0 4px rgb(255 255 255 / 0.16);
   }
 
   @keyframes halo-doc-rise {
@@ -706,7 +896,7 @@
 
     .halo-doc-body {
       grid-template-columns: 1fr;
-      padding-top: 30px;
+      padding-top: 4px;
     }
 
     .halo-doc-sidebar {
@@ -718,25 +908,42 @@
     }
 
     .halo-mobile-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 30;
       display: block;
-      width: min(100% - 32px, 940px);
-      margin: 0 auto;
-      padding: 18px 0 20px;
-      border-bottom: 1px solid color-mix(in srgb, var(--halo-border-1) 70%, transparent);
+      width: min(260px, calc(100vw - 32px));
+      margin: 0;
+      padding: 8px;
+      border: 1px solid color-mix(in srgb, var(--halo-border-1) 78%, transparent);
+      border-radius: 8px;
       background: var(--halo-bg-1);
+      transform-origin: top right;
     }
 
     .halo-mobile-menu .halo-sidebar-items {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px 24px;
+      grid-template-columns: 1fr;
+      gap: 2px;
       min-width: 0;
     }
 
     .halo-mobile-menu .halo-sidebar-link {
-      width: auto;
+      width: 100%;
+      min-height: 38px;
       min-width: 0;
-      padding-right: 0;
+      border-radius: 8px;
+      padding: 0 10px;
+      font-size: 14px;
+      line-height: 14.7px;
+      white-space: nowrap;
+    }
+
+    .halo-mobile-menu .halo-sidebar-link:hover,
+    .halo-mobile-menu .halo-sidebar-link:focus-visible,
+    .halo-mobile-menu .halo-sidebar-link.is-active {
+      background: var(--halo-bg-3);
     }
 
     .halo-sidebar-footnote {
@@ -746,16 +953,121 @@
 
   @media (max-width: 900px) {
     .halo-studio-shell {
+      position: relative;
+    }
+
+    .halo-studio-shell {
       grid-template-columns: 1fr;
     }
 
-    .halo-studio-controls {
-      order: 2;
-      position: static;
-      max-height: none;
-      overflow: visible;
-      border-left: 0;
+    .halo-studio-controls-toggle {
+      display: inline-flex;
+    }
+
+    .halo-studio-controls-scrim.is-open {
+      position: fixed;
+      inset: 0;
+      z-index: 34;
+      display: block;
+      border: 0;
       padding: 0;
+      background: rgb(255 255 255 / 0);
+      cursor: default;
+    }
+
+    .halo-studio-controls {
+      position: fixed;
+      top: auto;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      left: auto;
+      z-index: 35;
+      display: none;
+      width: min(360px, calc(100vw - 32px));
+      max-height: min(36svh, 360px);
+      gap: 8px;
+      overflow: auto;
+      overscroll-behavior: contain;
+      border: 0;
+      border-radius: 28px;
+      background: color-mix(in srgb, var(--halo-bg-1) 86%, transparent);
+      padding: 10px;
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      backdrop-filter: blur(28px) saturate(180%);
+    }
+
+    .halo-studio-controls.is-open {
+      display: grid;
+    }
+
+    .halo-studio-controls::before {
+      display: block;
+      width: 36px;
+      height: 4px;
+      margin: 0 auto 4px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--halo-fg-1) 16%, transparent);
+      content: "";
+    }
+
+    .halo-studio-controls-header {
+      position: static;
+      padding: 0 4px 2px;
+      margin-bottom: 0;
+      border-bottom: 0;
+      background: transparent;
+    }
+
+    .halo-studio-controls .halo-inspector-group {
+      border-bottom: 0;
+      border-radius: 16px;
+      background: var(--halo-bg-3);
+    }
+
+    .halo-studio-controls .halo-inspector-row,
+    .halo-studio-controls .halo-inspector-toggle {
+      min-height: 36px;
+      padding: 0 12px;
+    }
+
+    .halo-studio-controls .halo-inspector-toggle {
+      min-height: 34px;
+    }
+
+    .halo-studio-controls .halo-inspector-content {
+      padding: 0 10px 10px;
+    }
+
+    .halo-studio-controls .halo-wall-quick-controls {
+      border-radius: 16px;
+      background: var(--halo-bg-3);
+    }
+
+    .halo-studio-controls .halo-wall-quick-controls .halo-inspector-toggle {
+      min-height: 36px;
+      padding: 0 12px;
+      background: transparent;
+    }
+
+    .halo-studio-controls-header p {
+      display: none;
+    }
+
+    .halo-studio-controls-close {
+      display: inline-flex;
+      min-height: 30px;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+
+    .halo-studio-preview-canvas {
+      height: clamp(480px, calc(100svh - 210px), 640px);
+      min-height: 480px;
+    }
+
+    .halo-wall-preview-canvas {
+      height: auto;
+      min-height: 0;
     }
 
     .halo-studio-preview {
@@ -789,25 +1101,24 @@
     }
 
     .halo-mobile-menu {
-      width: min(100% - 28px, 720px);
-    }
-
-    .halo-mobile-menu .halo-sidebar-items {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: min(260px, calc(100vw - 28px));
     }
 
     .halo-doc-body {
       width: min(100% - 28px, 720px);
-      padding-top: 40px;
+      padding-top: 10px;
       padding-bottom: 56px;
     }
 
     .halo-page-header {
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 14px;
     }
 
     .halo-copy-button {
-      justify-self: start;
+      justify-self: end;
     }
 
     .halo-workflow-track {
@@ -829,17 +1140,39 @@
       grid-template-columns: 1fr;
     }
 
-    .halo-studio-preview,
-    .halo-studio-controls {
+    .halo-studio-preview {
       padding: 12px;
     }
 
     .halo-studio-preview-header {
-      display: grid;
+      gap: 10px;
+      padding: 0;
+    }
+
+    .halo-studio-preview-actions {
+      gap: 6px;
+    }
+
+    .halo-studio-controls {
+      position: fixed;
+      top: auto;
+      right: max(10px, env(safe-area-inset-right));
+      bottom: max(10px, env(safe-area-inset-bottom));
+      left: max(10px, env(safe-area-inset-left));
+      width: auto;
+      max-height: min(34svh, 320px);
+      border-radius: 26px;
+      padding: 10px;
     }
 
     .halo-studio-preview-canvas {
-      min-height: 460px;
+      height: clamp(430px, calc(100svh - 166px), 620px);
+      min-height: 430px;
+    }
+
+    .halo-wall-preview-canvas {
+      height: auto;
+      min-height: 0;
     }
 
     .halo-studio-preview-inner {

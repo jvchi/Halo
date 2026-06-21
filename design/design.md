@@ -378,6 +378,21 @@ Dashboard semantics:
 - Preserve dashboard actions and outcomes: collect testimonials, approve/reject/edit, configure widgets, publish walls, and inspect analytics.
 - On creation surfaces such as Widget Studio, preview is the primary object. Render the live preview before configuration controls, keep controls in a secondary inspector panel, and collapse navigation before it competes with the preview.
 - At medium widths, hide the persistent side rail behind the dashboard menu instead of converting it into a large horizontal rail above the workspace. This preserves hierarchy and keeps the active editing surface above the fold.
+- Collapsed dashboard navigation should open as a compact header-anchored popover, not an in-flow horizontal strip. It must not push page titles, previews, metric cards, or primary controls down the page.
+
+### Responsive Dashboard Adaptation
+
+Researched and applied on `2026-06-21` from Apple Human Interface Guidelines pages for [Layout](https://developer.apple.com/design/human-interface-guidelines/layout), [Navigation and search](https://developer.apple.com/design/human-interface-guidelines/navigation-and-search), [Sidebars](https://developer.apple.com/design/human-interface-guidelines/sidebars), [Toolbars](https://developer.apple.com/design/human-interface-guidelines/toolbars), and [Materials](https://developer.apple.com/design/human-interface-guidelines/materials), plus Aave references from [Aave Protocol Documentation](https://aave.com/docs), the [Aave Pro User Guide](https://aave.com/blog/aave-pro-user-guide), the open-source [Aave interface](https://github.com/aave/interface), and the local Aave clone metrics in `reference/metrics`.
+
+Dashboard responsiveness should adapt density and hierarchy, not reorder the app into a long stacked document. Apple describes layout as a consistent structure that adapts across contexts, sidebars as leading navigation for app areas, toolbars as compact access to frequent commands, and materials as layered hierarchy between foreground controls and content. The Halo translation is:
+
+- The primary work object stays in flow and above the fold: dashboard summaries, live widget previews, wall previews, and inbox queues must not be pushed down by navigation or configuration controls.
+- Medium-width dashboard navigation is a header-anchored popover. It floats above content, closes on navigation, and uses compact `38px` rows.
+- Creation surfaces use a fixed hierarchy: preview first, inspector second. On desktop the inspector is a sticky right rail; on tablet it becomes a right-side floating inspector; on phone it becomes a bottom tray. In all three modes the inspector is outside normal content flow once space is constrained.
+- Tablet and phone previews scale the canvas instead of crushing columns. Keep a truthful desktop frame width for desktop preview mode and a truthful phone frame width for mobile preview mode, then fit it inside the viewport with measurement-based scaling.
+- Page headers remain two-column on mobile when an action exists. The title/description can wrap, but the primary action remains top-right instead of dropping below the heading.
+- Use material only as a functional layer: translucent white, backdrop blur, and a quiet border. Do not add shadows; Halo's flat depth model still applies.
+- Prefer truncation for preview metadata and compact segmented controls over wrapping controls into extra rows. Wrapping is allowed only when a control would become smaller than its usable hit area.
 
 ## Design Principles
 

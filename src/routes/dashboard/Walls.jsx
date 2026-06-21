@@ -11,7 +11,6 @@ import {
   OptionList,
   SwatchGrid,
   Toggle,
-  controlInputClass,
 } from "@/components/dashboard/inspector.jsx";
 
 const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }));
@@ -36,15 +35,17 @@ export default function Walls() {
   const [cardStyle, setCardStyle] = useState("default");
   const [columns, setColumns] = useState(3);
   const [device, setDevice] = useState("desktop");
+  const [controlsOpen, setControlsOpen] = useState(false);
   const [hero, setHero] = useState({
     title: "Loved by founders and teams",
     description: "Real words from the people who use Halo every day.",
     ctaLabel: "Start collecting",
+    showHeader: true,
     showCta: true,
     showLogo: true,
     workspace: "Halo",
   });
-  const [open, setOpen] = useState({ hero: true });
+  const [open, setOpen] = useState({});
   const [copied, setCopied] = useState(false);
 
   // Measure the canvas and scale the desktop preview to fit its real width.
@@ -73,7 +74,7 @@ export default function Walls() {
   };
 
   const toggle = (key) => setOpen((o) => ({ ...o, [key]: !o[key] }));
-  const setField = (key) => (e) => setHero((h) => ({ ...h, [key]: e.target.value }));
+  const setHeroField = (key, value) => setHero((h) => ({ ...h, [key]: value }));
   const setFlag = (key) => (v) => setHero((h) => ({ ...h, [key]: v }));
   const cardStyleLabel = CARD_STYLE_OPTIONS.find((c) => c.id === cardStyle)?.label ?? "Default";
 
@@ -99,67 +100,77 @@ export default function Walls() {
         {/* Preview first: the wall is the object the controls shape. */}
         <section className="halo-studio-preview" aria-label="Wall preview">
           <div className="halo-studio-preview-header">
-            <p>
-              {approved.length} testimonial{approved.length === 1 ? "" : "s"} · {cardStyleLabel} · {frameWidth}px
-              {fit < 0.999 ? ` · ${Math.round(fit * 100)}%` : ""}
-            </p>
-            <Segmented
-              options={[
-                { id: "desktop", label: "Desktop" },
-                { id: "mobile", label: "Mobile" },
-              ]}
-              value={device}
-              onChange={setDevice}
-            />
+            <div className="halo-studio-preview-actions">
+              <Segmented
+                options={[
+                  { id: "desktop", label: "Desktop" },
+                  { id: "mobile", label: "Mobile" },
+                ]}
+                value={device}
+                onChange={setDevice}
+              />
+              <button
+                type="button"
+                className="halo-studio-controls-toggle"
+                aria-controls="wall-settings"
+                aria-expanded={controlsOpen}
+                onClick={() => setControlsOpen((open) => !open)}
+              >
+                Settings
+              </button>
+            </div>
           </div>
           <div
             ref={canvasRef}
-            className="halo-studio-preview-canvas"
+            className="halo-studio-preview-canvas halo-wall-preview-canvas"
             style={{ background: theme.background }}
           >
             <div
               className="halo-studio-preview-inner"
               style={{ width: frameWidth, zoom: fit }}
             >
-              <WallView config={config} testimonials={approved} hero={hero} />
+              <WallView
+                config={config}
+                testimonials={approved}
+                hero={hero}
+                compact
+                editable
+                onHeroChange={setHeroField}
+              />
             </div>
           </div>
         </section>
 
+        <button
+          type="button"
+          className={cn("halo-studio-controls-scrim", controlsOpen && "is-open")}
+          aria-label="Close wall settings"
+          onClick={() => setControlsOpen(false)}
+        />
+
         {/* Controls — same inspector language as Widget Studio. */}
-        <aside className="halo-studio-controls" aria-label="Wall settings">
+        <aside
+          id="wall-settings"
+          className={cn("halo-studio-controls", controlsOpen && "is-open")}
+          aria-label="Wall settings"
+        >
           <div className="halo-studio-controls-header">
-            <span>Wall settings</span>
-            <p>Edit the hero and theme, then share the link.</p>
+            <div>
+              <span>Settings</span>
+            </div>
+            <button
+              type="button"
+              className="halo-studio-controls-close"
+              onClick={() => setControlsOpen(false)}
+            >
+              Close
+            </button>
           </div>
 
-          <Disclosure label="Hero" value={hero.title} open={open.hero} onToggle={() => toggle("hero")}>
-            <div className="grid gap-2.5">
-              <Toggle label="Show logo" checked={hero.showLogo} onChange={setFlag("showLogo")} />
-              <label className="grid gap-1 text-[12px] text-halo-fg-3">
-                Title
-                <input className={controlInputClass} value={hero.title} onChange={setField("title")} />
-              </label>
-              <label className="grid gap-1 text-[12px] text-halo-fg-3">
-                Description
-                <textarea
-                  className={cn(controlInputClass, "min-h-[64px] resize-y")}
-                  value={hero.description}
-                  onChange={setField("description")}
-                />
-              </label>
-            </div>
-          </Disclosure>
-
-          <Disclosure label="Call to action" value={hero.showCta ? hero.ctaLabel : "Hidden"} open={open.cta} onToggle={() => toggle("cta")}>
-            <div className="grid gap-2.5">
-              <Toggle label="Show button" checked={hero.showCta} onChange={setFlag("showCta")} />
-              <label className="grid gap-1 text-[12px] text-halo-fg-3">
-                Button label
-                <input className={controlInputClass} value={hero.ctaLabel} onChange={setField("ctaLabel")} />
-              </label>
-            </div>
-          </Disclosure>
+          <div className="halo-wall-quick-controls" aria-label="Wall visibility">
+            <Toggle label="Header" checked={hero.showHeader} onChange={setFlag("showHeader")} />
+            <Toggle label="Button" checked={hero.showCta} onChange={setFlag("showCta")} />
+          </div>
 
           <Disclosure label="Theme" value={theme.name} open={open.theme} onToggle={() => toggle("theme")}>
             <SwatchGrid presets={widgetPresets} value={themeId} onChange={setThemeId} />

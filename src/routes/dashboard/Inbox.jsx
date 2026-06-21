@@ -66,7 +66,67 @@ function StatusBadge({ status }) {
   );
 }
 
-function RowButton({ onClick, children, tone = "ghost" }) {
+function SourceIcon({ source }) {
+  const label = SOURCE_LABELS[source] ?? source;
+  const icons = {
+    x: (
+      <path
+        d="M4.6 3.75h2.16l2.06 2.9 2.52-2.9h1.66L9.57 7.69l3.77 5.31h-2.16L8.86 9.73 6.01 13H4.35l3.77-4.34L4.6 3.75Zm1.72.91 5.3 7.43h.72L7.04 4.66h-.72Z"
+        fill="currentColor"
+      />
+    ),
+    google: (
+      <>
+        <path d="M13.25 8.13c0-.42-.04-.72-.12-1.03H8.12v1.94h2.94c-.06.48-.38 1.2-1.1 1.69v1.26h1.62c.95-.88 1.67-2.17 1.67-3.86Z" fill="#4285F4" />
+        <path d="M8.12 13.34c1.36 0 2.5-.45 3.34-1.22L9.84 10.86c-.43.3-1.01.51-1.72.51-1.32 0-2.44-.88-2.84-2.09H3.61v1.3a5.04 5.04 0 0 0 4.51 2.76Z" fill="#34A853" />
+        <path d="M5.28 9.28A3.11 3.11 0 0 1 5.12 8c0-.44.06-.87.16-1.28v-1.3H3.61A5 5 0 0 0 3.08 8c0 .92.22 1.79.53 2.58l1.67-1.3Z" fill="#FBBC05" />
+        <path d="M8.12 4.63c.95 0 1.59.41 1.95.75l1.43-1.4c-.88-.82-2.02-1.32-3.38-1.32a5.04 5.04 0 0 0-4.51 2.76l1.67 1.3c.4-1.21 1.52-2.09 2.84-2.09Z" fill="#EA4335" />
+      </>
+    ),
+    linkedin: (
+      <path d="M4.17 6.45h1.72V12H4.17V6.45Zm.86-2.77a.99.99 0 1 1 0 1.98.99.99 0 0 1 0-1.98ZM6.96 6.45h1.65v.76h.02c.23-.43.79-.88 1.63-.88 1.74 0 2.06 1.15 2.06 2.64V12h-1.72V9.31c0-.64-.01-1.47-.9-1.47-.9 0-1.04.7-1.04 1.42V12H6.96V6.45Z" fill="#0A66C2" />
+    ),
+    form: (
+      <>
+        <path d="M5 3.5h6a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.35" />
+        <path d="M6.2 6.15h3.6M6.2 8h3.6M6.2 9.85h2" stroke="currentColor" strokeLinecap="round" strokeWidth="1.35" />
+      </>
+    ),
+    manual: (
+      <>
+        <path d="M4.2 11.8l1.1-3.05 4.6-4.6a1.2 1.2 0 0 1 1.7 1.7L7 10.45 4.2 11.8Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.3" />
+        <path d="M8.95 5.1l1.95 1.95" stroke="currentColor" strokeLinecap="round" strokeWidth="1.3" />
+      </>
+    ),
+  };
+
+  return (
+    <span
+      className="inline-grid h-6 w-6 shrink-0 place-items-center rounded-pill bg-halo-bg-3 text-halo-fg-2"
+      aria-label={`Source: ${label}`}
+      title={label}
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        {icons[source] ?? icons.manual}
+      </svg>
+    </span>
+  );
+}
+
+function MoreIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M4 8.1h.01M8 8.1h.01M12 8.1h.01"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2.2"
+      />
+    </svg>
+  );
+}
+
+function RowButton({ onClick, children, tone = "ghost", className }) {
   const tones = {
     primary: "bg-halo-primary text-white hover:opacity-90",
     ghost: "bg-halo-bg-3 text-halo-fg-2 hover:bg-halo-bg-4 hover:text-halo-fg-1",
@@ -78,8 +138,9 @@ function RowButton({ onClick, children, tone = "ghost" }) {
       type="button"
       onClick={onClick}
       className={cn(
-        "rounded-md px-2.5 py-1 text-[12px] font-medium transition-colors",
-        tones[tone]
+        "inline-flex min-h-[30px] items-center rounded-md px-2.5 py-1 text-[12px] font-medium transition-colors",
+        tones[tone],
+        className
       )}
     >
       {children}
@@ -187,7 +248,7 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
   }[t.status];
 
   return (
-    <div className="rounded-lg border border-halo-border-1 bg-halo-bg-3/40 p-4">
+    <article className="rounded-lg border border-halo-border-1 bg-halo-bg-3/40 p-4">
       <div className="flex items-start gap-3">
         <Avatar name={t.name} />
         <div className="min-w-0 flex-1">
@@ -198,15 +259,39 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
                 {[t.role, t.company].filter(Boolean).join(" · ")}
               </span>
             )}
-            <span className="ml-auto flex items-center gap-2.5">
-              <span className="text-[12px] text-halo-fg-3">via {SOURCE_LABELS[t.source] ?? t.source}</span>
+            <span className="ml-auto flex items-center gap-2">
+              <SourceIcon source={t.source} />
               <StatusBadge status={t.status} />
+              <details className="group relative">
+                <summary className="grid h-7 w-7 cursor-pointer list-none place-items-center rounded-pill text-halo-fg-3 transition-colors hover:bg-halo-bg-4 hover:text-halo-fg-1 [&::-webkit-details-marker]:hidden">
+                  <MoreIcon />
+                  <span className="sr-only">Review actions</span>
+                </summary>
+                <div className="absolute right-0 top-[calc(100%+6px)] z-20 grid w-36 gap-1 rounded-lg border border-halo-border-1 bg-halo-bg-1 p-1">
+                  {actions.map((a) => (
+                    <RowButton
+                      key={a.label}
+                      tone={a.tone}
+                      onClick={a.run}
+                      className={cn(
+                        "w-full justify-start bg-transparent px-2 py-1.5",
+                        a.tone === "primary" && "text-halo-primary hover:bg-halo-primary-wash"
+                      )}
+                    >
+                      {a.label}
+                    </RowButton>
+                  ))}
+                  <RowButton onClick={onEdit} className="w-full justify-start bg-transparent px-2 py-1.5">
+                    Edit
+                  </RowButton>
+                </div>
+              </details>
             </span>
           </div>
           <div className="mt-1.5">
             <Stars rating={t.rating} />
           </div>
-          <p className="mt-1.5 text-[13px] leading-relaxed text-halo-fg-2">{t.text}</p>
+          <p className="mt-1.5 text-[13px] leading-relaxed text-halo-fg-2 sm:pr-36">{t.text}</p>
           {t.tags.length > 0 && (
             <div className="mt-2.5 flex flex-wrap gap-1.5">
               {t.tags.map((tag) => (
@@ -218,13 +303,7 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
           )}
         </div>
       </div>
-      <div className="mt-3 flex flex-wrap gap-2 pl-[48px]">
-        {actions.map((a) => (
-          <RowButton key={a.label} tone={a.tone} onClick={a.run}>{a.label}</RowButton>
-        ))}
-        <RowButton onClick={onEdit}>Edit</RowButton>
-      </div>
-    </div>
+    </article>
   );
 }
 

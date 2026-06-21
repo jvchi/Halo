@@ -23,34 +23,34 @@ export function Chevron({ open }) {
 // reads at a glance, and options only appear when the user opens a section.
 export function Disclosure({ label, value, open, onToggle, children }) {
   return (
-    <div className="border-b border-halo-border-1/55 last:border-b-0">
+    <div className="halo-inspector-group">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-3 py-2.5 text-left"
+        className="halo-inspector-row"
       >
-        <span className="text-[12px] font-medium text-halo-fg-1">{label}</span>
-        <span className="flex items-center gap-1.5 text-halo-fg-3">
-          <span className="max-w-[110px] truncate text-[12px]">{value}</span>
+        <span className="halo-inspector-label">{label}</span>
+        <span className="halo-inspector-value">
+          <span>{value}</span>
           <Chevron open={open} />
         </span>
       </button>
-      {open && <div className="pb-3">{children}</div>}
+      {open && <div className="halo-inspector-content">{children}</div>}
     </div>
   );
 }
 
 export function Segmented({ options, value, onChange, wrap = false }) {
   return (
-    <div className={cn("flex gap-0.5 rounded-md bg-halo-bg-3 p-0.5", wrap && "flex-wrap")}>
+    <div className={cn("inline-flex max-w-full gap-1 rounded-pill bg-halo-bg-3 p-1", wrap && "flex-wrap")}>
       {options.map((o) => (
         <button
           key={o.id}
           type="button"
           onClick={() => onChange(o.id)}
           className={cn(
-            "rounded-[14px] px-2 py-1 text-[12px] font-medium transition-colors",
+            "min-h-[30px] rounded-pill px-3 py-1.5 text-[13px] font-medium leading-none whitespace-nowrap transition-colors",
             wrap ? "flex-auto" : "flex-1",
             value === o.id
               ? "bg-halo-bg-1 text-halo-fg-1"
@@ -71,7 +71,7 @@ export function Toggle({ label, checked, onChange }) {
       role="switch"
       aria-checked={checked}
       onClick={() => onChange(!checked)}
-      className="flex items-center justify-between gap-3 text-[13px] text-halo-fg-1"
+      className="halo-inspector-toggle"
     >
       <span>{label}</span>
       <span

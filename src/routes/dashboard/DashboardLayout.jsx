@@ -141,32 +141,34 @@ export default function DashboardLayout() {
             </Link>
 
             <div className="halo-doc-actions">
-              <button
-                type="button"
-                className="halo-mobile-menu-button"
-                aria-label={mobileMenuOpen ? "Close dashboard menu" : "Open dashboard menu"}
-                aria-expanded={mobileMenuOpen}
-                onClick={() => setMobileMenuOpen((open) => !open)}
-              >
-                <MenuIcon open={mobileMenuOpen} />
-              </button>
+              <div className="halo-mobile-menu-anchor">
+                <button
+                  type="button"
+                  className="halo-mobile-menu-button"
+                  aria-label={mobileMenuOpen ? "Close dashboard menu" : "Open dashboard menu"}
+                  aria-expanded={mobileMenuOpen}
+                  onClick={() => setMobileMenuOpen((open) => !open)}
+                >
+                  <MenuIcon open={mobileMenuOpen} />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {mobileMenuOpen ? (
+                    <motion.div
+                      className="halo-mobile-menu"
+                      initial={{ opacity: 0, y: -4, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                      transition={{ type: "spring", duration: 0.24, bounce: 0 }}
+                    >
+                      <DashboardNavTree onNavigate={() => setMobileMenuOpen(false)} />
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </header>
-
-        <AnimatePresence initial={false}>
-          {mobileMenuOpen ? (
-            <motion.div
-              className="halo-mobile-menu"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-            >
-              <DashboardNavTree onNavigate={() => setMobileMenuOpen(false)} />
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
 
         <div className="halo-doc-body">
           <aside className="halo-doc-sidebar" aria-label="Dashboard navigation">
