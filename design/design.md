@@ -512,6 +512,17 @@ Halo is a flat design system. The cloned reference casts no drop shadows, and ne
 
 The embeddable testimonial widget keeps a per-preset shadow capability for matching external brands, but Halo's shipped presets are all flat (`shadow: "none"`) and Halo's own dashboard UI never uses it.
 
+## Data Visualization
+
+Analytics borrows Apple's data language (Health, Fitness Activity Rings, Stocks): calm, flat, one accent, the number is the hero.
+
+- **Numbers first.** Lead each metric with a large, tight-tracked value in `tabular-nums`; pair it with a small trend delta — `green-1` for up, `red-1` for down — and a triangle glyph. Never color the number itself.
+- **Gradient fills are the one sanctioned gradient.** Charts fill the area under a curve with the accent fading to transparent (`primary` at ~22–24% opacity → 0%). This is low-opacity and accent-derived, so it stays within the "no high-saturation gradients" rule (principle 2) — the same restraint as the `radial-gradient(... primary 7–9% ...)` panel washes already in use. No rainbow ramps, no gradient on text or surfaces.
+- **Curves, not spikes.** Smooth line series with Catmull-Rom interpolation and round joins; mark only the latest point (or the hovered one) with a filled dot.
+- **Rings for goals.** Goal progress uses concentric rounded-cap rings (Fitness style): a track at the hue's ~14% opacity under a hue-to-hue gradient stroke. Use the semantic accents (`primary`, `teal-1`, `green-1`) across rings, not one flat blue.
+- **No chart junk.** A single hairline baseline at most — no gridlines, no axis spines, no shadows. Axis labels are sparse and muted (`fg-3`, ~11px). Bars get rounded ends and a gentle left-to-right accent gradient.
+- **Scrub, don't clutter.** Detail appears on hover/touch as a single value callout on a dark pill, not as always-on labels on every point.
+
 ## Motion
 
 Motion is soft and physical. The source CSS exposes two named motion profiles:

@@ -355,10 +355,22 @@
 
   .halo-page-header {
     display: flex;
-    min-height: 52px;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+  }
+
+  .halo-page-header .halo-page-heading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .halo-page-header:has(> .halo-page-heading:only-child) {
+    display: none;
   }
 
   .halo-page-header h1 {
@@ -601,6 +613,12 @@
     align-items: start;
   }
 
+  .halo-studio-footer-action {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+  }
+
   .halo-studio-preview {
     display: grid;
     max-width: 100%;
@@ -629,6 +647,10 @@
     flex: 0 0 auto;
     align-items: center;
     gap: 8px;
+  }
+
+  .halo-studio-preview .halo-studio-preview-header {
+    display: none;
   }
 
   .halo-studio-controls-toggle,
@@ -728,6 +750,16 @@
     overscroll-behavior: contain;
     background: var(--halo-bg-1);
     padding: 0 4px;
+  }
+
+  .halo-studio-device-control {
+    display: flex;
+    min-width: 0;
+    padding: 0 0 12px;
+  }
+
+  .halo-studio-device-control > div {
+    width: 100%;
   }
 
   .halo-studio-controls-header {
@@ -964,6 +996,10 @@
       display: inline-flex;
     }
 
+    .halo-studio-preview .halo-studio-preview-header {
+      display: flex;
+    }
+
     .halo-studio-controls-scrim.is-open {
       position: fixed;
       inset: 0;
@@ -1016,6 +1052,10 @@
       margin-bottom: 0;
       border-bottom: 0;
       background: transparent;
+    }
+
+    .halo-studio-device-control {
+      padding: 0 4px;
     }
 
     .halo-studio-controls .halo-inspector-group {

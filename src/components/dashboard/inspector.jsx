@@ -1,5 +1,10 @@
 import { cn } from "@/lib/cn";
 
+export const deviceOptions = [
+  { id: "desktop", label: "Desktop" },
+  { id: "mobile", label: "Mobile" },
+];
+
 // Shared inspector controls for dashboard creation surfaces (Widget Studio,
 // Walls). Keeping them in one place means the two editors stay visually and
 // behaviourally identical — same disclosures, swatches, option lists, toggles.

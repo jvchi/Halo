@@ -11,6 +11,7 @@ import {
   OptionList,
   SwatchGrid,
   Toggle,
+  deviceOptions,
 } from "@/components/dashboard/inspector.jsx";
 
 const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }));
@@ -91,9 +92,6 @@ export default function Walls() {
           title="Walls"
           info="A hosted Wall of Love page showcasing your approved testimonials."
         />
-        <button type="button" onClick={copyLink} className="halo-copy-button">
-          {copied ? "Copied ✓" : "Copy wall link"}
-        </button>
       </header>
 
       <div className="halo-studio-shell">
@@ -101,14 +99,6 @@ export default function Walls() {
         <section className="halo-studio-preview" aria-label="Wall preview">
           <div className="halo-studio-preview-header">
             <div className="halo-studio-preview-actions">
-              <Segmented
-                options={[
-                  { id: "desktop", label: "Desktop" },
-                  { id: "mobile", label: "Mobile" },
-                ]}
-                value={device}
-                onChange={setDevice}
-              />
               <button
                 type="button"
                 className="halo-studio-controls-toggle"
@@ -154,6 +144,13 @@ export default function Walls() {
           className={cn("halo-studio-controls", controlsOpen && "is-open")}
           aria-label="Wall settings"
         >
+          <div className="halo-studio-device-control" aria-label="Preview size">
+            <Segmented
+              options={deviceOptions}
+              value={device}
+              onChange={setDevice}
+            />
+          </div>
           <div className="halo-studio-controls-header">
             <div>
               <span>Settings</span>
@@ -184,6 +181,12 @@ export default function Walls() {
             <OptionList options={COLUMN_OPTIONS} value={columns} onChange={setColumns} />
           </Disclosure>
         </aside>
+      </div>
+
+      <div className="halo-studio-footer-action">
+        <button type="button" onClick={copyLink} className="halo-copy-button">
+          {copied ? "Copied ✓" : "Copy wall link"}
+        </button>
       </div>
     </div>
   );

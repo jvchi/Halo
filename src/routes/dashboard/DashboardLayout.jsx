@@ -128,6 +128,10 @@ function DashboardNavTree({ onNavigate }) {
 export default function DashboardLayout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const activePageLabel =
+    dashboardNav.find((item) =>
+      item.end ? location.pathname === item.to : location.pathname.startsWith(item.to)
+    )?.label ?? "Dashboard";
 
   return (
     <TestimonialsProvider>
@@ -137,7 +141,7 @@ export default function DashboardLayout() {
             <Link to="/" className="halo-doc-logo" aria-label="Halo home">
               <Logo />
               <span className="halo-doc-logo-divider" />
-              <span className="halo-doc-logo-context">Dashboard</span>
+              <span className="halo-doc-logo-context">{activePageLabel}</span>
             </Link>
 
             <div className="halo-doc-actions">

@@ -5,7 +5,7 @@ import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
 import { cardStyles, customCardStyleIds } from "@/components/widget/templates/index.js";
 import { PageHeading } from "@/components/ui";
-import { Disclosure, Segmented, Toggle, OptionList, SwatchGrid } from "@/components/dashboard/inspector.jsx";
+import { Disclosure, Segmented, Toggle, OptionList, SwatchGrid, deviceOptions } from "@/components/dashboard/inspector.jsx";
 
 const LAYOUTS = [
   { id: "single", label: "Single" },
@@ -97,13 +97,6 @@ export default function WidgetStudio() {
           title="Widget Studio"
           info="Design testimonial widgets visually — layout, theme, and display."
         />
-        <button
-          type="button"
-          onClick={copyEmbed}
-          className="halo-copy-button"
-        >
-          {copied ? "Copied ✓" : "Copy embed code"}
-        </button>
       </header>
 
       <div className="halo-studio-shell">
@@ -111,14 +104,6 @@ export default function WidgetStudio() {
         <section className="halo-studio-preview" aria-label="Live widget preview">
           <div className="halo-studio-preview-header">
             <div className="halo-studio-preview-actions">
-              <Segmented
-                options={[
-                  { id: "desktop", label: "Desktop" },
-                  { id: "mobile", label: "Mobile" },
-                ]}
-                value={device}
-                onChange={setDevice}
-              />
               <button
                 type="button"
                 className="halo-studio-controls-toggle"
@@ -174,6 +159,13 @@ export default function WidgetStudio() {
           className={cn("halo-studio-controls", controlsOpen && "is-open")}
           aria-label="Widget controls"
         >
+          <div className="halo-studio-device-control" aria-label="Preview size">
+            <Segmented
+              options={deviceOptions}
+              value={device}
+              onChange={setDevice}
+            />
+          </div>
           <div className="halo-studio-controls-header">
             <div>
               <span>Controls</span>
@@ -229,6 +221,16 @@ export default function WidgetStudio() {
             </Disclosure>
           )}
         </aside>
+      </div>
+
+      <div className="halo-studio-footer-action">
+        <button
+          type="button"
+          onClick={copyEmbed}
+          className="halo-copy-button"
+        >
+          {copied ? "Copied ✓" : "Copy embed code"}
+        </button>
       </div>
     </div>
   );

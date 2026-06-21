@@ -4,7 +4,7 @@
 // anchored to the heading's left edge (not the icon) so it lines up with the title.
 export function PageHeading({ title, info }) {
   return (
-    <div className="relative flex items-center gap-1.5">
+    <div className="halo-page-heading relative flex items-center gap-1.5">
       <h1>{title}</h1>
       {info ? (
         <>
