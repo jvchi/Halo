@@ -716,6 +716,10 @@
     transition-timing-function: var(--halo-ease-snappy);
   }
 
+  .halo-widget-preview-canvas .halo-studio-preview-inner {
+    padding-top: 0;
+  }
+
   .halo-wall-preview-canvas {
     height: auto;
     min-height: 0;
@@ -723,7 +727,7 @@
   }
 
   .halo-wall-preview-canvas .halo-studio-preview-inner {
-    padding-top: 16px;
+    padding-top: 0;
     padding-bottom: 0;
   }
 

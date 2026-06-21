@@ -60,7 +60,15 @@ function EditableText({ as: Component, value, placeholder, onChange, className, 
   );
 }
 
-export function WallView({ config, testimonials, hero, compact = false, editable = false, onHeroChange }) {
+export function WallView({
+  config,
+  testimonials,
+  hero,
+  compact = false,
+  editable = false,
+  topAligned = false,
+  onHeroChange,
+}) {
   const { theme } = config;
   const muted = `color-mix(in srgb, ${theme.textColor} 60%, transparent)`;
   const setHeroField = (key) => (value) => onHeroChange?.(key, value);
@@ -83,7 +91,7 @@ export function WallView({ config, testimonials, hero, compact = false, editable
             textAlign: "center",
             maxWidth: 640,
             margin: "0 auto",
-            padding: compact ? "22px 24px 26px" : "44px 24px 36px",
+            padding: compact ? `${topAligned ? 0 : 22}px 24px 26px` : "44px 24px 36px",
           }}
         >
           {hero.showLogo ? <Monogram name={hero.workspace} accent={theme.accent} compact={compact} /> : null}

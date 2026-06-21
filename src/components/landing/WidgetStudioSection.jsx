@@ -1,5 +1,5 @@
 // Faithful conversion of the dark product section -> Halo "Widget Studio".
-// Same original styles_* classes; testimonial copy + Halo illustration art.
+// Same original styles_* classes; testimonial copy + restored reference mockup.
 
 const studioCards = [
   { label: "Layouts", heading: "Wall", sub: "Grid", desc: "Masonry walls and tidy grids for testimonial-heavy pages." },
@@ -9,18 +9,10 @@ const studioCards = [
 
 function StudioPreview() {
   return (
-    <img
-      src="/illustrations/landing-widget-studio.png"
-      alt=""
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-      style={{
-        display: "block",
-        width: "min(100%, 520px)",
-        height: "auto",
-        margin: "0 auto",
-      }}
+    <object
+      data="/aave/a69524f00e279335.svg"
+      type="image/svg+xml"
+      aria-label="Widget Studio interface mockup"
     />
   );
 }

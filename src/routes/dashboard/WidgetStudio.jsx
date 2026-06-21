@@ -117,7 +117,7 @@ export default function WidgetStudio() {
           </div>
           <div
             ref={canvasRef}
-            className="halo-studio-preview-canvas"
+            className="halo-studio-preview-canvas halo-widget-preview-canvas"
             style={{ background: theme.background }}
           >
             <div

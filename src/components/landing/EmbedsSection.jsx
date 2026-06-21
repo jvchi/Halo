@@ -80,14 +80,15 @@ function LogoBox({ name, icon }) {
 function EmbedPreview() {
   return (
     <img
-      src="/illustrations/landing-embeds.png"
+      src="/aave/3e2aebac56853d99.svg"
       alt=""
       aria-hidden="true"
       loading="lazy"
       decoding="async"
       style={{
         display: "block",
-        width: "min(100%, 520px)",
+        width: "100%",
+        maxWidth: 570,
         height: "auto",
         margin: "0 auto",
       }}

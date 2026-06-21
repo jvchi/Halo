@@ -125,6 +125,7 @@ export default function Walls() {
                 hero={hero}
                 compact
                 editable
+                topAligned
                 onHeroChange={setHeroField}
               />
             </div>

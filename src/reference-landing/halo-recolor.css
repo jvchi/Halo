@@ -40,3 +40,23 @@
     --focus: color(display-p3 0 0.443 0.89) !important;
   }
 }
+
+.styles_header__fpulf .styles_maxWidth__I5ECG {
+  padding-top: 14px !important;
+}
+
+.styles_header__fpulf .styles_logoContainer__WGUWG {
+  padding-top: 9px !important;
+  padding-bottom: 9px !important;
+}
+
+@media (max-width: 768px) {
+  .styles_header__fpulf .styles_maxWidth__I5ECG {
+    padding-top: 4px !important;
+  }
+
+  .styles_header__fpulf .styles_logoContainer__WGUWG {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
