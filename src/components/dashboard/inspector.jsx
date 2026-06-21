@@ -146,7 +146,7 @@ export function OptionList({ options, value, onChange }) {
 // carries a primary ring; the current name lives in the disclosure header.
 export function SwatchGrid({ presets, value, onChange }) {
   return (
-    <div className="grid grid-cols-5 gap-2">
+    <div className="flex flex-wrap gap-1.5 p-1">
       {presets.map((p) => {
         const active = p.id === value;
         return (
@@ -158,9 +158,9 @@ export function SwatchGrid({ presets, value, onChange }) {
             aria-pressed={active}
             onClick={() => onChange(p.id)}
             className={cn(
-              "aspect-square rounded-full transition-[box-shadow] duration-150",
+              "h-6 w-6 rounded-full transition-[box-shadow] duration-150",
               active
-                ? "ring-2 ring-halo-primary"
+                ? "ring-2 ring-halo-primary ring-offset-1 ring-offset-halo-bg-1"
                 : "ring-1 ring-inset ring-black/10 hover:ring-black/25"
             )}
             style={{

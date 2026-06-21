@@ -169,7 +169,6 @@ export default function WidgetStudio() {
           <div className="halo-studio-controls-header">
             <div>
               <span>Controls</span>
-              <p>Adjust the preview, then copy the embed.</p>
             </div>
             <button
               type="button"
