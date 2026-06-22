@@ -54,7 +54,15 @@
       "Skill(firecrawl-scrape)",
       "Skill(firecrawl-scrape:*)",
       "WebFetch(domain:www.wsj.com)",
-      "WebFetch(domain:en.wikipedia.org)"
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(npm install *)",
+      "Bash(node -p \"require\\('/Users/destiny/Documents/Halo/node_modules/gsap/package.json'\\).version\")",
+      "Bash(cat)",
+      "Bash(node /tmp/ease_check.mjs)",
+      "Bash(rm -f /tmp/ease_check.mjs)",
+      "Bash(node /Users/destiny/Documents/Halo/ease_check.mjs)",
+      "Bash(rm -f /tmp/vite_boot.log)",
+      "Bash(git -C /Users/destiny/Documents/Halo status --short)"
     ]
   }
 }

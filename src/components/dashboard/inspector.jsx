@@ -48,7 +48,7 @@ export function Disclosure({ label, value, open, onToggle, children }) {
 
 export function Segmented({ options, value, onChange, wrap = false }) {
   return (
-    <div className={cn("inline-flex max-w-full gap-1 rounded-pill bg-halo-bg-3 p-1", wrap && "flex-wrap")}>
+    <div data-no-fill className={cn("inline-flex max-w-full gap-1 rounded-pill bg-halo-bg-3 p-1", wrap && "flex-wrap")}>
       {options.map((o) => (
         <button
           key={o.id}

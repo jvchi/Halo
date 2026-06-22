@@ -1,0 +1,73 @@
+/*
+ * Snappy pointer-following background fill, applied app-wide by snappyFill.js.
+ *
+ * A single circle covers the host from any cursor position: its width is 200%
+ * of the button (so even a hover on the far-left edge still fills the whole
+ * control). GSAP owns its transform — xPercent/yPercent:-50 keep it centered on
+ * its left/top point, scale animates 0 -> 1, and left/top (in %) are driven by
+ * gsap.quickSetter every frame on pointermove so it follows the cursor and
+ * adapts to any button size.
+ *
+ * The circle paints at z-index:-1 inside the host's isolated stacking context,
+ * so it sits between the host's background and its label — it never covers the
+ * text, and no child wrapping is needed. This is a background shift, not a
+ * shadow (design.md: "the lift is the background change, not a shadow").
+ */
+
+.is-snappy-fill,
+.halo-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.halo-fill {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  /* Default adapts to any surface: the host's own text color at low alpha. */
+  background: var(--halo-fill-color, color-mix(in srgb, currentColor 16%, transparent));
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: -1;
+  will-change: transform, left, top;
+}
+
+/* Design-system Button per-variant fill color (overrides the currentColor
+   default with on-brand tokens). */
+.halo-btn[data-variant="primary"] {
+  --halo-fill-color: var(--halo-primary-soft);
+}
+
+.halo-btn[data-variant="secondary"] {
+  --halo-fill-color: color-mix(in srgb, var(--halo-primary) 22%, transparent);
+}
+
+.halo-btn[data-variant="dark"] {
+  --halo-fill-color: color-mix(in srgb, #fff 14%, var(--halo-fg-1));
+}
+
+.halo-btn[data-variant="white"] {
+  --halo-fill-color: var(--halo-primary-wash);
+}
+
+/* Focus adjusts the resting background as well (unlayered, so it wins over the
+   Tailwind bg-* utility). The global :focus-visible ring still applies. */
+.halo-btn[data-variant="primary"]:focus-visible {
+  background-color: var(--halo-blue-1);
+}
+
+.halo-btn[data-variant="secondary"]:focus-visible {
+  background-color: color-mix(in srgb, var(--halo-primary) 18%, transparent);
+}
+
+.halo-btn[data-variant="dark"]:focus-visible {
+  background-color: color-mix(in srgb, #fff 8%, var(--halo-fg-1));
+}
+
+.halo-btn[data-variant="white"]:focus-visible {
+  background-color: var(--halo-bg-3);
+}

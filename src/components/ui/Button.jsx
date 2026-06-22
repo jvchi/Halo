@@ -1,7 +1,10 @@
 import { cn } from "@/lib/cn";
 
 // .aave-button + variants. Pill CTA: min-height 45px, 14px 24px padding,
-// 17px/500 type, soft snappy lift on hover.
+// 17px/500 type, soft snappy lift on hover. The pointer-following fill that
+// scales in behind the label is applied globally to every button by
+// src/lib/snappyFill.js; data-variant selects this button's on-brand fill +
+// focus colors (see snappyFill.css).
 const variants = {
   primary: "bg-halo-primary text-white",
   secondary:
@@ -19,8 +22,9 @@ export function Button({
 }) {
   return (
     <As
+      data-variant={variant}
       className={cn(
-        "relative inline-flex min-h-[45px] cursor-pointer items-center justify-center gap-2",
+        "halo-btn inline-flex min-h-[45px] cursor-pointer items-center justify-center gap-2",
         "rounded-pill border-0 px-6 py-3.5 text-button-17 no-underline",
         "transition-[transform,background-color,color,opacity] duration-[220ms] ease-snappy",
         "hover:-translate-y-px active:translate-y-0",
