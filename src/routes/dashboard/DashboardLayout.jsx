@@ -3,12 +3,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { TestimonialsProvider } from "@/lib/testimonialsStore.jsx";
+import { FormsProvider } from "@/lib/formsStore.jsx";
 import { Logo } from "@/components/landing/Logo.jsx";
 
 const dashboardSections = [
   {
     title: "Workspace",
     items: [{ to: "/dashboard", label: "Overview", icon: "overview", end: true }],
+  },
+  {
+    title: "Collect",
+    items: [{ to: "/dashboard/forms", label: "Forms", icon: "forms" }],
   },
   {
     title: "Review",
@@ -36,6 +41,12 @@ function SidebarIcon({ name }) {
         <path d="M3 11.5h10" />
         <path d="M4 8.5l2.5-3 2 2 3-3.5" />
         <path d="M3.5 2.5h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
+      </>
+    ),
+    forms: (
+      <>
+        <path d="M5.5 2.5h5a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
+        <path d="M6.5 5.5h3M6.5 8h3M6.5 10.5h2" />
       </>
     ),
     inbox: (
@@ -135,6 +146,7 @@ export default function DashboardLayout() {
 
   return (
     <TestimonialsProvider>
+      <FormsProvider>
       <div className="halo-doc-shell">
         <header className="halo-doc-header">
           <div className="halo-doc-header-inner">
@@ -198,6 +210,7 @@ export default function DashboardLayout() {
           </main>
         </div>
       </div>
+      </FormsProvider>
     </TestimonialsProvider>
   );
 }

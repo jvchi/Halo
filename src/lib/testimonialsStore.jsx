@@ -9,6 +9,8 @@ const TestimonialsContext = createContext(null);
 
 function reducer(state, action) {
   switch (action.type) {
+    case "add":
+      return [action.testimonial, ...state];
     case "setStatus":
       return state.map((t) =>
         t.id === action.id ? { ...t, status: action.status } : t
@@ -22,6 +24,9 @@ function reducer(state, action) {
   }
 }
 
+const newId = () =>
+  globalThis.crypto?.randomUUID?.() ?? `t-${Date.now().toString(36)}`;
+
 export function TestimonialsProvider({ children }) {
   const [testimonials, dispatch] = useReducer(reducer, sampleTestimonials);
 
@@ -29,6 +34,22 @@ export function TestimonialsProvider({ children }) {
     () => ({
       testimonials,
       approved: testimonials.filter((t) => t.status === "approved"),
+      // A new submission always lands as `pending` so it shows up in the Inbox
+      // for moderation — never auto-published.
+      addTestimonial: (fields) => {
+        const testimonial = {
+          id: newId(),
+          role: "",
+          company: "",
+          rating: 0,
+          source: "form",
+          status: "pending",
+          tags: [],
+          ...fields,
+        };
+        dispatch({ type: "add", testimonial });
+        return testimonial;
+      },
       setStatus: (id, status) => dispatch({ type: "setStatus", id, status }),
       update: (id, patch) => dispatch({ type: "update", id, patch }),
     }),

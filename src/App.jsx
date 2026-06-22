@@ -6,6 +6,8 @@ import Pricing from "@/routes/Pricing.jsx";
 import Templates from "@/routes/Templates.jsx";
 import DashboardLayout from "@/routes/dashboard/DashboardLayout.jsx";
 import Overview from "@/routes/dashboard/Overview.jsx";
+import Forms from "@/routes/dashboard/Forms.jsx";
+import FormBuilder from "@/routes/dashboard/FormBuilder.jsx";
 import Inbox from "@/routes/dashboard/Inbox.jsx";
 import WidgetStudio from "@/routes/dashboard/WidgetStudio.jsx";
 import Walls from "@/routes/dashboard/Walls.jsx";
@@ -39,6 +41,8 @@ export default function App() {
         <Route path="/templates" element={<Templates />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Overview />} />
+          <Route path="forms" element={<Forms />} />
+          <Route path="forms/:formId" element={<FormBuilder />} />
           <Route path="inbox" element={<Inbox />} />
           <Route path="widget-studio" element={<WidgetStudio />} />
           <Route path="walls" element={<Walls />} />

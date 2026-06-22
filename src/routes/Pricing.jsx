@@ -14,14 +14,11 @@ const plans = [
 export default function Pricing() {
   return (
     <>
-      <header className="border-b border-halo-border-1">
-        <Shell className="flex min-h-[72px] items-center justify-between">
+      <header>
+        <Shell className="flex min-h-[72px] items-center">
           <Link to="/" aria-label="Halo home">
             <Logo />
           </Link>
-          <Button as={Link} to="/dashboard" variant="dark" className="min-h-[32px] px-4 py-[9px] text-[14px]">
-            Use Halo
-          </Button>
         </Shell>
       </header>
 

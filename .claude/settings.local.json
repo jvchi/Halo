@@ -62,7 +62,11 @@
       "Bash(rm -f /tmp/ease_check.mjs)",
       "Bash(node /Users/destiny/Documents/Halo/ease_check.mjs)",
       "Bash(rm -f /tmp/vite_boot.log)",
-      "Bash(git -C /Users/destiny/Documents/Halo status --short)"
+      "Bash(git -C /Users/destiny/Documents/Halo status --short)",
+      "Bash(npx vite *)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/)",
+      "Bash(pkill -f \"vite --port 5174\")"
     ]
   }
 }

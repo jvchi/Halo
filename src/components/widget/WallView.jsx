@@ -1,4 +1,5 @@
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
+import { EditableText } from "@/components/dashboard/EditableText.jsx";
 
 // A hosted Wall of Love page (blueprint §6.8): a themed hero over a masonry of
 // approved testimonials. Like WidgetRenderer it themes itself from the preset
@@ -24,39 +25,6 @@ function Monogram({ name, accent, compact = false }) {
     >
       {letter}
     </div>
-  );
-}
-
-function EditableText({ as: Component, value, placeholder, onChange, className, style }) {
-  const editable = typeof onChange === "function";
-
-  if (!editable) {
-    return (
-      <Component className={className} style={style}>
-        {value || placeholder}
-      </Component>
-    );
-  }
-
-  return (
-    <Component
-      className={className}
-      style={style}
-      contentEditable
-      suppressContentEditableWarning
-      role="textbox"
-      tabIndex={0}
-      data-placeholder={placeholder}
-      onBlur={(event) => onChange(event.currentTarget.textContent.trim())}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" && !event.shiftKey) {
-          event.preventDefault();
-          event.currentTarget.blur();
-        }
-      }}
-    >
-      {value}
-    </Component>
   );
 }
 
