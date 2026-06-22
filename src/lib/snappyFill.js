@@ -41,6 +41,19 @@ const prefersReduced = () =>
 // One controller per host, created lazily on first hover and cached.
 const hosts = new WeakMap();
 
+function ensureLabelLayer(host, fill) {
+  if (host.querySelector(":scope > .halo-btn-label")) return;
+
+  const label = document.createElement("span");
+  label.className = "halo-btn-label";
+
+  for (const child of [...host.childNodes]) {
+    if (child !== fill) label.appendChild(child);
+  }
+
+  host.insertBefore(label, fill);
+}
+
 function ensure(host) {
   let api = hosts.get(host);
   if (api) return api;
@@ -53,6 +66,7 @@ function ensure(host) {
     fill.setAttribute("aria-hidden", "true");
     host.appendChild(fill);
   }
+  ensureLabelLayer(host, fill);
 
   // GSAP owns the transform: xPercent/yPercent keep the circle centered on its
   // left/top point; scale is what animates 0 -> 1.

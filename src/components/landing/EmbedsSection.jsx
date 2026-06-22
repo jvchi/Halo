@@ -113,10 +113,10 @@ export function EmbedsSection() {
               One line of code on Webflow, Framer, WordPress, Shopify, or plain HTML.
             </p>
             <div className="styles_buttons__I2eai">
-              <a className="styles_container__At_jz " data-variant="primary" href="#">
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="primary" href="#">
                 Get the embed
               </a>
-              <a className="styles_container__At_jz " data-variant="secondary" href="#">
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="#">
                 Read the docs
               </a>
             </div>
@@ -134,7 +134,7 @@ export function EmbedsSection() {
                       <p>Copy one snippet. Your widget stays in sync, loads fast, and respects reduced motion.</p>
                     </div>
                   </div>
-                  <a className="styles_container__At_jz " data-variant="white" href="#">
+                  <a className="styles_container__At_jz " data-snappy-fill data-variant="white" href="#">
                     Read the docs
                   </a>
                 </div>

@@ -128,10 +128,9 @@ function MoreIcon() {
 
 function RowButton({ onClick, children, tone = "ghost", className }) {
   const tones = {
-    primary: "bg-halo-primary text-white hover:opacity-90",
-    ghost: "bg-halo-bg-3 text-halo-fg-2 hover:bg-halo-bg-4 hover:text-halo-fg-1",
-    danger:
-      "text-halo-red hover:bg-[color-mix(in_srgb,var(--halo-red)_12%,transparent)]",
+    primary: "bg-halo-primary text-white",
+    ghost: "bg-halo-bg-3 text-halo-fg-2 hover:text-halo-fg-1",
+    danger: "text-halo-red",
   };
   return (
     <button
@@ -275,7 +274,7 @@ function TestimonialCard({ t, editing, onEdit, onCancel, setStatus, update }) {
                       onClick={a.run}
                       className={cn(
                         "w-full justify-start bg-transparent px-2 py-1.5",
-                        a.tone === "primary" && "text-halo-primary hover:bg-halo-primary-wash"
+                        a.tone === "primary" && "text-halo-primary"
                       )}
                     >
                       {a.label}

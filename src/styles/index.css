@@ -207,8 +207,6 @@
     cursor: pointer;
   }
 
-  .halo-top-cta:hover,
-  .halo-search-button:hover,
   .halo-mobile-menu-button:hover {
     opacity: 0.86;
   }
@@ -400,7 +398,10 @@
     transition-timing-function: ease-out;
   }
 
-  .halo-copy-button:hover,
+  .halo-copy-button:hover {
+    color: var(--halo-fg-1);
+  }
+
   .halo-copy-button:focus-visible {
     color: var(--halo-fg-1);
     background: var(--halo-bg-4);
@@ -666,7 +667,6 @@
   .halo-studio-controls-close:hover,
   .halo-studio-controls-close:focus-visible {
     color: var(--halo-fg-1);
-    background: var(--halo-bg-4);
   }
 
   .halo-studio-controls-toggle:active,

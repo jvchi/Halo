@@ -8,10 +8,10 @@
  * gsap.quickSetter every frame on pointermove so it follows the cursor and
  * adapts to any button size.
  *
- * The circle paints at z-index:-1 inside the host's isolated stacking context,
- * so it sits between the host's background and its label — it never covers the
- * text, and no child wrapping is needed. This is a background shift, not a
- * shadow (design.md: "the lift is the background change, not a shadow").
+ * The controller adds a foreground label layer for eligible targets, then the
+ * circle paints above the resting background and below that label. This is a
+ * background shift, not a shadow (design.md: "the lift is the background
+ * change, not a shadow").
  */
 
 .is-snappy-fill,
@@ -36,6 +36,22 @@
   will-change: transform, left, top;
 }
 
+.is-snappy-fill .halo-fill,
+.halo-btn .halo-fill {
+  z-index: 0;
+}
+
+.is-snappy-fill > .halo-btn-label,
+.halo-btn-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  pointer-events: none;
+}
+
 /* Design-system Button per-variant fill color (overrides the currentColor
    default with on-brand tokens). */
 .halo-btn[data-variant="primary"] {
@@ -43,11 +59,11 @@
 }
 
 .halo-btn[data-variant="secondary"] {
-  --halo-fill-color: color-mix(in srgb, var(--halo-primary) 22%, transparent);
+  --halo-fill-color: color-mix(in srgb, var(--halo-primary) 24%, var(--halo-primary-wash));
 }
 
 .halo-btn[data-variant="dark"] {
-  --halo-fill-color: color-mix(in srgb, #fff 14%, var(--halo-fg-1));
+  --halo-fill-color: color-mix(in srgb, #fff 20%, var(--halo-fg-1));
 }
 
 .halo-btn[data-variant="white"] {

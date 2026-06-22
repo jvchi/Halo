@@ -77,8 +77,8 @@ export function ProofFaqFooter() {
               Consent-first, lightweight, and accessible — social proof you can ship with confidence.
             </p>
             <div className="styles_buttons__I2eai" data-theme-light="true">
-              <a className="styles_container__At_jz " data-variant="primary" href="#">Learn more</a>
-              <a className="styles_container__At_jz " data-variant="secondary" href="/pricing">See pricing</a>
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="primary" href="#">Learn more</a>
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="/pricing">See pricing</a>
             </div>
             <div className="styles_container__XI72A">
               <div className="styles_cards__5bzjP">
@@ -121,7 +121,7 @@ export function ProofFaqFooter() {
                 ))}
               </div>
               <div className="styles_link__Zyfah" data-theme-light="true">
-                <a className="styles_container__At_jz " data-variant="secondary" href="#">
+                <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="#">
                   More questions? Read the docs
                 </a>
               </div>

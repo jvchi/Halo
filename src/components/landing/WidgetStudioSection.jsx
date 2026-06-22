@@ -34,10 +34,10 @@ export function WidgetStudioSection() {
               Layout, theme, motion, and presets — preview live, then embed.
             </p>
             <div className="styles_buttons__I2eai">
-              <a className="styles_container__At_jz " data-variant="primary" href="#">
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="primary" href="#">
                 Open the studio
               </a>
-              <a className="styles_container__At_jz " data-variant="secondary" href="#">
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="#">
                 See presets
               </a>
             </div>
@@ -56,7 +56,7 @@ export function WidgetStudioSection() {
                   it lives.
                 </p>
               </div>
-              <a className="styles_container__At_jz " data-variant="secondary" href="#">
+              <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="#">
                 See widget types
               </a>
             </div>

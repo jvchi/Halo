@@ -94,7 +94,7 @@ export function Hero() {
               <button className="styles_container__At_jz" data-variant="primary">
                 Get started
               </button>
-              <a className="styles_container__At_jz" data-variant="secondary" href="#">
+              <a className="styles_container__At_jz" data-snappy-fill data-variant="secondary" href="#">
                 Learn more
               </a>
             </div>
