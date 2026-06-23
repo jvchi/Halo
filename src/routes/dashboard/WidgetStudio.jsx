@@ -1,7 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { widgetPresets, getPreset } from "@/lib/presets";
+import { widgetPresets } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
+import { useBrand } from "@/lib/brandStore.jsx";
+import { brandWidgetPreset } from "@/lib/brand";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
 import { cardStyles, customCardStyleIds } from "@/components/widget/templates/index.js";
 import { IsoconIllustration, PageHeading } from "@/components/ui";
@@ -36,7 +38,10 @@ const DISPLAY_OPTIONS = [
 const EMBED_CODE = `<iframe src="https://halo.app/embed/WIDGET_ID" width="100%" style="border:0;" loading="lazy"></iframe>`;
 
 export default function WidgetStudio() {
-  const [themeId, setThemeId] = useState(widgetPresets[0].id);
+  const { brand } = useBrand();
+  // The workspace accent leads the preset list, so a new widget starts on-brand.
+  const presets = useMemo(() => [brandWidgetPreset(brand.brandColor), ...widgetPresets], [brand.brandColor]);
+  const [themeId, setThemeId] = useState("brand");
   const [type, setType] = useState("grid");
   const [cardStyle, setCardStyle] = useState("default");
   const [columns, setColumns] = useState(3);
@@ -73,7 +78,7 @@ export default function WidgetStudio() {
   }, [frameWidth]);
 
   const { approved } = useTestimonials();
-  const theme = getPreset(themeId);
+  const theme = presets.find((p) => p.id === themeId) ?? presets[0];
   const isCustomStyle = customCardStyleIds.has(cardStyle);
   const showColumns = COLUMN_LAYOUTS.has(type);
   const effectiveColumns = device === "mobile" ? 1 : columns;
@@ -172,7 +177,7 @@ export default function WidgetStudio() {
             </button>
           </div>
           <Disclosure label="Preset" value={theme.name} open={open.preset} onToggle={() => toggle("preset")}>
-            <SwatchGrid presets={widgetPresets} value={themeId} onChange={setThemeId} />
+            <SwatchGrid presets={presets} value={themeId} onChange={setThemeId} />
           </Disclosure>
 
           <Disclosure label="Card style" value={cardStyleLabel} open={open.cardStyle} onToggle={() => toggle("cardStyle")}>

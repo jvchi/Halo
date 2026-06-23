@@ -70,7 +70,10 @@
       "Bash(curl -s http://localhost:5174/src/lib/snappyFill.js)",
       "Bash(echo \"snappyFill.js -> $\\(curl -s http://localhost:5174/src/lib/snappyFill.js)",
       "Bash(curl -s http://localhost:5174/src/routes/dashboard/FormBuilder.jsx)",
-      "Bash(echo \"FormBuilder -> $\\(curl -s http://localhost:5174/src/routes/dashboard/FormBuilder.jsx)"
+      "Bash(echo \"FormBuilder -> $\\(curl -s http://localhost:5174/src/routes/dashboard/FormBuilder.jsx)",
+      "Bash(node -e \"require\\('@babel/core'\\)\")",
+      "Bash(node node_modules/vite/bin/vite.js build)",
+      "Bash(git checkout *)"
     ]
   }
 }

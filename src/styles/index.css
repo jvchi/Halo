@@ -63,6 +63,60 @@
 }
 
 @layer components {
+  /* Universal form field — one input style for the whole app (inputs, textareas,
+     selects). Apple's filled style: a soft grey fill, no border of its own; the
+     surrounding card/form owns the borders. Focus is the global :focus-visible
+     ring (brand-tinted via --halo-focus), so the field never carries a resting
+     outline. Add utilities for per-use tweaks (min-height for textareas, etc.). */
+  .halo-field {
+    width: 100%;
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    background: var(--halo-bg-3);
+    color: var(--halo-fg-1);
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    padding: 9px 12px;
+    outline: 0;
+    transition: background-color 140ms ease;
+  }
+
+  .halo-field::placeholder {
+    color: var(--halo-fg-3);
+  }
+
+  .halo-field:hover {
+    background: var(--halo-bg-4);
+  }
+
+  .halo-field:focus {
+    background: var(--halo-bg-1);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--halo-primary) 30%, transparent);
+  }
+
+  /* Native select: keep the filled look and add a quiet chevron. */
+  select.halo-field {
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: calc(100% - 17px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 32px;
+    color: var(--halo-fg-1);
+  }
+
+  /* iOS Safari zooms the page whenever a focused field's text is under 16px.
+     Render fields at 16px on phones to kill that tap-to-zoom (desktop keeps the
+     denser 14px). One rule covers every input now that they share .halo-field. */
+  @media (max-width: 640px) {
+    .halo-field {
+      font-size: 16px;
+    }
+  }
+
   .halo-doc-shell {
     min-height: 100vh;
     background: var(--halo-bg-1);

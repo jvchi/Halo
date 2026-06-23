@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { TestimonialsProvider } from "@/lib/testimonialsStore.jsx";
 import { FormsProvider } from "@/lib/formsStore.jsx";
+import { BrandProvider, useBrand } from "@/lib/brandStore.jsx";
 import { Logo } from "@/components/landing/Logo.jsx";
 
 const dashboardSections = [
@@ -29,6 +30,10 @@ const dashboardSections = [
   {
     title: "Measure",
     items: [{ to: "/dashboard/analytics", label: "Analytics", icon: "analytics" }],
+  },
+  {
+    title: "Configure",
+    items: [{ to: "/dashboard/settings", label: "Settings", icon: "settings" }],
   },
 ];
 
@@ -79,6 +84,12 @@ function SidebarIcon({ name }) {
         <path d="M2 13.5h12" />
       </>
     ),
+    settings: (
+      <>
+        <circle cx="8" cy="8" r="2.1" />
+        <path d="M8 1.8v1.6M8 12.6v1.6M14.2 8h-1.6M3.4 8H1.8M12.38 3.62l-1.13 1.13M4.75 11.25l-1.13 1.13M12.38 12.38l-1.13-1.13M4.75 4.75 3.62 3.62" />
+      </>
+    ),
   };
 
   return (
@@ -118,6 +129,16 @@ function DashboardNavTree({ onNavigate }) {
   );
 }
 
+function SidebarFootnote() {
+  const { brand } = useBrand();
+  return (
+    <div className="halo-sidebar-footnote">
+      <span>{brand.workspaceName || "Workspace"}</span>
+      <span>Free plan</span>
+    </div>
+  );
+}
+
 export default function DashboardLayout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -127,6 +148,7 @@ export default function DashboardLayout() {
     )?.label ?? "Dashboard";
 
   return (
+    <BrandProvider>
     <TestimonialsProvider>
       <FormsProvider>
       <div className="halo-doc-shell">
@@ -170,10 +192,7 @@ export default function DashboardLayout() {
         <div className="halo-doc-body">
           <aside className="halo-doc-sidebar" aria-label="Dashboard navigation">
             <DashboardNavTree />
-            <div className="halo-sidebar-footnote">
-              <span>Halo workspace</span>
-              <span>Free plan</span>
-            </div>
+            <SidebarFootnote />
           </aside>
 
           <main className="halo-doc-main">
@@ -183,5 +202,6 @@ export default function DashboardLayout() {
       </div>
       </FormsProvider>
     </TestimonialsProvider>
+    </BrandProvider>
   );
 }

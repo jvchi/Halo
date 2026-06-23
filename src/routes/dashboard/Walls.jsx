@@ -1,8 +1,10 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
-import { widgetPresets, getPreset } from "@/lib/presets";
+import { widgetPresets } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
+import { useBrand } from "@/lib/brandStore.jsx";
+import { brandWidgetPreset } from "@/lib/brand";
 import { WallView } from "@/components/widget/WallView.jsx";
 import { cardStyles } from "@/components/widget/templates/index.js";
 import {
@@ -16,7 +18,6 @@ import {
 
 const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }));
 const COLUMN_OPTIONS = [2, 3, 4].map((n) => ({ id: n, label: `${n} columns` }));
-const WALL_URL = "https://halo.app/w/halo";
 
 // A wall always shows the full testimonial; the display toggles live in Widget
 // Studio, not here.
@@ -31,21 +32,25 @@ const CANVAS_PAD = 28;
 
 export default function Walls() {
   const { approved } = useTestimonials();
+  const { brand } = useBrand();
+  // The workspace accent leads the theme list so a new wall starts on-brand.
+  const presets = useMemo(() => [brandWidgetPreset(brand.brandColor), ...widgetPresets], [brand.brandColor]);
 
-  const [themeId, setThemeId] = useState("minimal-light");
+  const [themeId, setThemeId] = useState("brand");
   const [cardStyle, setCardStyle] = useState("default");
   const [columns, setColumns] = useState(3);
   const [device, setDevice] = useState("desktop");
   const [controlsOpen, setControlsOpen] = useState(false);
   const [hero, setHero] = useState({
     title: "Loved by founders and teams",
-    description: "Real words from the people who use Halo every day.",
+    description: `Real words from the people who use ${brand.workspaceName} every day.`,
     ctaLabel: "Start collecting",
     showHeader: true,
     showCta: true,
     showLogo: true,
-    workspace: "Halo",
+    workspace: brand.workspaceName,
   });
+  const wallUrl = `https://halo.app/w/${brand.slug}`;
   const [open, setOpen] = useState({});
   const [copied, setCopied] = useState(false);
 
@@ -63,7 +68,7 @@ export default function Walls() {
     return () => ro.disconnect();
   }, [frameWidth]);
 
-  const theme = getPreset(themeId);
+  const theme = presets.find((p) => p.id === themeId) ?? presets[0];
   const effectiveColumns = device === "mobile" ? 1 : columns;
   const config = {
     type: "masonry",
@@ -80,7 +85,7 @@ export default function Walls() {
   const cardStyleLabel = CARD_STYLE_OPTIONS.find((c) => c.id === cardStyle)?.label ?? "Default";
 
   function copyLink() {
-    navigator.clipboard?.writeText(WALL_URL);
+    navigator.clipboard?.writeText(wallUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   }
@@ -171,7 +176,7 @@ export default function Walls() {
           </div>
 
           <Disclosure label="Theme" value={theme.name} open={open.theme} onToggle={() => toggle("theme")}>
-            <SwatchGrid presets={widgetPresets} value={themeId} onChange={setThemeId} />
+            <SwatchGrid presets={presets} value={themeId} onChange={setThemeId} />
           </Disclosure>
 
           <Disclosure label="Card style" value={cardStyleLabel} open={open.cardStyle} onToggle={() => toggle("cardStyle")}>

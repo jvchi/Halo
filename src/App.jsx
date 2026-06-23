@@ -12,6 +12,7 @@ import Inbox from "@/routes/dashboard/Inbox.jsx";
 import WidgetStudio from "@/routes/dashboard/WidgetStudio.jsx";
 import Walls from "@/routes/dashboard/Walls.jsx";
 import Analytics from "@/routes/dashboard/Analytics.jsx";
+import Settings from "@/routes/dashboard/Settings.jsx";
 
 function NotFound() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="widget-studio" element={<WidgetStudio />} />
           <Route path="walls" element={<Walls />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

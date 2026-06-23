@@ -147,8 +147,7 @@ function RowButton({ onClick, children, tone = "ghost", className }) {
   );
 }
 
-const inputClass =
-  "w-full rounded-md border border-halo-border-1 bg-halo-bg-1 px-3 py-2 text-[14px] text-halo-fg-1 outline-none transition-colors focus:border-halo-primary";
+const inputClass = "halo-field";
 
 function EditCard({ t, onSave, onCancel }) {
   const [form, setForm] = useState({

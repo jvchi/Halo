@@ -173,7 +173,6 @@ export function SwatchGrid({ presets, value, onChange }) {
   );
 }
 
-// Flat text field, consistent with the inspector's compact scale. Used by the
-// Walls editor for hero copy.
-export const controlInputClass =
-  "w-full rounded-md border border-halo-border-1 bg-halo-bg-1 px-2.5 py-1.5 text-[13px] text-halo-fg-1 outline-none transition-colors placeholder:text-halo-fg-3 focus:border-halo-primary";
+// The universal field (.halo-field, defined in styles/index.css). Kept as an
+// alias so existing imports keep working and every input shares one style.
+export const controlInputClass = "halo-field";

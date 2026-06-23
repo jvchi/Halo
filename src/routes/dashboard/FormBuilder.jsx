@@ -5,9 +5,11 @@ import { cn } from "@/lib/cn";
 import { PageHeading, Button } from "@/components/ui";
 import { useForms } from "@/lib/formsStore.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
+import { useBrand } from "@/lib/brandStore.jsx";
+import { brandCssVars } from "@/lib/brand";
+import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
 
-const inputClass =
-  "w-full rounded-md border border-halo-border-1 bg-halo-bg-1 px-3 py-2 text-[14px] text-halo-fg-1 outline-none transition-colors placeholder:text-halo-fg-3 focus:border-halo-primary";
+const inputClass = "halo-field";
 const labelClass = "grid gap-1.5 text-[12px] font-medium text-halo-fg-2";
 
 // Branded checkbox: a 18px box that fills primary with a white check when on.
@@ -304,6 +306,7 @@ function CollectionForm({ form, onSubmitted }) {
 export default function FormBuilder() {
   const { formId } = useParams();
   const { forms } = useForms();
+  const { brand } = useBrand();
   const form = forms.find((f) => f.id === formId);
 
   const [submitted, setSubmitted] = useState(false);
@@ -333,7 +336,10 @@ export default function FormBuilder() {
         <span className="ml-auto truncate text-[13px] text-halo-fg-3">{form.name}</span>
       </header>
 
-      <section className="rounded-lg border border-halo-border-1 bg-halo-bg-1 p-6 sm:p-8">
+      <section
+        style={brandCssVars(brand.brandColor)}
+        className="rounded-lg border border-halo-border-1 bg-halo-bg-1 p-6 sm:p-8"
+      >
         {submitted ? (
           <div className="grid place-items-center gap-3 py-16 text-center">
             <span className="grid h-11 w-11 place-items-center rounded-pill bg-halo-primary-wash">
@@ -359,9 +365,7 @@ export default function FormBuilder() {
             {/* Compact header: brand + headline + description on one tight stack
                 so it never pushes the inputs down the page. */}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span className="grid h-6 w-6 place-items-center rounded-pill bg-halo-primary text-[12px] font-semibold text-white">
-                H
-              </span>
+              <BrandMark brand={brand} size={24} />
               <h2 className="m-0 text-[20px] font-medium leading-tight tracking-[-0.01em] text-halo-fg-1">
                 {form.config.headline}
               </h2>
