@@ -2,7 +2,7 @@ import { IllustratedEmptyState, PageHeading } from "@/components/ui";
 
 // Shared illustrated scaffold for dashboard modules. Real feature UIs (inbox,
 // widget studio controls, etc.) are out of scope for this conversion pass.
-export function DashPage({ title, description, emptyTitle, emptyHint, emptyIllustration }) {
+export function DashPage({ title, description, emptyTitle, emptyIcon = "dashboard" }) {
   return (
     <div className="halo-page">
       <header className="halo-page-header">
@@ -10,9 +10,8 @@ export function DashPage({ title, description, emptyTitle, emptyHint, emptyIllus
       </header>
 
       <IllustratedEmptyState
-        illustration={emptyIllustration}
+        icon={emptyIcon}
         title={emptyTitle}
-        hint={emptyHint}
         className="py-16"
       />
     </div>

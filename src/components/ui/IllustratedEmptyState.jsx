@@ -1,10 +1,12 @@
 import { cn } from "@/lib/cn";
+import { IsoconIllustration } from "./IsoconIllustration.jsx";
 
 export function IllustratedEmptyState({
-  illustration,
+  icon = "dashboard",
   title,
   children,
   className,
+  iconClassName,
   imageClassName,
 }) {
   return (
@@ -15,14 +17,10 @@ export function IllustratedEmptyState({
       )}
     >
       <div className="grid place-items-center gap-4">
-        {illustration ? (
-          <img
-            src={illustration}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            className={cn("h-auto w-[min(380px,84vw)] max-w-full object-contain", imageClassName)}
+        {icon ? (
+          <IsoconIllustration
+            name={icon}
+            className={cn("w-[min(260px,70vw)] max-w-full", iconClassName, imageClassName)}
           />
         ) : null}
         <div className="grid place-items-center gap-2">

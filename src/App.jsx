@@ -17,11 +17,10 @@ function NotFound() {
   return (
     <main className="grid min-h-screen place-items-center px-6 py-12 text-center">
       <IllustratedEmptyState
-        illustration="/illustrations/404-lost-page.png"
+        icon="unknown"
         title="Page not found"
-        hint="This route does not exist in Halo."
         className="border-0 bg-transparent py-0"
-        imageClassName="w-[min(320px,80vw)]"
+        iconClassName="w-[min(260px,70vw)]"
       >
         <Link to="/" className="mt-1 text-[14px] font-medium text-halo-primary underline underline-offset-4">
           Back to Halo

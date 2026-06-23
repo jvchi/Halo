@@ -30,6 +30,73 @@ body {
   transform: translateY(0);
 }
 
+@media (max-width: 768px) {
+  .styles_container__CV4xN {
+    position: fixed !important;
+    inset: auto 14px auto auto !important;
+    top: 58px !important;
+    z-index: 1000 !important;
+    display: block !important;
+    width: min(260px, calc(100vw - 28px)) !important;
+    max-height: calc(100vh - 82px) !important;
+    overflow: auto !important;
+    padding: 8px !important;
+    border: 1px solid color-mix(in srgb, var(--border-1, #f1f1f0) 78%, transparent) !important;
+    border-radius: 8px !important;
+    background: var(--bg-1, #fff) !important;
+    box-shadow: none !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-4px) scale(0.98);
+    transform-origin: top right;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s 180ms;
+  }
+
+  .styles_container__CV4xN[data-open="true"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s;
+  }
+
+  .styles_container__CV4xN .styles_content__yOzrS {
+    display: grid !important;
+    gap: 2px !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .styles_container__CV4xN .styles_content__yOzrS a {
+    display: flex !important;
+    min-height: 38px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+    padding: 0 14px !important;
+    background: transparent !important;
+    color: var(--fg-2, #636161) !important;
+    font: 500 14px/1.2 var(--font-sans) !important;
+    letter-spacing: -0.09px !important;
+    text-align: left !important;
+    text-decoration: none !important;
+  }
+
+  .styles_container__CV4xN .styles_content__yOzrS a:hover,
+  .styles_container__CV4xN .styles_content__yOzrS a:focus-visible {
+    color: var(--fg-1, #221d1d) !important;
+    background: color-mix(in srgb, var(--fg-1, #221d1d) 6%, transparent) !important;
+  }
+}
+
 .clone-menu-open {
   z-index: 1000 !important;
   pointer-events: auto !important;

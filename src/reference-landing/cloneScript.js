@@ -102,7 +102,6 @@ export function setupClone() {
       button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       menu.setAttribute("data-open", String(open));
       menu.setAttribute("aria-hidden", String(!open));
-      document.body.style.overflow = open ? "hidden" : "";
     });
   }
 

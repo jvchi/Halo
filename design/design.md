@@ -532,6 +532,15 @@ Motion is soft and physical. The source CSS exposes two named motion profiles:
 
 For ordinary UI states, use shorter durations around `180ms` to `220ms`. Reserve the longer source timings for scene-level animation or image treatment. Always honor `prefers-reduced-motion` by disabling nonessential transforms and long animations.
 
+## Layout Stability
+
+The interface must never shift. A state change — showing an error, expanding a section, a loading state, a celebratory animation — must not reflow or displace the surrounding UI. Layout shift reads as broken and erodes trust.
+
+- **Animate transform and opacity only.** Never animate layout properties (`width`, `height`, `margin`, `top`, inserting/removing flow content) in a way that moves neighbours. A press dip, a star pop, a sparkle burst all run on `transform`/`opacity` inside their own box.
+- **Celebratory motion stays in its own box.** Do not scale or grow a container if doing so moves the controls inside or beside it. The 5-star rating bursts with an absolutely-positioned particle overlay; the row itself never scales, so the stars never move.
+- **Reserve space for conditional content, or place it so it can't displace committed UI.** A validation error sits *beside* the submit button (wrapping below on mobile), never above it pushing it down. Expanding panels push only the content *below* them, not the trigger. Skeletons match the final content's dimensions.
+- **Hold dimensions across async states.** Loading → loaded must not change a card's size. Images and media reserve their aspect ratio up front to avoid reflow.
+
 ## Shapes
 
 Aave uses soft geometry:
@@ -680,6 +689,7 @@ Asset guidance:
 Every interactive element needs a visible hover, active, disabled, and focus state.
 
 - Hover: soft fill shift, slight text darkening, or a subtle `translateY(-1px)` on card-like CTAs.
+- Hover and active/selected are distinct states — never render them the same. Hover is a quiet *affordance* that previews the action; the active/selected state is the committed, higher-contrast result. The canonical reference is the segmented / viewport switch (`Segmented` in `src/components/dashboard/inspector.jsx`): inactive `fg-2` → hover darkens to `fg-1` → selected becomes a solid `bg-1` pill. Apply the same model to every stateful control — e.g. the star rating: empty outline → hover light `primary-wash` preview → click solid `primary` fill (with the committed state carrying the celebratory motion, not the hover).
 - Active: return transform to neutral and slightly deepen the fill.
 - Focus: use a visible `2px` ring in `focus` `#0071e3` with at least `3px` offset.
 - Disabled: reduce contrast, remove hover transform, and use a disabled cursor only for actual disabled controls.

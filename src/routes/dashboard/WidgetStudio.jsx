@@ -4,7 +4,7 @@ import { widgetPresets, getPreset } from "@/lib/presets";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { WidgetRenderer } from "@/components/widget/WidgetRenderer.jsx";
 import { cardStyles, customCardStyleIds } from "@/components/widget/templates/index.js";
-import { PageHeading } from "@/components/ui";
+import { IsoconIllustration, PageHeading } from "@/components/ui";
 import { Disclosure, Segmented, Toggle, OptionList, SwatchGrid, deviceOptions } from "@/components/dashboard/inspector.jsx";
 
 const LAYOUTS = [
@@ -129,14 +129,7 @@ export default function WidgetStudio() {
                   className="grid place-items-center px-4 py-10 text-center"
                   style={{ color: theme.textColor }}
                 >
-                  <img
-                    src="/illustrations/empty-widget-preview.png"
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    className="h-auto w-[min(220px,70vw)] max-w-full object-contain"
-                  />
+                  <IsoconIllustration name="reviews" className="w-[min(220px,62vw)] max-w-full" />
                   <p className="m-0 mt-3 text-[15px] font-medium">No approved testimonials yet.</p>
                 </div>
               ) : (

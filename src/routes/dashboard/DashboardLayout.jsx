@@ -97,24 +97,6 @@ function SidebarIcon({ name }) {
   );
 }
 
-function MenuIcon({ open }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      {open ? (
-        <>
-          <path d="M4 4l8 8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
-          <path d="M12 4l-8 8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
-        </>
-      ) : (
-        <>
-          <path d="M3 5h10" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
-          <path d="M3 11h10" stroke="currentColor" strokeLinecap="round" strokeWidth="1.7" />
-        </>
-      )}
-    </svg>
-  );
-}
-
 function DashboardNavTree({ onNavigate }) {
   return (
     <nav className="halo-sidebar-nav">
@@ -163,10 +145,9 @@ export default function DashboardLayout() {
                   className="halo-mobile-menu-button"
                   aria-label={mobileMenuOpen ? "Close dashboard menu" : "Open dashboard menu"}
                   aria-expanded={mobileMenuOpen}
+                  data-open={mobileMenuOpen}
                   onClick={() => setMobileMenuOpen((open) => !open)}
-                >
-                  <MenuIcon open={mobileMenuOpen} />
-                </button>
+                />
 
                 <AnimatePresence initial={false}>
                   {mobileMenuOpen ? (
@@ -196,17 +177,7 @@ export default function DashboardLayout() {
           </aside>
 
           <main className="halo-doc-main">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={location.pathname}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-              >
-                <Outlet />
-              </motion.div>
-            </AnimatePresence>
+            <Outlet />
           </main>
         </div>
       </div>

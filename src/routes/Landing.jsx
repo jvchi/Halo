@@ -15,7 +15,6 @@ import { ProofFaqFooter } from "@/components/landing/ProofFaqFooter.jsx";
 const LINK_CSS = [
   "/aave/f0e43dd704f7b0e5.css", // Inter @font-face
   "/aave/87989486595822bb.css", // design tokens
-  "/aave/clone-overrides.css", // menu/toast fixes
 ];
 
 export default function Landing() {
@@ -40,6 +39,13 @@ export default function Landing() {
     recolor.textContent = recolorCss;
     document.head.appendChild(recolor);
     nodes.push(recolor);
+
+    const overrides = document.createElement("link");
+    overrides.rel = "stylesheet";
+    overrides.href = "/aave/clone-overrides.css";
+    overrides.dataset.haloRef = "1";
+    document.head.appendChild(overrides);
+    nodes.push(overrides);
 
     const cleanupClone = setupClone();
     return () => {

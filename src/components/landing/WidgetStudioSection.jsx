@@ -56,7 +56,13 @@ export function WidgetStudioSection() {
                   it lives.
                 </p>
               </div>
-              <a className="styles_container__At_jz " data-snappy-fill data-variant="secondary" href="#">
+              <a
+                className="styles_container__At_jz "
+                data-snappy-fill
+                data-variant="secondary"
+                href="#"
+                style={{ minWidth: 220, justifyContent: "center" }}
+              >
                 See widget types
               </a>
             </div>

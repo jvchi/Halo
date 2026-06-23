@@ -343,17 +343,17 @@ export default function Inbox() {
       </header>
 
       <div className="flex flex-wrap items-center gap-3">
-        <div className="flex flex-wrap gap-0.5 rounded-md bg-halo-bg-3 p-0.5">
+        <div data-no-fill className="flex flex-wrap gap-0.5 rounded-md bg-halo-bg-3 p-0.5">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setStatusFilter(tab.id)}
               className={cn(
-                "rounded-[14px] px-2.5 py-1 text-[12px] font-medium transition-colors",
+                "rounded-[14px] px-2.5 py-1 text-[12px] font-medium",
                 statusFilter === tab.id
                   ? "bg-halo-bg-1 text-halo-fg-1"
-                  : "text-halo-fg-2 hover:text-halo-fg-1"
+                  : "text-halo-fg-2"
               )}
             >
               {tab.label}
@@ -372,9 +372,8 @@ export default function Inbox() {
 
       {filtered.length === 0 ? (
         <IllustratedEmptyState
-          illustration="/illustrations/empty-inbox.png"
+          icon="cards"
           title="Nothing here"
-          hint={query ? "No testimonials match your search." : "No testimonials with this status yet."}
           className="py-16"
         />
       ) : (

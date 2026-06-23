@@ -1,11 +1,11 @@
 import { cn } from "@/lib/cn";
 
-// .aave-card and variants. Glass = translucent partner card with subtle lift;
+// .aave-card and variants. Glass = translucent partner card;
 // dark = low-opacity white fill for near-black product sections.
 const variants = {
   default: "bg-halo-stat-card",
   glass:
-    "bg-halo-glass transition-[background-color,transform] duration-[220ms] ease-snappy hover:bg-halo-glass-hover hover:-translate-y-0.5",
+    "bg-halo-glass transition-colors duration-[220ms] ease-snappy hover:bg-halo-glass-hover",
   dark: "bg-halo-dark-card text-white",
 };
 

@@ -8,4 +8,5 @@ export { Market } from "./Market.jsx";
 export { Newsletter } from "./Newsletter.jsx";
 export { Accordion } from "./Accordion.jsx";
 export { IllustratedEmptyState } from "./IllustratedEmptyState.jsx";
+export { IsoconIllustration } from "./IsoconIllustration.jsx";
 export { PageHeading } from "./PageHeading.jsx";

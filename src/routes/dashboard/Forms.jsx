@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/cn";
-import { IllustratedEmptyState, PageHeading } from "@/components/ui";
+import { IllustratedEmptyState, PageHeading, Button } from "@/components/ui";
 import { useForms } from "@/lib/formsStore.jsx";
 
 const STATUS_META = {
@@ -169,29 +169,18 @@ export default function Forms() {
           info="Collect testimonials through a shareable link. Submissions land in the Inbox as pending."
         />
         <p>Share a link, collect testimonials, and approve the best ones in your Inbox.</p>
-        <button
-          type="button"
-          onClick={newForm}
-          className="inline-flex min-h-[34px] shrink-0 items-center gap-1.5 rounded-pill bg-halo-primary px-3.5 text-[13px] font-medium text-white transition-[transform,opacity] duration-[180ms] ease-snappy active:scale-[0.97]"
-        >
+        <Button size="sm" onClick={newForm} className="shrink-0">
           <PlusIcon />
           New form
-        </button>
+        </Button>
       </header>
 
       {forms.length === 0 ? (
-        <IllustratedEmptyState illustration="/illustrations/empty-inbox.png" title="No forms yet" className="py-16">
-          <p className="m-0 max-w-[320px] text-[14px] text-halo-fg-3">
-            Create your first collection form to start gathering testimonials.
-          </p>
-          <button
-            type="button"
-            onClick={newForm}
-            className="mt-2 inline-flex min-h-[34px] items-center gap-1.5 rounded-pill bg-halo-primary px-3.5 text-[13px] font-medium text-white transition-[transform] duration-[180ms] ease-snappy active:scale-[0.97]"
-          >
+        <IllustratedEmptyState icon="form" title="No forms yet" className="py-16">
+          <Button size="sm" onClick={newForm} className="mt-2">
             <PlusIcon />
             New form
-          </button>
+          </Button>
         </IllustratedEmptyState>
       ) : (
         <div className="grid gap-3">
