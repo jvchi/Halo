@@ -40,6 +40,7 @@ export function createForm(overrides = {}) {
       requireConsent: true,
       consentText: "I agree that my testimonial may be published publicly.",
       thankYou: "Thank you — your words mean a lot to us.",
+      submitLabel: "Submit testimonial",
       ...overrides.config,
     },
     ...overrides,
@@ -62,6 +63,7 @@ export const sampleForms = [
       requireConsent: true,
       consentText: "I agree that my testimonial may be published publicly on Halo.",
       thankYou: "Thank you! Your testimonial means a lot to the whole team.",
+      submitLabel: "Submit testimonial",
     },
   },
   {
@@ -78,6 +80,7 @@ export const sampleForms = [
       requireConsent: true,
       consentText: "I agree that my testimonial may be published publicly.",
       thankYou: "Appreciate it — see you after launch.",
+      submitLabel: "Submit testimonial",
     },
   },
   {
@@ -94,6 +97,7 @@ export const sampleForms = [
       requireConsent: true,
       consentText: "I agree that my story may be shared on the course page.",
       thankYou: "Thank you for sharing your story.",
+      submitLabel: "Submit testimonial",
     },
   },
 ];

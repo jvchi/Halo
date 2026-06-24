@@ -6,8 +6,7 @@ import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { buildAnalytics, RANGES } from "@/lib/analytics.js";
 import { AreaChart, ActivityRings, Sparkline, Bars, Delta, fmt } from "@/components/analytics/charts.jsx";
 
-// Soft accent wash, the design system's existing gradient language (cf.
-// .halo-workflow-panel) — low-opacity primary, not a loud gradient.
+// Soft accent wash — low-opacity primary, not a loud gradient.
 const RING_PANEL_BG =
   "radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--halo-primary) 9%, transparent), transparent 62%), var(--halo-bg-1)";
 

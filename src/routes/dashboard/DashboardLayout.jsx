@@ -6,135 +6,124 @@ import { TestimonialsProvider } from "@/lib/testimonialsStore.jsx";
 import { FormsProvider } from "@/lib/formsStore.jsx";
 import { BrandProvider, useBrand } from "@/lib/brandStore.jsx";
 import { Logo } from "@/components/landing/Logo.jsx";
+import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
+import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 
 const dashboardSections = [
   {
-    title: "Workspace",
-    items: [{ to: "/dashboard", label: "Overview", icon: "overview", end: true }],
-  },
-  {
     title: "Collect",
-    items: [{ to: "/dashboard/forms", label: "Forms", icon: "forms" }],
-  },
-  {
-    title: "Review",
-    items: [{ to: "/dashboard/inbox", label: "Inbox", icon: "inbox" }],
-  },
-  {
-    title: "Build",
     items: [
-      { to: "/dashboard/widget-studio", label: "Widget Studio", icon: "studio" },
-      { to: "/dashboard/walls", label: "Walls", icon: "walls" },
+      { to: "/dashboard/forms", label: "Forms", icon: "forms" },
+      { to: "/dashboard/import", label: "Import", icon: "import" },
     ],
   },
   {
-    title: "Measure",
+    title: "Manage",
+    items: [
+      { to: "/dashboard/proof", label: "Proof", icon: "proof" },
+      { to: "/dashboard/feedback", label: "Feedback", icon: "feedback" },
+      { to: "/dashboard/tags", label: "Tags", icon: "tags" },
+    ],
+  },
+  {
+    title: "Share",
+    items: [
+      { to: "/dashboard/studio", label: "Studio", icon: "studio" },
+      { to: "/dashboard/brand", label: "Brand", icon: "brand" },
+      { to: "/dashboard/rich-snippet", label: "Rich snippet", icon: "richSnippet" },
+    ],
+  },
+  {
+    title: "Analyze",
     items: [{ to: "/dashboard/analytics", label: "Analytics", icon: "analytics" }],
   },
   {
-    title: "Configure",
-    items: [{ to: "/dashboard/settings", label: "Settings", icon: "settings" }],
+    title: "Integrate",
+    items: [{ to: "/dashboard/integrations", label: "Integrations", icon: "integrations" }],
   },
 ];
 
-export const dashboardNav = dashboardSections.flatMap((section) => section.items);
+const settingsNavItem = { to: "/dashboard/settings", label: "Settings", icon: "settings" };
+const auxiliaryNavItems = [
+  { to: "/dashboard", label: "Overview", icon: "overview", end: true },
+  { to: "/dashboard/inbox", label: "Inbox", icon: "feedback" },
+  { to: "/dashboard/widget-studio", label: "Widget Studio", icon: "studio" },
+  { to: "/dashboard/walls", label: "Walls", icon: "walls" },
+];
 
-function SidebarIcon({ name }) {
-  const paths = {
-    overview: (
-      <>
-        <path d="M3 11.5h10" />
-        <path d="M4 8.5l2.5-3 2 2 3-3.5" />
-        <path d="M3.5 2.5h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
-      </>
-    ),
-    forms: (
-      <>
-        <path d="M5.5 2.5h5a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
-        <path d="M6.5 5.5h3M6.5 8h3M6.5 10.5h2" />
-      </>
-    ),
-    inbox: (
-      <>
-        <path d="M3 3.5h10l1 5v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-4l1-5Z" />
-        <path d="M2.25 8.5H5l1 2h4l1-2h2.75" />
-      </>
-    ),
-    studio: (
-      <>
-        <path d="M8 2.5v11" />
-        <path d="M3 4.5h10" />
-        <path d="M4.5 8h7" />
-        <path d="M5.5 11.5h5" />
-      </>
-    ),
-    walls: (
-      <>
-        <path d="M3 3.5h4v4H3z" />
-        <path d="M9 3.5h4v4H9z" />
-        <path d="M3 9.5h4v4H3z" />
-        <path d="M9 9.5h4v4H9z" />
-      </>
-    ),
-    analytics: (
-      <>
-        <path d="M3 13.5V8" />
-        <path d="M8 13.5V3" />
-        <path d="M13 13.5V6" />
-        <path d="M2 13.5h12" />
-      </>
-    ),
-    settings: (
-      <>
-        <circle cx="8" cy="8" r="2.1" />
-        <path d="M8 1.8v1.6M8 12.6v1.6M14.2 8h-1.6M3.4 8H1.8M12.38 3.62l-1.13 1.13M4.75 11.25l-1.13 1.13M12.38 12.38l-1.13-1.13M4.75 4.75 3.62 3.62" />
-      </>
-    ),
-  };
+export const dashboardNav = [
+  ...dashboardSections.flatMap((section) => section.items),
+  ...auxiliaryNavItems,
+  settingsNavItem,
+];
+
+function WorkspaceSwitcher() {
+  const { brand } = useBrand();
 
   return (
-    <span className="halo-sidebar-icon" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <g
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.45"
-        >
-          {paths[name]}
-        </g>
-      </svg>
-    </span>
+    <button type="button" className="halo-sidebar-workspace">
+      <BrandMark brand={brand} size={36} className="halo-sidebar-brand-mark" />
+      <span>
+        <strong>{brand.workspaceName || "Workspace"}</strong>
+        <small>Free plan</small>
+      </span>
+      <HaloIcon name="arrowRight" size={15} strokeWidth={1.8} className="halo-sidebar-workspace-caret" />
+    </button>
+  );
+}
+
+function UpgradeRow() {
+  return (
+    <Link to="/pricing" className="halo-sidebar-upgrade">
+      <span className="halo-sidebar-icon">
+        <HaloIcon name="star" size={16} strokeWidth={1.7} />
+      </span>
+      <span>Upgrade</span>
+    </Link>
   );
 }
 
 function DashboardNavTree({ onNavigate }) {
   return (
     <nav className="halo-sidebar-nav">
-      <div className="halo-sidebar-items">
-        {dashboardNav.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            end={item.end}
-            onClick={onNavigate}
-            className={({ isActive }) => cn("halo-sidebar-link", isActive && "is-active")}
-          >
-            <SidebarIcon name={item.icon} />
-            <span>{item.label}</span>
-          </NavLink>
-        ))}
-      </div>
+      {dashboardSections.map((section) => (
+        <section key={section.title} className="halo-sidebar-section" aria-label={section.title}>
+          <p className="halo-sidebar-title">{section.title}</p>
+          <div className="halo-sidebar-items">
+            {section.items.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                onClick={onNavigate}
+                className={({ isActive }) => cn("halo-sidebar-link", isActive && "is-active")}
+              >
+                <span className="halo-sidebar-icon">
+                  <HaloIcon name={item.icon} size={16} strokeWidth={1.7} />
+                </span>
+                <span>{item.label}</span>
+              </NavLink>
+            ))}
+          </div>
+        </section>
+      ))}
     </nav>
   );
 }
 
-function SidebarFootnote() {
+function SidebarBottom() {
   const { brand } = useBrand();
+
   return (
-    <div className="halo-sidebar-footnote">
-      <span>{brand.workspaceName || "Workspace"}</span>
-      <span>Free plan</span>
+    <div className="halo-sidebar-bottom">
+      <span className="halo-sidebar-bottom-name">{brand.workspaceName || "Workspace"}</span>
+      <NavLink
+        to={settingsNavItem.to}
+        className={({ isActive }) => cn("halo-sidebar-settings", isActive && "is-active")}
+        aria-label="Settings"
+      >
+        <HaloIcon name={settingsNavItem.icon} size={17} strokeWidth={1.7} />
+      </NavLink>
     </div>
   );
 }
@@ -180,7 +169,10 @@ export default function DashboardLayout() {
                       exit={{ opacity: 0, y: -4, scale: 0.98 }}
                       transition={{ type: "spring", duration: 0.24, bounce: 0 }}
                     >
+                      <WorkspaceSwitcher />
+                      <UpgradeRow />
                       <DashboardNavTree onNavigate={() => setMobileMenuOpen(false)} />
+                      <SidebarBottom />
                     </motion.div>
                   ) : null}
                 </AnimatePresence>
@@ -191,8 +183,12 @@ export default function DashboardLayout() {
 
         <div className="halo-doc-body">
           <aside className="halo-doc-sidebar" aria-label="Dashboard navigation">
-            <DashboardNavTree />
-            <SidebarFootnote />
+            <div className="halo-sidebar-scroll">
+              <WorkspaceSwitcher />
+              <UpgradeRow />
+              <DashboardNavTree />
+            </div>
+            <SidebarBottom />
           </aside>
 
           <main className="halo-doc-main">

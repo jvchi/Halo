@@ -7,11 +7,19 @@ import Templates from "@/routes/Templates.jsx";
 import DashboardLayout from "@/routes/dashboard/DashboardLayout.jsx";
 import Overview from "@/routes/dashboard/Overview.jsx";
 import Forms from "@/routes/dashboard/Forms.jsx";
+import Import from "@/routes/dashboard/Import.jsx";
 import FormBuilder from "@/routes/dashboard/FormBuilder.jsx";
 import Inbox from "@/routes/dashboard/Inbox.jsx";
+import Proof from "@/routes/dashboard/Proof.jsx";
+import Feedback from "@/routes/dashboard/Feedback.jsx";
+import Tags from "@/routes/dashboard/Tags.jsx";
+import Studio from "@/routes/dashboard/Studio.jsx";
 import WidgetStudio from "@/routes/dashboard/WidgetStudio.jsx";
 import Walls from "@/routes/dashboard/Walls.jsx";
+import BrandKit from "@/routes/dashboard/BrandKit.jsx";
+import RichSnippet from "@/routes/dashboard/RichSnippet.jsx";
 import Analytics from "@/routes/dashboard/Analytics.jsx";
+import Integrations from "@/routes/dashboard/Integrations.jsx";
 import Settings from "@/routes/dashboard/Settings.jsx";
 
 function NotFound() {
@@ -42,11 +50,19 @@ export default function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Overview />} />
           <Route path="forms" element={<Forms />} />
+          <Route path="import" element={<Import />} />
           <Route path="forms/:formId" element={<FormBuilder />} />
+          <Route path="proof" element={<Proof />} />
           <Route path="inbox" element={<Inbox />} />
+          <Route path="feedback" element={<Feedback />} />
+          <Route path="tags" element={<Tags />} />
+          <Route path="studio" element={<Studio />} />
           <Route path="widget-studio" element={<WidgetStudio />} />
           <Route path="walls" element={<Walls />} />
+          <Route path="brand" element={<BrandKit />} />
+          <Route path="rich-snippet" element={<RichSnippet />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="integrations" element={<Integrations />} />
           <Route path="settings" element={<Settings />} />
         </Route>
         <Route path="*" element={<NotFound />} />

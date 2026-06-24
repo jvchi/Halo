@@ -7,10 +7,39 @@ import { useForms } from "@/lib/formsStore.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { useBrand } from "@/lib/brandStore.jsx";
 import { brandCssVars } from "@/lib/brand";
+import { FORM_STATUSES, slugify } from "@/lib/forms";
 import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
+import { Disclosure, OptionList, Toggle } from "@/components/dashboard/inspector.jsx";
 
 const inputClass = "halo-field";
 const labelClass = "grid gap-1.5 text-[12px] font-medium text-halo-fg-2";
+const statusOptions = FORM_STATUSES.map((status) => ({
+  id: status,
+  label: status.charAt(0).toUpperCase() + status.slice(1),
+}));
+const fieldOptions = [
+  { key: "rating", label: "Rating" },
+  { key: "role", label: "Role / title" },
+  { key: "company", label: "Company" },
+  { key: "website", label: "Website" },
+  { key: "avatar", label: "Photo upload" },
+];
+
+function EditorField({ label, value, onChange, placeholder, multiline = false }) {
+  const Control = multiline ? "textarea" : "input";
+  return (
+    <label className={labelClass}>
+      {label}
+      <Control
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        spellCheck={false}
+        className={cn(inputClass, multiline && "min-h-[82px] resize-y")}
+      />
+    </label>
+  );
+}
 
 // Branded checkbox: a 18px box that fills primary with a white check when on.
 // The check is white at all times — invisible on the white resting fill, visible
@@ -305,14 +334,37 @@ function CollectionForm({ form, onSubmitted }) {
 
 export default function FormBuilder() {
   const { formId } = useParams();
-  const { forms } = useForms();
+  const { forms, update, updateConfig, setStatus } = useForms();
   const { brand } = useBrand();
   const form = forms.find((f) => f.id === formId);
 
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [controlsOpen, setControlsOpen] = useState(false);
+  const [open, setOpen] = useState({
+    basics: true,
+    copy: true,
+    fields: true,
+    consent: false,
+  });
 
   if (!form) return <Navigate to="/dashboard/forms" replace />;
+
+  const statusLabel = statusOptions.find((option) => option.id === form.status)?.label ?? "Active";
+  const enabledFields = fieldOptions.filter((field) => form.config.fields[field.key]).length;
+
+  const toggle = (key) => setOpen((current) => ({ ...current, [key]: !current[key] }));
+  const setConfigField = (key) => (value) => updateConfig(form.id, { [key]: value });
+  const setFieldFlag = (key) => (value) =>
+    updateConfig(form.id, { fields: { ...form.config.fields, [key]: value } });
+
+  function setName(value) {
+    update(form.id, { name: value });
+  }
+
+  function setSlug(value) {
+    update(form.id, { slug: slugify(value) });
+  }
 
   function copyLink() {
     navigator.clipboard?.writeText(`https://halo.app/submit/${form.slug}`);
@@ -336,47 +388,135 @@ export default function FormBuilder() {
         <span className="ml-auto truncate text-[13px] text-halo-fg-3">{form.name}</span>
       </header>
 
-      <section
-        style={brandCssVars(brand.brandColor)}
-        className="rounded-lg border border-halo-border-1 bg-halo-bg-1 p-6 sm:p-8"
-      >
-        {submitted ? (
-          <div className="grid place-items-center gap-3 py-16 text-center">
-            <span className="grid h-11 w-11 place-items-center rounded-pill bg-halo-primary-wash">
-              <svg width="22" height="22" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--halo-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <p className="m-0 text-[18px] font-medium leading-snug tracking-[-0.01em] text-halo-fg-1 text-balance">
-              {form.config.thankYou}
-            </p>
-            <p className="m-0 text-[13px] text-halo-fg-3">It’s now waiting for approval in your Inbox.</p>
+      <div className="halo-studio-shell halo-form-builder-shell">
+        <section className="halo-studio-preview" aria-label="Collection form preview">
+          <div className="halo-studio-preview-header">
+            <div className="halo-studio-preview-actions">
+              <button
+                type="button"
+                className="halo-studio-controls-toggle"
+                aria-controls="form-builder-controls"
+                aria-expanded={controlsOpen}
+                onClick={() => setControlsOpen((current) => !current)}
+              >
+                Settings
+              </button>
+            </div>
+          </div>
+
+          <div
+            style={brandCssVars(brand.brandColor)}
+            className="halo-form-preview-frame"
+          >
+            {submitted ? (
+              <div className="grid place-items-center gap-3 py-16 text-center">
+                <span className="grid h-11 w-11 place-items-center rounded-pill bg-halo-primary-wash">
+                  <svg width="22" height="22" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--halo-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <p className="m-0 text-[18px] font-medium leading-snug tracking-[-0.01em] text-halo-fg-1 text-balance">
+                  {form.config.thankYou}
+                </p>
+                <p className="m-0 text-[13px] text-halo-fg-3">It’s now waiting for approval in your Inbox.</p>
+                <button
+                  type="button"
+                  data-no-fill
+                  onClick={() => setSubmitted(false)}
+                  className="mt-1 rounded-md px-2 py-1 text-[13px] font-medium text-halo-primary transition-colors hover:bg-halo-primary-wash"
+                >
+                  Submit another
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <BrandMark brand={brand} size={24} />
+                  <h2 className="m-0 text-[20px] font-medium leading-tight tracking-[-0.01em] text-halo-fg-1">
+                    {form.config.headline}
+                  </h2>
+                </div>
+                {form.config.description ? (
+                  <p className="m-0 mt-1.5 text-[14px] leading-relaxed text-halo-fg-2">{form.config.description}</p>
+                ) : null}
+                <CollectionForm form={form} onSubmitted={() => setSubmitted(true)} />
+              </>
+            )}
+          </div>
+        </section>
+
+        <button
+          type="button"
+          className={cn("halo-studio-controls-scrim", controlsOpen && "is-open")}
+          aria-label="Close form settings"
+          onClick={() => setControlsOpen(false)}
+        />
+
+        <aside
+          id="form-builder-controls"
+          className={cn("halo-studio-controls", controlsOpen && "is-open")}
+          aria-label="Form settings"
+        >
+          <div className="halo-studio-controls-header">
+            <div>
+              <span>Settings</span>
+              <p>Editing this mock form updates the preview live.</p>
+            </div>
             <button
               type="button"
-              data-no-fill
-              onClick={() => setSubmitted(false)}
-              className="mt-1 rounded-md px-2 py-1 text-[13px] font-medium text-halo-primary transition-colors hover:bg-halo-primary-wash"
+              className="halo-studio-controls-close"
+              onClick={() => setControlsOpen(false)}
             >
-              Submit another
+              Close
             </button>
           </div>
-        ) : (
-          <>
-            {/* Compact header: brand + headline + description on one tight stack
-                so it never pushes the inputs down the page. */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <BrandMark brand={brand} size={24} />
-              <h2 className="m-0 text-[20px] font-medium leading-tight tracking-[-0.01em] text-halo-fg-1">
-                {form.config.headline}
-              </h2>
+
+          <Disclosure label="Basics" value={statusLabel} open={open.basics} onToggle={() => toggle("basics")}>
+            <EditorField label="Name" value={form.name} onChange={setName} placeholder="Launch feedback" />
+            <EditorField label="Public slug" value={form.slug} onChange={setSlug} placeholder="launch-feedback" />
+            <OptionList options={statusOptions} value={form.status} onChange={(value) => setStatus(form.id, value)} />
+          </Disclosure>
+
+          <Disclosure label="Copy" value="Headline + prompt" open={open.copy} onToggle={() => toggle("copy")}>
+            <EditorField label="Headline" value={form.config.headline} onChange={setConfigField("headline")} placeholder="Share your experience" />
+            <EditorField label="Description" value={form.config.description} onChange={setConfigField("description")} placeholder="A short intro for customers." multiline />
+            <EditorField label="Prompt" value={form.config.prompt} onChange={setConfigField("prompt")} placeholder="What did you like most?" multiline />
+            <EditorField label="Submit label" value={form.config.submitLabel || ""} onChange={setConfigField("submitLabel")} placeholder="Submit testimonial" />
+            <EditorField label="Thank-you message" value={form.config.thankYou} onChange={setConfigField("thankYou")} placeholder="Thank you for sharing." multiline />
+          </Disclosure>
+
+          <Disclosure label="Fields" value={`${enabledFields} optional`} open={open.fields} onToggle={() => toggle("fields")}>
+            <div className="grid gap-1">
+              {fieldOptions.map((field) => (
+                <Toggle
+                  key={field.key}
+                  label={field.label}
+                  checked={Boolean(form.config.fields[field.key])}
+                  onChange={setFieldFlag(field.key)}
+                />
+              ))}
             </div>
-            {form.config.description ? (
-              <p className="m-0 mt-1.5 text-[14px] leading-relaxed text-halo-fg-2">{form.config.description}</p>
+          </Disclosure>
+
+          <Disclosure
+            label="Consent"
+            value={form.config.requireConsent ? "Required" : "Off"}
+            open={open.consent}
+            onToggle={() => toggle("consent")}
+          >
+            <Toggle label="Require consent" checked={form.config.requireConsent} onChange={setConfigField("requireConsent")} />
+            {form.config.requireConsent ? (
+              <EditorField
+                label="Consent text"
+                value={form.config.consentText}
+                onChange={setConfigField("consentText")}
+                placeholder="I agree that my testimonial may be published publicly."
+                multiline
+              />
             ) : null}
-            <CollectionForm form={form} onSubmitted={() => setSubmitted(true)} />
-          </>
-        )}
-      </section>
+          </Disclosure>
+        </aside>
+      </div>
 
       <div className="halo-studio-footer-action">
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
