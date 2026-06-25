@@ -2,13 +2,14 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { cn } from "@/lib/cn";
-import { PageHeading, Button } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { useForms } from "@/lib/formsStore.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { useBrand } from "@/lib/brandStore.jsx";
 import { brandCssVars } from "@/lib/brand";
 import { FORM_STATUSES, slugify } from "@/lib/forms";
 import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
+import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import { Disclosure, OptionList, Toggle } from "@/components/dashboard/inspector.jsx";
 
 const inputClass = "halo-field";
@@ -23,6 +24,12 @@ const fieldOptions = [
   { key: "company", label: "Company" },
   { key: "website", label: "Website" },
   { key: "avatar", label: "Photo upload" },
+];
+const builderSteps = [
+  { id: "collect", label: "Collect", icon: "forms" },
+  { id: "questions", label: "Questions", icon: "feedback" },
+  { id: "design", label: "Design", icon: "brush" },
+  { id: "share", label: "Share", icon: "copy" },
 ];
 
 function EditorField({ label, value, onChange, placeholder, multiline = false }) {
@@ -341,6 +348,9 @@ export default function FormBuilder() {
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
   const [controlsOpen, setControlsOpen] = useState(false);
+  const [builderStep, setBuilderStep] = useState("collect");
+  const [message, setMessage] = useState("");
+  const [shareOpen, setShareOpen] = useState(false);
   const [open, setOpen] = useState({
     basics: true,
     copy: true,
@@ -358,6 +368,14 @@ export default function FormBuilder() {
   const setFieldFlag = (key) => (value) =>
     updateConfig(form.id, { fields: { ...form.config.fields, [key]: value } });
 
+  function chooseStep(step) {
+    setBuilderStep(step);
+    if (step === "collect") setOpen((current) => ({ ...current, basics: true }));
+    if (step === "questions") setOpen((current) => ({ ...current, copy: true, fields: true }));
+    if (step === "design") setOpen((current) => ({ ...current, consent: true }));
+    if (step === "share") setShareOpen(true);
+  }
+
   function setName(value) {
     update(form.id, { name: value });
   }
@@ -372,23 +390,51 @@ export default function FormBuilder() {
     setTimeout(() => setCopied(false), 1500);
   }
 
+  function saveChanges() {
+    setMessage("Form saved");
+    setTimeout(() => setMessage(""), 1800);
+  }
+
   return (
     <div className="halo-page">
-      <header className="halo-page-header">
-        <PageHeading title={form.name} />
+      <header className="halo-editor-topbar">
         <Link
           to="/dashboard/forms"
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-halo-fg-2 transition-colors hover:text-halo-fg-1"
+          className="halo-copy-button"
         >
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M9.5 4l-4 4 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <HaloIcon name="arrowRight" size={15} />
           Forms
         </Link>
-        <span className="ml-auto truncate text-[13px] text-halo-fg-3">{form.name}</span>
+        <div>
+          <span>Form builder</span>
+          <strong>{form.name}</strong>
+        </div>
+        <div className="halo-editor-topbar-actions">
+          {message ? <em>{message}</em> : null}
+          <button type="button" className="halo-copy-button" onClick={saveChanges}>
+            Save changes
+          </button>
+          <button type="button" className="halo-copy-button is-primary" onClick={() => setShareOpen((open) => !open)}>
+            Share
+          </button>
+        </div>
       </header>
 
       <div className="halo-studio-shell halo-form-builder-shell">
+        <nav className="halo-editor-steps halo-form-builder-steps" aria-label="Form builder steps">
+          {builderSteps.map((step) => (
+            <button
+              key={step.id}
+              type="button"
+              onClick={() => chooseStep(step.id)}
+              className={cn(builderStep === step.id && "is-active")}
+            >
+              <HaloIcon name={step.icon} size={17} />
+              <span>{step.label}</span>
+            </button>
+          ))}
+        </nav>
+
         <section className="halo-studio-preview" aria-label="Collection form preview">
           <div className="halo-studio-preview-header">
             <div className="halo-studio-preview-actions">
@@ -459,8 +505,8 @@ export default function FormBuilder() {
         >
           <div className="halo-studio-controls-header">
             <div>
-              <span>Settings</span>
-              <p>Editing this mock form updates the preview live.</p>
+              <span>{builderStep === "share" ? "Share" : "Settings"}</span>
+              <p>{builderStep === "share" ? "Copy, embed, or preview your public form." : "Changes update the preview live."}</p>
             </div>
             <button
               type="button"
@@ -470,6 +516,26 @@ export default function FormBuilder() {
               Close
             </button>
           </div>
+
+          {shareOpen || builderStep === "share" ? (
+            <Disclosure label="Share" value="Public link" open onToggle={() => setShareOpen((open) => !open)}>
+              <label className={labelClass}>
+                Public URL
+                <input className={cn(inputClass, "font-mono")} readOnly value={`https://halo.app/submit/${form.slug}`} />
+              </label>
+              <label className={labelClass}>
+                Embed snippet
+                <textarea
+                  className={cn(inputClass, "min-h-[74px] resize-y font-mono")}
+                  readOnly
+                  value={`<iframe src="https://halo.app/submit/${form.slug}" title="${form.name}"></iframe>`}
+                />
+              </label>
+              <button type="button" onClick={copyLink} className="halo-copy-button">
+                {copied ? "Copied" : "Copy form link"}
+              </button>
+            </Disclosure>
+          ) : null}
 
           <Disclosure label="Basics" value={statusLabel} open={open.basics} onToggle={() => toggle("basics")}>
             <EditorField label="Name" value={form.name} onChange={setName} placeholder="Launch feedback" />

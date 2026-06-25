@@ -1,10 +1,8 @@
 import { cn } from "@/lib/cn";
 
-// .aave-button + variants. Pill CTA: min-height 45px, 14px 24px padding,
-// 17px/500 type. The pointer-following fill that
-// scales in behind the label is applied globally to every button by
-// src/lib/snappyFill.js; data-variant selects this button's on-brand fill +
-// focus colors (see snappyFill.css).
+// .halo-btn + variants. Pill CTA: min-height 45px, 14px 24px padding,
+// 17px/500 type. The pointer-following fill is opt-in through this class;
+// data-variant selects this button's on-brand fill + focus colors.
 const variants = {
   primary: "bg-halo-primary text-white",
   secondary:

@@ -28,32 +28,50 @@ const dashboardSections = [
   {
     title: "Share",
     items: [
-      { to: "/dashboard/studio", label: "Studio", icon: "studio" },
-      { to: "/dashboard/brand", label: "Brand", icon: "brand" },
+      {
+        to: "/dashboard/studio",
+        label: "Studio",
+        icon: "studio",
+        end: true,
+        aliases: [
+          "/dashboard/widget-studio",
+          "/dashboard/walls",
+          "/dashboard/studio/widgets",
+          "/dashboard/studio/sizzle",
+          "/dashboard/studio/social",
+          "/dashboard/studio/popups",
+          "/dashboard/studio/embeds",
+          "/dashboard/studio/images",
+          "/dashboard/studio/walls",
+        ],
+      },
+      { to: "/dashboard/studio/brand", label: "Brand", icon: "brand", aliases: ["/dashboard/brand"] },
       { to: "/dashboard/rich-snippet", label: "Rich snippet", icon: "richSnippet" },
     ],
   },
   {
     title: "Analyze",
-    items: [{ to: "/dashboard/analytics", label: "Analytics", icon: "analytics" }],
+    items: [{ to: "/dashboard/analyze", label: "Analyze", icon: "analytics", aliases: ["/dashboard/analytics"] }],
   },
   {
     title: "Integrate",
-    items: [{ to: "/dashboard/integrations", label: "Integrations", icon: "integrations" }],
+    items: [{ to: "/dashboard/integrations", label: "Integrate Stripe", icon: "integrations" }],
   },
 ];
 
 const settingsNavItem = { to: "/dashboard/settings", label: "Settings", icon: "settings" };
-const auxiliaryNavItems = [
+const hiddenRouteLabels = [
   { to: "/dashboard", label: "Overview", icon: "overview", end: true },
   { to: "/dashboard/inbox", label: "Inbox", icon: "feedback" },
-  { to: "/dashboard/widget-studio", label: "Widget Studio", icon: "studio" },
-  { to: "/dashboard/walls", label: "Walls", icon: "walls" },
+  { to: "/dashboard/widget-studio", label: "Studio", icon: "studio" },
+  { to: "/dashboard/walls", label: "Studio", icon: "walls" },
+  { to: "/dashboard/brand", label: "Brand", icon: "brand" },
+  { to: "/dashboard/analytics", label: "Analyze", icon: "analytics" },
 ];
 
 export const dashboardNav = [
   ...dashboardSections.flatMap((section) => section.items),
-  ...auxiliaryNavItems,
+  ...hiddenRouteLabels,
   settingsNavItem,
 ];
 
@@ -84,6 +102,11 @@ function UpgradeRow() {
 }
 
 function DashboardNavTree({ onNavigate }) {
+  const location = useLocation();
+  const isItemActive = (item, isActive) =>
+    isActive ||
+    item.aliases?.some((alias) => location.pathname === alias || location.pathname.startsWith(`${alias}/`));
+
   return (
     <nav className="halo-sidebar-nav">
       {dashboardSections.map((section) => (
@@ -96,7 +119,7 @@ function DashboardNavTree({ onNavigate }) {
                 to={item.to}
                 end={item.end}
                 onClick={onNavigate}
-                className={({ isActive }) => cn("halo-sidebar-link", isActive && "is-active")}
+                className={({ isActive }) => cn("halo-sidebar-link", isItemActive(item, isActive) && "is-active")}
               >
                 <span className="halo-sidebar-icon">
                   <HaloIcon name={item.icon} size={16} strokeWidth={1.7} />
@@ -132,7 +155,7 @@ export default function DashboardLayout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const activePageLabel =
-    dashboardNav.find((item) =>
+    [...dashboardNav].sort((a, b) => b.to.length - a.to.length).find((item) =>
       item.end ? location.pathname === item.to : location.pathname.startsWith(item.to)
     )?.label ?? "Dashboard";
 

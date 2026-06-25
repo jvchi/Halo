@@ -1,5 +1,5 @@
 /*
- * Snappy pointer-following background fill, applied app-wide by snappyFill.js.
+ * Snappy pointer-following background fill for opt-in CTA buttons.
  *
  * A single circle covers the host from any cursor position: its width is 200%
  * of the button (so even a hover on the far-left edge still fills the whole

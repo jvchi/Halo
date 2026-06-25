@@ -5,7 +5,7 @@ import App from "@/App.jsx";
 import "@/styles/index.css";
 import { initSnappyFill } from "@/lib/snappyFill.js";
 
-// Snappy pointer-following fill on every button (delegated; see snappyFill.js).
+// Snappy pointer-following fill for opt-in CTA buttons.
 initSnappyFill();
 
 ReactDOM.createRoot(document.getElementById("root")).render(

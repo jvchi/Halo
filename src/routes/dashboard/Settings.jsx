@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
 import { useBrand } from "@/lib/brandStore.jsx";
 import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
+import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import {
   brandColorPresets,
   brandCssVars,
@@ -18,7 +20,15 @@ import {
 const groupHeadClass = "mb-2 px-1 text-[11px] font-medium uppercase tracking-[0.06em] text-halo-fg-3";
 const cardClass = "grid gap-5 rounded-lg border border-halo-border-1 bg-halo-bg-1 p-5";
 const labelClass = "grid gap-1.5 text-[12px] font-medium text-halo-fg-2";
-const settingsTabs = ["General", "Domain", "Team", "Notifications", "Powered By", "Billing", "Danger Zone"];
+const settingsTabs = [
+  { label: "General", slug: "" },
+  { label: "Domain", slug: "domain" },
+  { label: "Team", slug: "members" },
+  { label: "Notifications", slug: "notifications" },
+  { label: "Powered By", slug: "powered-by" },
+  { label: "Billing", slug: "billing" },
+  { label: "Danger Zone", slug: "danger" },
+];
 
 function expandHex(short) {
   const [, a, b, c] = short; // #abc -> #aabbcc
@@ -64,10 +74,7 @@ function LogoField({ brand, onChange }) {
           onClick={() => ref.current?.click()}
           className="inline-flex min-h-[34px] items-center gap-1.5 rounded-pill bg-halo-bg-3 px-3.5 text-[13px] font-medium text-halo-fg-1 transition-colors hover:bg-halo-bg-4"
         >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M8 10.5V3.5M5.2 6.3 8 3.5l2.8 2.8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M3.5 10.5v1.2a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-1.2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-          </svg>
+          <HaloIcon name="upload" size={14} />
           {brand.logoImage ? "Change" : "Upload"}
         </button>
         {brand.logoImage ? (
@@ -109,12 +116,7 @@ function ColorField({ value, onChange }) {
                 onChange(p.value);
                 setText(p.value);
               }}
-              className={cn(
-                "h-7 w-7 rounded-full transition-[box-shadow] duration-150",
-                active
-                  ? "ring-2 ring-halo-fg-1 ring-offset-2 ring-offset-halo-bg-1"
-                  : "ring-1 ring-inset ring-black/10 hover:ring-black/30"
-              )}
+              className={cn("halo-brand-color-dot", active && "is-active")}
               style={{ background: p.value }}
             />
           );
@@ -135,7 +137,17 @@ function ColorField({ value, onChange }) {
 export default function Settings() {
   const { brand, update } = useBrand();
   const slugTouched = useRef(false);
-  const [activeTab, setActiveTab] = useState("General");
+  const { settingsTab } = useParams();
+  const activeTab = settingsTabs.find((tab) => tab.slug === (settingsTab ?? ""))?.label ?? "General";
+  const [message, setMessage] = useState("");
+  const [settingsDrafts, setSettingsDrafts] = useState({
+    domain: "",
+    invite: "",
+    notifications: brand.website || "",
+    poweredBy: true,
+    billing: "Free",
+    danger: false,
+  });
 
   function setName(value) {
     update(slugTouched.current ? { workspaceName: value } : { workspaceName: value, slug: slugify(value) });
@@ -145,6 +157,15 @@ export default function Settings() {
     update({ slug: slugify(value) });
   }
 
+  function setDraft(key, value) {
+    setSettingsDrafts((current) => ({ ...current, [key]: value }));
+  }
+
+  function confirmTab(label) {
+    setMessage(`${label} updated`);
+    setTimeout(() => setMessage(""), 1800);
+  }
+
   return (
     <div className="halo-page">
       <header className="halo-page-header">
@@ -152,18 +173,18 @@ export default function Settings() {
           title="Project Settings"
           info="Your workspace identity — name, logo, and brand colour — flows live into your collection form, widgets, and walls."
         />
+        {message ? <span className="halo-settings-save-state">{message}</span> : null}
       </header>
 
       <nav className="halo-settings-tabs" aria-label="Project settings tabs">
         {settingsTabs.map((tab) => (
-          <button
-            key={tab}
-            type="button"
-            className={cn(activeTab === tab && "is-active")}
-            onClick={() => setActiveTab(tab)}
+          <Link
+            key={tab.label}
+            to={tab.slug ? `/dashboard/settings/${tab.slug}` : "/dashboard/settings"}
+            className={cn(activeTab === tab.label && "is-active")}
           >
-            {tab}
-          </button>
+            {tab.label}
+          </Link>
         ))}
       </nav>
 
@@ -205,7 +226,7 @@ export default function Settings() {
           </div>
           <div className="halo-settings-row">
             <span />
-            <button type="button" className="halo-copy-button">Save settings</button>
+            <button type="button" className="halo-copy-button" onClick={() => confirmTab("General settings")}>Save settings</button>
           </div>
         </form>
       ) : (
@@ -227,8 +248,75 @@ export default function Settings() {
                       ? "Manage plan, invoices, and usage limits."
                       : "Delete or archive this workspace after exporting your proof."}
           </p>
-          <button type="button" className="halo-copy-button">
-            Configure {activeTab}
+          {activeTab === "Domain" ? (
+            <label className={labelClass}>
+              Custom domain
+              <input
+                className="halo-field"
+                value={settingsDrafts.domain}
+                onChange={(event) => setDraft("domain", event.target.value)}
+                placeholder="love.acme.com"
+              />
+            </label>
+          ) : null}
+          {activeTab === "Team" ? (
+            <label className={labelClass}>
+              Invite teammate
+              <input
+                className="halo-field"
+                value={settingsDrafts.invite}
+                onChange={(event) => setDraft("invite", event.target.value)}
+                placeholder="teammate@company.com"
+              />
+            </label>
+          ) : null}
+          {activeTab === "Notifications" ? (
+            <label className={labelClass}>
+              Notification email
+              <input
+                className="halo-field"
+                value={settingsDrafts.notifications}
+                onChange={(event) => setDraft("notifications", event.target.value)}
+                placeholder="alerts@company.com"
+              />
+            </label>
+          ) : null}
+          {activeTab === "Powered By" ? (
+            <label className="halo-settings-switch">
+              <input
+                type="checkbox"
+                checked={settingsDrafts.poweredBy}
+                onChange={(event) => setDraft("poweredBy", event.target.checked)}
+              />
+              Show Halo branding on public proof surfaces
+            </label>
+          ) : null}
+          {activeTab === "Billing" ? (
+            <div className="halo-settings-plan-picker">
+              {["Free", "Pro", "Business"].map((plan) => (
+                <button
+                  key={plan}
+                  type="button"
+                  className={cn(settingsDrafts.billing === plan && "is-active")}
+                  onClick={() => setDraft("billing", plan)}
+                >
+                  {plan}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          {activeTab === "Danger Zone" ? (
+            <label className="halo-settings-switch is-danger">
+              <input
+                type="checkbox"
+                checked={settingsDrafts.danger}
+                onChange={(event) => setDraft("danger", event.target.checked)}
+              />
+              I understand this workspace should be archived
+            </label>
+          ) : null}
+          <button type="button" className="halo-copy-button" onClick={() => confirmTab(activeTab)}>
+            Save {activeTab}
           </button>
         </section>
       )}

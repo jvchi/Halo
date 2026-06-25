@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
-import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
+import { HaloIcon, HaloIconChip } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { TESTIMONIAL_STATUSES } from "@/lib/testimonials";
 
@@ -17,25 +17,25 @@ const publishCards = [
   {
     title: "Image Gallery",
     copy: "A media-rich grid for proof-heavy landing pages.",
-    to: "/dashboard/widget-studio",
+    to: "/dashboard/studio?mode=widgets",
     icon: "image",
   },
   {
     title: "Slab Carousel",
     copy: "Compact rotating proof for hero and pricing pages.",
-    to: "/dashboard/widget-studio",
+    to: "/dashboard/studio?mode=widgets",
     icon: "widget",
   },
   {
     title: "Rating Badge",
     copy: "Small trust badge next to checkout or CTAs.",
-    to: "/dashboard/widget-studio",
+    to: "/dashboard/studio?mode=widgets",
     icon: "star",
   },
   {
     title: "Wall of Love",
     copy: "A hosted page for all approved proof.",
-    to: "/dashboard/walls",
+    to: "/dashboard/studio?mode=walls",
     icon: "walls",
   },
 ];
@@ -181,9 +181,7 @@ export default function Proof() {
         <div className="halo-proof-widget-carousel">
           {publishCards.map((card, index) => (
             <Link key={card.title} to={card.to} className="halo-proof-widget-card">
-              <span className="halo-feature-icon" aria-hidden="true">
-                <HaloIcon name={card.icon} size={20} />
-              </span>
+              <HaloIconChip name={card.icon} size={20} />
               <strong>{card.title}</strong>
               <small>{card.copy}</small>
               {index === 0 ? <em>New</em> : index === 2 ? <em>Upgrade</em> : null}

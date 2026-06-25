@@ -87,6 +87,35 @@ colors:
     indigo-1: "color(display-p3 0.345 0.337 0.839)"
     teal-1: "color(display-p3 0.353 0.784 0.980)"
     orange-1: "color(display-p3 1 0.584 0)"
+colorRoles:
+  dashboardRatio:
+    neutral: "90%"
+    actionSelection: "8%"
+    semantic: "2%"
+  dashboard:
+    canvas: "{colors.bg-1}"
+    chrome: "{colors.bg-3}"
+    panel: "{colors.bg-1}"
+    panelMuted: "{colors.bg-3}"
+    control: "{colors.bg-3}"
+    controlHover: "{colors.bg-4}"
+    selectedBackground: "{colors.primary-tint}"
+    selectedBorder: "color-mix(in srgb, {colors.primary} 28%, {colors.border-1})"
+    selectedStrongBorder: "color-mix(in srgb, {colors.primary} 38%, {colors.border-1})"
+    selectedText: "{colors.primary}"
+    primaryActionBackground: "{colors.primary}"
+    primaryActionText: "{colors.primary-text}"
+    textPrimary: "{colors.fg-1}"
+    textSecondary: "{colors.fg-2}"
+    textTertiary: "{colors.fg-3}"
+    textDisabled: "{colors.fg-4}"
+    successText: "{colors.green-1}"
+    successBackground: "color-mix(in srgb, {colors.green-1} 12%, transparent)"
+    warningText: "{colors.orange-1}"
+    warningBackground: "color-mix(in srgb, {colors.orange-1} 12%, transparent)"
+    dangerText: "{colors.red-1}"
+    dangerBackground: "color-mix(in srgb, {colors.red-1} 10%, transparent)"
+    neutralBadge: "{colors.bg-4}"
 typography:
   display-72:
     fontFamily: Aave Repro
@@ -407,6 +436,19 @@ Dashboard responsiveness should adapt density and hierarchy, not reorder the app
 
 The core palette has four jobs: text, surface, primary blue accent, and semantic system accents. Apple recommends system colors because they adapt across backgrounds, appearance modes, vibrancy, and accessibility settings; this web implementation uses fixed CSS tokens that approximate that language.
 
+### Dashboard Color Hierarchy
+
+Halo dashboard color is role-based, not decorative. Use the Apple-style `90 / 8 / 2` rule: roughly `90%` neutral surfaces and text, `8%` blue for action/selection/focus, and `2%` semantic color for status or risk.
+
+- Use `bg-1` for page canvas and normal cards, `bg-3` for app chrome, muted panels, controls, and empty states, and `bg-4` for quiet hover fills.
+- Use `fg-1` for titles and selected labels, `fg-2` for default navigation and body copy, `fg-3` for metadata and inactive copy, and `fg-4` only for disabled or low-emphasis marks.
+- Use `primary` only for primary CTAs, selected icons/text, links, focus rings, and the most important active control. The surrounding UI should stay neutral so blue has meaning.
+- Use `primary-tint` for selected backgrounds and callouts, paired with a blue-tinted border when a selected object needs an edge.
+- Use `green-1`, `orange-1`, and `red-1` only for success, warning, danger, trend, or validation states. Never use semantic color as decoration without a label or icon.
+- Content previews may use more color because they represent published assets, testimonials, videos, or brand output. App chrome, navigation, settings, and list controls stay quiet.
+- Hover states are neutral by default: use `bg-4` or a subtle border shift. A hover should not look selected unless it is on an explicitly primary action.
+- The GSAP/snappy fill interaction is reserved for opt-in buttons (`.halo-btn` or `[data-snappy-fill]`). Do not apply it to tabs, cards, nav rows, profile controls, swatches, segmented controls, or dashboard panels.
+
 ### Text
 
 - `fg-1` `#1d1d1f` is the primary Apple-style near-black text color on light backgrounds. Use it for headings, body emphasis, nav hover states, and dark filled buttons.
@@ -438,6 +480,16 @@ The core palette has four jobs: text, surface, primary blue accent, and semantic
 - `purple-1`, `indigo-1`, `pink-1`, and `teal-1` are available for illustrations, badges, or product-specific contexts.
 - `wallet` `#0a84ff` and `account` `#34c759` are product state accents.
 - Use accent colors with labels or icons, never as the only indicator of state.
+
+### Icon Tones
+
+Section, feature, and creation-mode icons carry color to add liveliness and aid scanning — each icon reads as a distinct, bright accent rather than uniform grey. This is the one place product accents appear *without* an adjacent status meaning, so it is governed by a tight system:
+
+- **Tone is assigned centrally, never at the call site.** A single map (`haloIconTones` in `src/components/dashboard/HaloIcon.jsx`) pairs every icon name with one of nine tones: `blue` (`primary`), `green`, `yellow`, `orange`, `red`, `pink`, `purple`, `indigo`, `teal`. Call sites just render the icon; the color follows the name. Default is `blue`.
+- **One CSS source of truth.** A `data-tone="…"` attribute resolves to the accent via `[data-tone="…"] { --tone: … }` in `styles/index.css`; the colorful chip (`.halo-feature-icon`) derives its soft fill (`color-mix(... 12%)`) and hover/active fill (`color-mix(... 22%)`) from that single `--tone`. Never hardcode an icon color in a component or a one-off gradient.
+- **Two carriers.** `HaloIconChip` renders the rounded tinted badge used on feature/section cards (Import methods, Proof publish cards, Integrations, Feedback, Analyze). For bare inline icons (e.g. the Studio mode carousel), pass `tinted` to `HaloIcon` to color the glyph itself. On a filled/selected surface (gradient active tab) the glyph reverts to white for contrast.
+- **Keep tones varied but stable.** Related icons may share a tone; the map should stay deterministic so an icon is the same color everywhere it appears. Don't reach past the nine system accents.
+- **Chrome stays quiet.** Persistent navigation and dense controls — the sidebar, wizard step rails, table rows, inline button glyphs — keep their neutral/`primary` treatment. Color is for content and feature discovery, not for chrome; this is what keeps the colorful icons feeling intentional rather than noisy. Icons remain `aria-hidden` and always sit beside a text label, so color is never the sole carrier of meaning (see Accessibility).
 
 ### Wide Gamut
 
@@ -508,7 +560,7 @@ Halo is a flat design system. The cloned reference casts no drop shadows, and ne
 - For raised or selected states (active tabs, toggles, nav items, knobs), use a brighter fill (`bg-1` on a `bg-3` track) or a hairline border — never a shadow.
 - Glass partner cards use `rgba(255,255,255,0.72)`, brightening to `rgba(255,255,255,0.92)` on hover; the lift is the background change (plus at most a `translateY(-1px)`), not a shadow.
 - Dark market cards use `rgba(255,255,255,0.06)` on a near-black section.
-- Avoid drop shadows, neumorphism, glows, and glossy gradients.
+- Avoid drop shadows, neumorphism, glows, and glossy gradients. The one exception is the sanctioned low-opacity accent gradient language (see "Accent Gradients" below) — soft radial washes and a flat left→right accent fill, never a glossy or high-saturation ramp.
 
 The embeddable testimonial widget keeps a per-preset shadow capability for matching external brands, but Halo's shipped presets are all flat (`shadow: "none"`) and Halo's own dashboard UI never uses it.
 
@@ -522,6 +574,17 @@ Analytics borrows Apple's data language (Health, Fitness Activity Rings, Stocks)
 - **Rings for goals.** Goal progress uses concentric rounded-cap rings (Fitness style): a track at the hue's ~14% opacity under a hue-to-hue gradient stroke. Use the semantic accents (`primary`, `teal-1`, `green-1`) across rings, not one flat blue.
 - **No chart junk.** A single hairline baseline at most — no gridlines, no axis spines, no shadows. Axis labels are sparse and muted (`fg-3`, ~11px). Bars get rounded ends and a gentle left-to-right accent gradient.
 - **Scrub, don't clutter.** Detail appears on hover/touch as a single value callout on a dark pill, not as always-on labels on every point.
+
+## Accent Gradients
+
+The chart gradient language (the area fills, the bar ramps, the `radial-gradient(... primary 9% ...)` panel washes) is the *only* sanctioned gradient family, and it extends beyond charts to a small set of UI surfaces. It exists as reusable tokens in `src/styles/tokens.css` so every surface stays in sync — never hand-roll a one-off gradient; reference the token.
+
+- **Two idioms, both low-opacity and accent-derived.**
+  - `--halo-gradient-accent` — a flat left→right `primary → primary+55% white` fill. Used for *committed / selected* controls only: the Studio mode-bar active tab and the active filter pill (text flips to white). This is the same ramp chart bars use. It is the higher-contrast end of the hover→selected model (see "Interaction States"); hover stays a quiet tonal shift, selected commits to the fill.
+  - `--halo-wash-accent` / `--halo-wash-accent-strong` — a soft radial bloom from the top edge, layered *over* a base surface: `background: var(--halo-wash-accent), var(--halo-role-panel-muted)`. Used to warm large neutral surfaces with a hint of brand: Studio hero, Studio card preview areas, the active card and draft preview (`-strong`).
+- **Tone-matched washes for status surfaces.** `--halo-wash-good` (green) and `--halo-wash-attention` (orange) layer over the matching `success-bg` / `warning-bg` so the Overview KPI tiles keep their semantic tone while gaining the same soft bloom — color is never the *only* status signal (the label and value still carry it).
+- **Per-category tone washes.** When a set of count/metric tiles represents distinct categories (e.g. the Feedback praise / request / issue / question tiles), each tile gets a soft top-left radial wash bloomed from its `--tone` (the same `[data-tone]` map that drives icon tones), with hover/active intensifying the *same* hue rather than reverting to generic blue. The big number takes the tone color for pop; labels stay neutral. Reserve this for genuinely categorical tiles — don't rainbow a row of homogeneous KPIs.
+- **Restraint is the point.** The fill marks "active/selected"; the wash warms a surface. Keep idle/inactive controls, table rows, body text, and dense data tables flat (`role-panel`, hairline borders) — that contrast is what makes the gradient legible as state rather than decoration. No gradient on text, no ramp above these opacities, no glossy or directional-light look.
 
 ## Motion
 

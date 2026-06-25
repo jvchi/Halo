@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
-import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
+import { HaloIcon, HaloIconChip } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 
 const FEEDBACK_TYPES = {
@@ -23,9 +23,7 @@ function FeedbackCard({ item }) {
   return (
     <article className="halo-feedback-card">
       <div className="halo-feedback-card-header">
-        <span className="halo-feature-icon" aria-hidden="true">
-          <HaloIcon name={item.type === "praise" ? "star" : item.type === "issue" ? "feedback" : "proof"} size={18} />
-        </span>
+        <HaloIconChip name={item.type === "praise" ? "star" : item.type === "issue" ? "feedback" : "proof"} size={18} />
         <div>
           <strong>{item.name}</strong>
           <small>{[item.role, item.company].filter(Boolean).join(" / ") || item.source}</small>
@@ -95,6 +93,7 @@ export default function Feedback() {
               key={id}
               type="button"
               onClick={() => setType(id)}
+              data-tone={id}
               className={cn("halo-metric-tile", type === id && "is-active")}
             >
               <span>{label}</span>

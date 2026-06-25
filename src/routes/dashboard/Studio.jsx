@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
@@ -14,6 +14,16 @@ const studioModes = [
   { id: "images", label: "Images", icon: "image" },
   { id: "walls", label: "Walls of Love", icon: "walls" },
 ];
+
+const studioModeIds = new Set(studioModes.map((mode) => mode.id));
+
+function normalizeMode(value, fallback = "saved") {
+  return studioModeIds.has(value) ? value : fallback;
+}
+
+function slugify(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 
 const modeMeta = {
   saved: {
@@ -144,16 +154,23 @@ function TemplateCard({ mode, template, active, onUse, approved }) {
   );
 }
 
-export default function Studio() {
+export default function Studio({ initialMode = "saved" }) {
   const { approved } = useTestimonials();
-  const [mode, setMode] = useState("saved");
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const modeParam = searchParams.get("mode");
+  const [mode, setMode] = useState(() => normalizeMode(searchParams.get("mode"), initialMode));
   const [filter, setFilter] = useState("All");
   const [folderDraft, setFolderDraft] = useState("");
   const [folders, setFolders] = useState(["Launch assets"]);
-  const [saved, setSaved] = useState([
-    { name: "Pricing page grid", type: "Widgets", folder: "Launch assets" },
-    { name: "Launch wall", type: "Walls of Love", folder: "Launch assets" },
-  ]);
+  const [saved, setSaved] = useState([]);
+  const [draft, setDraft] = useState(null);
+
+  useEffect(() => {
+    const nextMode = normalizeMode(modeParam, initialMode);
+    setMode((current) => (current === nextMode ? current : nextMode));
+    setFilter("All");
+  }, [initialMode, modeParam]);
 
   const meta = modeMeta[mode];
   const templates = useMemo(() => {
@@ -170,13 +187,21 @@ export default function Studio() {
     setFolderDraft("");
   }
 
-  function saveTemplate(template) {
+  function selectMode(nextMode) {
+    setMode(nextMode);
+    setFilter("All");
+    setSearchParams(nextMode === "saved" ? {} : { mode: nextMode });
+  }
+
+  function createDraft(template) {
+    const nextDraft = { name: template, type: meta.title, mode, folder: folders[0] ?? "Default" };
+    setDraft(nextDraft);
     setSaved((current) => {
       const name = `${template} draft`;
       if (current.some((item) => item.name === name)) return current;
-      return [{ name, type: meta.title, folder: folders[0] ?? "Default" }, ...current];
+      return [{ name, type: meta.title, mode, folder: folders[0] ?? "Default" }, ...current];
     });
-    setMode("saved");
+    navigate(`/dashboard/studio/${mode}/${slugify(template) || "untitled"}`);
   }
 
   return (
@@ -192,12 +217,9 @@ export default function Studio() {
               key={item.id}
               type="button"
               className={cn(mode === item.id && "is-active")}
-              onClick={() => {
-                setMode(item.id);
-                setFilter("All");
-              }}
+              onClick={() => selectMode(item.id)}
             >
-              <HaloIcon name={item.icon} size={16} />
+              <HaloIcon name={item.icon} size={16} tinted />
               {item.label}
             </button>
           ))}
@@ -247,7 +269,7 @@ export default function Studio() {
                     <strong>{item.name}</strong>
                     <span>{item.type} / {item.folder}</span>
                   </div>
-                  <Link to={item.type === "Walls of Love" ? "/dashboard/walls" : "/dashboard/widget-studio"} className="halo-copy-button">
+                  <Link to={`/dashboard/studio?mode=${item.mode ?? "widgets"}`} className="halo-copy-button">
                     Open
                   </Link>
                 </article>
@@ -293,11 +315,39 @@ export default function Studio() {
                   mode={mode}
                   template={template}
                   active={saved.some((item) => item.name === `${template} draft`)}
-                  onUse={saveTemplate}
+                  onUse={createDraft}
                   approved={approved}
                 />
               ))}
             </div>
+            {draft ? (
+              <aside className="halo-panel halo-studio-draft-panel" aria-label="Selected Studio draft">
+                <header className="halo-panel-header">
+                  <span>{draft.name} draft</span>
+                  <small>{draft.type}</small>
+                </header>
+                <div className="halo-studio-draft-preview">
+                  <div>
+                    <HaloIcon name={draft.mode === "walls" ? "walls" : draft.mode === "images" ? "image" : "widget"} size={22} />
+                    <strong>{draft.name}</strong>
+                    <p>Choose proof, tune display options, then save or publish from this draft.</p>
+                  </div>
+                  <div className="halo-studio-proof-strip">
+                    <span>{approved.length || 0} approved proof</span>
+                    <span>{draft.folder}</span>
+                    <span>{draft.type}</span>
+                  </div>
+                </div>
+                <div className="halo-proof-actions">
+                  <Link to="/dashboard/proof" className="halo-copy-button">
+                    Select testimonials
+                  </Link>
+                  <button type="button" className="halo-copy-button" onClick={() => selectMode("saved")}>
+                    View saved
+                  </button>
+                </div>
+              </aside>
+            ) : null}
           </>
         )}
       </section>

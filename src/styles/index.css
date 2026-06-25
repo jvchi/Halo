@@ -15,6 +15,593 @@
   font-display: swap;
 }
 
+@layer components {
+  .halo-editor-page {
+    gap: 18px;
+  }
+
+  .halo-editor-topbar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    min-width: 0;
+    border-bottom: 1px solid var(--halo-border-1);
+    padding-bottom: 16px;
+  }
+
+  .halo-editor-topbar > div:not(.halo-editor-topbar-actions) {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .halo-editor-topbar span {
+    color: var(--halo-fg-3);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .halo-editor-topbar strong {
+    overflow: hidden;
+    color: var(--halo-fg-1);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halo-editor-topbar-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: end;
+    gap: 8px;
+  }
+
+  .halo-editor-topbar-actions em,
+  .halo-settings-save-state,
+  .halo-import-action-row span {
+    color: var(--halo-role-success);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .halo-copy-button.is-primary {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+  }
+
+  .halo-editor-shell {
+    display: grid;
+    grid-template-columns: 154px minmax(0, 1fr) 292px;
+    gap: 18px;
+    align-items: start;
+    min-width: 0;
+  }
+
+  .halo-form-builder-shell {
+    grid-template-columns: 154px minmax(0, 1fr) 286px;
+  }
+
+  .halo-editor-steps {
+    position: sticky;
+    top: 24px;
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .halo-editor-steps button {
+    display: grid;
+    min-height: 54px;
+    grid-template-columns: 20px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 8px;
+    padding: 0 10px;
+    color: var(--halo-fg-2);
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .halo-editor-steps button:hover,
+  .halo-editor-steps button:focus-visible {
+    color: var(--halo-fg-1);
+    background: var(--halo-role-control-hover);
+  }
+
+  .halo-editor-steps button.is-active {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+  }
+
+  .halo-editor-preview-pane {
+    display: grid;
+    min-height: clamp(520px, calc(100vh - 184px), 760px);
+    min-width: 0;
+    place-items: center;
+    overflow: auto;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    background: var(--halo-role-panel-muted);
+    padding: 28px;
+  }
+
+  .halo-editor-controls {
+    position: sticky;
+    top: 24px;
+    display: grid;
+    max-height: calc(100vh - 48px);
+    min-width: 0;
+    gap: 12px;
+    overflow: auto;
+  }
+
+  .halo-editor-control-card {
+    display: grid;
+    gap: 12px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    background: var(--halo-role-panel);
+    padding: 14px;
+  }
+
+  .halo-editor-control-card header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .halo-editor-control-card header span,
+  .halo-editor-control-card label {
+    color: var(--halo-fg-1);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .halo-editor-control-card header small,
+  .halo-editor-control-card code {
+    color: var(--halo-fg-3);
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .halo-editor-control-card header button {
+    border: 0;
+    color: var(--halo-fg-3);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .halo-editor-control-card label {
+    display: grid;
+    gap: 6px;
+  }
+
+  .halo-editor-proof-list,
+  .halo-editor-template-list {
+    display: grid;
+    gap: 6px;
+  }
+
+  .halo-editor-proof-list label,
+  .halo-editor-template-list button {
+    display: grid;
+    min-height: 42px;
+    grid-template-columns: auto 28px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 8px;
+    padding: 0 9px;
+    color: var(--halo-fg-2);
+    background: var(--halo-role-control);
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .halo-editor-template-list button {
+    grid-template-columns: 18px minmax(0, 1fr);
+    text-align: left;
+  }
+
+  .halo-editor-proof-list label > span {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+    font-weight: 600;
+  }
+
+  .halo-editor-proof-list strong,
+  .halo-editor-template-list button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halo-editor-template-list button.is-active {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+  }
+
+  .halo-editor-switch,
+  .halo-settings-switch {
+    display: flex !important;
+    align-items: center;
+    gap: 8px !important;
+    color: var(--halo-fg-2) !important;
+    font-size: 13px !important;
+    line-height: 18px;
+  }
+
+  .halo-editor-widget-preview,
+  .halo-editor-wall-preview,
+  .halo-editor-video-preview,
+  .halo-editor-image-preview {
+    width: min(100%, 680px);
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    background: var(--halo-role-panel);
+    box-shadow: var(--halo-shadow-soft);
+  }
+
+  .halo-editor-widget-preview {
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .halo-editor-widget-preview article {
+    display: grid;
+    gap: 10px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    padding: 14px;
+    background: var(--halo-role-panel-muted);
+  }
+
+  .halo-editor-widget-preview div {
+    display: flex;
+    gap: 2px;
+    color: var(--halo-role-selected-text);
+  }
+
+  .halo-editor-widget-preview p,
+  .halo-editor-wall-preview p,
+  .halo-editor-image-preview blockquote {
+    margin: 0;
+    color: var(--halo-fg-1);
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .halo-editor-wall-preview {
+    display: grid;
+    gap: 16px;
+    padding: 22px;
+  }
+
+  .halo-editor-wall-preview header {
+    display: grid;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .halo-editor-wall-preview header strong {
+    color: var(--halo-fg-1);
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .halo-editor-wall-preview header span,
+  .halo-editor-widget-preview strong,
+  .halo-editor-image-preview small,
+  .halo-editor-video-preview small {
+    color: var(--halo-fg-3);
+    font-size: 12px;
+  }
+
+  .halo-editor-wall-preview > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .halo-editor-wall-preview article {
+    display: grid;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--halo-role-control);
+  }
+
+  .halo-editor-wall-preview article > span {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .halo-editor-video-preview,
+  .halo-editor-image-preview {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .halo-editor-video-preview > div {
+    display: grid;
+    width: min(100%, 420px);
+    aspect-ratio: 16 / 9;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--halo-role-selected) 18%, var(--halo-bg-3));
+    color: var(--halo-role-selected-text);
+  }
+
+  .halo-editor-video-preview strong,
+  .halo-editor-image-preview span {
+    color: var(--halo-fg-1);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .halo-editor-image-preview blockquote {
+    max-width: 420px;
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .halo-analyze-page {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .halo-analyze-picker,
+  .halo-analyze-output {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .halo-analyze-picker header,
+  .halo-analyze-output header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .halo-analyze-picker h1 {
+    margin: 0;
+    color: var(--halo-fg-1);
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .halo-analyze-loading {
+    display: grid;
+    gap: 10px;
+  }
+
+  .halo-analyze-loading span {
+    height: 10px;
+    border-radius: 999px;
+    background: var(--halo-role-control);
+  }
+
+  .halo-analyze-loading span:last-child {
+    width: 80%;
+  }
+
+  .halo-analyze-options {
+    display: grid;
+    gap: 8px;
+  }
+
+  .halo-analyze-options button {
+    display: grid;
+    min-height: 56px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    padding: 0 12px;
+    color: var(--halo-fg-1);
+    background: var(--halo-role-panel);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .halo-analyze-options button.is-active,
+  .halo-analyze-options button:hover {
+    border-color: color-mix(in srgb, var(--halo-role-selected-text) 28%, var(--halo-border-1));
+    background: var(--halo-role-selected);
+  }
+
+  .halo-analyze-output {
+    min-height: clamp(520px, calc(100vh - 160px), 720px);
+    border: 1px solid var(--halo-border-1);
+    border-radius: 10px;
+    background: var(--halo-role-panel);
+    box-shadow: var(--halo-shadow-soft);
+    padding: 20px;
+  }
+
+  .halo-analyze-output header span {
+    color: var(--halo-fg-1);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .halo-analyze-output header button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    color: var(--halo-fg-2);
+    background: var(--halo-role-control);
+    cursor: pointer;
+  }
+
+  .halo-analyze-output > p {
+    margin: 0;
+    color: var(--halo-fg-3);
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .halo-analyze-result {
+    display: grid;
+    gap: 14px;
+  }
+
+  .halo-analyze-result label {
+    display: grid;
+    gap: 8px;
+    color: var(--halo-fg-2);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .halo-import-source-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .halo-import-source-picker button,
+  .halo-source-cloud button,
+  .halo-settings-plan-picker button {
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: var(--halo-fg-2);
+    background: var(--halo-role-control);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .halo-import-source-picker button.is-active,
+  .halo-source-cloud button.is-active,
+  .halo-settings-plan-picker button.is-active {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+  }
+
+  .halo-source-cloud span,
+  .halo-source-cloud button,
+  .halo-proof-meta span {
+    border-radius: 999px;
+    padding: 4px 8px;
+    color: var(--halo-fg-2);
+    background: var(--halo-role-control);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+
+  .halo-source-cloud button {
+    border: 0;
+    cursor: pointer;
+  }
+
+  .halo-import-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .halo-settings-save-state {
+    justify-self: end;
+  }
+
+  .halo-settings-plan-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .halo-settings-switch.is-danger {
+    color: var(--halo-role-danger) !important;
+  }
+
+  @media (max-width: 1100px) {
+    .halo-editor-shell,
+    .halo-form-builder-shell,
+    .halo-analyze-page {
+      grid-template-columns: 1fr;
+    }
+
+    .halo-editor-steps {
+      position: static;
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .halo-editor-steps button {
+      min-width: 140px;
+    }
+
+    .halo-editor-controls {
+      position: static;
+      max-height: none;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .halo-editor-topbar {
+      grid-template-columns: 1fr;
+    }
+
+    .halo-editor-topbar-actions {
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+
+    .halo-editor-preview-pane {
+      min-height: 420px;
+      padding: 14px;
+    }
+
+    .halo-editor-wall-preview > div {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
 @font-face {
   font-family: "Halo Mono";
   src:
@@ -30,12 +617,14 @@
      pages doesn't shift the centered layout horizontally. */
   html {
     scrollbar-gutter: stable;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     margin: 0;
-    background: var(--halo-bg-1);
-    color: var(--halo-fg-1);
+    background: var(--halo-role-canvas);
+    color: var(--halo-role-text-primary);
     font-family: var(--halo-font-sans);
     font-size: 16px;
     font-weight: 400;
@@ -73,8 +662,8 @@
     appearance: none;
     border: 0;
     border-radius: 10px;
-    background: var(--halo-bg-3);
-    color: var(--halo-fg-1);
+    background: var(--halo-role-control);
+    color: var(--halo-role-text-primary);
     font: inherit;
     font-size: 14px;
     line-height: 1.45;
@@ -89,12 +678,13 @@
   }
 
   .halo-field:hover {
-    background: var(--halo-bg-4);
+    background: var(--halo-role-control-hover);
   }
 
   .halo-field:focus {
-    background: var(--halo-bg-1);
-    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--halo-primary) 30%, transparent);
+    background: var(--halo-role-panel);
+    outline: 1.5px solid color-mix(in srgb, var(--halo-role-selected-text) 34%, transparent);
+    outline-offset: -1.5px;
   }
 
   /* Native select: keep the filled look and add a quiet chevron. */
@@ -119,8 +709,8 @@
 
   .halo-doc-shell {
     min-height: 100vh;
-    background: var(--halo-bg-1);
-    color: var(--halo-fg-1);
+    background: var(--halo-role-canvas);
+    color: var(--halo-role-text-primary);
   }
 
   .halo-doc-header {
@@ -130,7 +720,7 @@
     height: 82.5px;
     align-items: center;
     justify-content: center;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     transition-property: background-color;
     transition-duration: 400ms;
     transition-timing-function: ease;
@@ -331,7 +921,7 @@
     min-height: 0;
     flex-direction: column;
     border-right: 1px solid color-mix(in srgb, var(--halo-border-1) 82%, transparent);
-    background: #f9fafb;
+    background: var(--halo-role-chrome);
     overflow: hidden;
     padding: 16px;
   }
@@ -366,6 +956,9 @@
     background: transparent;
     text-align: left;
     cursor: pointer;
+    transition-property: color, background-color, border-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
   }
 
   .halo-sidebar-workspace span {
@@ -387,7 +980,7 @@
 
   .halo-sidebar-workspace small {
     overflow: hidden;
-    color: var(--halo-primary);
+    color: var(--halo-role-text-tertiary);
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
@@ -420,13 +1013,13 @@
   }
 
   .halo-sidebar-upgrade .halo-sidebar-icon {
-    color: var(--halo-primary-soft);
+    color: var(--halo-role-text-tertiary);
   }
 
   .halo-sidebar-upgrade:hover,
   .halo-sidebar-upgrade:focus-visible {
     color: var(--halo-fg-1);
-    background: color-mix(in srgb, var(--halo-border-2) 48%, transparent);
+    background: var(--halo-role-control-hover);
   }
 
   .halo-sidebar-nav {
@@ -477,12 +1070,12 @@
   .halo-sidebar-link:hover,
   .halo-sidebar-link:focus-visible {
     color: var(--halo-fg-1);
-    background: color-mix(in srgb, var(--halo-border-2) 34%, transparent);
+    background: var(--halo-role-control-hover);
   }
 
   .halo-sidebar-link.is-active {
-    color: var(--halo-fg-1);
-    background: color-mix(in srgb, var(--halo-border-2) 62%, transparent);
+    color: var(--halo-white);
+    background: var(--halo-gradient-accent);
   }
 
   .halo-sidebar-icon {
@@ -497,15 +1090,19 @@
   }
 
   .halo-sidebar-link:hover .halo-sidebar-icon,
-  .halo-sidebar-link:focus-visible .halo-sidebar-icon,
+  .halo-sidebar-link:focus-visible .halo-sidebar-icon {
+    color: var(--halo-role-text-primary);
+    transform: translateX(1px);
+  }
+
   .halo-sidebar-upgrade:hover .halo-sidebar-icon,
   .halo-sidebar-upgrade:focus-visible .halo-sidebar-icon {
-    color: var(--halo-primary);
+    color: var(--halo-role-selected-text);
     transform: translateX(1px);
   }
 
   .halo-sidebar-link.is-active .halo-sidebar-icon {
-    color: var(--halo-primary);
+    color: var(--halo-white);
   }
 
   .halo-sidebar-bottom {
@@ -532,10 +1129,14 @@
   }
 
   .halo-sidebar-settings:hover,
-  .halo-sidebar-settings:focus-visible,
-  .halo-sidebar-settings.is-active {
+  .halo-sidebar-settings:focus-visible {
     color: var(--halo-fg-1);
-    background: color-mix(in srgb, var(--halo-border-2) 62%, transparent);
+    background: var(--halo-role-control-hover);
+  }
+
+  .halo-sidebar-settings.is-active {
+    color: var(--halo-white);
+    background: var(--halo-gradient-accent);
   }
 
   .halo-doc-main {
@@ -587,7 +1188,7 @@
     border-radius: 999px;
     padding: 6px 12px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.09px;
@@ -600,11 +1201,12 @@
 
   .halo-copy-button:hover {
     color: var(--halo-fg-1);
+    background: var(--halo-role-control-hover);
   }
 
   .halo-copy-button:focus-visible {
     color: var(--halo-fg-1);
-    background: var(--halo-bg-4);
+    background: var(--halo-role-control-hover);
   }
 
   .halo-copy-button svg {
@@ -625,7 +1227,6 @@
     aspect-ratio: 1;
     place-items: center;
     color: var(--isocon-stroke);
-    filter: drop-shadow(0 18px 32px color-mix(in srgb, var(--isocon-stroke) 14%, transparent));
   }
 
   .halo-isocon-illustration svg {
@@ -659,15 +1260,15 @@
     gap: 14px;
     border-radius: 8px;
     padding: 18px;
-    background: var(--halo-bg-3);
+    background: var(--halo-wash-accent), var(--halo-role-panel-muted);
   }
 
   .halo-overview-kpi[data-tone="attention"] {
-    background: color-mix(in srgb, var(--halo-orange) 10%, var(--halo-bg-3));
+    background: var(--halo-wash-attention), var(--halo-role-warning-bg);
   }
 
   .halo-overview-kpi[data-tone="good"] {
-    background: color-mix(in srgb, var(--halo-green) 9%, var(--halo-bg-3));
+    background: var(--halo-wash-good), var(--halo-role-success-bg);
   }
 
   .halo-overview-kpi span,
@@ -703,7 +1304,7 @@
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
     padding: 16px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-overview-panel-large {
@@ -747,7 +1348,7 @@
 
   .halo-overview-panel-action:hover,
   .halo-overview-panel-action:focus-visible {
-    color: var(--halo-primary);
+    color: var(--halo-role-selected-text);
   }
 
   .halo-overview-list {
@@ -767,7 +1368,7 @@
     min-height: 76px;
     padding: 12px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     text-decoration: none;
     transition-property: color, background-color;
     transition-duration: 160ms;
@@ -776,7 +1377,7 @@
   .halo-overview-row:hover,
   .halo-overview-row:focus-visible {
     color: var(--halo-fg-1);
-    background: #fafafa;
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-overview-avatar {
@@ -785,8 +1386,8 @@
     height: 36px;
     place-items: center;
     border-radius: 999px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--halo-role-text-secondary);
+    background: var(--halo-role-control);
     font-size: 13px;
     font-weight: 600;
     line-height: 1;
@@ -838,7 +1439,7 @@
     gap: 8px;
     border-radius: 8px;
     padding: 12px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-overview-mini-stat strong {
@@ -857,7 +1458,7 @@
     border-radius: 8px;
     padding: 12px;
     color: var(--halo-fg-2);
-    background: color-mix(in srgb, var(--halo-primary) 6%, var(--halo-bg-3));
+    background: var(--halo-role-selected);
     text-decoration: none;
   }
 
@@ -887,7 +1488,7 @@
     border-radius: 8px;
     padding: 12px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
     text-decoration: none;
   }
 
@@ -902,11 +1503,11 @@
     height: 9px;
     flex: 0 0 auto;
     border-radius: 999px;
-    background: var(--halo-orange);
+    background: var(--halo-role-warning);
   }
 
   .halo-overview-readiness[data-ready="true"] .halo-overview-status-dot {
-    background: var(--halo-green);
+    background: var(--halo-role-success);
   }
 
   .halo-studio-shell {
@@ -965,7 +1566,7 @@
     min-width: 0;
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     padding: 24px;
   }
 
@@ -979,7 +1580,7 @@
     border-radius: 999px;
     padding: 0 12px;
     color: var(--halo-fg-1);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
     font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.08px;
@@ -1067,7 +1668,7 @@
     max-height: calc(100vh - 48px);
     overflow: auto;
     overscroll-behavior: contain;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     padding: 0 4px;
   }
 
@@ -1092,7 +1693,7 @@
     padding: 0 0 10px;
     margin-bottom: 4px;
     border-bottom: 1px solid var(--halo-border-1);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-inspector-group {
@@ -1161,7 +1762,7 @@
 
   .halo-inspector-content input,
   .halo-inspector-content textarea {
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-wall-quick-controls {
@@ -1175,7 +1776,7 @@
   .halo-wall-quick-controls .halo-inspector-toggle {
     min-height: 38px;
     padding: 0 10px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-wall-editable-text {
@@ -1184,17 +1785,17 @@
     outline: 0;
     transition:
       background-color 140ms ease,
-      box-shadow 140ms ease;
+      outline-color 140ms ease;
   }
 
   .halo-wall-editable-text:hover {
     background: color-mix(in srgb, currentColor 7%, transparent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 7%, transparent);
+    outline: 4px solid color-mix(in srgb, currentColor 7%, transparent);
   }
 
   .halo-wall-editable-text:focus-visible {
     background: color-mix(in srgb, currentColor 9%, transparent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 10%, transparent);
+    outline: 4px solid color-mix(in srgb, currentColor 10%, transparent);
   }
 
   .halo-wall-editable-text:empty::before {
@@ -1205,7 +1806,7 @@
   .halo-wall-editable-text-on-accent:hover,
   .halo-wall-editable-text-on-accent:focus-visible {
     background: rgb(255 255 255 / 0.16);
-    box-shadow: 0 0 0 4px rgb(255 255 255 / 0.16);
+    outline-color: rgb(255 255 255 / 0.16);
   }
 
   .halo-huge-icon {
@@ -1231,6 +1832,16 @@
     gap: 14px;
   }
 
+  .halo-import-or {
+    display: grid;
+    width: min(100%, 896px);
+    place-items: center;
+    color: var(--halo-role-text-tertiary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
   .halo-feature-card,
   .halo-metric-tile,
   .halo-panel,
@@ -1239,7 +1850,7 @@
   .halo-integration-card {
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-feature-card,
@@ -1252,7 +1863,7 @@
     color: var(--halo-fg-1);
     text-align: left;
     text-decoration: none;
-    transition-property: background-color, border-color, transform;
+    transition-property: background-color, border-color;
     transition-duration: 180ms;
     transition-timing-function: ease-out;
   }
@@ -1264,17 +1875,16 @@
 
   .halo-feature-card:hover,
   .halo-feature-card:focus-visible,
-  .halo-feature-card.is-active,
   .halo-integration-card:hover,
-  .halo-integration-card:focus-visible,
-  .halo-integration-card.is-active {
-    border-color: color-mix(in srgb, var(--halo-primary) 34%, var(--halo-border-1));
-    background: color-mix(in srgb, var(--halo-primary) 4%, var(--halo-bg-1));
+  .halo-integration-card:focus-visible {
+    border-color: var(--halo-border-2);
+    background: var(--halo-role-panel-muted);
   }
 
-  .halo-feature-card:active,
-  .halo-integration-card:active {
-    transform: scale(0.99);
+  .halo-feature-card.is-active,
+  .halo-integration-card.is-active {
+    border-color: var(--halo-role-selected-border);
+    background: var(--halo-role-selected);
   }
 
   .halo-feature-card strong,
@@ -1359,10 +1969,40 @@
   }
 
   .halo-import-method:hover::after,
-  .halo-import-method:focus-visible::after,
-  .halo-import-method.is-active::after {
-    border-color: var(--halo-primary);
+  .halo-import-method:focus-visible::after {
+    border-color: var(--halo-fg-2);
     transform: translateX(2px) rotate(45deg);
+  }
+
+  .halo-import-method.is-active::after {
+    border-color: var(--halo-role-selected-text);
+    transform: translateX(2px) rotate(45deg);
+  }
+
+  /*
+   * Colorful icon tones. A `data-tone` keyword resolves to a design-system
+   * accent here (single source of truth); the keyword itself is assigned
+   * centrally in HaloIcon.jsx, never hardcoded at call sites. `--tone` is the
+   * raw accent; chip fills derive soft/strong tints from it via color-mix.
+   */
+  [data-tone="blue"] { --tone: var(--halo-primary); }
+  [data-tone="green"] { --tone: var(--halo-green); }
+  [data-tone="yellow"] { --tone: var(--halo-yellow-1); }
+  [data-tone="orange"] { --tone: var(--halo-orange); }
+  [data-tone="red"] { --tone: var(--halo-red); }
+  [data-tone="pink"] { --tone: var(--halo-pink); }
+  [data-tone="purple"] { --tone: var(--halo-purple); }
+  [data-tone="indigo"] { --tone: var(--halo-indigo); }
+  [data-tone="teal"] { --tone: var(--halo-teal); }
+
+  /* Feedback types map to their semantic hue so tiles and badges agree. */
+  [data-tone="praise"] { --tone: var(--halo-green); }
+  [data-tone="request"] { --tone: var(--halo-primary); }
+  [data-tone="issue"] { --tone: var(--halo-red); }
+  [data-tone="question"] { --tone: var(--halo-orange); }
+
+  .halo-huge-icon[data-tone] {
+    color: var(--tone);
   }
 
   .halo-feature-icon {
@@ -1371,8 +2011,43 @@
     height: 36px;
     place-items: center;
     border-radius: 999px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--tone, var(--halo-role-text-secondary));
+    background: var(--halo-role-control);
+    transition: color 160ms ease-out, background-color 160ms ease-out;
+  }
+
+  .halo-feature-icon[data-tone] {
+    background: color-mix(in srgb, var(--tone) 12%, transparent);
+  }
+
+  .halo-feature-card:hover .halo-feature-icon,
+  .halo-feature-card:focus-visible .halo-feature-icon,
+  .halo-feature-card.is-active .halo-feature-icon,
+  .halo-integration-card:hover .halo-feature-icon,
+  .halo-integration-card:focus-visible .halo-feature-icon,
+  .halo-integration-card.is-active .halo-feature-icon,
+  .halo-import-method:hover > .halo-feature-icon,
+  .halo-import-method:focus-visible > .halo-feature-icon,
+  .halo-import-method.is-active > .halo-feature-icon,
+  .halo-callout .halo-feature-icon,
+  .halo-integration-prompt .halo-feature-icon {
+    color: var(--tone, var(--halo-role-selected-text));
+    background: var(--halo-role-selected);
+  }
+
+  .halo-feature-card:hover .halo-feature-icon[data-tone],
+  .halo-feature-card:focus-visible .halo-feature-icon[data-tone],
+  .halo-feature-card.is-active .halo-feature-icon[data-tone],
+  .halo-integration-card:hover .halo-feature-icon[data-tone],
+  .halo-integration-card:focus-visible .halo-feature-icon[data-tone],
+  .halo-integration-card.is-active .halo-feature-icon[data-tone],
+  .halo-import-method:hover > .halo-feature-icon[data-tone],
+  .halo-import-method:focus-visible > .halo-feature-icon[data-tone],
+  .halo-import-method.is-active > .halo-feature-icon[data-tone],
+  .halo-callout .halo-feature-icon[data-tone],
+  .halo-integration-prompt .halo-feature-icon[data-tone] {
+    color: var(--tone);
+    background: color-mix(in srgb, var(--tone) 22%, transparent);
   }
 
   .halo-workbench-grid {
@@ -1435,7 +2110,7 @@
     border-radius: 8px;
     padding: 30px 20px;
     text-align: center;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-import-dropzone strong {
@@ -1476,7 +2151,7 @@
     gap: 10px;
     border-radius: 8px;
     padding: 0 10px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
   }
 
   .halo-compact-row span {
@@ -1494,7 +2169,7 @@
     border-radius: 999px;
     padding: 3px 8px;
     color: var(--halo-fg-3);
-    background: var(--halo-bg-4);
+    background: var(--halo-role-neutral-badge);
     font-size: 11px;
     font-style: normal;
     font-weight: 500;
@@ -1513,7 +2188,7 @@
     border-radius: 999px;
     padding: 4px 8px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
     font-size: 11px;
     font-weight: 500;
     line-height: 14px;
@@ -1526,8 +2201,8 @@
     align-items: start;
     border-radius: 8px;
     padding: 12px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-status-badge {
@@ -1543,41 +2218,43 @@
 
   .halo-status-badge[data-tone="success"],
   .halo-feedback-card em[data-tone="praise"] {
-    color: var(--halo-green);
-    background: color-mix(in srgb, var(--halo-green) 12%, transparent);
+    color: var(--halo-role-success);
+    background: var(--halo-role-success-bg);
   }
 
   .halo-status-badge[data-tone="warning"],
   .halo-feedback-card em[data-tone="question"] {
-    color: var(--halo-orange);
-    background: color-mix(in srgb, var(--halo-orange) 12%, transparent);
+    color: var(--halo-role-warning);
+    background: var(--halo-role-warning-bg);
   }
 
   .halo-status-badge[data-tone="danger"],
   .halo-feedback-card em[data-tone="issue"] {
-    color: var(--halo-red);
-    background: color-mix(in srgb, var(--halo-red) 10%, transparent);
+    color: var(--halo-role-danger);
+    background: var(--halo-role-danger-bg);
   }
 
   .halo-status-badge[data-tone="muted"],
   .halo-feedback-card em[data-tone="request"] {
     color: var(--halo-fg-3);
-    background: var(--halo-bg-4);
+    background: var(--halo-role-neutral-badge);
   }
 
   .halo-proof-widget-strip {
     display: grid;
+    min-width: 0;
     gap: 16px;
     overflow: hidden;
+    border: 1px solid var(--halo-border-1);
     border-radius: 12px;
     padding: 18px 16px 16px;
-    color: var(--halo-white);
-    background: #050505;
+    color: var(--halo-fg-1);
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-proof-widget-strip h2 {
     margin: 0;
-    color: var(--halo-white);
+    color: var(--halo-fg-1);
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -1585,21 +2262,25 @@
 
   .halo-proof-widget-strip p {
     margin: 0;
-    color: rgb(255 255 255 / 0.7);
+    color: var(--halo-fg-2);
     font-size: 14px;
     line-height: 20px;
   }
 
   .halo-proof-widget-carousel {
     display: flex;
+    width: 100%;
+    min-width: 0;
     gap: 10px;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     padding-bottom: 8px;
+    scrollbar-width: none;
   }
 
   .halo-proof-widget-carousel::-webkit-scrollbar {
-    height: 8px;
+    display: none;
   }
 
   .halo-proof-widget-carousel::-webkit-scrollbar-thumb {
@@ -1610,20 +2291,21 @@
   .halo-proof-widget-card {
     position: relative;
     display: grid;
-    width: 300px;
-    min-width: 300px;
+    width: 282px;
+    min-width: 282px;
     height: 240px;
     align-content: end;
     gap: 8px;
     overflow: hidden;
-    border-radius: 6px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
     padding: 16px;
     color: var(--halo-fg-1);
-    background:
-      linear-gradient(180deg, transparent 0 45%, rgb(255 255 255 / 0.94) 45% 100%),
-      var(--halo-bg-3);
+    background: var(--halo-role-panel);
     text-decoration: none;
-    transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+    transition-property: border-color, background-color;
+    transition-duration: 160ms;
+    transition-timing-function: ease-out;
   }
 
   .halo-proof-widget-card::before {
@@ -1633,25 +2315,22 @@
     width: 108px;
     height: 16px;
     border-radius: 999px;
-    background: rgb(0 0 0 / 0.06);
-    box-shadow:
-      0 34px 0 rgb(0 0 0 / 0.05),
-      130px 0 0 rgb(0 0 0 / 0.05),
-      130px 34px 0 rgb(0 0 0 / 0.04);
+    background: var(--halo-role-neutral-badge);
     content: "";
   }
 
   .halo-proof-widget-card:hover,
   .halo-proof-widget-card:focus-visible {
-    box-shadow: 0 16px 42px rgb(0 0 0 / 0.18);
-    transform: translateY(-1px);
+    border-color: var(--halo-border-2);
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-proof-widget-card .halo-feature-icon {
     position: absolute;
     top: 18px;
     right: 18px;
-    background: var(--halo-bg-1);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-proof-widget-card strong {
@@ -1673,8 +2352,8 @@
     left: 14px;
     border-radius: 999px;
     padding: 4px 9px;
-    color: var(--halo-primary);
-    background: var(--halo-bg-1);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
@@ -1702,7 +2381,7 @@
     overflow: auto;
     border-radius: 999px;
     padding: 3px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
   }
 
   .halo-pill-tabs button {
@@ -1725,10 +2404,14 @@
   }
 
   .halo-pill-tabs button:hover,
-  .halo-pill-tabs button:focus-visible,
-  .halo-pill-tabs button.is-active {
+  .halo-pill-tabs button:focus-visible {
     color: var(--halo-fg-1);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
+  }
+
+  .halo-pill-tabs button.is-active {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-pill-tabs span {
@@ -1747,7 +2430,7 @@
     gap: 12px;
     border-radius: 8px;
     padding: 9px 10px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
   }
 
   .halo-bulk-bar > span {
@@ -1781,16 +2464,20 @@
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
     padding: 12px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     transition-property: border-color, background-color;
     transition-duration: 160ms;
     transition-timing-function: ease-out;
   }
 
-  .halo-proof-row:hover,
+  .halo-proof-row:hover {
+    border-color: var(--halo-border-2);
+    background: var(--halo-role-panel-muted);
+  }
+
   .halo-proof-row.is-selected {
-    border-color: color-mix(in srgb, var(--halo-primary) 28%, var(--halo-border-1));
-    background: color-mix(in srgb, var(--halo-primary) 3%, var(--halo-bg-1));
+    border-color: var(--halo-role-selected-border);
+    background: var(--halo-role-selected);
   }
 
   .halo-proof-checkbox {
@@ -1812,7 +2499,7 @@
     z-index: 1;
     width: 16px;
     height: 16px;
-    accent-color: var(--halo-primary);
+    accent-color: var(--halo-role-selected-text);
   }
 
   .halo-proof-avatar {
@@ -1821,8 +2508,8 @@
     height: 38px;
     place-items: center;
     border-radius: 999px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--halo-role-text-secondary);
+    background: var(--halo-role-control);
     font-size: 13px;
     font-weight: 600;
   }
@@ -1872,12 +2559,12 @@
   }
 
   .halo-star-meter .is-filled {
-    color: var(--halo-primary);
+    color: var(--halo-yellow-1);
   }
 
   .halo-star-meter .is-filled path {
-    fill: var(--halo-primary);
-    stroke: var(--halo-primary);
+    fill: var(--halo-yellow-1);
+    stroke: var(--halo-yellow-1);
   }
 
   .halo-empty-inline {
@@ -1885,7 +2572,7 @@
     border-radius: 8px;
     padding: 28px;
     color: var(--halo-fg-3);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
     font-size: 13px;
     text-align: center;
   }
@@ -1905,10 +2592,42 @@
   }
 
   button.halo-metric-tile:hover,
-  button.halo-metric-tile:focus-visible,
+  button.halo-metric-tile:focus-visible {
+    border-color: var(--halo-border-2);
+    background: var(--halo-role-panel-muted);
+  }
+
   button.halo-metric-tile.is-active {
-    border-color: color-mix(in srgb, var(--halo-primary) 34%, var(--halo-border-1));
-    background: color-mix(in srgb, var(--halo-primary) 4%, var(--halo-bg-1));
+    border-color: var(--halo-role-selected-border);
+    background: var(--halo-role-selected);
+  }
+
+  /*
+   * Toned metric tiles — a soft per-type gradient wash bloomed from the top-left,
+   * tinted from the single `--tone` set by the [data-tone] map above. Hover and
+   * active intensify the same hue rather than switching to the generic blue.
+   */
+  .halo-metric-tile[data-tone] {
+    border-color: color-mix(in srgb, var(--tone) 24%, var(--halo-border-1));
+    background: radial-gradient(125% 125% at 0% 0%, color-mix(in srgb, var(--tone) 16%, transparent), transparent 70%),
+      var(--halo-role-panel);
+  }
+
+  .halo-metric-tile[data-tone] strong {
+    color: var(--tone);
+  }
+
+  button.halo-metric-tile[data-tone]:hover,
+  button.halo-metric-tile[data-tone]:focus-visible {
+    border-color: color-mix(in srgb, var(--tone) 38%, var(--halo-border-1));
+    background: radial-gradient(125% 125% at 0% 0%, color-mix(in srgb, var(--tone) 24%, transparent), transparent 72%),
+      var(--halo-role-panel);
+  }
+
+  button.halo-metric-tile[data-tone].is-active {
+    border-color: color-mix(in srgb, var(--tone) 55%, transparent);
+    background: radial-gradient(125% 125% at 0% 0%, color-mix(in srgb, var(--tone) 32%, transparent), transparent 74%),
+      var(--halo-role-panel);
   }
 
   .halo-metric-tile span {
@@ -1975,7 +2694,7 @@
     border-radius: 8px;
     padding: 18px;
     color: var(--halo-fg-1);
-    background: color-mix(in srgb, var(--halo-primary) 8%, var(--halo-bg-3));
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-brand-hero span,
@@ -2008,7 +2727,7 @@
     align-items: center;
     border-radius: 8px;
     padding: 12px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
   }
 
   .halo-brand-asset-row strong {
@@ -2049,71 +2768,122 @@
     outline-offset: 2px;
   }
 
+  .halo-brand-color-dot {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgb(0 0 0 / 0.1);
+    border-radius: 999px;
+    cursor: pointer;
+    transition-property: border-color, outline-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  .halo-brand-color-dot:hover,
+  .halo-brand-color-dot:focus-visible {
+    border-color: rgb(0 0 0 / 0.3);
+  }
+
+  .halo-brand-color-dot.is-active {
+    outline: 2px solid var(--halo-fg-1);
+    outline-offset: 2px;
+  }
+
+  .halo-theme-swatch {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgb(0 0 0 / 0.1);
+    border-radius: 999px;
+    cursor: pointer;
+    transition-property: border-color, outline-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  .halo-theme-swatch:hover,
+  .halo-theme-swatch:focus-visible {
+    border-color: rgb(0 0 0 / 0.25);
+  }
+
+  .halo-theme-swatch.is-active {
+    outline: 2px solid var(--halo-role-selected-text);
+    outline-offset: 2px;
+  }
+
   .halo-brand-options button {
     min-height: 34px;
     border: 0;
     border-radius: 999px;
     padding: 0 12px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
   }
 
   .halo-brand-options button.is-active {
-    color: var(--halo-fg-1);
-    background: var(--halo-primary-wash);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-studio-page {
     display: grid;
     min-height: 100%;
     align-content: start;
+    min-width: 0;
     padding-bottom: 88px;
   }
 
   .halo-studio-hero {
     display: grid;
+    width: min(calc(100% - 80px), 1053px);
     gap: 28px;
     min-width: 0;
-    padding: 46px 52px 28px;
-    color: var(--halo-white);
-    background:
-      radial-gradient(circle at 78% 0%, rgb(255 255 255 / 0.08), transparent 36%),
-      #050505;
+    margin: 40px 0 0 40px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 12px;
+    padding: 28px;
+    color: var(--halo-fg-1);
+    background: var(--halo-wash-accent), var(--halo-role-panel-muted);
+  }
+
+  .halo-studio-hero > * {
+    min-width: 0;
   }
 
   .halo-studio-hero h1 {
     margin: 0;
-    color: var(--halo-white);
+    color: var(--halo-fg-1);
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 32px;
     letter-spacing: -0.36px;
   }
 
   .halo-studio-hero p {
     margin: 4px 0 0;
-    color: rgb(255 255 255 / 0.68);
+    color: var(--halo-fg-2);
     font-size: 16px;
     line-height: 24px;
   }
 
   .halo-studio-mode-bar {
     display: inline-flex;
+    width: 100%;
     max-width: 100%;
-    width: max-content;
+    min-width: 0;
     overflow-x: auto;
-    border: 1px solid rgb(255 255 255 / 0.08);
-    border-radius: 6px;
-    background: #1d1d1f;
-    box-shadow: inset 0 -8px 0 #ffffff;
+    overflow-y: hidden;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 8px;
+    background: var(--halo-role-panel);
+    scrollbar-width: none;
   }
 
   .halo-studio-mode-bar::-webkit-scrollbar,
   .halo-studio-filter-row::-webkit-scrollbar {
-    height: 8px;
+    display: none;
   }
 
   .halo-studio-mode-bar::-webkit-scrollbar-thumb {
@@ -2127,9 +2897,9 @@
     align-items: center;
     gap: 8px;
     border: 0;
-    border-right: 1px solid rgb(255 255 255 / 0.08);
+    border-right: 1px solid var(--halo-border-1);
     padding: 0 18px;
-    color: #e4e4e7;
+    color: var(--halo-fg-2);
     background: transparent;
     font-size: 14px;
     font-weight: 500;
@@ -2143,22 +2913,32 @@
   }
 
   .halo-studio-mode-bar button:hover,
-  .halo-studio-mode-bar button:focus-visible,
+  .halo-studio-mode-bar button:focus-visible {
+    color: var(--halo-fg-1);
+    background: var(--halo-role-control-hover);
+  }
+
   .halo-studio-mode-bar button.is-active {
     color: var(--halo-white);
-    background: color-mix(in srgb, var(--halo-primary) 30%, #27272a);
+    background: var(--halo-gradient-accent);
+  }
+
+  /* On the filled active tab the tone would be unreadable — force white. */
+  .halo-studio-mode-bar button.is-active .halo-huge-icon[data-tone] {
+    color: var(--halo-white);
   }
 
   .halo-studio-library {
     display: grid;
     gap: 18px;
-    width: min(calc(100% - 96px), 1053px);
-    margin: 48px 0 0 48px;
+    width: min(calc(100% - 80px), 1053px);
+    margin: 40px 0 0 40px;
   }
 
   .halo-studio-section-head {
     display: flex;
     min-width: 0;
+    flex-wrap: wrap;
     align-items: start;
     justify-content: space-between;
     gap: 24px;
@@ -2183,7 +2963,10 @@
   .halo-studio-library-actions {
     display: flex;
     min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-end;
     gap: 12px;
   }
 
@@ -2203,7 +2986,9 @@
     max-width: 100%;
     gap: 8px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 4px 0 2px;
+    scrollbar-width: none;
   }
 
   .halo-studio-filter-row button {
@@ -2212,7 +2997,7 @@
     border-radius: 999px;
     padding: 0 16px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
@@ -2221,11 +3006,16 @@
   }
 
   .halo-studio-filter-row button:hover,
-  .halo-studio-filter-row button:focus-visible,
+  .halo-studio-filter-row button:focus-visible {
+    border-color: var(--halo-border-2);
+    color: var(--halo-fg-1);
+    background: var(--halo-role-control-hover);
+  }
+
   .halo-studio-filter-row button.is-active {
-    border-color: color-mix(in srgb, var(--halo-primary) 28%, var(--halo-border-1));
-    color: var(--halo-primary);
-    background: color-mix(in srgb, var(--halo-primary) 10%, var(--halo-bg-1));
+    border-color: transparent;
+    color: var(--halo-white);
+    background: var(--halo-gradient-accent);
   }
 
   .halo-studio-template-grid {
@@ -2245,7 +3035,7 @@
     gap: 12px;
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     color: var(--halo-fg-1);
   }
 
@@ -2255,15 +3045,20 @@
     text-align: left;
     cursor: pointer;
     overflow: hidden;
-    transition: border-color 160ms ease-out, transform 160ms ease-out, box-shadow 160ms ease-out;
+    transition-property: border-color, background-color;
+    transition-duration: 160ms;
+    transition-timing-function: ease-out;
   }
 
   .halo-studio-template-card:hover,
-  .halo-studio-template-card:focus-visible,
+  .halo-studio-template-card:focus-visible {
+    border-color: var(--halo-border-2);
+    background: var(--halo-role-panel-muted);
+  }
+
   .halo-studio-template-card.is-active {
-    border-color: color-mix(in srgb, var(--halo-primary) 38%, var(--halo-border-1));
-    box-shadow: 0 16px 40px rgb(0 0 0 / 0.08);
-    transform: translateY(-1px);
+    border-color: var(--halo-role-selected-strong-border);
+    background: var(--halo-wash-accent-strong), var(--halo-role-selected);
   }
 
   .halo-studio-template-card > span,
@@ -2289,8 +3084,8 @@
   .halo-studio-template-card em {
     border-radius: 999px;
     padding: 3px 8px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
@@ -2303,7 +3098,7 @@
     place-items: center;
     overflow: hidden;
     border-bottom: 1px solid var(--halo-border-1);
-    background: linear-gradient(180deg, var(--halo-bg-3), var(--halo-bg-1));
+    background: var(--halo-wash-accent), var(--halo-role-panel-muted);
   }
 
   .halo-studio-template-preview.is-social,
@@ -2323,8 +3118,8 @@
     height: 38px;
     place-items: center;
     border-radius: 999px;
-    color: var(--halo-primary);
-    background: var(--halo-primary-tint);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
     font-size: 13px;
     font-weight: 600;
   }
@@ -2364,14 +3159,15 @@
     width: min(72%, 220px);
     aspect-ratio: 1;
     align-content: space-between;
+    border: 1px solid var(--halo-role-selected-border);
     border-radius: 18px;
     padding: 20px;
-    color: var(--halo-white);
-    background: linear-gradient(135deg, var(--halo-primary), var(--halo-primary-soft));
+    color: var(--halo-fg-1);
+    background: var(--halo-role-selected);
   }
 
   .halo-template-image-card strong {
-    color: var(--halo-white);
+    color: var(--halo-fg-1);
     white-space: normal;
   }
 
@@ -2412,10 +3208,10 @@
     grid-template-columns: auto minmax(0, 1fr);
     gap: 12px;
     align-items: center;
+    border: 1px solid var(--halo-border-1);
     border-radius: 16px;
     padding: 16px;
-    background: var(--halo-bg-1);
-    box-shadow: 0 18px 52px rgb(0 0 0 / 0.12);
+    background: var(--halo-role-panel);
   }
 
   .halo-template-popup-card span {
@@ -2425,7 +3221,7 @@
     place-items: center;
     border-radius: 999px;
     color: var(--halo-white);
-    background: var(--halo-primary);
+    background: var(--halo-role-action);
     font-size: 13px;
     font-weight: 600;
   }
@@ -2449,8 +3245,8 @@
   .halo-template-wall-grid span {
     height: 62px;
     border-radius: 10px;
-    background: var(--halo-bg-1);
-    box-shadow: inset 0 0 0 1px var(--halo-border-1);
+    background: var(--halo-role-panel);
+    border: 1px solid var(--halo-border-1);
   }
 
   .halo-studio-saved-grid {
@@ -2490,7 +3286,7 @@
     place-items: center;
     overflow: hidden;
     border-radius: 8px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-studio-empty p,
@@ -2529,7 +3325,7 @@
   .halo-studio-skeleton-grid span {
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
-    background: linear-gradient(180deg, var(--halo-bg-3) 0 58%, var(--halo-bg-1) 58% 100%);
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-studio-folder-list {
@@ -2538,7 +3334,7 @@
     border: 1px solid var(--halo-border-1);
     border-radius: 8px;
     padding: 14px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-studio-folder-list span {
@@ -2553,7 +3349,7 @@
     border-radius: 6px;
     padding: 0 10px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
     font-size: 13px;
     font-weight: 500;
     text-align: left;
@@ -2562,13 +3358,22 @@
 
   .halo-settings-tabs {
     display: flex;
+    min-width: 0;
     max-width: 100%;
     gap: 24px;
     overflow-x: auto;
+    overflow-y: hidden;
     border-bottom: 1px solid var(--halo-border-1);
+    scrollbar-width: none;
   }
 
-  .halo-settings-tabs button {
+  .halo-settings-tabs::-webkit-scrollbar,
+  .halo-integration-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .halo-settings-tabs button,
+  .halo-settings-tabs a {
     min-height: 34px;
     border: 0;
     border-bottom: 2px solid transparent;
@@ -2577,15 +3382,24 @@
     background: transparent;
     font-size: 14px;
     font-weight: 500;
+    line-height: 34px;
+    text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
   }
 
   .halo-settings-tabs button:hover,
   .halo-settings-tabs button:focus-visible,
-  .halo-settings-tabs button.is-active {
-    color: var(--halo-primary);
-    border-bottom-color: var(--halo-primary);
+  .halo-settings-tabs a:hover,
+  .halo-settings-tabs a:focus-visible {
+    color: var(--halo-fg-1);
+    border-bottom-color: var(--halo-border-2);
+  }
+
+  .halo-settings-tabs button.is-active,
+  .halo-settings-tabs a.is-active {
+    color: var(--halo-role-selected-text);
+    border-bottom-color: var(--halo-role-selected-text);
   }
 
   .halo-settings-form {
@@ -2606,7 +3420,7 @@
     margin: 0;
     color: var(--halo-fg-1);
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 28px;
   }
 
@@ -2626,7 +3440,7 @@
     border: 1px solid var(--halo-border-1);
     border-radius: 12px;
     padding: 28px;
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
   }
 
   .halo-studio-draft-panel {
@@ -2640,8 +3454,8 @@
     gap: 18px;
     border-radius: 8px;
     padding: 18px;
-    color: var(--halo-primary);
-    background: color-mix(in srgb, var(--halo-primary) 6%, var(--halo-bg-3));
+    color: var(--halo-role-selected-text);
+    background: var(--halo-wash-accent-strong), var(--halo-role-selected);
   }
 
   .halo-studio-draft-preview strong {
@@ -2664,7 +3478,7 @@
     border-radius: 999px;
     padding: 6px 10px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
     font-size: 12px;
     font-weight: 500;
   }
@@ -2675,7 +3489,7 @@
     border-radius: 8px;
     padding: 14px;
     color: var(--halo-fg-2);
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
     font-family: var(--halo-font-mono);
     font-size: 12px;
     line-height: 1.55;
@@ -2692,7 +3506,7 @@
 
   .halo-check-list .halo-huge-icon {
     margin-top: 1px;
-    color: var(--halo-green);
+    color: var(--halo-role-success);
   }
 
   .halo-integration-grid {
@@ -2707,9 +3521,10 @@
     grid-template-columns: auto minmax(0, 1fr);
     gap: 16px;
     align-items: center;
+    border: 1px solid var(--halo-border-1);
     border-radius: 8px;
     padding: 18px 20px;
-    background: color-mix(in srgb, var(--halo-primary) 10%, var(--halo-bg-3));
+    background: var(--halo-role-panel-muted);
   }
 
   .halo-integration-prompt strong {
@@ -2734,11 +3549,15 @@
 
   .halo-integration-tabs {
     display: inline-flex;
+    width: 100%;
+    min-width: 0;
     max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 8px;
     padding: 3px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-control);
+    scrollbar-width: none;
   }
 
   .halo-integration-tabs button {
@@ -2758,10 +3577,14 @@
   }
 
   .halo-integration-tabs button:hover,
-  .halo-integration-tabs button:focus-visible,
-  .halo-integration-tabs button.is-active {
+  .halo-integration-tabs button:focus-visible {
     color: var(--halo-fg-1);
-    background: var(--halo-bg-1);
+    background: var(--halo-role-panel);
+  }
+
+  .halo-integration-tabs button.is-active {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-integration-body {
@@ -2782,8 +3605,8 @@
   }
 
   .halo-integration-card em[data-connected="true"] {
-    color: var(--halo-green);
-    background: color-mix(in srgb, var(--halo-green) 12%, transparent);
+    color: var(--halo-role-success);
+    background: var(--halo-role-success-bg);
   }
 
   .halo-integration-detail {
@@ -2792,7 +3615,7 @@
     gap: 12px;
     border-radius: 8px;
     padding: 14px;
-    background: var(--halo-bg-3);
+    background: var(--halo-role-panel-muted);
   }
 
   .styles_card__TUPXy:is(:hover, :focus-visible) .halo-integration-logo {
@@ -2863,7 +3686,7 @@
       padding: 8px;
       border: 1px solid color-mix(in srgb, var(--halo-border-1) 78%, transparent);
       border-radius: 8px;
-      background: var(--halo-bg-1);
+      background: var(--halo-role-panel);
       overflow: auto;
       transform-origin: top right;
     }
@@ -2918,9 +3741,12 @@
     }
 
     .halo-mobile-menu .halo-sidebar-link:hover,
-    .halo-mobile-menu .halo-sidebar-link:focus-visible,
+    .halo-mobile-menu .halo-sidebar-link:focus-visible {
+      background: var(--halo-role-control-hover);
+    }
+
     .halo-mobile-menu .halo-sidebar-link.is-active {
-      background: var(--halo-bg-3);
+      background: var(--halo-role-selected);
     }
 
     .halo-mobile-menu .halo-sidebar-bottom {
@@ -2972,7 +3798,7 @@
       overscroll-behavior: contain;
       border: 0;
       border-radius: 28px;
-      background: color-mix(in srgb, var(--halo-bg-1) 86%, transparent);
+      background: color-mix(in srgb, var(--halo-role-panel) 86%, transparent);
       padding: 10px;
       -webkit-backdrop-filter: blur(28px) saturate(180%);
       backdrop-filter: blur(28px) saturate(180%);
@@ -3007,7 +3833,7 @@
     .halo-studio-controls .halo-inspector-group {
       border-bottom: 0;
       border-radius: 16px;
-      background: var(--halo-bg-3);
+      background: var(--halo-role-control);
     }
 
     .halo-studio-controls .halo-inspector-row,
@@ -3026,7 +3852,7 @@
 
     .halo-studio-controls .halo-wall-quick-controls {
       border-radius: 16px;
-      background: var(--halo-bg-3);
+      background: var(--halo-role-control);
     }
 
     .halo-studio-controls .halo-wall-quick-controls .halo-inspector-toggle {
@@ -3164,7 +3990,9 @@
 
     .halo-studio-hero {
       gap: 22px;
-      border-radius: 8px;
+      width: 100%;
+      margin: 0;
+      border-radius: 12px;
       padding: 28px 14px 18px;
     }
 
@@ -3175,7 +4003,6 @@
 
     .halo-studio-mode-bar {
       width: 100%;
-      box-shadow: inset 0 -6px 0 #ffffff;
     }
 
     .halo-studio-mode-bar button {

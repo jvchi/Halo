@@ -16,6 +16,8 @@
   --halo-bg-2: #ffffff;
   --halo-bg-3: #f5f5f7;
   --halo-bg-4: #f2f2f7;
+  --halo-white: #ffffff;
+  --halo-black: #000000;
   --halo-border-1: #e5e5ea;
   --halo-border-2: #d2d2d7;
   --halo-fg-1: #1d1d1f;
@@ -50,6 +52,67 @@
   --halo-dark-card: rgb(255 255 255 / 0.06);
   --halo-glass-card: rgb(255 255 255 / 0.72);
   --halo-glass-card-hover: rgb(255 255 255 / 0.92);
+
+  --halo-role-canvas: var(--halo-bg-1);
+  --halo-role-chrome: var(--halo-bg-3);
+  --halo-role-panel: var(--halo-bg-1);
+  --halo-role-panel-muted: var(--halo-bg-3);
+  --halo-role-control: var(--halo-bg-3);
+  --halo-role-control-hover: var(--halo-bg-4);
+  --halo-role-selected: var(--halo-primary-tint);
+  --halo-role-selected-border: color-mix(in srgb, var(--halo-primary) 28%, var(--halo-border-1));
+  --halo-role-selected-strong-border: color-mix(in srgb, var(--halo-primary) 38%, var(--halo-border-1));
+  --halo-role-selected-text: var(--halo-primary);
+  --halo-role-action: var(--halo-primary);
+  --halo-role-action-hover: var(--halo-primary-soft);
+  --halo-role-text-primary: var(--halo-fg-1);
+  --halo-role-text-secondary: var(--halo-fg-2);
+  --halo-role-text-tertiary: var(--halo-fg-3);
+  --halo-role-text-disabled: var(--halo-fg-4);
+  --halo-role-success: var(--halo-green);
+  --halo-role-success-bg: color-mix(in srgb, var(--halo-green) 12%, transparent);
+  --halo-role-warning: var(--halo-orange);
+  --halo-role-warning-bg: color-mix(in srgb, var(--halo-orange) 12%, transparent);
+  --halo-role-danger: var(--halo-red);
+  --halo-role-danger-bg: color-mix(in srgb, var(--halo-red) 10%, transparent);
+  --halo-role-neutral-badge: var(--halo-bg-4);
+
+  /*
+   * Sanctioned gradients — low-opacity, accent-derived (see design.md
+   * "Data Visualization" + "Elevation & Depth"). These extend the chart
+   * gradient language to selected states and panel washes. Never use a
+   * high-saturation ramp, never gradient text, never a glossy fill.
+   *
+   * --halo-gradient-accent : left→right accent fill for committed/selected
+   *                          controls (active tabs, pills) and chart bars.
+   * --halo-wash-*          : soft radial bloom layered *over* a base surface,
+   *                          e.g. `background: var(--halo-wash-accent), var(--halo-role-panel-muted)`.
+   */
+  --halo-gradient-accent: linear-gradient(
+    90deg,
+    var(--halo-primary),
+    color-mix(in srgb, var(--halo-primary) 55%, #fff)
+  );
+  --halo-wash-accent: radial-gradient(
+    120% 90% at 50% 0%,
+    color-mix(in srgb, var(--halo-primary) 9%, transparent),
+    transparent 62%
+  );
+  --halo-wash-accent-strong: radial-gradient(
+    120% 90% at 50% 0%,
+    color-mix(in srgb, var(--halo-primary) 15%, transparent),
+    transparent 64%
+  );
+  --halo-wash-good: radial-gradient(
+    120% 90% at 50% 0%,
+    color-mix(in srgb, var(--halo-green) 11%, transparent),
+    transparent 64%
+  );
+  --halo-wash-attention: radial-gradient(
+    120% 90% at 50% 0%,
+    color-mix(in srgb, var(--halo-orange) 11%, transparent),
+    transparent 64%
+  );
 
   --halo-duration-snappy: 750ms;
   --halo-ease-snappy: cubic-bezier(0.175, 0.885, 0.32, 1.1);

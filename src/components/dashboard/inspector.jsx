@@ -157,12 +157,7 @@ export function SwatchGrid({ presets, value, onChange }) {
             aria-label={p.name}
             aria-pressed={active}
             onClick={() => onChange(p.id)}
-            className={cn(
-              "h-6 w-6 rounded-full transition-[box-shadow] duration-150",
-              active
-                ? "ring-2 ring-halo-primary ring-offset-1 ring-offset-halo-bg-1"
-                : "ring-1 ring-inset ring-black/10 hover:ring-black/25"
-            )}
+            className={cn("halo-theme-swatch", active && "is-active")}
             style={{
               background: `linear-gradient(135deg, ${p.background} 0 50%, ${p.accent} 50% 100%)`,
             }}

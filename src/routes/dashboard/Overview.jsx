@@ -189,13 +189,13 @@ export default function Overview() {
               label="Widget Studio"
               value={approved.length ? `${approved.length} approved testimonials ready` : "Approve a testimonial first"}
               ready={approved.length > 0}
-              to="/dashboard/widget-studio"
+              to="/dashboard/studio?mode=widgets"
             />
             <ReadinessItem
               label="Wall of Love"
               value={approved.length >= 3 ? "Enough proof for a wall" : "3+ approved testimonials recommended"}
               ready={approved.length >= 3}
-              to="/dashboard/walls"
+              to="/dashboard/studio?mode=walls"
             />
           </div>
         </OverviewPanel>
@@ -203,8 +203,8 @@ export default function Overview() {
         <OverviewPanel
           title="Performance"
           action={
-            <Link to="/dashboard/analytics" className="halo-overview-panel-action">
-              Analytics
+            <Link to="/dashboard/analyze" className="halo-overview-panel-action">
+              Analyze
             </Link>
           }
         >

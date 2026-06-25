@@ -74,7 +74,55 @@ export const haloIcons = {
   zap: ZapIcon,
 };
 
-export function HaloIcon({ name, icon, size = 16, strokeWidth = 1.6, className, ...props }) {
+// Central icon → tone map. Tones resolve to design-system accents in CSS
+// (`[data-tone="…"] { --tone: … }` in styles/index.css). This is the single
+// source of truth for "which icon is which color" — call sites never hardcode a
+// color, they just render the icon and a tone is assigned here. Default is "blue".
+export const haloIconTones = {
+  // import / sources
+  zap: "yellow",
+  globe: "blue",
+  upload: "green",
+  manualImport: "purple",
+  import: "blue",
+  brand: "indigo",
+  // studio / content creation
+  copy: "teal",
+  widget: "indigo",
+  wand: "pink",
+  video: "red",
+  image: "pink",
+  walls: "orange",
+  studio: "purple",
+  brush: "purple",
+  // proof / feedback
+  proof: "green",
+  check: "green",
+  star: "yellow",
+  feedback: "orange",
+  forms: "indigo",
+  // analyze / data
+  analytics: "blue",
+  overview: "blue",
+  search: "blue",
+  tags: "pink",
+  richSnippet: "green",
+  filter: "teal",
+  // integrations
+  integrations: "teal",
+  api: "indigo",
+  code: "teal",
+  webhook: "teal",
+  slack: "purple",
+  stripe: "indigo",
+  settings: "blue",
+};
+
+export function iconTone(name) {
+  return haloIconTones[name] ?? "blue";
+}
+
+export function HaloIcon({ name, icon, size = 16, strokeWidth = 1.6, className, tinted = false, tone, ...props }) {
   const resolvedIcon = icon ?? haloIcons[name];
   if (!resolvedIcon) return null;
 
@@ -86,7 +134,18 @@ export function HaloIcon({ name, icon, size = 16, strokeWidth = 1.6, className, 
       color="currentColor"
       className={cn("halo-huge-icon", className)}
       aria-hidden="true"
+      data-tone={tinted ? tone ?? iconTone(name) : undefined}
       {...props}
     />
+  );
+}
+
+// Tinted icon "chip" — the colorful rounded badge used on feature/section cards.
+// Tone is derived centrally from the icon name; pass `tone` only to override.
+export function HaloIconChip({ name, size = 20, tone, className, strokeWidth, ...props }) {
+  return (
+    <span className={cn("halo-feature-icon", className)} data-tone={tone ?? iconTone(name)} aria-hidden="true" {...props}>
+      <HaloIcon name={name} size={size} strokeWidth={strokeWidth} />
+    </span>
   );
 }

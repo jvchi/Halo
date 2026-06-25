@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
-import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
+import { HaloIcon, HaloIconChip } from "@/components/dashboard/HaloIcon.jsx";
 
 const integrations = [
   {
@@ -72,9 +72,7 @@ export default function Integrations() {
       </header>
 
       <section className="halo-integration-prompt">
-        <span className="halo-feature-icon" aria-hidden="true">
-          <HaloIcon name="wand" size={20} />
-        </span>
+        <HaloIconChip name="wand" size={20} />
         <div>
           <strong>Halo should automatically generate case studies for me.</strong>
           <p>Turn multi-step testimonials into case studies and notify your team when proof is ready.</p>
@@ -107,9 +105,7 @@ export default function Integrations() {
                   onClick={() => setActive(item.id)}
                   className={cn("halo-integration-card", active === item.id && "is-active")}
                 >
-                  <span className="halo-feature-icon" aria-hidden="true">
-                    <HaloIcon name={item.icon} size={20} />
-                  </span>
+                  <HaloIconChip name={item.icon} size={20} />
                   <span>
                     <strong>{item.name}</strong>
                     <small>{item.automation}</small>
@@ -126,9 +122,7 @@ export default function Integrations() {
             <small>{selected.automation}</small>
           </header>
           <div className="halo-integration-detail">
-            <span className="halo-feature-icon" aria-hidden="true">
-              <HaloIcon name={selected.icon} size={26} />
-            </span>
+            <HaloIconChip name={selected.icon} size={26} />
             <p>{selected.copy}</p>
             <button type="button" className="halo-copy-button" onClick={() => toggle(selected.id)}>
               {connected.has(selected.id) ? "Disconnect" : "Connect"}

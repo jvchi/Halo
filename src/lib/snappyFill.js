@@ -8,11 +8,10 @@ gsap.registerPlugin(CustomEase);
 // as --halo-ease-snappy / Tailwind ease-snappy, expressed as a CustomEase curve.
 const SNAPPY = CustomEase.create("haloSnappy", "M0,0 C0.175,0.885 0.32,1.1 1,1");
 
-// Genuine "buttons" across the app. Form controls (switches, radios, segmented
-// pills, swatches, disclosures) are deliberately excluded below — a circle
-// sweeping across a toggle reads as broken, not snappy.
-const SELECTOR =
-  "button, .halo-btn, .halo-top-cta, .halo-search-button, [data-snappy-fill]";
+// Snappy fill is opt-in. It mutates the host by wrapping its children in a label
+// layer, so applying it to every native <button> breaks segmented controls,
+// swatches, profile controls, and card-like dashboard components.
+const SELECTOR = ".halo-btn, [data-snappy-fill]";
 
 const EXCLUDED_ROLES = new Set([
   "switch",

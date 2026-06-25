@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { MotionConfig } from "motion/react";
 import { IllustratedEmptyState } from "@/components/ui";
 import Landing from "@/routes/Landing.jsx";
@@ -14,10 +14,12 @@ import Proof from "@/routes/dashboard/Proof.jsx";
 import Feedback from "@/routes/dashboard/Feedback.jsx";
 import Tags from "@/routes/dashboard/Tags.jsx";
 import Studio from "@/routes/dashboard/Studio.jsx";
+import StudioEditor from "@/routes/dashboard/StudioEditor.jsx";
 import WidgetStudio from "@/routes/dashboard/WidgetStudio.jsx";
 import Walls from "@/routes/dashboard/Walls.jsx";
 import BrandKit from "@/routes/dashboard/BrandKit.jsx";
 import RichSnippet from "@/routes/dashboard/RichSnippet.jsx";
+import Analyze from "@/routes/dashboard/Analyze.jsx";
 import Analytics from "@/routes/dashboard/Analytics.jsx";
 import Integrations from "@/routes/dashboard/Integrations.jsx";
 import Settings from "@/routes/dashboard/Settings.jsx";
@@ -48,22 +50,28 @@ export default function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/templates" element={<Templates />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<Overview />} />
+          <Route index element={<Navigate to="proof" replace />} />
+          <Route path="overview" element={<Overview />} />
           <Route path="forms" element={<Forms />} />
           <Route path="import" element={<Import />} />
+          <Route path="import/:methodId" element={<Import />} />
           <Route path="forms/:formId" element={<FormBuilder />} />
           <Route path="proof" element={<Proof />} />
           <Route path="inbox" element={<Inbox />} />
           <Route path="feedback" element={<Feedback />} />
           <Route path="tags" element={<Tags />} />
           <Route path="studio" element={<Studio />} />
+          <Route path="studio/brand" element={<BrandKit />} />
+          <Route path="studio/:assetType/:assetId" element={<StudioEditor />} />
           <Route path="widget-studio" element={<WidgetStudio />} />
           <Route path="walls" element={<Walls />} />
           <Route path="brand" element={<BrandKit />} />
           <Route path="rich-snippet" element={<RichSnippet />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="analyze" element={<Analyze />} />
           <Route path="integrations" element={<Integrations />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="settings/:settingsTab" element={<Settings />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
