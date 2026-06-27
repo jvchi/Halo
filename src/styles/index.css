@@ -2501,6 +2501,8 @@
     z-index: 1;
     width: 16px;
     height: 16px;
+    margin: 0;
+    appearance: auto;
     accent-color: var(--halo-role-selected-text);
   }
 
@@ -3653,6 +3655,7 @@
       grid-template-columns: 1fr;
       height: auto;
       min-height: calc(100vh - 82.5px);
+      margin-inline: auto;
       overflow: visible;
       padding-top: 4px;
       padding-bottom: 96px;
@@ -3947,6 +3950,26 @@
   }
 
   @media (max-width: 760px) {
+    .halo-proof-row {
+      position: relative;
+      grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .halo-proof-checkbox {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+
+    .halo-proof-copy {
+      grid-column: 2;
+      padding-right: 22px;
+    }
+
+    .halo-proof-actions {
+      grid-column: 2;
+    }
+
     .halo-doc-header {
       height: 64px;
       min-height: 64px;
