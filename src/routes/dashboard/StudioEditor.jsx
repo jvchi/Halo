@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/cn";
 import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
@@ -74,6 +75,30 @@ function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
+function AnimatedCheckbox({ checked, onChange }) {
+  return (
+    <span className="halo-editor-checkbox">
+      <input type="checkbox" checked={checked} onChange={onChange} />
+      <span className="halo-editor-checkbox-visual" aria-hidden="true">
+        <AnimatePresence initial={false}>
+          {checked ? (
+            <motion.svg
+              key="checked"
+              viewBox="0 0 16 16"
+              initial={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+              transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+            >
+              <path d="m4 8.25 2.5 2.5L12 5.5" />
+            </motion.svg>
+          ) : null}
+        </AnimatePresence>
+      </span>
+    </span>
+  );
+}
+
 function MiniPreview({ type, selectedTestimonials, template, title, description, layout }) {
   const people = selectedTestimonials.length ? selectedTestimonials : [];
 
@@ -122,15 +147,15 @@ function MiniPreview({ type, selectedTestimonials, template, title, description,
 
   return (
     <div className="halo-editor-widget-preview">
-      {(people.length ? people : Array.from({ length: 3 })).slice(0, 3).map((item, index) => (
-        <article key={item.id ?? index}>
+      {Array.from({ length: 3 }, (_, index) => people[index] ?? null).map((item, index) => (
+        <article key={item?.id ?? `empty-${index}`}>
           <div>
             {Array.from({ length: 5 }).map((_, star) => (
               <HaloIcon key={star} name="star" size={13} strokeWidth={0} />
             ))}
           </div>
-          <p>{item.text ?? "Select testimonials to populate this widget."}</p>
-          <strong>{item.name ?? ["Ava", "Marcus", "Priya"][index]}</strong>
+          <p>{item?.text ?? "Select a testimonial to populate this slot."}</p>
+          <strong>{item?.name ?? ["First testimonial", "Second testimonial", "Third testimonial"][index]}</strong>
         </article>
       ))}
     </div>
@@ -207,7 +232,7 @@ export default function StudioEditor() {
               onClick={() => setStep(item.id)}
               className={cn(step === item.id && "is-active")}
             >
-              <HaloIcon name={item.icon} size={17} />
+              <HaloIcon name={item.icon} size={17} tinted />
               <span>{item.label}</span>
             </button>
           ))}
@@ -259,12 +284,11 @@ export default function StudioEditor() {
               <div className="halo-editor-proof-list">
                 {approved.map((testimonial) => (
                   <label key={testimonial.id}>
-                    <input
-                      type="checkbox"
+                    <AnimatedCheckbox
                       checked={selected.has(testimonial.id)}
                       onChange={() => toggleProof(testimonial.id)}
                     />
-                    <span>{testimonial.name.slice(0, 1)}</span>
+                    <span className="halo-editor-proof-avatar">{testimonial.name.slice(0, 1)}</span>
                     <strong>{testimonial.name}</strong>
                     <small>{testimonial.company || testimonial.source}</small>
                   </label>

@@ -597,7 +597,15 @@ For ordinary UI states, use shorter durations around `180ms` to `220ms`. Reserve
 
 ## Layout Stability
 
-The interface must never shift. A state change — showing an error, expanding a section, a loading state, a celebratory animation — must not reflow or displace the surrounding UI. Layout shift reads as broken and erodes trust.
+**Strict rule: zero unintended layout shift.** The interface must never shift when state changes. Showing an error, toggling a selection, entering a loading state, or running an animation must not reflow or displace existing UI. Layout shift reads as broken and erodes trust.
+
+This is a release gate, not a preference:
+
+- Before and after every interactive state change, existing controls and content that are not intentionally expanding must retain identical `x`, `y`, `width`, and `height` values.
+- A toggle, checkbox, tab, hover, selection, counter, icon swap, loading transition, or validation message must produce `0` unexpected `layout-shift` entries and a cumulative layout shift contribution of `0`.
+- Conditional visuals must render inside a pre-sized box. Mounting or unmounting an icon, checkmark, badge, spinner, or count must never change grid tracks, line wrapping, row height, or sibling position.
+- Lists and previews must reserve their committed dimensions. Removing or adding selected content may update what a slot displays, but must not collapse the slot or recenter neighbouring content.
+- Verify each changed interaction at its supported desktop and mobile breakpoints by comparing bounding rectangles before and after the state change. A non-zero delta blocks completion unless the movement is the explicitly requested expand/collapse behavior.
 
 - **Animate transform and opacity only.** Never animate layout properties (`width`, `height`, `margin`, `top`, inserting/removing flow content) in a way that moves neighbours. A press dip, a star pop, a sparkle burst all run on `transform`/`opacity` inside their own box.
 - **Celebratory motion stays in its own box.** Do not scale or grow a container if doing so moves the controls inside or beside it. The 5-star rating bursts with an absolutely-positioned particle overlay; the row itself never scales, so the stars never move.

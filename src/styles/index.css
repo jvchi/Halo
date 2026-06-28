@@ -121,8 +121,12 @@
   }
 
   .halo-editor-steps button.is-active {
-    color: var(--halo-role-selected-text);
-    background: var(--halo-role-selected);
+    color: var(--halo-white);
+    background: var(--halo-gradient-accent);
+  }
+
+  .halo-editor-steps button.is-active .halo-huge-icon[data-tone] {
+    color: var(--halo-white);
   }
 
   .halo-editor-preview-pane {
@@ -200,8 +204,9 @@
   .halo-editor-proof-list label,
   .halo-editor-template-list button {
     display: grid;
+    height: 42px;
     min-height: 42px;
-    grid-template-columns: auto 28px minmax(0, 1fr);
+    grid-template-columns: 18px 28px minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px;
     border: 0;
@@ -213,12 +218,85 @@
     cursor: pointer;
   }
 
+  .halo-editor-proof-list label:has(.halo-editor-checkbox input:checked) {
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
+    box-shadow: inset 0 0 0 1px var(--halo-role-selected-border);
+  }
+
+  .halo-editor-checkbox {
+    position: relative;
+    display: grid;
+    width: 18px;
+    height: 18px;
+    place-items: center;
+    contain: layout paint;
+  }
+
+  .halo-editor-checkbox input {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    margin: 0;
+    appearance: none;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .halo-editor-checkbox-visual {
+    display: grid;
+    width: 18px;
+    height: 18px;
+    place-items: center;
+    border: 1px solid var(--halo-border-2);
+    border-radius: 5px;
+    color: var(--halo-white);
+    background: var(--halo-role-panel);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+    transition-property: border-color, background-color, box-shadow, scale;
+    transition-duration: 180ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .halo-editor-checkbox-visual svg {
+    width: 14px;
+    height: 14px;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .halo-editor-checkbox input:checked + .halo-editor-checkbox-visual {
+    border-color: transparent;
+    background: var(--halo-gradient-accent);
+    box-shadow: 0 2px 5px color-mix(in srgb, var(--halo-primary) 24%, transparent);
+  }
+
+  .halo-editor-checkbox input:focus-visible + .halo-editor-checkbox-visual {
+    outline: 2px solid var(--halo-primary);
+    outline-offset: 2px;
+  }
+
+  .halo-editor-checkbox:active .halo-editor-checkbox-visual {
+    scale: 0.96;
+  }
+
+  .halo-editor-proof-list label > small {
+    overflow: hidden;
+    color: var(--halo-fg-3);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .halo-editor-template-list button {
     grid-template-columns: 18px minmax(0, 1fr);
     text-align: left;
   }
 
-  .halo-editor-proof-list label > span {
+  .halo-editor-proof-avatar {
     display: grid;
     width: 28px;
     height: 28px;
