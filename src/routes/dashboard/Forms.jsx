@@ -156,8 +156,8 @@ export default function Forms() {
   const { forms, create, setStatus, duplicate, remove } = useForms();
   const navigate = useNavigate();
 
-  function newForm() {
-    const form = create({ name: "Untitled form" });
+  async function newForm() {
+    const form = await create({ name: "Untitled form" });
     navigate(`/dashboard/forms/${form.id}`);
   }
 

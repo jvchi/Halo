@@ -1,64 +1,107 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
-import { sampleForms, createForm } from "@/lib/forms";
+import { createContext, useContext, useMemo, useState } from "react";
+import { useDashboardData } from "@/lib/dashboardData.jsx";
 
-// Shared client-side store for collection forms. The Forms list creates/removes
-// forms; the Form Builder reads and patches one form's config. This is the same
-// seam as the testimonials store — swap the reducer's initial state for fetched
-// data and the dispatches for API calls when a backend exists.
 const FormsContext = createContext(null);
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "add":
-      return [action.form, ...state];
-    case "update":
-      return state.map((f) => (f.id === action.id ? { ...f, ...action.patch } : f));
-    case "updateConfig":
-      return state.map((f) =>
-        f.id === action.id ? { ...f, config: { ...f.config, ...action.patch } } : f
-      );
-    case "remove":
-      return state.filter((f) => f.id !== action.id);
-    default:
-      return state;
-  }
-}
-
 export function FormsProvider({ children }) {
-  const [forms, dispatch] = useReducer(reducer, sampleForms);
+  const dashboard = useDashboardData();
+  const [forms, setForms] = useState(() => dashboard.data.forms);
 
   const value = useMemo(
     () => ({
       forms,
-      create: (overrides) => {
-        const form = createForm(overrides);
-        dispatch({ type: "add", form });
-        return form;
-      },
-      update: (id, patch) => dispatch({ type: "update", id, patch }),
-      updateConfig: (id, patch) => dispatch({ type: "updateConfig", id, patch }),
-      setStatus: (id, status) => dispatch({ type: "update", id, patch: { status } }),
-      duplicate: (id) => {
-        const source = forms.find((f) => f.id === id);
-        if (!source) return null;
-        const form = createForm({
-          name: `${source.name} copy`,
-          status: source.status,
-          config: source.config,
+      async create(overrides = {}) {
+        const form = await dashboard.request("/api/forms", {
+          method: "POST",
+          body: JSON.stringify(overrides),
         });
-        dispatch({ type: "add", form });
+        setForms((current) => [form, ...current]);
+        dashboard.replace("forms", (current) => [form, ...current]);
         return form;
       },
-      remove: (id) => dispatch({ type: "remove", id }),
+      update(id, patch) {
+        setForms((current) =>
+          current.map((form) => (form.id === id ? { ...form, ...patch } : form))
+        );
+      },
+      updateConfig(id, patch) {
+        setForms((current) =>
+          current.map((form) =>
+            form.id === id
+              ? { ...form, config: { ...form.config, ...patch } }
+              : form
+          )
+        );
+      },
+      async save(id) {
+        const form = forms.find((item) => item.id === id);
+        if (!form) return null;
+        const saved = await dashboard.request(`/api/forms/${encodeURIComponent(id)}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            name: form.name,
+            slug: form.slug,
+            status: form.status,
+            config: form.config,
+          }),
+        });
+        setForms((current) =>
+          current.map((item) => (item.id === id ? saved : item))
+        );
+        return saved;
+      },
+      async setStatus(id, status) {
+        const previous = forms.find((form) => form.id === id)?.status;
+        setForms((current) =>
+          current.map((form) => (form.id === id ? { ...form, status } : form))
+        );
+        try {
+          const saved = await dashboard.request(`/api/forms/${encodeURIComponent(id)}`, {
+            method: "PATCH",
+            body: JSON.stringify({ status }),
+          });
+          setForms((current) =>
+            current.map((form) => (form.id === id ? saved : form))
+          );
+          return saved;
+        } catch (error) {
+          setForms((current) =>
+            current.map((form) =>
+              form.id === id ? { ...form, status: previous } : form
+            )
+          );
+          throw error;
+        }
+      },
+      async duplicate(id) {
+        const form = await dashboard.request(
+          `/api/forms/${encodeURIComponent(id)}/duplicate`,
+          { method: "POST" }
+        );
+        setForms((current) => [form, ...current]);
+        return form;
+      },
+      async remove(id) {
+        const previous = forms;
+        setForms((current) => current.filter((form) => form.id !== id));
+        try {
+          await dashboard.request(`/api/forms/${encodeURIComponent(id)}`, {
+            method: "DELETE",
+          });
+        } catch (error) {
+          setForms(previous);
+          throw error;
+        }
+      },
     }),
-    [forms]
+    [dashboard, forms]
   );
 
   return <FormsContext.Provider value={value}>{children}</FormsContext.Provider>;
 }
 
 export function useForms() {
-  const ctx = useContext(FormsContext);
-  if (!ctx) throw new Error("useForms must be used within FormsProvider");
-  return ctx;
+  const value = useContext(FormsContext);
+  if (!value) throw new Error("useForms must be used within FormsProvider");
+  return value;
 }

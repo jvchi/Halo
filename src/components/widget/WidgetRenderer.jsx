@@ -44,7 +44,7 @@ function Stars({ rating = 5, of = 5 }) {
   );
 }
 
-function Avatar({ name }) {
+function Avatar({ name, avatarUrl }) {
   return (
     <div
       aria-hidden="true"
@@ -61,7 +61,20 @@ function Avatar({ name }) {
         background: "color-mix(in srgb, var(--w-accent) 14%, transparent)",
       }}
     >
-      {initials(name)}
+      {avatarUrl ? (
+        <img
+          src={avatarUrl}
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "inherit",
+            objectFit: "cover",
+          }}
+        />
+      ) : (
+        initials(name)
+      )}
     </div>
   );
 }
@@ -107,7 +120,7 @@ function TestimonialCard({ t, display, glass }) {
           gap: 11,
         }}
       >
-        {display.showAvatar && <Avatar name={t.name} />}
+        {display.showAvatar && <Avatar name={t.name} avatarUrl={t.avatarUrl} />}
         <div style={{ display: "grid", gap: 2, minWidth: 0 }}>
           <span style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.25 }}>{t.name}</span>
           {display.showCompany && (t.role || t.company) ? (

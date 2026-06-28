@@ -57,9 +57,7 @@ function LogoField({ brand, onChange }) {
   function pick(e) {
     const file = e.target.files?.[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => onChange(typeof reader.result === "string" ? reader.result : null);
-    reader.readAsDataURL(file);
+    onChange(file);
   }
   return (
     <div className="grid gap-1.5">
@@ -68,7 +66,7 @@ function LogoField({ brand, onChange }) {
         <span style={brandCssVars(brand.brandColor)}>
           <BrandMark brand={brand} size={40} />
         </span>
-        <input ref={ref} type="file" accept="image/*" className="sr-only" onChange={pick} />
+        <input ref={ref} type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={pick} />
         <button
           type="button"
           onClick={() => ref.current?.click()}
@@ -135,7 +133,7 @@ function ColorField({ value, onChange }) {
 }
 
 export default function Settings() {
-  const { brand, update } = useBrand();
+  const { brand, update, save, uploadLogo } = useBrand();
   const slugTouched = useRef(false);
   const { settingsTab } = useParams();
   const activeTab = settingsTabs.find((tab) => tab.slug === (settingsTab ?? ""))?.label ?? "General";
@@ -163,6 +161,32 @@ export default function Settings() {
 
   function confirmTab(label) {
     setMessage(`${label} updated`);
+    setTimeout(() => setMessage(""), 1800);
+  }
+
+  async function saveGeneral() {
+    setMessage("Saving…");
+    try {
+      await save();
+      setMessage("General settings updated");
+    } catch (saveError) {
+      setMessage(saveError.message || "Settings could not be saved");
+    }
+    setTimeout(() => setMessage(""), 1800);
+  }
+
+  async function changeLogo(file) {
+    if (!file) {
+      update({ logoImage: null, logoAssetId: null });
+      return;
+    }
+    setMessage("Uploading…");
+    try {
+      await uploadLogo(file);
+      setMessage("Logo ready");
+    } catch (uploadError) {
+      setMessage(uploadError.message || "Logo could not be uploaded");
+    }
     setTimeout(() => setMessage(""), 1800);
   }
 
@@ -220,13 +244,13 @@ export default function Settings() {
               <p>Your logo and colour sync into forms, widgets, walls, and Studio templates.</p>
             </div>
             <div className={cardClass}>
-              <LogoField brand={brand} onChange={(logoImage) => update({ logoImage })} />
+              <LogoField brand={brand} onChange={changeLogo} />
               <ColorField value={brand.brandColor} onChange={(brandColor) => update({ brandColor })} />
             </div>
           </div>
           <div className="halo-settings-row">
             <span />
-            <button type="button" className="halo-copy-button" onClick={() => confirmTab("General settings")}>Save settings</button>
+            <button type="button" className="halo-copy-button" onClick={saveGeneral}>Save settings</button>
           </div>
         </form>
       ) : (

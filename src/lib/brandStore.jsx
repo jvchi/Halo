@@ -1,37 +1,52 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
-import { defaultBrand } from "@/lib/brand";
+import { createContext, useContext, useMemo, useState } from "react";
+import { useDashboardData } from "@/lib/dashboardData.jsx";
 
-// Shared client-side store for the workspace brand. Settings patches it; the
-// Form Builder, Widget Studio, Walls, and dashboard chrome read it. Same seam as
-// the testimonials/forms stores — swap the initial state for a fetched workspace
-// row and the dispatch for an API call when a backend exists.
 const BrandContext = createContext(null);
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "update":
-      return { ...state, ...action.patch };
-    default:
-      return state;
-  }
-}
-
 export function BrandProvider({ children }) {
-  const [brand, dispatch] = useReducer(reducer, defaultBrand);
+  const dashboard = useDashboardData();
+  const [brand, setBrand] = useState(() => dashboard.data.workspace);
 
   const value = useMemo(
     () => ({
       brand,
-      update: (patch) => dispatch({ type: "update", patch }),
+      update(patch) {
+        setBrand((current) => ({ ...current, ...patch }));
+      },
+      async save() {
+        const payload = {
+          workspaceName: brand.workspaceName,
+          slug: brand.slug,
+          website: brand.website,
+          brandColor: brand.brandColor,
+          logoAssetId: brand.logoAssetId ?? null,
+        };
+        const saved = await dashboard.request("/api/workspace", {
+          method: "PATCH",
+          body: JSON.stringify(payload),
+        });
+        setBrand(saved);
+        dashboard.patchWorkspace(saved);
+        return saved;
+      },
+      async uploadLogo(file) {
+        const upload = await dashboard.uploadLogo(file);
+        setBrand((current) => ({
+          ...current,
+          logoAssetId: upload.mediaId,
+          logoImage: URL.createObjectURL(file),
+        }));
+        return upload;
+      },
     }),
-    [brand]
+    [brand, dashboard]
   );
 
   return <BrandContext.Provider value={value}>{children}</BrandContext.Provider>;
 }
 
 export function useBrand() {
-  const ctx = useContext(BrandContext);
-  if (!ctx) throw new Error("useBrand must be used within a BrandProvider");
-  return ctx;
+  const value = useContext(BrandContext);
+  if (!value) throw new Error("useBrand must be used within BrandProvider");
+  return value;
 }

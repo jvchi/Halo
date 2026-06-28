@@ -1,0 +1,11 @@
+APP_ENV=development
+SEED_FIXTURES=true
+DATABASE_URL=postgresql://user:password@host/database?sslmode=require
+CLERK_SECRET_KEY=sk_test_replace_me
+# Optional when Clerk's networkless verification key is configured.
+CLERK_JWT_KEY=
+R2_ACCOUNT_ID=replace_me
+R2_ACCESS_KEY_ID=replace_me
+R2_SECRET_ACCESS_KEY=replace_me
+R2_BUCKET_NAME=halo-media
+APP_ORIGIN=http://localhost:5173

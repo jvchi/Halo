@@ -72,7 +72,7 @@ function Checkbox({ checked, onChange, children }) {
 
 // Photo upload: a hidden file input behind a ghost button, so the control reads
 // like the rest of the system instead of a raw browser file picker.
-function PhotoField() {
+function PhotoField({ onFile }) {
   const ref = useRef(null);
   const [fileName, setFileName] = useState("");
   return (
@@ -84,9 +84,13 @@ function PhotoField() {
         <input
           ref={ref}
           type="file"
-          accept="image/*"
+          accept="image/jpeg,image/png,image/webp"
           className="sr-only"
-          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+          onChange={(e) => {
+            const file = e.target.files?.[0] ?? null;
+            setFileName(file?.name ?? "");
+            onFile?.(file);
+          }}
         />
         <button
           type="button"
@@ -231,10 +235,9 @@ function StarRating({ value, onChange }) {
 // The real, working collection form. Fill it in and submit — the testimonial
 // lands in the Inbox as `pending`. This same form is what Phase D serves at the
 // public /submit/{slug} route.
-function CollectionForm({ form, onSubmitted }) {
+export function CollectionForm({ form, onSubmitted, onSubmitTestimonial }) {
   const { config } = form;
   const { fields } = config;
-  const { addTestimonial } = useTestimonials();
 
   const [values, setValues] = useState({
     name: "",
@@ -245,11 +248,13 @@ function CollectionForm({ form, onSubmitted }) {
     rating: 0,
     consent: false,
   });
+  const [photo, setPhoto] = useState(null);
   const [error, setError] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const set = (key) => (e) => setValues((s) => ({ ...s, [key]: e.target.value }));
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault();
     if (!values.name.trim() || !values.text.trim()) {
       setError("Please add your name and testimonial.");
@@ -259,15 +264,25 @@ function CollectionForm({ form, onSubmitted }) {
       setError("Please agree to the consent statement to continue.");
       return;
     }
-    addTestimonial({
-      name: values.name.trim(),
-      text: values.text.trim(),
-      role: values.role.trim(),
-      company: values.company.trim(),
-      rating: fields.rating ? values.rating : 0,
-      source: "form",
-    });
-    onSubmitted();
+    setSaving(true);
+    setError("");
+    try {
+      await onSubmitTestimonial({
+        name: values.name.trim(),
+        text: values.text.trim(),
+        role: values.role.trim(),
+        company: values.company.trim(),
+        website: values.website.trim(),
+        rating: fields.rating ? values.rating : 0,
+        consent: config.requireConsent ? values.consent : true,
+        photo,
+      });
+      onSubmitted();
+    } catch (submitError) {
+      setError(submitError.message || "Your testimonial could not be submitted.");
+    } finally {
+      setSaving(false);
+    }
   }
 
   return (
@@ -315,7 +330,7 @@ function CollectionForm({ form, onSubmitted }) {
         ) : null}
       </div>
 
-      {fields.avatar ? <PhotoField /> : null}
+      {fields.avatar ? <PhotoField onFile={setPhoto} /> : null}
 
       {config.requireConsent ? (
         <Checkbox checked={values.consent} onChange={(v) => setValues((s) => ({ ...s, consent: v }))}>
@@ -326,7 +341,7 @@ function CollectionForm({ form, onSubmitted }) {
       {/* Error sits beside the button (wraps below on mobile) so showing it
           never pushes the submit down — no layout shift. */}
       <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
-        <Button type="submit" className="w-full sm:w-auto">
+        <Button type="submit" disabled={saving} className="w-full sm:w-auto">
           {config.submitLabel || "Submit testimonial"}
         </Button>
         {error ? (
@@ -341,7 +356,8 @@ function CollectionForm({ form, onSubmitted }) {
 
 export default function FormBuilder() {
   const { formId } = useParams();
-  const { forms, update, updateConfig, setStatus } = useForms();
+  const { forms, update, updateConfig, setStatus, save } = useForms();
+  const { addTestimonial } = useTestimonials();
   const { brand } = useBrand();
   const form = forms.find((f) => f.id === formId);
 
@@ -390,9 +406,30 @@ export default function FormBuilder() {
     setTimeout(() => setCopied(false), 1500);
   }
 
-  function saveChanges() {
-    setMessage("Form saved");
+  async function saveChanges() {
+    setMessage("Saving…");
+    try {
+      await save(form.id);
+      setMessage("Form saved");
+    } catch (saveError) {
+      setMessage(saveError.message || "Could not save form");
+    }
     setTimeout(() => setMessage(""), 1800);
+  }
+
+  async function submitPreview(values) {
+    await addTestimonial({
+      formId: form.id,
+      name: values.name,
+      text: values.text,
+      role: values.role,
+      company: values.company,
+      website: values.website,
+      rating: values.rating,
+      source: "form",
+      consentStatus: values.consent ? "granted" : "unknown",
+      consentText: form.config.consentText,
+    });
   }
 
   return (
@@ -485,7 +522,11 @@ export default function FormBuilder() {
                 {form.config.description ? (
                   <p className="m-0 mt-1.5 text-[14px] leading-relaxed text-halo-fg-2">{form.config.description}</p>
                 ) : null}
-                <CollectionForm form={form} onSubmitted={() => setSubmitted(true)} />
+                <CollectionForm
+                  form={form}
+                  onSubmitted={() => setSubmitted(true)}
+                  onSubmitTestimonial={submitPreview}
+                />
               </>
             )}
           </div>

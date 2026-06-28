@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halo embed host fixture</title>
+  </head>
+  <body>
+    <iframe
+      id="halo-image-gallery"
+      src="http://localhost:5173/embed/widgets/image-gallery"
+      title="Image Gallery"
+      loading="lazy"
+      style="width: 100%; height: 40px; border: 0"
+      data-halo-embed
+    ></iframe>
+    <script>
+      window.addEventListener("message", function (event) {
+        if (
+          event.data &&
+          event.data.type === "halo:resize" &&
+          event.data.slug === "image-gallery"
+        ) {
+          document.getElementById("halo-image-gallery").style.height =
+            event.data.height + "px";
+        }
+      });
+    </script>
+  </body>
+</html>

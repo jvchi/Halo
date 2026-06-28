@@ -96,8 +96,8 @@ export default function Overview() {
   const clicks = analytics.metrics.find((m) => m.key === "clicks")?.value ?? 0;
   const conversions = analytics.metrics.find((m) => m.key === "conv")?.value ?? 0;
 
-  function createNewForm() {
-    const form = create({ name: "Untitled form" });
+  async function createNewForm() {
+    const form = await create({ name: "Untitled form" });
     navigate(`/dashboard/forms/${form.id}`);
   }
 

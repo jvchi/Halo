@@ -8,6 +8,11 @@ import { BrandProvider, useBrand } from "@/lib/brandStore.jsx";
 import { Logo } from "@/components/landing/Logo.jsx";
 import { BrandMark } from "@/components/dashboard/BrandMark.jsx";
 import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
+import { RequireAuth } from "@/lib/auth.jsx";
+import {
+  DashboardDataGate,
+  DashboardDataProvider,
+} from "@/lib/dashboardData.jsx";
 
 const dashboardSections = [
   {
@@ -134,7 +139,7 @@ function DashboardNavTree({ onNavigate }) {
   );
 }
 
-function SidebarBottom() {
+function SidebarBottom({ onNavigate }) {
   const { brand } = useBrand();
 
   return (
@@ -142,6 +147,7 @@ function SidebarBottom() {
       <span className="halo-sidebar-bottom-name">{brand.workspaceName || "Workspace"}</span>
       <NavLink
         to={settingsNavItem.to}
+        onClick={onNavigate}
         className={({ isActive }) => cn("halo-sidebar-settings", isActive && "is-active")}
         aria-label="Settings"
       >
@@ -160,9 +166,12 @@ export default function DashboardLayout() {
     )?.label ?? "Dashboard";
 
   return (
+    <RequireAuth>
+    <DashboardDataProvider>
+    <DashboardDataGate>
     <BrandProvider>
     <TestimonialsProvider>
-      <FormsProvider>
+    <FormsProvider>
       <div className="halo-doc-shell">
         <header className="halo-doc-header">
           <div className="halo-doc-header-inner">
@@ -195,7 +204,7 @@ export default function DashboardLayout() {
                       <WorkspaceSwitcher />
                       <UpgradeRow />
                       <DashboardNavTree onNavigate={() => setMobileMenuOpen(false)} />
-                      <SidebarBottom />
+                      <SidebarBottom onNavigate={() => setMobileMenuOpen(false)} />
                     </motion.div>
                   ) : null}
                 </AnimatePresence>
@@ -219,8 +228,11 @@ export default function DashboardLayout() {
           </main>
         </div>
       </div>
-      </FormsProvider>
+    </FormsProvider>
     </TestimonialsProvider>
     </BrandProvider>
+    </DashboardDataGate>
+    </DashboardDataProvider>
+    </RequireAuth>
   );
 }

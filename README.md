@@ -15,6 +15,23 @@ npm run build    # production build to dist/
 npm run preview  # preview the production build
 ```
 
+## Persistent dashboard setup
+
+Local development uses an in-memory repository and the existing fixtures when
+`.dev.vars` contains `APP_ENV=development`. Production requires Neon, Clerk, and
+R2 credentials; copy the variable names from `.dev.vars.example`, configure the
+R2 and rate-limit bindings in `wrangler.jsonc`, then run:
+
+```sh
+npm run db:generate
+npm run db:push
+npm test
+npm run deploy
+```
+
+`GET /api/health` returns `503` with the names of missing production bindings,
+so an incomplete deployment cannot silently fall back to mock persistence.
+
 ## How it's organized
 
 ```

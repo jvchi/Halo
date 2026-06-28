@@ -6,6 +6,8 @@ import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
 import { useBrand } from "@/lib/brandStore.jsx";
 import { brandCssVars } from "@/lib/brand";
+import { brandWidgetPreset } from "@/lib/brand";
+import { useStudio } from "@/lib/studioStore.js";
 
 const assetMeta = {
   widgets: {
@@ -167,14 +169,32 @@ export default function StudioEditor() {
   const meta = assetMeta[assetType];
   const { approved } = useTestimonials();
   const { brand } = useBrand();
+  const studio = useStudio();
+  const existing = studio.assets.find(
+    (asset) =>
+      asset.kind === (assetType === "walls" ? "wall" : "widget") &&
+      (asset.id === assetId || asset.slug === assetId)
+  );
+  const existingConfig = existing?.config ?? {};
   const [step, setStep] = useState("testimonials");
-  const [selected, setSelected] = useState(() => new Set(approved.slice(0, 3).map((item) => item.id)));
-  const [template, setTemplate] = useState(() => humanizeSlug(assetId));
-  const [title, setTitle] = useState(meta?.label === "Wall of Love" ? "Wall of Love" : humanizeSlug(assetId));
-  const [description, setDescription] = useState("See what our customers are saying about us.");
-  const [layout, setLayout] = useState(meta?.layouts?.[0] ?? "Cards");
-  const [showAvatars, setShowAvatars] = useState(true);
-  const [showRatings, setShowRatings] = useState(true);
+  const [selected, setSelected] = useState(
+    () => new Set(existing?.testimonialIds?.length ? existing.testimonialIds : approved.slice(0, 3).map((item) => item.id))
+  );
+  const [template, setTemplate] = useState(() => existingConfig.template ?? humanizeSlug(assetId));
+  const [title, setTitle] = useState(
+    existingConfig.title ?? (meta?.label === "Wall of Love" ? "Wall of Love" : humanizeSlug(assetId))
+  );
+  const [description, setDescription] = useState(
+    existingConfig.description ?? "See what our customers are saying about us."
+  );
+  const [layout, setLayout] = useState(existingConfig.layout ?? meta?.layouts?.[0] ?? "Cards");
+  const [showAvatars, setShowAvatars] = useState(existingConfig.display?.showAvatar ?? true);
+  const [showRatings, setShowRatings] = useState(existingConfig.display?.showRating ?? true);
+  const [recordId, setRecordId] = useState(existing?.id ?? null);
+  const [status, setStatus] = useState(existing?.status ?? "draft");
+  const [assetSlug] = useState(
+    () => existing?.slug ?? (slugify(assetId) || "untitled")
+  );
   const [message, setMessage] = useState("");
   const [shareOpen, setShareOpen] = useState(false);
 
@@ -182,7 +202,6 @@ export default function StudioEditor() {
     () => approved.filter((testimonial) => selected.has(testimonial.id)),
     [approved, selected]
   );
-
   if (!meta) return <Navigate to="/dashboard/studio" replace />;
 
   function toggleProof(id) {
@@ -194,12 +213,87 @@ export default function StudioEditor() {
     });
   }
 
-  function saveChanges() {
-    setMessage(`${title || template} saved`);
-    setTimeout(() => setMessage(""), 1800);
+  async function persist(publish = false) {
+    if (!["widgets", "walls"].includes(assetType)) {
+      setMessage(`${title || template} saved`);
+      setTimeout(() => setMessage(""), 1800);
+      return null;
+    }
+    setMessage("Saving…");
+    try {
+      const nextStatus = publish ? "published" : status;
+      const saved = await studio.saveAsset({
+        ...(recordId ? { id: recordId } : {}),
+        kind: assetType === "walls" ? "wall" : "widget",
+        name: title || template,
+        slug: assetSlug,
+        status: nextStatus,
+        folderId: existing?.folderId ?? studio.folders[0]?.id ?? null,
+        testimonialIds: [...selected],
+        isPrimary: assetType === "walls",
+        config: {
+          template,
+          title,
+          description,
+          layout,
+          type:
+            layout.toLowerCase().includes("carousel")
+              ? "carousel"
+              : layout.toLowerCase().includes("marquee")
+                ? "marquee"
+                : "grid",
+          theme: brandWidgetPreset(brand.brandColor),
+          columns: 3,
+          cardStyle: "default",
+          maxItems: 12,
+          display: {
+            showAvatar: showAvatars,
+            showCompany: true,
+            showRating: showRatings,
+            showSource: true,
+          },
+          hero: {
+            title,
+            description,
+            ctaLabel: "Start collecting",
+            showHeader: true,
+            showCta: true,
+            showLogo: true,
+            workspace: brand.workspaceName,
+          },
+        },
+      });
+      setRecordId(saved.id);
+      setStatus(saved.status);
+      setMessage(`${title || template} saved`);
+      setTimeout(() => setMessage(""), 1800);
+      return saved;
+    } catch (saveError) {
+      setMessage(saveError.message || "Could not save");
+      setTimeout(() => setMessage(""), 1800);
+      return null;
+    }
   }
 
-  const publicUrl = `https://halo.app/${assetType}/${slugify(title || template) || assetId}`;
+  function saveChanges() {
+    persist(false);
+  }
+
+  async function shareAsset() {
+    const saved = await persist(true);
+    if (["widgets", "walls"].includes(assetType) && !saved) return;
+    setShareOpen((open) => !open);
+  }
+
+  function publicPath() {
+    return assetType === "walls"
+      ? `/walls/${assetSlug}`
+      : `/embed/widgets/${assetSlug}`;
+  }
+
+  const publicUrl = `https://halo.app${publicPath()}`;
+  const embedId = `halo-${assetSlug}`;
+  const embedCode = `<iframe id="${embedId}" src="${publicUrl}" title="${title || template}" loading="lazy" style="width:100%;border:0" data-halo-embed></iframe><script>window.addEventListener("message",function(e){if(e.data&&e.data.type==="halo:resize"&&e.data.slug==="${assetSlug}"){document.getElementById("${embedId}").style.height=e.data.height+"px"}})</script>`;
 
   return (
     <div className="halo-page halo-editor-page">
@@ -217,7 +311,7 @@ export default function StudioEditor() {
           <button type="button" className="halo-copy-button" onClick={saveChanges}>
             Save changes
           </button>
-          <button type="button" className="halo-copy-button is-primary" onClick={() => setShareOpen((open) => !open)}>
+          <button type="button" className="halo-copy-button is-primary" onClick={shareAsset}>
             Share
           </button>
         </div>
@@ -271,7 +365,7 @@ export default function StudioEditor() {
                 <HaloIcon name="copy" size={15} />
                 Copy link
               </button>
-              <code>{`<script src="https://halo.app/embed/${assetType}/${slugify(title || template)}"></script>`}</code>
+              <code>{embedCode}</code>
             </section>
           ) : null}
 

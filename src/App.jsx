@@ -23,6 +23,9 @@ import Analyze from "@/routes/dashboard/Analyze.jsx";
 import Analytics from "@/routes/dashboard/Analytics.jsx";
 import Integrations from "@/routes/dashboard/Integrations.jsx";
 import Settings from "@/routes/dashboard/Settings.jsx";
+import PublicForm from "@/routes/PublicForm.jsx";
+import PublicWidget from "@/routes/PublicWidget.jsx";
+import PublicWall from "@/routes/PublicWall.jsx";
 
 function NotFound() {
   return (
@@ -49,6 +52,10 @@ export default function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/templates" element={<Templates />} />
+        <Route path="/submit/:formSlug" element={<PublicForm />} />
+        <Route path="/embed/widgets/:widgetSlug" element={<PublicWidget />} />
+        <Route path="/walls/:wallSlug" element={<PublicWall />} />
+        <Route path="/w/:workspaceSlug" element={<PublicWall byWorkspace />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Navigate to="proof" replace />} />
           <Route path="overview" element={<Overview />} />

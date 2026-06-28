@@ -1,0 +1,440 @@
+[
+  {
+    "route": "forms",
+    "path": "/dashboard/forms",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/forms-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Forms"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms"
+    }
+  },
+  {
+    "route": "form-builder",
+    "path": "/dashboard/forms/f-default",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/form-builder-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms/f-default"
+    }
+  },
+  {
+    "route": "proof",
+    "path": "/dashboard/proof",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/proof-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Your testimonials"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/proof"
+    }
+  },
+  {
+    "route": "inbox",
+    "path": "/dashboard/inbox",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/inbox-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Inbox"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/inbox"
+    }
+  },
+  {
+    "route": "studio",
+    "path": "/dashboard/studio",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Social Proof Studio"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio"
+    }
+  },
+  {
+    "route": "studio-editor",
+    "path": "/dashboard/studio/widgets/image-gallery",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-editor-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio/widgets/image-gallery"
+    }
+  },
+  {
+    "route": "walls",
+    "path": "/dashboard/walls",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/walls-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Walls"
+        },
+        {
+          "className": "halo-wall-editable-text",
+          "text": "Loved by founders and teams"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/walls"
+    }
+  },
+  {
+    "route": "settings",
+    "path": "/dashboard/settings",
+    "width": 390,
+    "height": 844,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/settings-390.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Project Settings"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/settings"
+    }
+  },
+  {
+    "route": "forms",
+    "path": "/dashboard/forms",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/forms-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Forms"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms"
+    }
+  },
+  {
+    "route": "form-builder",
+    "path": "/dashboard/forms/f-default",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/form-builder-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms/f-default"
+    }
+  },
+  {
+    "route": "proof",
+    "path": "/dashboard/proof",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/proof-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Your testimonials"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/proof"
+    }
+  },
+  {
+    "route": "inbox",
+    "path": "/dashboard/inbox",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/inbox-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Inbox"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/inbox"
+    }
+  },
+  {
+    "route": "studio",
+    "path": "/dashboard/studio",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Social Proof Studio"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio"
+    }
+  },
+  {
+    "route": "studio-editor",
+    "path": "/dashboard/studio/widgets/image-gallery",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-editor-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio/widgets/image-gallery"
+    }
+  },
+  {
+    "route": "walls",
+    "path": "/dashboard/walls",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/walls-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Walls"
+        },
+        {
+          "className": "halo-wall-editable-text",
+          "text": "Loved by founders and teams"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/walls"
+    }
+  },
+  {
+    "route": "settings",
+    "path": "/dashboard/settings",
+    "width": 768,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/settings-768.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Project Settings"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/settings"
+    }
+  },
+  {
+    "route": "forms",
+    "path": "/dashboard/forms",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/forms-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Forms"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms"
+    }
+  },
+  {
+    "route": "form-builder",
+    "path": "/dashboard/forms/f-default",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/form-builder-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/forms/f-default"
+    }
+  },
+  {
+    "route": "proof",
+    "path": "/dashboard/proof",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/proof-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Your testimonials"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/proof"
+    }
+  },
+  {
+    "route": "inbox",
+    "path": "/dashboard/inbox",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/inbox-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Inbox"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/inbox"
+    }
+  },
+  {
+    "route": "studio",
+    "path": "/dashboard/studio",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Social Proof Studio"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio"
+    }
+  },
+  {
+    "route": "studio-editor",
+    "path": "/dashboard/studio/widgets/image-gallery",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/studio-editor-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/studio/widgets/image-gallery"
+    }
+  },
+  {
+    "route": "walls",
+    "path": "/dashboard/walls",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/walls-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Walls"
+        },
+        {
+          "className": "halo-wall-editable-text",
+          "text": "Loved by founders and teams"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/walls"
+    }
+  },
+  {
+    "route": "settings",
+    "path": "/dashboard/settings",
+    "width": 1440,
+    "height": 900,
+    "file": "/Users/destiny/Documents/Halo/tmp/functionality-baseline/settings-1440.png",
+    "signature": {
+      "bodyClass": "",
+      "h1": [
+        {
+          "className": "",
+          "text": "Project Settings"
+        }
+      ],
+      "htmlClass": "",
+      "mainClass": "halo-doc-main",
+      "path": "/dashboard/settings"
+    }
+  }
+]

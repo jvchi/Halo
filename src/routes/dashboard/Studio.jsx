@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { cn } from "@/lib/cn";
 import { HaloIcon } from "@/components/dashboard/HaloIcon.jsx";
 import { useTestimonials } from "@/lib/testimonialsStore.jsx";
+import { useStudio } from "@/lib/studioStore.js";
 
 const studioModes = [
   { id: "saved", label: "Saved", icon: "copy" },
@@ -156,15 +157,27 @@ function TemplateCard({ mode, template, active, onUse, approved }) {
 
 export default function Studio({ initialMode = "saved" }) {
   const { approved } = useTestimonials();
+  const studio = useStudio();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const modeParam = searchParams.get("mode");
   const [mode, setMode] = useState(() => normalizeMode(searchParams.get("mode"), initialMode));
   const [filter, setFilter] = useState("All");
   const [folderDraft, setFolderDraft] = useState("");
-  const [folders, setFolders] = useState(["Launch assets"]);
-  const [saved, setSaved] = useState([]);
   const [draft, setDraft] = useState(null);
+  const [demoSaved, setDemoSaved] = useState([]);
+  const folders = studio.folders.map((folder) => folder.name);
+  const saved = [
+    ...studio.assets.map((asset) => ({
+      ...asset,
+      type: asset.kind === "wall" ? "Walls of Love" : "Widgets",
+      mode: asset.kind === "wall" ? "walls" : "widgets",
+      folder:
+        studio.folders.find((folder) => folder.id === asset.folderId)?.name ??
+        "Default",
+    })),
+    ...demoSaved,
+  ];
 
   useEffect(() => {
     const nextMode = normalizeMode(modeParam, initialMode);
@@ -180,11 +193,15 @@ export default function Studio({ initialMode = "saved" }) {
     return items.filter((item, index) => index % 2 === 0 || item.toLowerCase().includes(filter.toLowerCase().split(" ")[0]));
   }, [filter, meta, mode]);
 
-  function createFolder() {
+  async function createFolder() {
     const next = folderDraft.trim();
     if (!next) return;
-    setFolders((current) => (current.includes(next) ? current : [...current, next]));
-    setFolderDraft("");
+    try {
+      await studio.createFolder(next);
+      setFolderDraft("");
+    } catch {
+      // The existing field remains populated so the user can edit and retry.
+    }
   }
 
   function selectMode(nextMode) {
@@ -196,11 +213,22 @@ export default function Studio({ initialMode = "saved" }) {
   function createDraft(template) {
     const nextDraft = { name: template, type: meta.title, mode, folder: folders[0] ?? "Default" };
     setDraft(nextDraft);
-    setSaved((current) => {
-      const name = `${template} draft`;
-      if (current.some((item) => item.name === name)) return current;
-      return [{ name, type: meta.title, mode, folder: folders[0] ?? "Default" }, ...current];
-    });
+    if (!["widgets", "walls"].includes(mode)) {
+      setDemoSaved((current) => {
+        const name = `${template} draft`;
+        if (current.some((item) => item.name === name)) return current;
+        return [
+          {
+            id: `demo-${mode}-${slugify(template)}`,
+            name,
+            type: meta.title,
+            mode,
+            folder: folders[0] ?? "Default",
+          },
+          ...current,
+        ];
+      });
+    }
     navigate(`/dashboard/studio/${mode}/${slugify(template) || "untitled"}`);
   }
 
@@ -263,13 +291,20 @@ export default function Studio({ initialMode = "saved" }) {
           <div className="halo-studio-saved-grid">
             {saved.length ? (
               saved.map((item) => (
-                <article key={item.name} className="halo-studio-saved-card">
+                <article key={item.id} className="halo-studio-saved-card">
                   <StudioPreview mode={item.type === "Walls of Love" ? "walls" : "widgets"} template={item.name} approved={approved} />
                   <div>
                     <strong>{item.name}</strong>
                     <span>{item.type} / {item.folder}</span>
                   </div>
-                  <Link to={`/dashboard/studio?mode=${item.mode ?? "widgets"}`} className="halo-copy-button">
+                  <Link
+                    to={
+                      item.id?.startsWith("demo-")
+                        ? `/dashboard/studio?mode=${item.mode ?? "widgets"}`
+                        : `/dashboard/studio/${item.mode ?? "widgets"}/${item.id}`
+                    }
+                    className="halo-copy-button"
+                  >
                     Open
                   </Link>
                 </article>

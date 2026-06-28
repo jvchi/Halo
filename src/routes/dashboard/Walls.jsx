@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { PageHeading } from "@/components/ui";
 import { widgetPresets } from "@/lib/presets";
@@ -15,6 +15,7 @@ import {
   Toggle,
   deviceOptions,
 } from "@/components/dashboard/inspector.jsx";
+import { useStudio } from "@/lib/studioStore.js";
 
 const CARD_STYLE_OPTIONS = cardStyles.map((c) => ({ id: c.id, label: c.label }));
 const COLUMN_OPTIONS = [2, 3, 4].map((n) => ({ id: n, label: `${n} columns` }));
@@ -33,15 +34,18 @@ const CANVAS_PAD = 28;
 export default function Walls() {
   const { approved } = useTestimonials();
   const { brand } = useBrand();
+  const studio = useStudio();
+  const savedWall = studio.walls.find((wall) => wall.isPrimary) ?? studio.walls[0];
+  const savedConfig = savedWall?.config ?? {};
   // The workspace accent leads the theme list so a new wall starts on-brand.
   const presets = useMemo(() => [brandWidgetPreset(brand.brandColor), ...widgetPresets], [brand.brandColor]);
 
-  const [themeId, setThemeId] = useState("brand");
-  const [cardStyle, setCardStyle] = useState("default");
-  const [columns, setColumns] = useState(3);
+  const [themeId, setThemeId] = useState(savedConfig.theme?.id ?? "brand");
+  const [cardStyle, setCardStyle] = useState(savedConfig.cardStyle ?? "default");
+  const [columns, setColumns] = useState(savedConfig.columns ?? 3);
   const [device, setDevice] = useState("desktop");
   const [controlsOpen, setControlsOpen] = useState(false);
-  const [hero, setHero] = useState({
+  const [hero, setHero] = useState(savedConfig.hero ?? {
     title: "Loved by founders and teams",
     description: `Real words from the people who use ${brand.workspaceName} every day.`,
     ctaLabel: "Start collecting",
@@ -50,6 +54,7 @@ export default function Walls() {
     showLogo: true,
     workspace: brand.workspaceName,
   });
+  const [wallId, setWallId] = useState(savedWall?.id ?? null);
   const wallUrl = `https://halo.app/w/${brand.slug}`;
   const [open, setOpen] = useState({});
   const [copied, setCopied] = useState(false);
@@ -83,6 +88,37 @@ export default function Walls() {
   const setHeroField = (key, value) => setHero((h) => ({ ...h, [key]: value }));
   const setFlag = (key) => (v) => setHero((h) => ({ ...h, [key]: v }));
   const cardStyleLabel = CARD_STYLE_OPTIONS.find((c) => c.id === cardStyle)?.label ?? "Default";
+  const approvedIds = approved.map((testimonial) => testimonial.id).join(",");
+
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      try {
+        const saved = await studio.saveAsset({
+          ...(wallId ? { id: wallId } : {}),
+          kind: "wall",
+          name: savedWall?.name ?? "Wall of Love",
+          slug: savedWall?.slug ?? `${brand.slug || "workspace"}-wall`,
+          status: "published",
+          folderId: savedWall?.folderId ?? null,
+          isPrimary: true,
+          testimonialIds: approvedIds ? approvedIds.split(",") : [],
+          config: {
+            type: "masonry",
+            theme,
+            cardStyle,
+            columns,
+            display: FULL_DISPLAY,
+            maxItems: 60,
+            hero,
+          },
+        });
+        if (!wallId) setWallId(saved.id);
+      } catch {
+        // The existing editor has no error surface; the next edit retries.
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [approvedIds, brand.slug, cardStyle, columns, hero, theme, wallId]);
 
   function copyLink() {
     navigator.clipboard?.writeText(wallUrl);

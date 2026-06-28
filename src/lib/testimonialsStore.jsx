@@ -1,59 +1,78 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
-import { sampleTestimonials } from "@/lib/testimonials";
+import { createContext, useContext, useMemo, useState } from "react";
+import { useDashboardData } from "@/lib/dashboardData.jsx";
 
-// Shared client-side store for the dashboard's mock testimonials. The Inbox
-// mutates moderation status / fields here; the Widget Studio reads the derived
-// `approved` list. This is the seam where a backend later plugs in — swap the
-// reducer's initial state for fetched data and the dispatches for API calls.
 const TestimonialsContext = createContext(null);
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "add":
-      return [action.testimonial, ...state];
-    case "setStatus":
-      return state.map((t) =>
-        t.id === action.id ? { ...t, status: action.status } : t
-      );
-    case "update":
-      return state.map((t) =>
-        t.id === action.id ? { ...t, ...action.patch } : t
-      );
-    default:
-      return state;
-  }
-}
-
-const newId = () =>
-  globalThis.crypto?.randomUUID?.() ?? `t-${Date.now().toString(36)}`;
-
 export function TestimonialsProvider({ children }) {
-  const [testimonials, dispatch] = useReducer(reducer, sampleTestimonials);
+  const dashboard = useDashboardData();
+  const [testimonials, setTestimonials] = useState(
+    () => dashboard.data.testimonials
+  );
 
   const value = useMemo(
     () => ({
       testimonials,
-      approved: testimonials.filter((t) => t.status === "approved"),
-      // A new submission always lands as `pending` so it shows up in the Inbox
-      // for moderation — never auto-published.
-      addTestimonial: (fields) => {
-        const testimonial = {
-          id: newId(),
-          role: "",
-          company: "",
-          rating: 0,
-          source: "form",
-          status: "pending",
-          tags: [],
-          ...fields,
-        };
-        dispatch({ type: "add", testimonial });
+      approved: testimonials.filter((item) => item.status === "approved"),
+      async addTestimonial(fields) {
+        const testimonial = await dashboard.request("/api/testimonials", {
+          method: "POST",
+          body: JSON.stringify({ status: "pending", ...fields }),
+        });
+        setTestimonials((current) => [testimonial, ...current]);
         return testimonial;
       },
-      setStatus: (id, status) => dispatch({ type: "setStatus", id, status }),
-      update: (id, patch) => dispatch({ type: "update", id, patch }),
+      async setStatus(id, status) {
+        const previous = testimonials.find((item) => item.id === id)?.status;
+        setTestimonials((current) =>
+          current.map((item) => (item.id === id ? { ...item, status } : item))
+        );
+        try {
+          const saved = await dashboard.request(
+            `/api/testimonials/${encodeURIComponent(id)}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify({ status }),
+            }
+          );
+          setTestimonials((current) =>
+            current.map((item) => (item.id === id ? saved : item))
+          );
+          return saved;
+        } catch (error) {
+          setTestimonials((current) =>
+            current.map((item) =>
+              item.id === id ? { ...item, status: previous } : item
+            )
+          );
+          throw error;
+        }
+      },
+      async update(id, patch) {
+        const previous = testimonials.find((item) => item.id === id);
+        setTestimonials((current) =>
+          current.map((item) => (item.id === id ? { ...item, ...patch } : item))
+        );
+        try {
+          const saved = await dashboard.request(
+            `/api/testimonials/${encodeURIComponent(id)}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify(patch),
+            }
+          );
+          setTestimonials((current) =>
+            current.map((item) => (item.id === id ? saved : item))
+          );
+          return saved;
+        } catch (error) {
+          setTestimonials((current) =>
+            current.map((item) => (item.id === id ? previous : item))
+          );
+          throw error;
+        }
+      },
     }),
-    [testimonials]
+    [dashboard, testimonials]
   );
 
   return (
@@ -64,9 +83,9 @@ export function TestimonialsProvider({ children }) {
 }
 
 export function useTestimonials() {
-  const ctx = useContext(TestimonialsContext);
-  if (!ctx) {
-    throw new Error("useTestimonials must be used within a TestimonialsProvider");
+  const value = useContext(TestimonialsContext);
+  if (!value) {
+    throw new Error("useTestimonials must be used within TestimonialsProvider");
   }
-  return ctx;
+  return value;
 }
