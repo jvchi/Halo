@@ -126,6 +126,20 @@ function ReviewsIcon({ className }) {
   );
 }
 
+function StarIcon({ className }) {
+  return (
+    <svg viewBox="0 0 128 104" className={className} aria-hidden="true" focusable="false" fill="var(--isocon-fill)">
+      <path d="M64 3L80.4 27.7L116 31.8L91 51.2L97.8 79L64 65.2L30.2 79L37 51.2L12 31.8L47.6 27.7L64 3Z" stroke="black" strokeLinejoin="round" />
+      <path d="M97.8 79V94L64 80.2V65.2L97.8 79Z" stroke="black" strokeLinejoin="round" />
+      <path d="M64 65.2V80.2L30.2 94V79L64 65.2Z" stroke="black" strokeLinejoin="round" />
+      <path d="M30.2 79V94L37 66.2V51.2L30.2 79Z" stroke="black" strokeLinejoin="round" />
+      <path d="M91 51.2V66.2L97.8 94V79L91 51.2Z" stroke="black" strokeLinejoin="round" />
+      <path d="M116 31.8V46.8L91 66.2V51.2L116 31.8Z" stroke="black" strokeLinejoin="round" />
+      <path d="M12 31.8V46.8L37 66.2V51.2L12 31.8Z" stroke="black" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const iconComponents = {
   unknown: UnknownIcon,
   dashboard: DashboardIcon,
@@ -134,6 +148,7 @@ const iconComponents = {
   code: CodeIcon,
   form: FormIcon,
   reviews: ReviewsIcon,
+  star: StarIcon,
 };
 
 const iconColors = {
@@ -144,6 +159,7 @@ const iconColors = {
   code: "var(--halo-primary)",
   form: "var(--halo-primary)",
   reviews: "var(--halo-primary)",
+  star: "var(--halo-primary)",
 };
 
 export function IsoconIllustration({ name = "dashboard", className, color }) {

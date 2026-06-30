@@ -798,7 +798,7 @@ Aave's homepage copy is short, confident, and direct. It does not over-explain t
 - Do use `primary` sparingly for CTAs, labels, and selected states.
 - Do keep large sections airy with centered `986px` content.
 - Do use `20px` and `24px` radii for cards.
-- Do use muted neutral surfaces and hairline borders for separation instead of shadows.
+- Do use muted neutral surfaces and hairline borders for ordinary surface separation.
 - Do collapse grids to one column below `768px`.
 - Do keep dark sections reserved for high-emphasis product storytelling.
 - Don't make every card blue.

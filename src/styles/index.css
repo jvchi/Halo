@@ -2321,6 +2321,7 @@
   }
 
   .halo-proof-widget-strip {
+    position: relative;
     display: grid;
     min-width: 0;
     gap: 16px;
@@ -2373,67 +2374,68 @@
     display: grid;
     width: 282px;
     min-width: 282px;
-    height: 240px;
+    height: 264px;
     align-content: end;
-    gap: 8px;
+    gap: 6px;
     overflow: hidden;
-    border: 1px solid var(--halo-border-1);
-    border-radius: 8px;
-    padding: 16px;
-    color: var(--halo-fg-1);
-    background: var(--halo-role-panel);
+    border: 0;
+    border-radius: 12px;
+    padding: 18px;
+    color: var(--halo-white);
+    background: linear-gradient(160deg, #1d1d1f 0%, #101011 48%, #000 100%);
+    box-shadow: none;
     text-decoration: none;
-    transition-property: border-color, background-color;
-    transition-duration: 160ms;
-    transition-timing-function: ease-out;
+    transition: none;
   }
 
   .halo-proof-widget-card::before {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 108px;
-    height: 16px;
-    border-radius: 999px;
-    background: var(--halo-role-neutral-badge);
-    content: "";
+    content: none;
   }
 
   .halo-proof-widget-card:hover,
   .halo-proof-widget-card:focus-visible {
-    border-color: var(--halo-border-2);
-    background: var(--halo-role-panel-muted);
+    box-shadow: none;
   }
 
-  .halo-proof-widget-card .halo-feature-icon {
+  .halo-proof-widget-isocon {
     position: absolute;
-    top: 18px;
-    right: 18px;
-    color: var(--halo-role-selected-text);
-    background: var(--halo-role-selected);
+    top: 43px;
+    left: 50%;
+    z-index: 1;
+    width: 152px;
+    height: 116px;
+    transform: translateX(-50%);
   }
 
   .halo-proof-widget-card strong {
-    color: var(--halo-fg-1);
-    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    color: var(--halo-white);
+    font-size: 16px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 22px;
+    text-wrap: balance;
   }
 
   .halo-proof-widget-card small {
-    color: var(--halo-fg-3);
+    position: relative;
+    z-index: 1;
+    color: rgb(255 255 255 / 0.58);
     font-size: 12px;
     line-height: 16px;
+    text-wrap: pretty;
   }
 
   .halo-proof-widget-card em {
     position: absolute;
     top: 14px;
     left: 14px;
+    z-index: 1;
     border-radius: 999px;
     padding: 4px 9px;
-    color: var(--halo-role-selected-text);
-    background: var(--halo-role-selected);
+    color: var(--halo-white);
+    background: var(--halo-primary);
+    border: 1px solid var(--halo-primary);
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
