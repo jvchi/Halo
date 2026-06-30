@@ -3021,9 +3021,10 @@
 
   .halo-studio-mode-bar {
     display: inline-flex;
-    width: 100%;
+    width: fit-content;
     max-width: 100%;
     min-width: 0;
+    justify-self: center;
     overflow-x: auto;
     overflow-y: hidden;
     border: 1px solid var(--halo-border-1);
@@ -3431,52 +3432,122 @@
   }
 
   .halo-studio-empty {
-    position: relative;
     display: grid;
+    gap: 28px;
     min-height: 360px;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 8px;
-    background: var(--halo-role-panel);
+    align-content: center;
+    padding: 32px;
+    border: 1px solid var(--halo-border-1);
+    border-radius: 12px;
+    background: var(--halo-wash-accent), var(--halo-role-panel-muted);
   }
 
-  .halo-studio-empty p,
-  .halo-studio-empty small {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    border-radius: 8px;
-    padding: 0;
-    color: var(--halo-fg-2);
+  .halo-studio-empty-copy {
+    display: grid;
+    gap: 6px;
+    justify-items: center;
     text-align: center;
   }
 
-  .halo-studio-empty p {
+  .halo-studio-empty-copy p {
+    margin: 0;
+    color: var(--halo-fg-1);
     font-size: 18px;
     line-height: 28px;
+    letter-spacing: -0.12px;
   }
 
-  .halo-studio-empty small {
+  .halo-studio-empty-copy small {
     max-width: 360px;
-    margin-top: -118px;
+    margin: 0;
     color: var(--halo-fg-3);
     font-size: 14px;
     line-height: 20px;
   }
 
-  .halo-studio-skeleton-grid {
-    position: absolute;
-    inset: 0;
+  /* A faded taste of real testimonials, so the empty studio previews what you
+     are about to build instead of showing three blank skeleton boxes. */
+  .halo-studio-empty-preview {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    opacity: 0.62;
+    gap: 16px;
+    opacity: 0.92;
+    pointer-events: none;
   }
 
-  .halo-studio-skeleton-grid span {
+  .halo-studio-empty-card {
+    display: grid;
+    gap: 12px;
+    align-content: start;
     border: 1px solid var(--halo-border-1);
-    border-radius: 8px;
-    background: var(--halo-role-panel-muted);
+    border-radius: 12px;
+    padding: 16px;
+    background: var(--halo-bg-1);
+  }
+
+  .halo-studio-empty-stars {
+    display: inline-flex;
+    gap: 2px;
+    color: var(--halo-yellow-1);
+  }
+
+  .halo-studio-empty-stars svg {
+    display: block;
+  }
+
+  .halo-studio-empty-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    color: var(--halo-fg-1);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.08px;
+  }
+
+  .halo-studio-empty-card footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .halo-studio-empty-avatar {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--halo-primary-wash);
+    color: var(--halo-primary);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .halo-studio-empty-person {
+    display: grid;
+    min-width: 0;
+  }
+
+  .halo-studio-empty-person strong {
+    overflow: hidden;
+    color: var(--halo-fg-1);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halo-studio-empty-person small {
+    overflow: hidden;
+    color: var(--halo-fg-3);
+    font-size: 11px;
+    line-height: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .halo-studio-folder-list {
@@ -4052,7 +4123,8 @@
     .halo-integration-grid,
     .halo-integration-body,
     .halo-studio-template-grid,
-    .halo-studio-saved-grid {
+    .halo-studio-saved-grid,
+    .halo-studio-empty-preview {
       grid-template-columns: 1fr;
     }
 
@@ -4174,7 +4246,7 @@
     }
 
     .halo-studio-mode-bar {
-      width: 100%;
+      width: fit-content;
     }
 
     .halo-studio-mode-bar button {

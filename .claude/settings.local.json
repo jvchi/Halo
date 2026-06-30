@@ -76,7 +76,11 @@
       "Bash(git checkout *)",
       "Bash(node -e \"process.chdir\\('/Users/destiny/Documents/Halo'\\); console.log\\('node cwd ok:', process.cwd\\(\\)\\)\")",
       "Bash(echo \"exit:$?\")",
-      "WebFetch(domain:support.senja.io)"
+      "WebFetch(domain:support.senja.io)",
+      "Read(//Users/destiny/Halo/**)",
+      "Bash(pwd -P)",
+      "Bash(awk 'NR>=4050 && NR<=4180 && /@media/' src/styles/index.css)",
+      "Bash(awk 'NR<=4176 && /@media/{line=NR\": \"$0} END{print line}' src/styles/index.css)"
     ]
   }
 }

@@ -54,6 +54,44 @@ const modeMeta = {
   },
 };
 
+function FilledStar() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27Z"
+      />
+    </svg>
+  );
+}
+
+const emptyPreviewFallback = [
+  {
+    id: "preview-ava",
+    name: "Ava Marinänen",
+    role: "Founder",
+    company: "Linework",
+    rating: 5,
+    text: "We replaced three scattered tools with Halo in an afternoon. The widget on our pricing page looks like our designer built it by hand.",
+  },
+  {
+    id: "preview-marcus",
+    name: "Marcus Bell",
+    role: "Head of Growth",
+    company: "Northwind",
+    rating: 5,
+    text: "I send one link, approve the good ones, and the wall updates itself. Conversion on the landing page is up noticeably.",
+  },
+  {
+    id: "preview-priya",
+    name: "Priya Nair",
+    role: "Course Creator",
+    company: "The Calm Stack",
+    rating: 5,
+    text: "I picked a preset, dropped in the embed, and my sales page suddenly felt premium without hiring anyone.",
+  },
+];
+
 function StudioPreview({ mode, approved }) {
   const names = approved.slice(0, 3).map((item) => item.name);
   const fallback = ["Ari", "Maya", "Noah"];
@@ -127,6 +165,11 @@ export default function Studio({ initialMode = "saved" }) {
 
   const meta = modeMeta[mode];
   const templates = mode === "saved" ? [] : meta.templates ?? [];
+
+  // The empty "Saved" state previews real approved testimonials so it reads as a
+  // taste of what you'll build, not three blank boxes. Falls back to sample copy
+  // when nothing is approved yet.
+  const emptyPreview = (approved.length ? approved : emptyPreviewFallback).slice(0, 3);
 
   async function createFolder() {
     const next = folderDraft.trim();
@@ -220,13 +263,32 @@ export default function Studio({ initialMode = "saved" }) {
               ))
             ) : (
               <div className="halo-studio-empty">
-                <div className="halo-studio-skeleton-grid" aria-hidden="true">
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <span key={index} />
+                <div className="halo-studio-empty-copy">
+                  <p>Nothing here, yet.</p>
+                  <small>To start, select what you would like to create using the menu above.</small>
+                </div>
+                <div className="halo-studio-empty-preview" aria-hidden="true">
+                  {emptyPreview.map((item) => (
+                    <article key={item.id} className="halo-studio-empty-card">
+                      <div className="halo-studio-empty-stars">
+                        {Array.from({ length: item.rating || 5 }).map((_, index) => (
+                          <FilledStar key={index} />
+                        ))}
+                      </div>
+                      <p>{item.text}</p>
+                      <footer>
+                        <span className="halo-studio-empty-avatar">{item.name.slice(0, 1)}</span>
+                        <span className="halo-studio-empty-person">
+                          <strong>{item.name}</strong>
+                          <small>
+                            {item.role}
+                            {item.company ? ` · ${item.company}` : ""}
+                          </small>
+                        </span>
+                      </footer>
+                    </article>
                   ))}
                 </div>
-                <p>Nothing here, yet.</p>
-                <small>To start, select what you would like to create using the menu above.</small>
               </div>
             )}
             <aside className="halo-studio-folder-list">
