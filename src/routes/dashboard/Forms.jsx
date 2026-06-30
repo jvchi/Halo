@@ -103,7 +103,7 @@ function MenuItem({ onClick, danger, children }) {
 function FormCard({ form, onDuplicate, onToggleStatus, onDelete }) {
   const url = `https://halo.app/submit/${form.slug}`;
   return (
-    <article className="rounded-lg border border-halo-border-1 bg-halo-bg-3/40 p-4">
+    <article className="rounded-[12px] border border-halo-border-1 bg-halo-bg-3/40 p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">

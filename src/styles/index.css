@@ -329,6 +329,73 @@
     line-height: 18px;
   }
 
+  /* Studio editor controls (preview-first widget/wall editor) */
+  .halo-studio-name-field {
+    display: grid;
+    gap: 6px;
+    padding: 2px 0 12px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid color-mix(in srgb, var(--halo-border-1) 55%, transparent);
+  }
+
+  .halo-studio-name-field > span {
+    color: var(--halo-fg-3);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .halo-editor-proof-controls {
+    display: grid;
+    gap: 8px;
+  }
+
+  .halo-editor-proof-controls .halo-editor-proof-list {
+    max-height: 244px;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .halo-editor-proof-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .halo-editor-proof-bar small {
+    color: var(--halo-fg-3);
+    font-size: 12px;
+  }
+
+  .halo-text-button {
+    border: 0;
+    padding: 2px 4px;
+    color: var(--halo-primary);
+    background: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .halo-text-button:hover,
+  .halo-text-button:focus-visible {
+    color: var(--halo-blue-1);
+  }
+
+  .halo-editor-share {
+    display: grid;
+    gap: 8px;
+  }
+
+  .halo-editor-share label {
+    display: grid;
+    gap: 6px;
+    color: var(--halo-fg-2);
+    font-size: 12px;
+  }
+
   .halo-editor-widget-preview,
   .halo-editor-wall-preview,
   .halo-editor-video-preview,
@@ -1154,8 +1221,8 @@
   }
 
   .halo-sidebar-link.is-active {
-    color: var(--halo-white);
-    background: var(--halo-gradient-accent);
+    color: var(--halo-role-selected-text);
+    background: var(--halo-role-selected);
   }
 
   .halo-sidebar-icon {
@@ -1182,7 +1249,7 @@
   }
 
   .halo-sidebar-link.is-active .halo-sidebar-icon {
-    color: var(--halo-white);
+    color: var(--halo-role-selected-text);
   }
 
   .halo-sidebar-bottom {

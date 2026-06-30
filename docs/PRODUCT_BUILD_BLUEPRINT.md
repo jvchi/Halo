@@ -342,6 +342,27 @@ Example widget config:
 }
 ```
 
+Future content-format modes (deferred):
+
+The Studio is built to host more than embeddable widgets and Walls of Love. The
+formats below were removed from the shipped Studio UI on `2026-06-30` because they
+had no working editor behind them — the Studio only surfaces creation modes that
+produce a real, previewable, shareable asset. Bring each back as its own mode once
+it has a live editor and renderer, not as an empty gallery. Target window: Phase 5
+(Differentiators) and Phase 6 (Growth and Integrations).
+
+- **Sizzle Reels** — stitch multiple video testimonials into one shareable highlight reel (intro, ordered clips, outro, captions). Needs a timeline/montage editor and video processing.
+- **Social Videos** — animated, shareable videos generated from a single text or video testimonial, sized per platform (square / story / landscape). Needs motion templates and a render pipeline.
+- **Popups** — on-site testimonial toast or modal that appears by trigger/targeting rules. Needs a lightweight runtime plus display-rule controls (position, delay, frequency, pages).
+- **Video Embeds** — embed one or several video testimonials directly on a site (single player or playlist). Needs the public video runtime and a poster/thumbnail flow.
+- **Images** — static quote images generated from a testimonial for social posts and emails (per-format templates, export to PNG). Needs an image-composition/export step.
+
+All five should reuse the existing seams: store the asset in `widgets` with a
+`kind`/format discriminator and versioned JSON in `config`, render through a shared
+deterministic renderer (mirroring `WidgetRenderer`), and publish via the same
+`/embed` + share-link surfaces. See the live Widget Studio (`StudioEditor.jsx`) and
+Walls editor as the preview-first pattern to follow.
+
 ### 6.7 Embeddable Widget Runtime
 
 Purpose:

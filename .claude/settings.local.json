@@ -75,7 +75,8 @@
       "Bash(node node_modules/vite/bin/vite.js build)",
       "Bash(git checkout *)",
       "Bash(node -e \"process.chdir\\('/Users/destiny/Documents/Halo'\\); console.log\\('node cwd ok:', process.cwd\\(\\)\\)\")",
-      "Bash(echo \"exit:$?\")"
+      "Bash(echo \"exit:$?\")",
+      "WebFetch(domain:support.senja.io)"
     ]
   }
 }
